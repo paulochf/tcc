@@ -5,5 +5,12 @@
 \subsection{A adição do .torrent no Transmission}
 
 adicionar .torrent:
-	- leitura do .torrent:
-		- libtransmission/metainfo.c:364 > tr_metaInfoParseImpl()
+- leitura do .torrent:
+	- libtransmission/metainfo.c:364 > tr_metaInfoParseImpl()
+		-383,420: lê o dicionário de dados do .torrent
+		-421: calcula o hash sha1 dos dados lidos do .torrent
+		-422: converte sha1 para hex
+		-430-501: recupera os dados do torrent para exibição (nome, comentário, data de criação,
+		privacidade, quantidade e comprimento das partes, lista de arquivos)
+
+		
