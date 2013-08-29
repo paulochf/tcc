@@ -13,4 +13,18 @@ adicionar .torrent:
 		-430-501: recupera os dados do torrent para exibição (nome, comentário, data de criação,
 		privacidade, quantidade e comprimento das partes, lista de arquivos)
 
-		
+
+torrent é iniciado
+- programa começa a processar peers
+	- torrent.c:1601 > tr_peerMgrStartTorrent (tor);
+
+	- ocorre um rechoke geral (forçado no início, ou por tempo durante a execução)
+	peer-mgr.c:2443 > rechokePulse (0, 0, t->manager);
+
+	- ocorrem chokes de upload e download
+	peer-mgr.c:3200-3201 >  rechokeUploads (t, now);
+                            rechokeDownloads (t);
+
+	//TODO
+	a) chokes de upload
+	b) chokes de download
