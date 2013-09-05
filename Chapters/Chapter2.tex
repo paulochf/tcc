@@ -6,11 +6,11 @@
 
 adicionar .torrent:
 - leitura do .torrent:
-	- libtransmission/metainfo.c:364 > tr_metaInfoParseImpl()
-		-383,420: lê o dicionário de dados do .torrent
-		-421: calcula o hash sha1 dos dados lidos do .torrent
-		-422: converte sha1 para hex
-		-430-501: recupera os dados do torrent para exibição (nome, comentário, data de criação,
+	- libtransmission/metainfo.c:368 > tr_metaInfoParseImpl()
+		-387,427: lê o dicionário de dados do .torrent
+		-429: calcula o hash sha1 dos dados lidos do .torrent
+		-430: converte sha1 para hex
+		-438-525: recupera os dados do torrent para exibição (nome, comentário, data de criação,
 		privacidade, quantidade e comprimento das partes, lista de arquivos)
 
 
