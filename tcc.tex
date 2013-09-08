@@ -15,11 +15,46 @@
 \usepackage{verbatim}  % Needed for the "comment" environment to make LaTeX comments
 \usepackage{vector}  % Allows "\bvec{}" and "\buvec{}" for "blackboard" style bold vectors in maths
 \usepackage[unicode]{hyperref}
+\usepackage{color,minted}
+
 \hypersetup{urlcolor=blue, colorlinks=true}  % Colours hyperlinks in blue, but this can be distracting if there are many links.
+
+%%%%%%%%%%%%%%%%%%%%%
+%  Config do Minted
+%%%%%%%%%%%%%%%%%%%%%
+% usando valores predefinidos
+% \begin{cppcode}
+% template <typename T>
+%   T id(T value) {
+%     return value;
+%   }
+% \end{cppcode}
+%
+%
+% sobrescrevendo valores
+% \begin{cppcode*} {linenos=false,frame=single}
+% template <typename T>
+%   T id(T value) {
+%     return value;
+%   }
+% \end{cppcode*}
+%
+% labels: http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.169.9130&rep=rep1&type=pdf
+\newminted{cpp}{baselinestretch=1,linenos,numbersep=6pt,fontfamily=courier,fontsize=\footnotesize,frame=single,samepage=true,gobble=2}
+
+
+% from http://tex.stackexchange.com/questions/57151/how-do-i-prevent-conflicts-between-accsupp-and-hyperref
+\usepackage{accsupp}
+\newcommand{\emptyaccsupp}[1]{\BeginAccSupp{ActualText={}}#1\EndAccSupp{}}
+
+% default definition is: \def\theFancyVerbLine{\rmfamily\tiny\arabic{FancyVerbLine}}
+\let\theHFancyVerbLine\theFancyVerbLine% don't apply our patch to hyperref's version
+\def\theFancyVerbLine{\rmfamily\tiny\emptyaccsupp{\arabic{FancyVerbLine}}}
 
 
 %% ----------------------------------------------------------------
 \begin{document}
+
 \frontmatter      % Begin Roman style (i, ii, iii, iv...) page numbering
 
 % Set up the Title Page
@@ -70,10 +105,9 @@ If the quote is taken from someone, their name goes here
 
 % The Acknowledgements page, for thanking everyone
 \acknowledgements{
-\addtocontents{toc}{\vspace{1em}}  % Add a gap in the Contents, for aesthetics
+	\addtocontents{toc}{\vspace{1em}}  % Add a gap in the Contents, for aesthetics
 
-The acknowledgements and the people to thank go here, don't forget to include your project advisor\ldots
-
+	The acknowledgements and the people to thank go here, don't forget to include your project advisor\ldots
 }
 \clearpage  % End of the Acknowledgements
 %% ----------------------------------------------------------------
@@ -132,7 +166,7 @@ The acknowledgements and the people to thank go here, don't forget to include yo
 
 \appendix % Cue to tell LaTeX that the following 'chapters' are Appendices
 
-\input{Appendices/AppendixA}	% Appendix Title
+%\input{Appendices/AppendixA}	% Appendix Title
 
 %\input{Appendices/AppendixB} % Appendix Title
 
@@ -142,10 +176,10 @@ The acknowledgements and the people to thank go here, don't forget to include yo
 \backmatter
 
 %% ----------------------------------------------------------------
-\label{Bibliografia}
-\lhead{\emph{Bibliografia}}  % Change the left side page header to "Bibliography"
-\bibliographystyle{unsrtnat}  % Use the "unsrtnat" BibTeX style for formatting the Bibliography
-\bibliography{bibliografia}  % The references (bibliography) information are stored in the file named "Bibliography.bib"
+%\label{Bibliografia}
+%\lhead{\emph{Bibliografia}}  % Change the left side page header to "Bibliography"
+%\bibliographystyle{unsrtnat}  % Use the "unsrtnat" BibTeX style for formatting the Bibliography
+%\bibliography{bibliografia}  % The references (bibliography) information are stored in the file named "Bibliography.bib"
 
 \end{document}  % The End
 %% ----------------------------------------------------------------

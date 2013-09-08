@@ -20,3 +20,20 @@ O sucesso do Napster, mesmo que por curto período tempo, mostrou a eficiência 
 
 A pioneira nessa tentativa foi a rede Gnutella, que foi lançada em 2003 mas que em sua primeira versão não conseguiu manter o bom desempenho do Napster. A busca era demorada e inconsistente, pois era repassada aleatória e finitamente de peers para seus vizinhos, o que podia terminar em buscas sem resultados mesmo quando um arquivo estava sendo compartilhado por alguém conectado à rede. 
 
+\begin{listing}[H]
+	\begin{cppcode*} {firstnumber=425}
+	  else
+	  {
+	    int len;
+	    char * bstr = tr_variantToStr (infoDict, TR_VARIANT_FMT_BENC,   &len);
+	    tr_sha1 (inf->hash, bstr, len, NULL);
+	    tr_sha1_to_hex (inf->hashString, inf->hash);
+	  
+	    if (infoDictLength != NULL)
+	      *infoDictLength = len;
+	  
+	    tr_free (bstr);
+	  }
+	\end{cppcode*}
+	\captionof{listing}{C\'{o}digo 1}
+\end{listing}
