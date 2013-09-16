@@ -33,6 +33,6 @@ $(BASE_NAME).ps: $(BASE_NAME).tex
 clean:
 	rm -f *.acn *.acr *.alg *.aux *.bbl *.blg *.dvi *.fdb_latexmk \
 		  *.glg *.glo *.gls *.idx *.ilg *.ind *.ist *.lof *.log \
-		  *.lot *.maf *.mtc *.mtc1 *.out *.ps *.synctex.gz *.toc
+		  *.lot *.maf *.mtc *.mtc1 *.out *.ps *.synctex.gz *.toc *.pdf
 
 redo: clean pdf
