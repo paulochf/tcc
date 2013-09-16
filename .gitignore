@@ -21,5 +21,6 @@
 *.mtc
 *.mtc1
 *.out
+*.pyg
 *.synctex.gz
 *.toc
