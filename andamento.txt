@@ -1,0 +1,11 @@
+ANDAMENTO DO TRABALHO
+
+Já foi realizado o estudo do código do cliente torrent Transmission, onde foi
+adquirido conhecimento prévio sobre o funcionamento do protocolo Torrent e de
+tecnologias empregadas no programa, sendo assim encaminhadas para estudos
+complementares do trabalho. Para isso, o código foi baixado e compilado, a fim
+de se entender as camadas mais internas e complexas do programa.
+
+Agora, falta reunir as informações obtidas a respeito das teorias do protocolo
+e das tecnologias computacionalmente relevantes empregadas no programa, e
+desenvolvê-las textualmente, de forma clara, na monografia.
