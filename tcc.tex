@@ -2,9 +2,7 @@
 %% Thesis.tex -- MAIN FILE (the one that you compile with LaTeX)
 %% ----------------------------------------------------------------
 
-% Set up the document
-\documentclass[a4paper, 11pt, oneside]{Thesis}  % Use the "Thesis" style, based on the ECS Thesis style by Steve Gunn
-\graphicspath{Figures/}  % Location of the graphics files (set up for graphics to be in PDF format)
+\documentclass[a4paper, 11pt, oneside, brazil]{book}
 
 \usepackage[brazil]{babel}
 \usepackage[utf8]{inputenc}
@@ -13,10 +11,15 @@
 % Include any extra LaTeX packages required
 \usepackage[square, numbers, comma, sort&compress]{natbib}  % Use the "Natbib" style for the references in the Bibliography
 \usepackage{verbatim}  % Needed for the "comment" environment to make LaTeX comments
-\usepackage{vector}  % Allows "\bvec{}" and "\buvec{}" for "blackboard" style bold vectors in maths
 \usepackage[unicode]{hyperref}
 \usepackage{color}
 \usepackage{minted}
+\usepackage{cite}
+\usepackage{fullpage}
+\usepackage{setspace}
+\usepackage{indentfirst}
+
+%\graphicspath{Figures/}
 
 \hypersetup{urlcolor=blue, colorlinks=true}  % Colours hyperlinks in blue, but this can be distracting if there are many links.
 
@@ -43,99 +46,68 @@
 % labels: http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.169.9130&rep=rep1&type=pdf
 \newminted{cpp}{baselinestretch=1,linenos,numbersep=6pt,fontfamily=courier,fontsize=\footnotesize,frame=single,samepage=true,gobble=2}
 
-
 % from http://tex.stackexchange.com/questions/57151/how-do-i-prevent-conflicts-between-accsupp-and-hyperref
-\usepackage{accsupp}
-\newcommand{\emptyaccsupp}[1]{\BeginAccSupp{ActualText={}}#1\EndAccSupp{}}
-
-% default definition is: \def\theFancyVerbLine{\rmfamily\tiny\arabic{FancyVerbLine}}
-\let\theHFancyVerbLine\theFancyVerbLine% don't apply our patch to hyperref's version
-\def\theFancyVerbLine{\rmfamily\tiny\emptyaccsupp{\arabic{FancyVerbLine}}}
-
+%\usepackage{accsupp}
+%\newcommand{\emptyaccsupp}[1]{\BeginAccSupp{ActualText={}}#1\EndAccSupp{}}
 
 %% ----------------------------------------------------------------
 \begin{document}
 
-\frontmatter      % Begin Roman style (i, ii, iii, iv...) page numbering
+\thispagestyle{empty}
+%\setmarginsrb{2.5cm}{2.5cm}{2.5cm}{2.5cm}{0cm}{0mm}{0cm}{10mm}
+\begin{center}
+	\large
+		Instituto de Matemática e Estatística\\
+		Universidade de São Paulo\\[-0.25cm]
 
-% Set up the Title Page
-\title  {Anatomia do BitTorrent: a Ciência da Computação por
-trás do protocolo}
-\authors  {\texorpdfstring{\href{paulochf@linux.ime.usp.br}
-            {Paulo Cheadi Haddad Filho}}
-            {Paulo Cheadi Haddad Filho}}
-\supervisor  {\texorpdfstring{\href{coelho@ime.usp.br}
-            {José Coelho de Pina}}
-            {José Coelho de Pina}}
+	\vspace*{5.5cm}
+	\textbf{\Large Anatomia do BitTorrent: a Ciência da Computação por trás do protocolo}
 
-\addresses  {\deptname\\\univname}  % Do not change this here, instead these must be set in the "Thesis.cls" file, please look through it instead
-\date       {\today}
+	\vspace*{2.0cm}
 
-\maketitle
-%% ----------------------------------------------------------------
+	\Large{Paulo Cheadi Haddad Filho} 
+
+	\vskip 0.6cm
+	Orientador: José Coelho de Pina
+
+	\vspace*{\fill}
+	\normalsize{São Paulo, 2013}
+\end{center}
+
+\pagebreak
 
 \setstretch{1.3}  % It is better to have smaller font and larger line spacing than the other way round
 
-% Define the page headers using the FancyHdr package and set up for one-sided printing
-\fancyhead{}  % Clears all page headers and footers
-\rhead{\thepage}  % Sets the right side header to show the page number
-\lhead{}  % Clears the left side page header
+\pagebreak
 
-\pagestyle{fancy}  % Finally, use the "fancy" page style to implement the FancyHdr headers
+\pagenumbering{roman} % começo da numeração
 
-\begin{comment}
-%% ----------------------------------------------------------------
-% The "Funny Quote Page"
-\pagestyle{empty}  % No headers or footers for the following pages
+% Sumário ----------------------------------------------------------------------
 
-\null\vfill
-% Now comes the "Funny Quote", written in italics
-\textit{``Write a funny quote here.''}
+\tableofcontents
+\addcontentsline{}{}{}
+\pagebreak
 
-\begin{flushright}
-If the quote is taken from someone, their name goes here
-\end{flushright}
-
-\vfill\vfill\vfill\vfill\vfill\vfill\null
-\clearpage  % Funny Quote page ended, start a new page
-\end{comment}
-
-%% ----------------------------------------------------------------
-
-\pagestyle{fancy}  %The page style headers have been "empty" all this time, now use the "fancy" headers as defined before to bring them back
-
-
-%% ----------------------------------------------------------------
-\lhead{\emph{Sumário}}  % Set the left side page header to "Contents"
-\tableofcontents  % Write out the Table of Contents
-
-%% ----------------------------------------------------------------
-\lhead{\emph{Lista de Figuras}}  % Set the left side page header to "List if Figures"
 \listoffigures  % Write out the List of Figures
 
+\begin{comment}
+	\setstretch{1.5}  % Set the line spacing to 1.5, this makes the following tables easier to read
+	\clearpage  % Start a new page
 
-%% ----------------------------------------------------------------
-\setstretch{1.5}  % Set the line spacing to 1.5, this makes the following tables easier to read
-\clearpage  % Start a new page
-\lhead{\emph{Glossário}}  % Set the left side page header to "Abbreviations"
-\listofsymbols{ll}  % Include a list of Abbreviations (a table of two columns)
-{
-% \textbf{Acronym} & \textbf{W}hat (it) \textbf{S}tands \textbf{F}or \\
-% \textbf{LAH} & \textbf{L}ist \textbf{A}bbreviations \textbf{H}ere \\
+	\listofsymbols{ll}  % Include a list of Abbreviations (a table of two columns)
+	{
+	% \textbf{Acronym} & \textbf{W}hat (it) \textbf{S}tands \textbf{F}or \\
+	% \textbf{LAH} & \textbf{L}ist \textbf{A}bbreviations \textbf{H}ere \\
 
-}
+	}
+\end{comment}
 
 \clearpage
 
-%% ----------------------------------------------------------------
-
+\addtolength{\parskip}{\baselineskip}
 \setstretch{1.3}  % Return the line spacing back to 1.3
 
-\mainmatter	  % Begin normal, numeric (1,2,3...) page numbering
-\pagestyle{fancy}  % Return the page headers back to the "fancy" style
-
-% Include the chapters of the thesis, as separate files
-% Just uncomment the lines as you write the chapters
+\pagenumbering{arabic} % numeração "pra valer" :-)
 
 \input{Chapters/Chapter1} % Introdução
 
@@ -151,27 +123,11 @@ If the quote is taken from someone, their name goes here
 
 \input{Chapters/Chapter7} % Parte Subjetiva
 
-%% ----------------------------------------------------------------
-% Now begin the Appendices, including them as separate files
-
-\addtocontents{toc}{\vspace{2em}} % Add a gap in the Contents, for aesthetics
-
-\appendix % Cue to tell LaTeX that the following 'chapters' are Appendices
-
-%\input{Appendices/AppendixA}	% Appendix Title
-
-%\input{Appendices/AppendixB} % Appendix Title
-
-%\input{Appendices/AppendixC} % Appendix Title
-
-\addtocontents{toc}{\vspace{2em}}  % Add a gap in the Contents, for aesthetics
-\backmatter
+% \addtocontents{toc}{\vspace{2em}}  % Add a gap in the Contents, for aesthetics
 
 %% ----------------------------------------------------------------
-%\label{Bibliografia}
-%\lhead{\emph{Bibliografia}}  % Change the left side page header to "Bibliography"
-%\bibliographystyle{unsrtnat}  % Use the "unsrtnat" BibTeX style for formatting the Bibliography
-%\bibliography{bibliografia}  % The references (bibliography) information are stored in the file named "Bibliography.bib"
+\label{Bibliografia}
+\bibliographystyle{unsrtnat}
+\bibliography{bibliografia}
 
-\end{document}  % The End
-%% ----------------------------------------------------------------
+\end{document}
