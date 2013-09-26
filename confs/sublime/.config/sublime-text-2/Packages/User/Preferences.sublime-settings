@@ -1,8 +1,18 @@
 {
+	"file_exclude_patterns":
+	[
+		"*.aux",
+		"*.fdb_latexmk",
+		"*.lof",
+		"*.log",
+		"*.out",
+		"*.synctex.gz",
+		"*.toc",
+		"*.pyg"
+	],
 	"font_size": 8,
 	"ignored_packages":
 	[
 		"Vintage"
-	],
-	"file_exclude_patterns": ["*.aux", "*.fdb_latexmk", "*.lof", "*.log", "*.out", "*.synctex.gz", "*.toc", "*.pyg"]
+	]
 }

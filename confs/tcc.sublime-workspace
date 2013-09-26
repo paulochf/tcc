@@ -1,0 +1,477 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/media/paulo/Arquivos/tcc/mono/tcc.tex",
+			"settings":
+			{
+				"buffer_size": 6629,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "%!TEX root = ../tcc.tex\n\n%\\lhead{\\emph{Introdução}}\n\\chapter{Introdução}\n\nAqui vou explicar o objetivo do trabalho e o que será mostrado ao longo dele.\n\n\\clearpage\n",
+			"file": "/media/paulo/Arquivos/tcc/mono/Chapters/Chapter1.tex",
+			"file_size": 168,
+			"file_write_time": 130246046613603470,
+			"settings":
+			{
+				"buffer_size": 164,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "%!TEX root = ../tcc.tex\n\n%\\lhead{\\emph{Histórico}}\n\\chapter{Histórico}\n\nVou contar a história do BitTorrent, desde o aumento do uso de transferências de dados via internet, passando pela criação de protocolos e softwares usados para baixar arquivos de forma ilegal, até a sua criação e o boom de usuários que o utilizam para essa motivação. Em paralelo, discutirei os motivos legais pelos quais os softwares anteriores foram descontinuados, que influenciaram diretamente na sua criação.\n\nSepararei em 3 períodos: o antes, a criação e as consequências disso no mundo.\n\n\\section{Período pré-torrent}\n\nPara entender como e por que o BitTorrent se tornou o que é hoje, devemos voltar um pouco no tempo e rever a história recente do compartilhamento de arquivos pela Internet.\n\nPrimeiro vieram as BBSs (1978) e a Usenet (1979), depois o protocolo FTP (1985) e seus servidores. O IRC (1988) e o Hotline (1997) ainda permitiam que seus usuários se comunicassem e enviassem arquivos. Até o fim dos anos 1990, esses métodos usados para transferir arquivos seguiam o modelo cliente-servidor. Neste modelo, o cliente é um computador que faz uma requisição de serviço ou recurso para um servidor, que se dedica a aguardar pedidos de clientes.\n\nCom o advento da codificação MP3, os arquivos de música em formato digital passaram a ser largamente utilizados na segunda metade dos anos 1990, devido à grande redução de tamanho de arquivos de áudio nesse formato quando comparado aos outros formatos contemporâneos. Então, em 1998, dois sites de compartilhamento de músicas foram criados: o AudioGalaxy.com e o MP3.com, ambos sites de busca de MP3 sobre arquivos que seus usuários faziam upload. Ambos os sites ajudaram na popularização do MP3 como forma de se escutar músicas no dia a dia, que foi catalisado quando indústrias de equipamentos eletrônicos anunciaram seus sucessores do toca-fitas: os tocadores de mídia portáteis, popularmente conhecidos como MP3 players.\n\nNão demorou muito tempo para a indústria da música, representada pela RIAA (Recording Industry Association of America, Associação da Indústria de Gravação da América) começar a enxergar essa popularização do formato MP3 como um perigo real de diminuição de seus lucros com as vendas de discos, e então passou a encabeçar a frente de combate contra a troca de arquivos protegidos por direitos autorais pela Internet. Pouco tempo depois, durante o governo Clinton, o Senado americano aprova uma lei de proteção a conteúdos com direitos autorais, estabelecendo regras mais específicas sobre esses direitos autorais e se tornando obstáculo àqueles sites de compartilhamento por penalizar os usuários por infringir esses direitos.\n\nNo segundo semestre de 1999 surgiu o Napster, um serviço de compartilhamento de MP3 que inovou por desfigurar o modelo cliente-servidor ao possuir conexões entre usuários e não a servidores, criando assim a primeira rede P2P.\n\nO sucesso foi rápido, e em dezembro de 1999 já enfrentava sua primeira ação judicial, vinda de várias grandes gravadoras. Sua popularidade foi crescendo, atingindo o auge de 13.6 milhões de usuários em fevereiro de 2001. A sua vida começou a complicar em julho de 2001, quando foi iniciada uma ação judicial por responsabilidade na distribuição de conteúdo protegido. O caso foi finalizado em setembro de 2001, obrigando a desligar o serviço de indexação, que tornou a rede P2P indisponível, e ainda a pagar 26 milhões de dólares por danos já causados e também pelos futuros, fazendo com que pedisse falência.\n\nO sucesso do Napster, mesmo que por curto período tempo, mostrou a eficiência que redes P2P poderiam ter, e com isso novos softwares e modelos de redes foram sendo lançados, porém tentando contornar o ponto fraco do antecessor a fim de não serem novos alvos de medidas judiciais. A solução para isso foi tentar descentralizar o mecanismo de indexação e busca, que foi o calcanhar de Aquiles do Napster.\n\nA pioneira nessa tentativa foi a rede Gnutella, que foi lançada em 2003 mas que em sua primeira versão não conseguiu manter o bom desempenho do Napster. A busca era demorada e inconsistente, pois era repassada aleatória e finitamente de peers para seus vizinhos, o que podia terminar em buscas sem resultados mesmo quando um arquivo estava sendo compartilhado por alguém conectado à rede.\n\ncontinua...\n\n\\section{Nascimento do BitTorrent}\n\nAqui contarei a história do surgimento do protocolo.\n\n\\section{Mundo pós-torrent}\n\nAqui discorrerei sobre as consequências do uso do BitTorrent, desde as influências acadêmico-tecnológicas da sua difusão, bem como explicarei as questões jurídicas envolvidas no seu uso.\n\n\\clearpage\n",
+			"file": "/media/paulo/Arquivos/tcc/mono/Chapters/Chapter2.tex",
+			"file_size": 4767,
+			"file_write_time": 130246046613607041,
+			"settings":
+			{
+				"buffer_size": 4648,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "%!TEX root = ../tcc.tex\n\n%\\lhead{\\emph{Anatomia do BitTorrent, da busca ao fim do download}}\n\\chapter{Anatomia do BitTorrent}\n\nAqui mostrarei como funciona o BitTorrent de forma linear, como se fosse um humano o utilizando.\n\n\\section{Busca por informações}\n\nFalarei quais informações um arquivo torrent pode conter e como o Transmission as utiliza, tentando mostrar detalhes da troca de mensagens dele com servidores de rastreamento.\n\n\\section{Fontes de arquivos}\n\nMostrarei o processamento dos dados adquiridos na seção anterior e como ele organiza a lista das fontes de arquivos usando a tabela hash DHT Kademlia.\n\n\\section{Jogo da troca de arquivos}\n\nExplicarei o algoritmo tit-for-tat padrão do protocolo BitTorrent, que vem da Teoria dos Jogos, e como o Transmission o implementa.\n\n\\clearpage\n",
+			"file": "/media/paulo/Arquivos/tcc/mono/Chapters/Chapter3.tex",
+			"file_size": 804,
+			"file_write_time": 130246046613609655,
+			"settings":
+			{
+				"buffer_size": 798,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "%!TEX root = ../tcc.tex\n\n%\\lhead{\\emph{BitTorrent e a Ciência da Computação}}\n\\chapter{BitTorrent e a Ciência da Computação}\n\nAqui mostrarei detalhes técnicos sobre as partes coadjuvantes do BitTorrent e do Transmission.\n\n\n\\section{Estruturas de dados, listas ligadas e árvores}\n\\section{Funções de hash} % SHA1\n\\section{Criptografia} %RC4\n\\section{Bitfields}\n\\section{Protocolos de redes} % HTTP e UDP\n\\section{Multicast}\n\\section{Roteamento de pacotes} %NAT PMP\n\\section{Retomada de downloads}\n\\section{Conexão com a Internet}\n\\section{Threads}\n\\section{Engenharia de Software}\n\n\\clearpage\n",
+			"file": "/media/paulo/Arquivos/tcc/mono/Chapters/Chapter4.tex",
+			"file_size": 602,
+			"file_write_time": 130246046613612066,
+			"settings":
+			{
+				"buffer_size": 592,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "%!TEX root = ../tcc.tex\n\n%$\\lhead{\\emph{Comentários Finais}}\n\\chapter{Comentários Finais}\n\n\n\\clearpage\n",
+			"file": "/media/paulo/Arquivos/tcc/mono/Chapters/Chapter5.tex",
+			"file_size": 103,
+			"file_write_time": 130246046613615798,
+			"settings":
+			{
+				"buffer_size": 103,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "%!TEX root = ../tcc.tex\n\n%\\lhead{\\emph{Referências bibliográficas}}\n\\chapter{Referências bibliográficas}\n\n\n\\clearpage",
+			"file": "/media/paulo/Arquivos/tcc/mono/Chapters/Chapter6.tex",
+			"file_size": 120,
+			"file_write_time": 130246046613618449,
+			"settings":
+			{
+				"buffer_size": 117,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/media/paulo/Arquivos/tcc/mono/Chapters/Chapter7.tex",
+			"settings":
+			{
+				"buffer_size": 92,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "Packages/LaTeXTools/LaTeX.sublime-build",
+	"command_palette":
+	{
+		"height": 54.0,
+		"selected_items":
+		[
+			[
+				"insta",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 114.0,
+		"history":
+		[
+			"import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read())"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/paulo/.config/sublime-text-3/Packages/Default/Default (Linux).sublime-keymap",
+		"/home/paulo/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+		"/home/paulo/.config/sublime-text-3/Packages/User/Default (Linux).sublime-keymap",
+		"/media/paulo/Arquivos/tcc/mono/Chapters/Chapter5.tex",
+		"/media/paulo/Arquivos/tcc/mono/Chapters/Chapter1.tex",
+		"/home/paulo/.config/sublime-text-3/Packages/LaTeXTools/LaTeX.sublime-build",
+		"/media/paulo/Arquivos/tcc/mono/tcc.tex",
+		"/media/paulo/Arquivos/tcc/mono/tcc-new.tex",
+		"/media/paulo/Arquivos/tcc/mono/confs/sublime/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
+		"/media/paulo/Arquivos/tcc/mono/confs/script"
+	],
+	"find":
+	{
+		"height": 22.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": true,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 7,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/media/paulo/Arquivos/tcc/mono/tcc.tex",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6629,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/media/paulo/Arquivos/tcc/mono/Chapters/Chapter1.tex",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 164,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								26,
+								26
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/media/paulo/Arquivos/tcc/mono/Chapters/Chapter2.tex",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4648,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								26,
+								26
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/media/paulo/Arquivos/tcc/mono/Chapters/Chapter3.tex",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 798,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								26,
+								26
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/media/paulo/Arquivos/tcc/mono/Chapters/Chapter4.tex",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 592,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								26,
+								26
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/media/paulo/Arquivos/tcc/mono/Chapters/Chapter5.tex",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 103,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								26,
+								26
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "/media/paulo/Arquivos/tcc/mono/Chapters/Chapter6.tex",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 117,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								26,
+								26
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "/media/paulo/Arquivos/tcc/mono/Chapters/Chapter7.tex",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 92,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								26,
+								26
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 34.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 88.0
+	},
+	"project": "tcc.sublime-project",
+	"replace":
+	{
+		"height": 40.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"settings":
+	{
+		"last_automatic_layout":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		]
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
