@@ -26,4 +26,4 @@ $pdf_mode = 1;
 #$out_dir = './output';
 
 # file extensions to remove when cleaning
-$clean_ext = 'acn acr alg aux bbl bcf blg brf fdb_latexmk glg glo gls idx ilg ind ist lof log lot out run.xml toc dvi xdy pyg';
+$clean_ext = 'acn acr alg aux bbl bcf blg brf dvi fdb_latexmk fls glg glo gls idx ilg ind ist lof log lot maf mtc mtc1 out pdf ps pyg run.xml synctex.gz synctex.gz(busy) tex.bak tdo toc xdy %R-blx.bib';

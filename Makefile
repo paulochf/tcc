@@ -4,12 +4,12 @@
 
 BASE_NAME = tcc
 
-PARAMS	  = -shell-escape
-LATEX     = latex $(PARAMS)
-PDFLATEX  = pdflatex $(PARAMS)
-BIBTEX    = bibtex
-DVIPS     = dvips
-PS2PDF    = ps2pdf
+PARAMS	   = -shell-escape
+LATEX      = latex $(PARAMS)
+PDFLATEX   = pdflatex $(PARAMS)
+BIBTEX     = bibtex
+DVIPS      = dvips
+PS2PDF     = ps2pdf
 
 pdf: $(BASE_NAME).pdf
 ps: $(BASE_NAME).ps
@@ -30,9 +30,8 @@ $(BASE_NAME).ps: $(BASE_NAME).tex
 	$(DVIPS) $(BASE_NAME).dvi
 	$(PS2PDF) $(BASE_NAME).ps
 
+.PHONY: clean redo
 clean:
-	rm -f *.acn *.acr *.alg *.aux *.bbl *.blg *.dvi *.fdb_latexmk \
-		  *.glg *.glo *.gls *.idx *.ilg *.ind *.ist *.lof *.log \
-		  *.lot *.maf *.mtc *.mtc1 *.out *.ps *.pyg *.synctex.gz *.toc *.pdf
+	latexmk -c
 
 redo: clean pdf
