@@ -7,21 +7,29 @@
 \usepackage[brazil]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
+\usepackage[square, numbers, comma, sort&compress]{natbib}  % Use the "Natbib" style for the references in the Bibliography
+\usepackage[unicode,colorlinks=true,linkcolor=blue]{hyperref}
 
 % Include any extra LaTeX packages required
-\usepackage[square, numbers, comma, sort&compress]{natbib}  % Use the "Natbib" style for the references in the Bibliography
-\usepackage{verbatim}  % Needed for the "comment" environment to make LaTeX comments
-\usepackage[unicode]{hyperref}
-\usepackage{color}
+\usepackage{verbatim}		% \begin{comment}
 \usepackage{minted}
 \usepackage{cite}
 \usepackage{fullpage}
 \usepackage{setspace}
 \usepackage{indentfirst}
+\usepackage{color}
+
+% http://texblog.org/tag/addcontentsline/
+\usepackage[nottoc,numbib]{tocbibind}
+
+\usepackage{todonotes}
 
 %\graphicspath{Figures/}
 
 \hypersetup{urlcolor=blue, colorlinks=true}  % Colours hyperlinks in blue, but this can be distracting if there are many links.
+
+\usepackage[toc]{glossaries}		% http://en.wikibooks.org/wiki/LaTeX/Glossary#Using_defined_terms
+\makeglossaries
 
 %%%%%%%%%%%%%%%%%%%%%
 %  Config do Minted
@@ -54,7 +62,8 @@
 \begin{document}
 
 \thispagestyle{empty}
-%\setmarginsrb{2.5cm}{2.5cm}{2.5cm}{2.5cm}{0cm}{0mm}{0cm}{10mm}
+\frontmatter
+
 \begin{center}
 	\large
 		Instituto de Matemática e Estatística\\
@@ -78,17 +87,9 @@
 
 \setstretch{1.3}  % It is better to have smaller font and larger line spacing than the other way round
 
-\pagebreak
-
-\pagenumbering{roman} % começo da numeração
-
-% Sumário ----------------------------------------------------------------------
-
 \tableofcontents
-\addcontentsline{}{}{}
-\pagebreak
-
-\listoffigures  % Write out the List of Figures
+\printglossaries
+\listoffigures
 
 \begin{comment}
 	\setstretch{1.5}  % Set the line spacing to 1.5, this makes the following tables easier to read
@@ -107,27 +108,24 @@
 \addtolength{\parskip}{\baselineskip}
 \setstretch{1.3}  % Return the line spacing back to 1.3
 
-\pagenumbering{arabic} % numeração "pra valer" :-)
+\mainmatter
 
-\input{Chapters/Chapter1} % Introdução
+\include{Chapters/Chapter1} % Introdução
 
-\input{Chapters/Chapter2} % Histórico
+\include{Chapters/Chapter2} % Histórico
 
-\input{Chapters/Chapter3} % Anatomia
+\include{Chapters/Chapter3} % Anatomia
 
-\input{Chapters/Chapter4} % Parte técnica
+\include{Chapters/Chapter4} % Parte técnica
 
-\input{Chapters/Chapter5} % Conclusão
+\include{Chapters/Chapter5} % Conclusão
 
-\input{Chapters/Chapter6} % Referências
+\bibliographystyle{unsrtnat}
+\bibliography{bibliografia}
 
-\input{Chapters/Chapter7} % Parte Subjetiva
+\include{Chapters/Chapter6} % Parte Subjetiva
 
 % \addtocontents{toc}{\vspace{2em}}  % Add a gap in the Contents, for aesthetics
 
-%% ----------------------------------------------------------------
-\label{Bibliografia}
-\bibliographystyle{unsrtnat}
-\bibliography{bibliografia}
 
 \end{document}
