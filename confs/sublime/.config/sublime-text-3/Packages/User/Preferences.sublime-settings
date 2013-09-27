@@ -2,7 +2,14 @@
 	"file_exclude_patterns":
 	[
 		"*.aux",
+		"*.bbl",
+		"*.blg",
 		"*.fdb_latexmk",
+		"*.fls",
+		"*.glg",
+		"*.glo",
+		"*.gls",
+		"*.ist",
 		"*.lof",
 		"*.log",
 		"*.out",
