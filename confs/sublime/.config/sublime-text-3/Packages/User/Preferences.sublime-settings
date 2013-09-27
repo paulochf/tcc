@@ -14,6 +14,7 @@
 		"*.log",
 		"*.out",
 		"*.synctex.gz",
+		"*.synctex.gz\(busy\)",
 		"*.toc",
 		"*.pyg"
 	],
