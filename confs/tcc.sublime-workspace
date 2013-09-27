@@ -8,18 +8,24 @@
 	"buffers":
 	[
 		{
-			"file": "/media/paulo/Arquivos/tcc/mono/tcc.tex",
+			"contents": "@article{Reference1,\n	Abstract = {We have developed an enhanced Littrow configuration extended                       cavity diode laser (ECDL) that can be tuned without changing the direction of the output beam. The output of a conventional Littrow ECDL is reflected from a plane mirror fixed parallel to the tuning diffraction grating. Using a free-space Michelson wavemeter to measure the laser wavelength, we can tune the laser over a range greater than 10 nm without any alteration of alignment.},\n	Author = {C. J. Hawthorn and K. P. Weber and R. E. Scholten},\n	Journal = {Review of Scientific Instruments},\n	Month = {December},\n	Number = {12},\n	Numpages = {3},\n	Pages = {4477--4479},\n	Title = {Littrow Configuration Tunable External Cavity Diode Laser with Fixed Direction Output Beam},\n	Volume = {72},\n	Url = {http://link.aip.org/link/?RSI/72/4477/1},\n	Year = {2001}}\n\n@article{Reference3,\n	Abstract = {Operating a laser diode in an extended cavity which provides frequency-selective feedback is a very effective method of reducing the laser's linewidth and improving its tunability. We have developed an extremely simple laser of this type, built from inexpensive commercial components with only a few minor modifications. A 780~nm laser built to this design has an output power of 80~mW, a linewidth of 350~kHz, and it has been continuously locked to a Doppler-free rubidium transition for several days.},\n	Author = {A. S. Arnold and J. S. Wilson and M. G. Boshier},\n	Journal = {Review of Scientific Instruments},\n	Month = {March},\n	Number = {3},\n	Numpages = {4},\n	Pages = {1236--1239},\n	Title = {A Simple Extended-Cavity Diode Laser},\n	Volume = {69},\n	Url = {http://link.aip.org/link/?RSI/69/1236/1},\n	Year = {1998}}\n\n@article{Reference2,\n	Abstract = {We present a review of the use of diode lasers in atomic physics with an extensive list of references. We discuss the relevant characteristics of diode lasers and explain how to purchase and use them. We also review the various techniques that have been used to control and narrow the spectral outputs of diode lasers. Finally we present a number of examples illustrating the use of diode lasers in atomic physics experiments. Review of Scientific Instruments is copyrighted by The American Institute of Physics.},\n	Author = {Carl E. Wieman and Leo Hollberg},\n	Journal = {Review of Scientific Instruments},\n	Keywords = {Diode Laser},\n	Month = {January},\n	Number = {1},\n	Numpages = {20},\n	Pages = {1--20},\n	Title = {Using Diode Lasers for Atomic Physics},\n	Volume = {62},\n	Url = {http://link.aip.org/link/?RSI/62/1/1},\n	Year = {1991}}\n\n",
+			"file": "/media/paulo/Arquivos/tcc/mono/bibliografia.bib",
+			"file_size": 2574,
+			"file_write_time": 130246046613631983,
 			"settings":
 			{
-				"buffer_size": 5244,
+				"buffer_size": 2596,
 				"line_ending": "Unix"
 			}
 		},
 		{
+			"contents": "%!TEX root = ../tcc.tex\n\n\\chapter{Histórico}\n\n\\begin{comment}\n    Vou contar a história do BitTorrent, desde o aumento do uso de\n    transferências de dados via internet, passando pela criação de protocolos\n    e softwares usados para baixar arquivos de forma ilegal, até a sua criação\n    e o boom de usuários que o utilizam para essa motivação. Em paralelo,\n    discutirei os motivos legais pelos quais os softwares anteriores foram\n    descontinuados, que influenciaram diretamente na sua criação.\n\n    Separarei em 3 períodos: o antes, a criação e as consequências disso no\n    mundo.\n\\end{comment}\n\nPara entender como e por que o BitTorrent se tornou o que é hoje, devemos\nvoltar um pouco no tempo e rever a história recente do compartilhamento de\narquivos pela Internet.\n\n\\section{Período pré-torrent}\n\nPrimeiro vieram as BBSs (1978) e a Usenet (1979), depois o protocolo FTP (1985)\ne seus servidores. O IRC (1988) e o Hotline (1997) ainda permitiam que seus\nusuários se comunicassem e enviassem arquivos. Até o fim dos anos 1990, esses\nmétodos usados para transferir arquivos seguiam o modelo cliente-servidor. Neste\nmodelo, o cliente é um computador que faz uma requisição de serviço ou recurso\npara um servidor, que se dedica a aguardar pedidos de clientes.\n\nCom o advento da codificação MP3, os arquivos de música em formato digital\npassaram a ser largamente utilizados na segunda metade dos anos 1990, devido à\ngrande redução de tamanho de arquivos de áudio nesse formato quando comparado\naos outros formatos contemporâneos. Então, em 1998, dois sites de\ncompartilhamento de músicas foram criados: o AudioGalaxy.com e o MP3.com, ambos\nsites de busca de MP3 sobre arquivos que seus usuários faziam upload. Ambos os\nsites ajudaram na popularização do MP3 como forma de se escutar músicas no dia a\ndia, que foi catalisado quando indústrias de equipamentos eletrônicos anunciaram\nseus sucessores do toca-fitas: os tocadores de mídia portáteis, popularmente\nconhecidos como MP3 players.\n\nNão demorou muito tempo para a indústria da música, representada pela RIAA\n(Recording Industry Association of America, Associação da Indústria de Gravação\nda América) começar a enxergar essa popularização do formato MP3 como um perigo\nreal de diminuição de seus lucros com as vendas de discos, e então passou a\nencabeçar a frente de combate contra a troca de arquivos protegidos por direitos\nautorais pela Internet. Pouco tempo depois, durante o governo Clinton, o Senado\namericano aprova uma lei de proteção a conteúdos com direitos autorais,\nestabelecendo regras mais específicas sobre esses direitos autorais e se\ntornando obstáculo àqueles sites de compartilhamento por penalizar os usuários\npor infringir esses direitos.\n\nNo segundo semestre de 1999 surgiu o Napster, um serviço de compartilhamento de\nMP3 que inovou por desfigurar o modelo cliente-servidor ao possuir conexões\nentre usuários e não a servidores, criando assim a primeira rede P2P.\n\nO sucesso foi rápido, e em dezembro de 1999 já enfrentava sua primeira ação\njudicial, vinda de várias grandes gravadoras. Sua popularidade foi crescendo,\natingindo o auge de 13.6 milhões de usuários em fevereiro de 2001. A sua vida\ncomeçou a complicar em julho de 2001, quando foi iniciada uma ação judicial por\nresponsabilidade na distribuição de conteúdo protegido. O caso foi finalizado em\nsetembro de 2001, obrigando a desligar o serviço de indexação, que tornou a rede\nP2P indisponível, e ainda a pagar 26 milhões de dólares por danos já causados e\ntambém pelos futuros, fazendo com que pedisse falência.\n\nO sucesso do Napster, mesmo que por curto período tempo, mostrou a eficiência\nque redes P2P poderiam ter, e com isso novos softwares e modelos de redes foram\nsendo lançados, porém tentando contornar o ponto fraco do antecessor a fim de\nnão serem novos alvos de medidas judiciais. A solução para isso foi tentar\ndescentralizar o mecanismo de indexação e busca, que foi o calcanhar de Aquiles\ndo Napster.\n\nA pioneira nessa tentativa foi a rede Gnutella, que foi lançada em 2003 mas que\nem sua primeira versão não conseguiu manter o bom desempenho do Napster. A busca\nera demorada e inconsistente, pois era repassada aleatória e finitamente de\npeers para seus izinhos, o que podia terminar em buscas sem resultados mesmo\nquando um arquivo estava sendo compartilhado por alguém conectado à rede.\n\ncontinua...\n\n\\section{Nascimento do BitTorrent}\n\nAqui contarei a história do surgimento do protocolo.\n\n\\section{Mundo pós-torrent}\n\nAqui discorrerei sobre as consequências do uso do BitTorrent, desde as influências acadêmico-tecnológicas da sua difusão, bem como explicarei as questões jurídicas envolvidas no seu uso.\n\n\\clearpage\n",
 			"file": "/media/paulo/Arquivos/tcc/mono/Chapters/Chapter2.tex",
+			"file_size": 4802,
+			"file_write_time": 130247918477629608,
 			"settings":
 			{
-				"buffer_size": 4657,
+				"buffer_size": 4683,
 				"line_ending": "Unix"
 			}
 		},
@@ -27,21 +33,8 @@
 			"file": "sublime/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
 			"settings":
 			{
-				"buffer_size": 930,
+				"buffer_size": 887,
 				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "// Place your settings in the file \"User/Preferences.sublime-settings\", which\n// overrides the settings in here.\n//\n// Settings may also be placed in file type specific options files, for\n// example, in Packages/Python/Python.sublime-settings for python files.\n{\n    // Sets the colors used within the text area\n    \"color_scheme\": \"Packages/Color Scheme - Default/Monokai.tmTheme\",\n\n    // Note that the font_face and font_size are overriden in the platform\n    // specific settings file, for example, \"Preferences (Linux).sublime-settings\".\n    // Because of this, setting them here will have no effect: you must set them\n    // in your User File Preferences.\n    \"font_face\": \"\",\n    \"font_size\": 10,\n\n    // Valid options are \"no_bold\", \"no_italic\", \"no_antialias\", \"gray_antialias\",\n    // \"subpixel_antialias\", \"no_round\" (OS X only), \"GDI\" (Windows only) and\n    // \"directwrite\" (Windows only)\n    \"font_options\": [],\n\n    // Characters that are considered to separate words\n    \"word_separators\": \"./\\\\()\\\"'-:,.;<>~!@#$%^&*|+=[]{}`~?\",\n\n    // Set to false to prevent line numbers being drawn in the gutter\n    \"line_numbers\": true,\n\n    // Set to false to hide the gutter altogether\n    \"gutter\": true,\n\n    // Spacing between the gutter and the text\n    \"margin\": 4,\n\n    // Fold buttons are the triangles shown in the gutter to fold regions of text\n    \"fold_buttons\": true,\n\n    // Hides the fold buttons unless the mouse is over the gutter\n    \"fade_fold_buttons\": true,\n\n    // Columns in which to display vertical rulers\n    \"rulers\": [],\n\n    // Set to true to turn spell checking on by default\n    \"spell_check\": false,\n\n    // The number of spaces a tab is considered equal to\n    \"tab_size\": 4,\n\n    // Set to true to insert spaces when tab is pressed\n    \"translate_tabs_to_spaces\": false,\n\n    // If translate_tabs_to_spaces is true, use_tab_stops will make tab and\n    // backspace insert/delete up to the next tabstop\n    \"use_tab_stops\": true,\n\n    // Set to false to disable detection of tabs vs. spaces on load\n    \"detect_indentation\": true,\n\n    // Calculates indentation automatically when pressing enter\n    \"auto_indent\": true,\n\n    // Makes auto indent a little smarter, e.g., by indenting the next line\n    // after an if statement in C. Requires auto_indent to be enabled.\n    \"smart_indent\": true,\n\n    // Adds whitespace up to the first open bracket when indenting. Requires\n    // auto_indent to be enabled.\n    \"indent_to_bracket\": false,\n\n    // Trims white space added by auto_indent when moving the caret off the\n    // line.\n    \"trim_automatic_white_space\": true,\n\n    // Disables horizontal scrolling if enabled.\n    // May be set to true, false, or \"auto\", where it will be disabled for\n    // source code, and otherwise enabled.\n    \"word_wrap\": \"auto\",\n\n    // Set to a value other than 0 to force wrapping at that column rather than the\n    // window width\n    \"wrap_width\": 0,\n\n    // Set to false to prevent word wrapped lines from being indented to the same\n    // level\n    \"indent_subsequent_lines\": true,\n\n    // Draws text centered in the window rather than left aligned\n    \"draw_centered\": false,\n\n    // Controls auto pairing of quotes, brackets etc\n    \"auto_match_enabled\": true,\n\n    // Word list to use for spell checking\n    \"dictionary\": \"Packages/Language - English/en_US.dic\",\n\n    // Set to true to draw a border around the visible rectangle on the minimap.\n    // The color of the border will be determined by the \"minimapBorder\" key in\n    // the color scheme\n    \"draw_minimap_border\": false,\n\n    // Always visualise the viewport on the minimap, as oppossed to only\n    // showing it on mouse over\n    \"always_show_minimap_viewport\": false,\n\n    // If enabled, will highlight any line with a caret\n    \"highlight_line\": false,\n\n    // Valid values are \"smooth\", \"phase\", \"blink\", \"wide\" and \"solid\".\n    \"caret_style\": \"smooth\",\n\n    // Set to false to disable underlining the brackets surrounding the caret\n    \"match_brackets\": true,\n\n    // Set to false if you'd rather only highlight the brackets when the caret is\n    // next to one\n    \"match_brackets_content\": true,\n\n    // Set to false to not highlight square brackets. This only takes effect if\n    // match_brackets is true\n    \"match_brackets_square\": true,\n\n    // Set to false to not highlight curly brackets. This only takes effect if\n    // match_brackets is true\n    \"match_brackets_braces\": true,\n\n    // Set to false to not highlight angle brackets. This only takes effect if\n    // match_brackets is true\n    \"match_brackets_angle\": false,\n\n    // Enable visualization of the matching tag in HTML and XML\n    \"match_tags\": true,\n\n    // Highlights other occurrences of the currently selected text\n    \"match_selection\": true,\n\n    // Additional spacing at the top of each line, in pixels\n    \"line_padding_top\": 0,\n\n    // Additional spacing at the bottom of each line, in pixels\n    \"line_padding_bottom\": 0,\n\n    // Set to false to disable scrolling past the end of the buffer.\n    // On OS X, this value is overridden in the platform specific settings, so\n    // you'll need to place this line in your user settings to override it.\n    \"scroll_past_end\": true,\n\n    // This controls what happens when pressing up or down when on the first\n    // or last line.\n    // On OS X, this value is overridden in the platform specific settings, so\n    // you'll need to place this line in your user settings to override it.\n    \"move_to_limit_on_up_down\": false,\n\n    // Set to \"none\" to turn off drawing white space, \"selection\" to draw only the\n    // white space within the selection, and \"all\" to draw all white space\n    \"draw_white_space\": \"selection\",\n\n    // Set to false to turn off the indentation guides.\n    // The color and width of the indent guides may be customized by editing\n    // the corresponding .tmTheme file, and specifying the colors \"guide\",\n    // \"activeGuide\" and \"stackGuide\"\n    \"draw_indent_guides\": true,\n\n    // Controls how the indent guides are drawn, valid options are\n    // \"draw_normal\" and \"draw_active\". draw_active will draw the indent\n    // guides containing the caret in a different color.\n    \"indent_guide_options\": [\"draw_normal\"],\n\n    // Set to true to removing trailing white space on save\n    \"trim_trailing_white_space_on_save\": false,\n\n    // Set to true to ensure the last line of the file ends in a newline\n    // character when saving\n    \"ensure_newline_at_eof_on_save\": false,\n\n    // Set to true to automatically save files when switching to a different file\n    // or application\n    \"save_on_focus_lost\": false,\n\n    // Save via writing to an alternate file, and then renaming it over the\n    // original file.\n    \"atomic_save\": true,\n\n    // The encoding to use when the encoding can't be determined automatically.\n    // ASCII, UTF-8 and UTF-16 encodings will be automatically detected.\n    \"fallback_encoding\": \"Western (Windows 1252)\",\n\n    // Encoding used when saving new files, and files opened with an undefined\n    // encoding (e.g., plain ascii files). If a file is opened with a specific\n    // encoding (either detected or given explicitly), this setting will be\n    // ignored, and the file will be saved with the encoding it was opened\n    // with.\n    \"default_encoding\": \"UTF-8\",\n\n    // Files containing null bytes are opened as hexadecimal by default\n    \"enable_hexadecimal_encoding\": true,\n\n    // Determines what character(s) are used to terminate each line in new files.\n    // Valid values are 'system' (whatever the OS uses), 'windows' (CRLF) and\n    // 'unix' (LF only).\n    \"default_line_ending\": \"system\",\n\n    // When enabled, pressing tab will insert the best matching completion.\n    // When disabled, tab will only trigger snippets or insert a tab.\n    // Shift+tab can be used to insert an explicit tab when tab_completion is\n    // enabled.\n    \"tab_completion\": true,\n\n    // Enable auto complete to be triggered automatically when typing.\n    \"auto_complete\": true,\n\n    // The maximum file size where auto complete will be automatically triggered.\n    \"auto_complete_size_limit\": 4194304,\n\n    // The delay, in ms, before the auto complete window is shown after typing\n    \"auto_complete_delay\": 50,\n\n    // Controls what scopes auto complete will be triggered in\n    \"auto_complete_selector\": \"source - comment, meta.tag - punctuation.definition.tag.begin\",\n\n    // Additional situations to trigger auto complete\n    \"auto_complete_triggers\": [ {\"selector\": \"text.html\", \"characters\": \"<\"} ],\n\n    // By default, auto complete will commit the current completion on enter.\n    // This setting can be used to make it complete on tab instead.\n    // Completing on tab is generally a superior option, as it removes\n    // ambiguity between committing the completion and inserting a newline.\n    \"auto_complete_commit_on_tab\": false,\n\n    // Controls if auto complete is shown when snippet fields are active.\n    // Only relevant if auto_complete_commit_on_tab is true.\n    \"auto_complete_with_fields\": false,\n\n    // Automatically close HTML and XML tags when </ is entered.\n    \"auto_close_tags\": true,\n\n    // By default, shift+tab will only unindent if the selection spans\n    // multiple lines. When pressing shift+tab at other times, it'll insert a\n    // tab character - this allows tabs to be inserted when tab_completion is\n    // enabled. Set this to true to make shift+tab always unindent, instead of\n    // inserting tabs.\n    \"shift_tab_unindent\": false,\n\n    // If true, the copy and cut commands will operate on the current line\n    // when the selection is empty, rather than doing nothing.\n    \"copy_with_empty_selection\": true,\n\n    // If true, the selected text will be copied into the find panel when it's\n    // shown.\n    // On OS X, this value is overridden in the platform specific settings, so\n    // you'll need to place this line in your user settings to override it.\n    \"find_selected_text\": true,\n\n    // When auto_find_in_selection is enabled, the \"Find in Selection\" flag\n    // will be enabled automatically when multiple lines of text are selected\n    \"auto_find_in_selection\": false,\n\n    // When drag_text is enabled, clicking on selected text will begin a\n    // drag-drop operation. This is not currently implemented under Linux.\n    \"drag_text\": true,\n\n    //\n    // User Interface Settings\n    //\n\n    // The theme controls the look of Sublime Text's UI (buttons, tabs, scroll bars, etc)\n    \"theme\": \"Default.sublime-theme\",\n\n    // Set to 0 to disable smooth scrolling. Set to a value between 0 and 1 to\n    // scroll slower, or set to larger than 1 to scroll faster\n    \"scroll_speed\": 1.0,\n\n    // Controls side bar animation when expanding or collapsing folders\n    \"tree_animation_enabled\": true,\n\n    // Controls animation throughout the application\n    \"animation_enabled\": true,\n\n    // Makes tabs with modified files more visible\n    \"highlight_modified_tabs\": false,\n\n    \"show_tab_close_buttons\": true,\n\n    // Show folders in the side bar in bold\n    \"bold_folder_labels\": false,\n\n    // OS X only: Set to true to disable Lion style full screen support.\n    // Sublime Text must be restarted for this to take effect.\n    \"use_simple_full_screen\": false,\n\n    // OS X only. Valid values are true, false, and \"auto\". Auto will enable\n    // the setting when running on a screen 2560 pixels or wider (i.e., a\n    // Retina display). When this setting is enabled, OpenGL is used to\n    // accelerate drawing. Sublime Text must be restarted for changes to take\n    // effect.\n    \"gpu_window_buffer\": \"auto\",\n\n    // Valid values are \"system\", \"enabled\" and \"disabled\"\n    \"overlay_scroll_bars\": \"system\",\n\n    //\n    // Application Behavior Settings\n    //\n\n    // Exiting the application with hot_exit enabled will cause it to close\n    // immediately without prompting. Unsaved modifications and open files will\n    // be preserved and restored when next starting.\n    //\n    // Closing a window with an associated project will also close the window\n    // without prompting, preserving unsaved changes in the workspace file\n    // alongside the project.\n    \"hot_exit\": true,\n\n    // remember_open_files makes the application start up with the last set of\n    // open files. Changing this to false will have no effect if hot_exit is\n    // true\n    \"remember_open_files\": true,\n\n    // Always prompt before reloading a file, even if the file hasn't been\n    // modified. The default behavior is to automatically reload a file if it\n    // hasn't been edited. If a file has unsaved changes, a prompt will always\n    // be shown.\n    \"always_prompt_for_file_reload\": false,\n\n    // OS X only: When files are opened from finder, or by dragging onto the\n    // dock icon, this controls if a new window is created or not.\n    \"open_files_in_new_window\": true,\n\n    // OS X only: This controls if an empty window is created at startup or not.\n    \"create_window_at_startup\": true,\n\n    // Set to true to close windows as soon as the last file is closed, unless\n    // there's a folder open within the window. This is always enabled on OS X,\n    // changing it here won't modify the behavior.\n    \"close_windows_when_empty\": false,\n\n    // Show the full path to files in the title bar.\n    // On OS X, this value is overridden in the platform specific settings, so\n    // you'll need to place this line in your user settings to override it.\n    \"show_full_path\": true,\n\n    // Shows the Build Results panel when building. If set to false, the Build\n    // Results can be shown via the Tools/Build Results menu.\n    \"show_panel_on_build\": true,\n\n    // Preview file contents when clicking on a file in the side bar. Double\n    // clicking or editing the preview will open the file and assign it a tab.\n    \"preview_on_click\": true,\n\n    // folder_exclude_patterns and file_exclude_patterns control which files\n    // are listed in folders on the side bar. These can also be set on a per-\n    // project basis.\n    \"folder_exclude_patterns\": [\".svn\", \".git\", \".hg\", \"CVS\"],\n    \"file_exclude_patterns\": [\"*.pyc\", \"*.pyo\", \"*.exe\", \"*.dll\", \"*.obj\",\"*.o\", \"*.a\", \"*.lib\", \"*.so\", \"*.dylib\", \"*.ncb\", \"*.sdf\", \"*.suo\", \"*.pdb\", \"*.idb\", \".DS_Store\", \"*.class\", \"*.psd\", \"*.db\", \"*.sublime-workspace\"],\n    // These files will still show up in the side bar, but won't be included in\n    // Goto Anything or Find in Files\n    \"binary_file_patterns\": [\"*.jpg\", \"*.jpeg\", \"*.png\", \"*.gif\", \"*.ttf\", \"*.tga\", \"*.dds\", \"*.ico\", \"*.eot\", \"*.pdf\", \"*.swf\", \"*.jar\", \"*.zip\"],\n\n    // File indexing parses all files in the side bar, and builds an index of\n    // their symbols. This is required for Goto Definition to work.\n    \"index_files\": true,\n\n    // When enabled, anonymised usage data is sent back, assisting Sublime HQ\n    // in making informed decisions about improving Sublime Text. File names\n    // and file contents are never included, but data such as computer\n    // specifications, startup time, installed packages, and edited file types\n    // are. When disabled, telemetry is neither recorded or sent.\n    // A setting of auto will enable telementry in dev builds, and disable\n    // telemetry in regular builds.\n    \"enable_telemetry\": \"auto\",\n\n    // List any packages to ignore here. When removing entries from this list,\n    // a restart may be required if the package contains plugins.\n    \"ignored_packages\": [\"Vintage\"]\n}\n",
-			"file": "/home/paulo/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
-			"file_size": -1,
-			"file_write_time": -1,
-			"settings":
-			{
-				"buffer_size": 15412,
-				"line_ending": "Unix",
-				"read_only": true,
-				"scratch": true
 			}
 		}
 	],
@@ -93,8 +86,9 @@
 	},
 	"file_history":
 	[
-		"/home/paulo/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
 		"/media/paulo/Arquivos/tcc/mono/confs/sublime/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+		"/media/paulo/Arquivos/tcc/mono/tcc.tex",
+		"/home/paulo/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
 		"/home/paulo/.config/sublime-text-3/Packages/SideBarEnhancements/CHANGELOG",
 		"/media/paulo/Arquivos/tcc/mono/confs/script",
 		"/home/paulo/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
@@ -111,7 +105,6 @@
 		"/media/paulo/Arquivos/tcc/mono/Chapters/Chapter7.tex",
 		"/home/paulo/Downloads/monografia/intro.tex",
 		"/home/paulo/Downloads/monografia/monografia.tex",
-		"/media/paulo/Arquivos/tcc/mono/tcc.tex",
 		"/media/paulo/Arquivos/tcc/mono/tcc-new.tex",
 		"/media/paulo/Arquivos/tcc/mono/Thesis.cls",
 		"/media/paulo/Arquivos/tcc/mono/tcc-new.pdf",
@@ -135,6 +128,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"100",
+			"80",
 			"wrap",
 			"rule",
 			"caret",
@@ -149,6 +144,8 @@
 		"regex": false,
 		"replace_history":
 		[
+			"80",
+			"100",
 			"include"
 		],
 		"reverse": false,
@@ -160,52 +157,58 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "/media/paulo/Arquivos/tcc/mono/tcc.tex",
+					"file": "/media/paulo/Arquivos/tcc/mono/bibliografia.bib",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5244,
+						"buffer_size": 2596,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								5229,
-								5229
+								117,
+								117
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
+							"syntax": "Packages/LaTeX/Bibtex.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1869.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
-				},
+				}
+			]
+		},
+		{
+			"selected": 1,
+			"sheets":
+			[
 				{
 					"buffer": 1,
 					"file": "/media/paulo/Arquivos/tcc/mono/Chapters/Chapter2.tex",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4657,
+						"buffer_size": 4683,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1965,
-								1965
+								1134,
+								1134
 							]
 						],
 						"settings":
@@ -216,7 +219,7 @@
 							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 13.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -227,15 +230,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 930,
+						"buffer_size": 887,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								63,
-								63
+								694,
+								694
 							]
 						],
 						"settings":
@@ -244,34 +247,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "/home/paulo/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 15412,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								11750,
-								11750
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 2944.0,
+						"translation.y": 78.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -296,11 +272,18 @@
 				0,
 				1,
 				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
 			]
 		],
 		"cols":
 		[
 			0.0,
+			0.527960526316,
 			1.0
 		],
 		"rows":
@@ -352,6 +335,12 @@
 				0,
 				0,
 				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
 				1
 			]
 		]
