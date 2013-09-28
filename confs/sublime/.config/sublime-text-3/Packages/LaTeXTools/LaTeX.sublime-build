@@ -4,7 +4,7 @@
 // The actual magic happens in the make_pdf command
 // I stick to the format of standard ST2 sublime-build files
 // with minor variations.
-// NOTE: the viewer is NOT configured from here! 
+// NOTE: the viewer is NOT configured from here!
 // As of 5/24/11, it cannot be changed, but I will introduce a setting later
 
 // %E will be replaced by the engine to use, so i.e. pdflatex, lualatex, xelatex
@@ -29,7 +29,7 @@
 		// Note: do NOT include $file or similar!!!
 		// Only configure the compilation parameters you need, MINUS the
 		// actual file to be compiled
-		// 
+		//
 		// By default, latexmk is told to use pdflatex, with synctex on for
 		// backward/forward search, forcing compilation (e.g. even if no bib file is found)
 		// and producing pdf rather than dvi output
@@ -42,7 +42,7 @@
 		// the profile. MUST EXPLICITLY PRE/APPEND $PATH!
 		// This is preconfigured for MacTeX (2009 and up I guess)
 		"path": "$PATH:/usr/texbin:/usr/local/bin:/opt/local/bin",
-		
+
 		// DO NOT MESS WITH THE FOLLOWING!!!
 		"file_regex": "^(...*?):([0-9]+): ([0-9]*)([^\\.]+)"
 		},
@@ -62,20 +62,20 @@
 			// Uncomment ONLY ONE of the "cmd"s given here,
 			// depending on your tex distro (miktex or texlive)
 
-			// MikTeX 2009 configuration			
+			// MikTeX 2009 configuration
 			// You can also set the MikTeX binaries path here, if you have them
 			// in a non-standard location that is NOT on your %PATH%
 			// Useful also if you have both MikTeX and TeXlive installed, and want
 			// to use MikTeX.
 			// If you don't need this, leave it blank, i.e. ""
 			// ADD $PATH EXPLICITLY AT THE END
-			
+
 			// *** BEGIN MikTeX 2009 ***
-			"cmd": ["texify", 
+			"cmd": ["texify",
 					"-b", "-p",
 					"--tex-option=\"--synctex=1\""
 			],
-			
+
 			"path": "",
 			// *** END MikTeX 2009 ***
 
@@ -95,7 +95,7 @@
 
 			// "path": "C:\\texlive\\2011\\bin\\win32;$PATH",
 			// *** END TeXLive 2011 ***
-			
+
 
 			// END OF USER-CONFIGURABLE STUFF!!!
 
@@ -114,7 +114,7 @@
 		// Note: do NOT include $file or similar!!!
 		// Only configure the compilation parameters you need, MINUS the
 		// actual file to be compiled
-		// 
+		//
 		// By default, latexmk is told to use pdflatex, with synctex on for
 		// backward/forward search, forcing compilation (e.g. even if no bib file is found)
 		// and producing pdf rather than dvi output
@@ -127,7 +127,7 @@
 		// the profile. MUST EXPLICITLY PRE/APPEND $PATH!
 		// This is preconfigured for MacTeX (2009 and up I guess)
 		"path": "$PATH:/usr/texbin:/usr/local/bin",
-		
+
 		// DO NOT MESS WITH THE FOLLOWING!!!
 		"file_regex": "^(...*?):([0-9]+): ([0-9]*)([^\\.]+)"
 		}

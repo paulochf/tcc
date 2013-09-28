@@ -8,24 +8,45 @@
 	"buffers":
 	[
 		{
-			"contents": "@article{Reference1,\n	Abstract = {We have developed an enhanced Littrow configuration extended                       cavity diode laser (ECDL) that can be tuned without changing the direction of the output beam. The output of a conventional Littrow ECDL is reflected from a plane mirror fixed parallel to the tuning diffraction grating. Using a free-space Michelson wavemeter to measure the laser wavelength, we can tune the laser over a range greater than 10 nm without any alteration of alignment.},\n	Author = {C. J. Hawthorn and K. P. Weber and R. E. Scholten},\n	Journal = {Review of Scientific Instruments},\n	Month = {December},\n	Number = {12},\n	Numpages = {3},\n	Pages = {4477--4479},\n	Title = {Littrow Configuration Tunable External Cavity Diode Laser with Fixed Direction Output Beam},\n	Volume = {72},\n	Url = {http://link.aip.org/link/?RSI/72/4477/1},\n	Year = {2001}}\n\n@article{Reference3,\n	Abstract = {Operating a laser diode in an extended cavity which provides frequency-selective feedback is a very effective method of reducing the laser's linewidth and improving its tunability. We have developed an extremely simple laser of this type, built from inexpensive commercial components with only a few minor modifications. A 780~nm laser built to this design has an output power of 80~mW, a linewidth of 350~kHz, and it has been continuously locked to a Doppler-free rubidium transition for several days.},\n	Author = {A. S. Arnold and J. S. Wilson and M. G. Boshier},\n	Journal = {Review of Scientific Instruments},\n	Month = {March},\n	Number = {3},\n	Numpages = {4},\n	Pages = {1236--1239},\n	Title = {A Simple Extended-Cavity Diode Laser},\n	Volume = {69},\n	Url = {http://link.aip.org/link/?RSI/69/1236/1},\n	Year = {1998}}\n\n@article{Reference2,\n	Abstract = {We present a review of the use of diode lasers in atomic physics with an extensive list of references. We discuss the relevant characteristics of diode lasers and explain how to purchase and use them. We also review the various techniques that have been used to control and narrow the spectral outputs of diode lasers. Finally we present a number of examples illustrating the use of diode lasers in atomic physics experiments. Review of Scientific Instruments is copyrighted by The American Institute of Physics.},\n	Author = {Carl E. Wieman and Leo Hollberg},\n	Journal = {Review of Scientific Instruments},\n	Keywords = {Diode Laser},\n	Month = {January},\n	Number = {1},\n	Numpages = {20},\n	Pages = {1--20},\n	Title = {Using Diode Lasers for Atomic Physics},\n	Volume = {62},\n	Url = {http://link.aip.org/link/?RSI/62/1/1},\n	Year = {1991}}\n\n",
-			"file": "/media/paulo/Arquivos/tcc/mono/bibliografia.bib",
-			"file_size": 2574,
-			"file_write_time": 130246046613631983,
+			"file": "/media/paulo/Arquivos/tcc/mono/tcc.tex",
 			"settings":
 			{
-				"buffer_size": 2596,
+				"buffer_size": 5507,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"contents": "%!TEX root = ../tcc.tex\n\n\\chapter{Histórico}\n\n\\begin{comment}\n    Vou contar a história do BitTorrent, desde o aumento do uso de\n    transferências de dados via internet, passando pela criação de protocolos\n    e softwares usados para baixar arquivos de forma ilegal, até a sua criação\n    e o boom de usuários que o utilizam para essa motivação. Em paralelo,\n    discutirei os motivos legais pelos quais os softwares anteriores foram\n    descontinuados, que influenciaram diretamente na sua criação.\n\n    Separarei em 3 períodos: o antes, a criação e as consequências disso no\n    mundo.\n\\end{comment}\n\nPara entender como e por que o BitTorrent se tornou o que é hoje, devemos\nvoltar um pouco no tempo e rever a história recente do compartilhamento de\narquivos pela Internet.\n\n\\section{Período pré-torrent}\n\nPrimeiro vieram as BBSs (1978) e a Usenet (1979), depois o protocolo FTP (1985)\ne seus servidores. O IRC (1988) e o Hotline (1997) ainda permitiam que seus\nusuários se comunicassem e enviassem arquivos. Até o fim dos anos 1990, esses\nmétodos usados para transferir arquivos seguiam o modelo cliente-servidor. Neste\nmodelo, o cliente é um computador que faz uma requisição de serviço ou recurso\npara um servidor, que se dedica a aguardar pedidos de clientes.\n\nCom o advento da codificação MP3, os arquivos de música em formato digital\npassaram a ser largamente utilizados na segunda metade dos anos 1990, devido à\ngrande redução de tamanho de arquivos de áudio nesse formato quando comparado\naos outros formatos contemporâneos. Então, em 1998, dois sites de\ncompartilhamento de músicas foram criados: o AudioGalaxy.com e o MP3.com, ambos\nsites de busca de MP3 sobre arquivos que seus usuários faziam upload. Ambos os\nsites ajudaram na popularização do MP3 como forma de se escutar músicas no dia a\ndia, que foi catalisado quando indústrias de equipamentos eletrônicos anunciaram\nseus sucessores do toca-fitas: os tocadores de mídia portáteis, popularmente\nconhecidos como MP3 players.\n\nNão demorou muito tempo para a indústria da música, representada pela RIAA\n(Recording Industry Association of America, Associação da Indústria de Gravação\nda América) começar a enxergar essa popularização do formato MP3 como um perigo\nreal de diminuição de seus lucros com as vendas de discos, e então passou a\nencabeçar a frente de combate contra a troca de arquivos protegidos por direitos\nautorais pela Internet. Pouco tempo depois, durante o governo Clinton, o Senado\namericano aprova uma lei de proteção a conteúdos com direitos autorais,\nestabelecendo regras mais específicas sobre esses direitos autorais e se\ntornando obstáculo àqueles sites de compartilhamento por penalizar os usuários\npor infringir esses direitos.\n\nNo segundo semestre de 1999 surgiu o Napster, um serviço de compartilhamento de\nMP3 que inovou por desfigurar o modelo cliente-servidor ao possuir conexões\nentre usuários e não a servidores, criando assim a primeira rede P2P.\n\nO sucesso foi rápido, e em dezembro de 1999 já enfrentava sua primeira ação\njudicial, vinda de várias grandes gravadoras. Sua popularidade foi crescendo,\natingindo o auge de 13.6 milhões de usuários em fevereiro de 2001. A sua vida\ncomeçou a complicar em julho de 2001, quando foi iniciada uma ação judicial por\nresponsabilidade na distribuição de conteúdo protegido. O caso foi finalizado em\nsetembro de 2001, obrigando a desligar o serviço de indexação, que tornou a rede\nP2P indisponível, e ainda a pagar 26 milhões de dólares por danos já causados e\ntambém pelos futuros, fazendo com que pedisse falência.\n\nO sucesso do Napster, mesmo que por curto período tempo, mostrou a eficiência\nque redes P2P poderiam ter, e com isso novos softwares e modelos de redes foram\nsendo lançados, porém tentando contornar o ponto fraco do antecessor a fim de\nnão serem novos alvos de medidas judiciais. A solução para isso foi tentar\ndescentralizar o mecanismo de indexação e busca, que foi o calcanhar de Aquiles\ndo Napster.\n\nA pioneira nessa tentativa foi a rede Gnutella, que foi lançada em 2003 mas que\nem sua primeira versão não conseguiu manter o bom desempenho do Napster. A busca\nera demorada e inconsistente, pois era repassada aleatória e finitamente de\npeers para seus izinhos, o que podia terminar em buscas sem resultados mesmo\nquando um arquivo estava sendo compartilhado por alguém conectado à rede.\n\ncontinua...\n\n\\section{Nascimento do BitTorrent}\n\nAqui contarei a história do surgimento do protocolo.\n\n\\section{Mundo pós-torrent}\n\nAqui discorrerei sobre as consequências do uso do BitTorrent, desde as influências acadêmico-tecnológicas da sua difusão, bem como explicarei as questões jurídicas envolvidas no seu uso.\n\n\\clearpage\n",
-			"file": "/media/paulo/Arquivos/tcc/mono/Chapters/Chapter2.tex",
-			"file_size": 4802,
-			"file_write_time": 130247918477629608,
+			"file": "/media/paulo/Arquivos/tcc/mono/bibliografia.bib",
 			"settings":
 			{
-				"buffer_size": 4683,
+				"buffer_size": 6890,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/media/paulo/Arquivos/tcc/mono/.latexmkrc",
+			"settings":
+			{
+				"buffer_size": 908,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/media/paulo/Arquivos/tcc/mono/Chapters/Chapter6.tex",
+			"settings":
+			{
+				"buffer_size": 54,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "%!TEX root = ../tcc.tex\n\n\\chapter{Napster, Gnutella e BitTorrent}\n\n\\begin{comment}\nVou contar a história do BitTorrent, desde o aumento do uso de transferências\nde dados via internet, passando pela criação de protocolos e softwares usados para baixar\narquivos de forma ilegal, até a sua criação e o boom de usuários que o utilizam para essa\nmotivação. Em paralelo, discutirei os motivos legais pelos quais os softwares anteriores foram\ndescontinuados, que influenciaram diretamente na sua criação.\n\nSepararei em 3 períodos: o antes, a criação e as consequências disso no mundo.\n\\end{comment}\n\nPara entendermos como e por que o BitTorrent se tornou o que é hoje, devemos voltar um pouco no\ntempo e rever a história do compartilhamento de arquivos pela Internet.\n\n\\section{Período pré-torrent}\n\nOs primeiros métodos de acesso remoto a arquivos vieram nos anos 1970, FTP (1985) e o IRC\n(1988). O Hotline (1997) ainda permitiam que seus usuários se comunicassem e enviassem\narquivos. Até o fim dos anos 1990, esses métodos usados para transferir arquivos seguiam o\nmodelo cliente-servidor. Neste modelo, o cliente é um computador que faz uma requisição de\nserviço ou recurso para um servidor, que se dedica a aguardar pedidos de clientes.\n\nCom o advento da codificação MP3, os arquivos de música em formato digital passaram a ser\nlargamente utilizados na segunda metade dos anos 1990, devido à grande redução de tamanho\nde arquivos de áudio nesse formato quando comparado aos outros formatos contemporâneos.\nEntão, em 1998, dois sites de compartilhamento de músicas foram criados: o AudioGalaxy.com\ne o MP3.com, ambos sites de busca de MP3 sobre arquivos que seus usuários faziam upload.\nAmbos os sites ajudaram na popularização do MP3 como forma de se escutar músicas no dia a\ndia, que foi catalisado quando indústrias de equipamentos eletrônicos anunciaram seus\nsucessores do toca- fitas: os tocadores de mídia portáteis, popularmente conhecidos como\nMP3 players.\n\nNão demorou muito tempo para a indústria da música, representada pela RIAA (Recording\nIndustry Association of America, Associação da Indústria de Gravação da América) começar a\nenxergar essa popularização do formato MP3 como um perigo real de diminuição de seus lucros\ncom as vendas de discos, e então passou a encabeçar a frente de combate contra a troca de\narquivos protegidos por direitos autorais pela Internet. Pouco tempo depois, durante o\ngoverno Clinton, o Senado americano aprova uma lei de proteção a conteúdos com direitos\nautorais, estabelecendo regras mais específicas sobre esses direitos autorais e se tornando\nobstáculo àqueles sites de compartilhamento por penalizar os usuários por infringir esses\ndireitos.\n\nNo segundo semestre de 1999 surgiu o Napster, um serviço de compartilhamento de MP3 que\ninovou por desfigurar o modelo cliente-servidor ao possuir conexões entre usuários e não a\nservidores, criando assim a primeira rede P2P.\n\nO sucesso foi rápido, e em dezembro de 1999 já enfrentava sua primeira ação judicial, vinda\nde várias grandes gravadoras. Sua popularidade foi crescendo, atingindo o auge de 13.6\nmilhões de usuários em fevereiro de 2001. A sua vida começou a complicar em julho de 2001,\nquando foi iniciada uma ação judicial por responsabilidade na distribuição de conteúdo\nprotegido. O caso foi finalizado em setembro de 2001, obrigando a desligar o serviço de\nindexação, que tornou a rede P2P indisponível, e ainda a pagar 26 milhões de dólares por\ndanos já causados e também pelos futuros, fazendo com que pedisse falência.\n\nO sucesso do Napster, mesmo que por curto período tempo, mostrou a eficiência que redes P2P\npoderiam ter, e com isso novos softwares e modelos de redes foram sendo lançados, porém tentando\ncontornar o ponto fraco do antecessor a fim de não serem novos alvos de medidas judiciais. A\nsolução para isso foi tentar descentralizar o mecanismo de indexação e busca, que foi o calcanhar\nde Aquiles do Napster.\n\nA pioneira nessa tentativa foi a rede Gnutella, que foi lançada em 2003 mas que em sua primeira\nversão não conseguiu manter o bom desempenho do Napster. A busca era demorada e inconsistente,\npois era repassada aleatória e finitamente de peers para seus izinhos, o que podia terminar em\nbuscas sem resultados mesmo quando um arquivo estava sendo compartilhado por alguém conectado à\nrede.\n\ncontinua...\n\n\\section{Nascimento do BitTorrent}\n\nAqui contarei a história do surgimento do protocolo.\n\n\\section{Mundo pós-torrent}\n\nAqui discorrerei sobre as consequências do uso do BitTorrent, desde as influências acadêmico-tecnológicas da sua difusão, bem como explicarei as questões jurídicas envolvidas no seu uso.\n\n\\clearpage\n",
+			"file": "/media/paulo/Arquivos/tcc/mono/Chapters/Chapter2.tex",
+			"file_size": 4771,
+			"file_write_time": 130248725897216229,
+			"settings":
+			{
+				"buffer_size": 4652,
 				"line_ending": "Unix"
 			}
 		},
@@ -33,7 +54,7 @@
 			"file": "sublime/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
 			"settings":
 			{
-				"buffer_size": 887,
+				"buffer_size": 956,
 				"line_ending": "Unix"
 			}
 		}
@@ -41,16 +62,24 @@
 	"build_system": "Packages/LaTeXTools/LaTeX.sublime-build",
 	"command_palette":
 	{
-		"height": 308.0,
+		"height": 224.0,
 		"selected_items":
 		[
 			[
-				"ins",
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"LaTeXing: ",
+				"LaTeXing: Insert TeX Symbol"
+			],
+			[
+				"install",
 				"Package Control: Install Package"
 			],
 			[
-				"remove",
-				"Package Control: Remove Package"
+				"ins",
+				"Package Control: Install Package"
 			],
 			[
 				"instal",
@@ -65,7 +94,7 @@
 				"Package Control: Install Package"
 			]
 		],
-		"width": 449.0
+		"width": 476.0
 	},
 	"console":
 	{
@@ -87,20 +116,24 @@
 	"file_history":
 	[
 		"/media/paulo/Arquivos/tcc/mono/confs/sublime/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+		"/home/paulo/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+		"/home/paulo/.config/sublime-text-3/Packages/User/LaTeXing.sublime-settings",
+		"/media/paulo/Arquivos/tcc/mono/.latexmkrc",
+		"/media/paulo/Arquivos/tcc/mono/confs/sublime/.config/sublime-text-3/Packages/LaTeXTools/LaTeX.sublime-build",
+		"/media/paulo/Arquivos/tcc/mono/Chapters/Chapter4.tex",
+		"/media/paulo/Arquivos/tcc/mono/Chapters/Chapter6.tex",
+		"/media/paulo/Arquivos/tcc/mono/bibliografia.bib",
+		"/media/paulo/Arquivos/tcc/mono/proposta.bib",
 		"/media/paulo/Arquivos/tcc/mono/tcc.tex",
 		"/home/paulo/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
 		"/home/paulo/.config/sublime-text-3/Packages/SideBarEnhancements/CHANGELOG",
 		"/media/paulo/Arquivos/tcc/mono/confs/script",
-		"/home/paulo/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
 		"/media/paulo/Arquivos/tcc/mono/Chapters/Chapter1.tex",
 		"/media/paulo/Arquivos/tcc/mono/confs/sublime/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
 		"/media/paulo/Arquivos/tcc/mono/confs/LaTeX.sublime-build",
 		"/media/paulo/Arquivos/tcc/mono/confs/tcc.sublime-workspace",
-		"/media/paulo/Arquivos/tcc/mono/Chapters/Chapter6.tex",
-		"/media/paulo/Arquivos/tcc/mono/bibliografia.bib",
 		"/media/paulo/Arquivos/tcc/mono/Chapters/Chapter2.tex",
 		"/media/paulo/Arquivos/tcc/mono/Chapters/Chapter3.tex",
-		"/media/paulo/Arquivos/tcc/mono/Chapters/Chapter4.tex",
 		"/media/paulo/Arquivos/tcc/mono/Chapters/Chapter5.tex",
 		"/media/paulo/Arquivos/tcc/mono/Chapters/Chapter7.tex",
 		"/home/paulo/Downloads/monografia/intro.tex",
@@ -128,6 +161,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"	\"",
+			"graphicx",
+			"colorinlistoftodos",
 			"100",
 			"80",
 			"wrap",
@@ -157,30 +193,112 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 3,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "/media/paulo/Arquivos/tcc/mono/bibliografia.bib",
+					"file": "/media/paulo/Arquivos/tcc/mono/tcc.tex",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2596,
+						"buffer_size": 5507,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								117,
-								117
+								1974,
+								1974
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/LaTeX/Bibtex.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2730.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/media/paulo/Arquivos/tcc/mono/bibliografia.bib",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6890,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								13,
+								13
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeX/Bibtex.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/media/paulo/Arquivos/tcc/mono/.latexmkrc",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 908,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								660,
+								660
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/media/paulo/Arquivos/tcc/mono/Chapters/Chapter6.tex",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 54,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								54,
+								54
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -195,20 +313,20 @@
 			"sheets":
 			[
 				{
-					"buffer": 1,
+					"buffer": 4,
 					"file": "/media/paulo/Arquivos/tcc/mono/Chapters/Chapter2.tex",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4683,
+						"buffer_size": 4652,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1134,
-								1134
+								3526,
+								3526
 							]
 						],
 						"settings":
@@ -219,26 +337,26 @@
 							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 13.0,
+						"translation.y": 351.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 2,
+					"buffer": 5,
 					"file": "sublime/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 887,
+						"buffer_size": 956,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								694,
-								694
+								953,
+								953
 							]
 						],
 						"settings":
@@ -283,7 +401,7 @@
 		"cols":
 		[
 			0.0,
-			0.527960526316,
+			0.5,
 			1.0
 		],
 		"rows":

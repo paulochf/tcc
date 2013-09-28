@@ -1,8 +1,9 @@
 {
-    "auto_wrap": true,
-    "auto_wrap_width": 78,
 	"always_prompt_for_file_reload": true,
 	"auto_find_in_selection": true,
+	"auto_wrap": true,
+	"auto_wrap_break_long_word": true,
+	"auto_wrap_width": 89,
 	"bold_folder_labels": true,
 	"caret_style": "smooth",
 	"draw_minimap_border": true,
@@ -10,6 +11,7 @@
 	[
 		"*.aux",
 		"*.bbl",
+		"*.bcf",
 		"*.blg",
 		"*.fdb_latexmk",
 		"*.fls",
@@ -20,13 +22,15 @@
 		"*.lof",
 		"*.log",
 		"*.out",
+		"*.run.xml",
 		"*.synctex.gz",
 		"*.synctex.gz(busy)",
+		"*.tdo",
 		"*.toc",
 		"*.pyg"
 	],
 	"font_face": "Ubuntu Mono",
-	"font_size": 8,
+	"font_size": 14,
 	"highlight_line": true,
 	"highlight_modified_tabs": true,
 	"ignored_packages":
@@ -38,7 +42,7 @@
 	"overlay_scroll_bars": "system",
 	"rulers":
 	[
-		78
+		90
 	],
 	"shift_tab_unindent": true,
 	"tab_size": 4,
@@ -46,5 +50,5 @@
 	"trim_trailing_white_space_on_save": true,
 	"use_tab_stops": true,
 	"word_wrap": true,
-	"wrap_width": 78
+	"wrap_width": 89
 }
