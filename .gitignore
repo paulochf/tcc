@@ -4,6 +4,7 @@
 *.alg
 *.aux
 *.bbl
+*.bcf
 *.blg
 *.dvi
 *.fdb_latexmk
@@ -23,5 +24,7 @@
 *.mtc1
 *.out
 *.pyg
+*.run.xml
 *.synctex.gz
+*.tdo
 *.toc
