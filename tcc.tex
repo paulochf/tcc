@@ -1,7 +1,6 @@
 %% ----------------------------------------------------------------
 %% tcc.tex -- MAIN FILE
 %% ----------------------------------------------------------------
-
 \documentclass[a4paper, 11pt, oneside, brazil]{book}
 
 %% ----------------------------------------------------------------
@@ -11,35 +10,39 @@
 \usepackage[brazil]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage[square, numbers, comma, sort&compress]{natbib}		% Use the "Natbib" style for the references in the Bibliography
-\usepackage[unicode,colorlinks=true,linkcolor=blue]{hyperref}	% Links azuis
-\usepackage[toc]{glossaries}									% \makeglossaries [http://en.wikibooks.org/wiki/LaTeX/Glossary#Using_defined_terms]
-\usepackage[numbib]{tocbibind}									% http://texblog.org/tag/addcontentsline/
 
-\usepackage{verbatim}		% \begin{comment}
-\usepackage{minted}			% syntax highlight (\newminted{cpp})
-\usepackage{fullpage}		% página com margens mais estreitas
-\usepackage{indentfirst}	% indentação dos 1os parágrafos
-\usepackage{todonotes}		% anotações TODO [http://www.tex.ac.uk/ctan/macros/latex/contrib/todonotes/todonotes.pdf]
-\usepackage{setspace}		% \setstretch
-\usepackage{afterpage}		% \afterpage [http://tex.stackexchange.com/q/88657]
+% Use the "Natbib" style for the references in the Bibliography
+\usepackage[style=numeric-comp,backend=biber]{biblatex}
 
+% \makeglossaries
+% http://en.wikibooks.org/wiki/LaTeX/Glossary#Using_defined_terms
+\usepackage[toc]{glossaries}
 
-\includeonly{
-	%Chapters/Chapter1,		% 1. Introdução
-	Chapters/Chapter2,		% 2. Histórico
-	Chapters/Chapter3,		% 3. Anatomia
-	%Chapters/Chapter4,		% 4. Parte técnica
-	%Chapters/Chapter5,		% 5. Conclusão
-	%Chapters/Chapter6,		% 6. Referências
-	%Chapters/Chapter7,		% 7. Parte Subjetiva
-}
+% http://texblog.org/tag/addcontentsline/
+\usepackage[numbib]{tocbibind}
+
+% Links azuis
+\usepackage[unicode,colorlinks=true,linkcolor=blue]{hyperref}
+
+% anotações TODO
+\usepackage[colorinlistoftodos,portuguese]{todonotes}
+
+\usepackage{csquotes}       %
+\usepackage{graphicx}       % \includegraphics
+\usepackage{verbatim}       % \begin{comment}
+\usepackage{minted}         % syntax highlight (\newminted{cpp})
+\usepackage{fullpage}       % página com margens mais estreitas
+\usepackage{indentfirst}    % indentação dos 1os parágrafos
+\usepackage{setspace}       % \setstretch
+\usepackage{afterpage}      % \afterpage
+                            %   http://tex.stackexchange.com/q/88657
 
 %%%%%%%%%%%%%%%%%%%%%
 %  Podem ser úteis
 %%%%%%%%%%%%%%%%%%%%%
-% \usepackage{color}		% http://en.wikibooks.org/wiki/LaTeX/Colors
-% \usepackage{cite}			% citações intexto (substituída pelo natbib + sort&compress)
+% \usepackage{color}        % http://en.wikibooks.org/wiki/LaTeX/Colors
+% \usepackage{cite}         % citações intexto (substituída pelo natbib +
+                            %   sort&compress)
 
 
 %% ----------------------------------------------------------------
@@ -53,12 +56,20 @@
 %\usepackage{accsupp}
 %\newcommand{\emptyaccsupp}[1]{\BeginAccSupp{ActualText={}}#1\EndAccSupp{}}
 
-%%%%%%%%%%%%%%%%%%%%%
-%  Quando for usar figuras...
-%%%%%%%%%%%%%%%%%%%%%
-% \graphicspath{Figures/}
+\addbibresource{bibliografia.bib}
 
-\hypersetup{urlcolor=blue, colorlinks=true}  % Colours hyperlinks in blue, but this can be distracting if there are many links.
+\includeonly{
+    Chapters/Chapter1,     % 1. Introdução
+    Chapters/Chapter2,      % 2. Histórico
+    Chapters/Chapter3,      % 3. Anatomia
+    Chapters/Chapter4,     % 4. Parte técnica
+    Chapters/Chapter5,     % 5. Conclusão
+    Chapters/Chapter6,     % 6. Referências
+    Chapters/Chapter7,     % 7. Parte Subjetiva
+}
+
+% Seta pasta de figuras
+\graphicspath{{Figures/}}
 
 \makeglossaries
 
@@ -83,7 +94,16 @@
 % \end{cppcode*}
 %
 % labels: http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.169.9130&rep=rep1&type=pdf
-\newminted{cpp}{baselinestretch=1,linenos,numbersep=6pt,fontfamily=courier,fontsize=\footnotesize,frame=single,samepage=true,gobble=2}
+\newminted{cpp}{
+    linenos,
+    frame=single,
+    samepage=true,
+    gobble=2
+    numbersep=6pt,
+    baselinestretch=1,
+    fontfamily=courier,
+    fontsize=\footnotesize,
+}
 
 
 %% ----------------------------------------------------------------
@@ -97,40 +117,56 @@
 % OBS:
 % \clearpage vs \newpage
 % http://tex.stackexchange.com/q/45609
-% 
+%
 % \afterpage{\clearpage}
 % http://tex.stackexchange.com/q/88657
 
 
 %%%%%%%%%%%%%%%%%%%%%
 %  Capa
+%  https://www.sharelatex.com/blog/2013/08/09/thesis-series-pt5.html
 %%%%%%%%%%%%%%%%%%%%%
-\begin{center}
-	\addcontentsline{toc}{chapter}{Capa}
+\begin{titlepage}
+    \begin{center}
+        \addcontentsline{toc}{chapter}{Capa}
+        \vspace*{1cm}
 
-	\large
-		Instituto de Matemática e Estatística\\
-		Universidade de São Paulo\\[-0.25cm]
+        \Huge
+        \textbf{Anatomia do BitTorrent}
 
-	\vspace*{5.5cm}
-	\textbf{\Large Anatomia do BitTorrent: \\ a Ciência da Computação por trás do protocolo}
+        \vspace{0.5cm}
+        \LARGE
+        a Ciência da Computação por trás do protocolo
 
-	\vspace*{2.0cm}
+        \vspace{2.5cm}
 
-	\Large{Paulo Cheadi Haddad Filho} 
+        \textbf{
+            Paulo Cheadi Haddad Filho \\
+            Orientador: José Coelho de Pina
+        }
 
-	\vskip 0.6cm
+        \vfill
 
-	Orientador: José Coelho de Pina
+        Trabalho de Conclusão de Curso
 
-	\vspace*{\fill}
-	\normalsize{São Paulo, 2013}
-\end{center}
+        \vspace{3.5cm}
 
-\afterpage{\clearpage}
+        \includegraphics[scale=0.1]{logo-ime.png}
+
+        \vspace{2cm}
+
+        \Large
+        %Instituto de Matemática e Estatística\\
+        Universidade de São Paulo\\
+        São Paulo, 2013
+
+    \end{center}
+    \afterpage{\clearpage}
+
+\end{titlepage}
 
 % Melhor ter fonte menor e espaçamento de linha maior
-\setstretch{1.3}  
+\setstretch{1.3}
 
 
 
@@ -147,29 +183,34 @@
 % Lista de figuras
 \listoffigures
 
+% Lista de TODOs
+\listoftodos
+\todototoc
+
 % Lista de abreviações, se precisar
 \begin{comment}
-	\setstretch{1.5}  % Set the line spacing to 1.5, this makes the following tables easier to read
-	\afterpage{\clearpage}  % Start a new page
+    % Tabelas mais fáceis de ler
+    \setstretch{1.5}
 
-	\listofsymbols{ll}  % Include a list of Abbreviations (a table of two columns)
-	{
-	% \textbf{Acronym} & \textbf{W}hat (it) \textbf{S}tands \textbf{F}or \\
-	% \textbf{LAH} & \textbf{L}ist \textbf{A}bbreviations \textbf{H}ere \\
+    % Nova página
+    \afterpage{\clearpage}
 
-	}
+    % Lista de abreviações (2 colunas)
+    \listofsymbols{ll} {
+    % \textbf{Acronym} & \textbf{W}hat (it) \textbf{S}tands \textbf{F}or \\
+    % \textbf{LAH} & \textbf{L}ist \textbf{A}bbreviations \textbf{H}ere \\
+    }
 
-	% Return the line spacing back to 1.3
-	\setstretch{1.3}
+    % Volta pro 1.3
+    \setstretch{1.3}
 \end{comment}
 
-% Página em branco ou quebra de página?
 \afterpage{\clearpage}
 
 
 
 %%%%%%%%%%%%%%%%%%%%%
-% Ṕáginas frontais
+% Conteúdo
 %%%%%%%%%%%%%%%%%%%%%
 
 % Pula uma linha entre parágrafos
@@ -177,12 +218,6 @@
 
 % Numeração normal em indo-arábico
 \mainmatter
-
-
-
-%%%%%%%%%%%%%%%%%%%%%
-% Conteúdo
-%%%%%%%%%%%%%%%%%%%%%
 
 % Inclusões dos capítulos
 \include{Chapters/Chapter1} % Introdução
@@ -199,6 +234,7 @@
 
 \include{Chapters/Chapter7} % Parte Subjetiva
 
-% \addtocontents{toc}{\vspace{2em}}  % Add a gap in the Contents, for aesthetics
+% Espaço no ToC, por estética
+% \addtocontents{toc}{\vspace{2em}}
 
 \end{document}
