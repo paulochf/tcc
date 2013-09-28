@@ -10,7 +10,9 @@ sub run_makeglossaries {
   };
 }
 
-# Use xelatex instead of pdflatex
+@default_files = ('tcc');
+
+# Use pdflatex
 $pdflatex = 'pdflatex -synctex=1 -interaction=nonstopmode --shell-escape %O %S';
 
 # Always create PDFs
@@ -24,6 +26,8 @@ $pdf_mode = 1;
 
 # output to the directory called output in the current directory
 #$out_dir = './output';
+
+$bibtex_use = 2;
 
 # file extensions to remove when cleaning
 $clean_ext = 'acn acr alg aux bbl bcf blg brf dvi fdb_latexmk fls glg glo gls idx ilg ind ist lof log lot maf mtc mtc1 out pdf ps pyg run.xml synctex.gz synctex.gz(busy) tex.bak tdo toc xdy %R-blx.bib';
