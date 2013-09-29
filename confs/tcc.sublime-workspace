@@ -8,53 +8,26 @@
 	"buffers":
 	[
 		{
-			"file": "/media/paulo/Arquivos/tcc/mono/tcc.tex",
-			"settings":
-			{
-				"buffer_size": 5507,
-				"line_ending": "Unix"
-			}
-		},
-		{
 			"file": "/media/paulo/Arquivos/tcc/mono/bibliografia.bib",
 			"settings":
 			{
-				"buffer_size": 6890,
+				"buffer_size": 7153,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/media/paulo/Arquivos/tcc/mono/.latexmkrc",
+			"file": "/media/paulo/Arquivos/tcc/mono/tcc.tex",
 			"settings":
 			{
-				"buffer_size": 908,
+				"buffer_size": 5619,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/media/paulo/Arquivos/tcc/mono/Chapters/Chapter6.tex",
-			"settings":
-			{
-				"buffer_size": 54,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "%!TEX root = ../tcc.tex\n\n\\chapter{Napster, Gnutella e BitTorrent}\n\n\\begin{comment}\nVou contar a história do BitTorrent, desde o aumento do uso de transferências\nde dados via internet, passando pela criação de protocolos e softwares usados para baixar\narquivos de forma ilegal, até a sua criação e o boom de usuários que o utilizam para essa\nmotivação. Em paralelo, discutirei os motivos legais pelos quais os softwares anteriores foram\ndescontinuados, que influenciaram diretamente na sua criação.\n\nSepararei em 3 períodos: o antes, a criação e as consequências disso no mundo.\n\\end{comment}\n\nPara entendermos como e por que o BitTorrent se tornou o que é hoje, devemos voltar um pouco no\ntempo e rever a história do compartilhamento de arquivos pela Internet.\n\n\\section{Período pré-torrent}\n\nOs primeiros métodos de acesso remoto a arquivos vieram nos anos 1970, FTP (1985) e o IRC\n(1988). O Hotline (1997) ainda permitiam que seus usuários se comunicassem e enviassem\narquivos. Até o fim dos anos 1990, esses métodos usados para transferir arquivos seguiam o\nmodelo cliente-servidor. Neste modelo, o cliente é um computador que faz uma requisição de\nserviço ou recurso para um servidor, que se dedica a aguardar pedidos de clientes.\n\nCom o advento da codificação MP3, os arquivos de música em formato digital passaram a ser\nlargamente utilizados na segunda metade dos anos 1990, devido à grande redução de tamanho\nde arquivos de áudio nesse formato quando comparado aos outros formatos contemporâneos.\nEntão, em 1998, dois sites de compartilhamento de músicas foram criados: o AudioGalaxy.com\ne o MP3.com, ambos sites de busca de MP3 sobre arquivos que seus usuários faziam upload.\nAmbos os sites ajudaram na popularização do MP3 como forma de se escutar músicas no dia a\ndia, que foi catalisado quando indústrias de equipamentos eletrônicos anunciaram seus\nsucessores do toca- fitas: os tocadores de mídia portáteis, popularmente conhecidos como\nMP3 players.\n\nNão demorou muito tempo para a indústria da música, representada pela RIAA (Recording\nIndustry Association of America, Associação da Indústria de Gravação da América) começar a\nenxergar essa popularização do formato MP3 como um perigo real de diminuição de seus lucros\ncom as vendas de discos, e então passou a encabeçar a frente de combate contra a troca de\narquivos protegidos por direitos autorais pela Internet. Pouco tempo depois, durante o\ngoverno Clinton, o Senado americano aprova uma lei de proteção a conteúdos com direitos\nautorais, estabelecendo regras mais específicas sobre esses direitos autorais e se tornando\nobstáculo àqueles sites de compartilhamento por penalizar os usuários por infringir esses\ndireitos.\n\nNo segundo semestre de 1999 surgiu o Napster, um serviço de compartilhamento de MP3 que\ninovou por desfigurar o modelo cliente-servidor ao possuir conexões entre usuários e não a\nservidores, criando assim a primeira rede P2P.\n\nO sucesso foi rápido, e em dezembro de 1999 já enfrentava sua primeira ação judicial, vinda\nde várias grandes gravadoras. Sua popularidade foi crescendo, atingindo o auge de 13.6\nmilhões de usuários em fevereiro de 2001. A sua vida começou a complicar em julho de 2001,\nquando foi iniciada uma ação judicial por responsabilidade na distribuição de conteúdo\nprotegido. O caso foi finalizado em setembro de 2001, obrigando a desligar o serviço de\nindexação, que tornou a rede P2P indisponível, e ainda a pagar 26 milhões de dólares por\ndanos já causados e também pelos futuros, fazendo com que pedisse falência.\n\nO sucesso do Napster, mesmo que por curto período tempo, mostrou a eficiência que redes P2P\npoderiam ter, e com isso novos softwares e modelos de redes foram sendo lançados, porém tentando\ncontornar o ponto fraco do antecessor a fim de não serem novos alvos de medidas judiciais. A\nsolução para isso foi tentar descentralizar o mecanismo de indexação e busca, que foi o calcanhar\nde Aquiles do Napster.\n\nA pioneira nessa tentativa foi a rede Gnutella, que foi lançada em 2003 mas que em sua primeira\nversão não conseguiu manter o bom desempenho do Napster. A busca era demorada e inconsistente,\npois era repassada aleatória e finitamente de peers para seus izinhos, o que podia terminar em\nbuscas sem resultados mesmo quando um arquivo estava sendo compartilhado por alguém conectado à\nrede.\n\ncontinua...\n\n\\section{Nascimento do BitTorrent}\n\nAqui contarei a história do surgimento do protocolo.\n\n\\section{Mundo pós-torrent}\n\nAqui discorrerei sobre as consequências do uso do BitTorrent, desde as influências acadêmico-tecnológicas da sua difusão, bem como explicarei as questões jurídicas envolvidas no seu uso.\n\n\\clearpage\n",
 			"file": "/media/paulo/Arquivos/tcc/mono/Chapters/Chapter2.tex",
-			"file_size": 4771,
-			"file_write_time": 130248725897216229,
 			"settings":
 			{
-				"buffer_size": 4652,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "sublime/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
-			"settings":
-			{
-				"buffer_size": 956,
+				"buffer_size": 5776,
 				"line_ending": "Unix"
 			}
 		}
@@ -62,7 +35,7 @@
 	"build_system": "Packages/LaTeXTools/LaTeX.sublime-build",
 	"command_palette":
 	{
-		"height": 224.0,
+		"height": 394.0,
 		"selected_items":
 		[
 			[
@@ -94,7 +67,7 @@
 				"Package Control: Install Package"
 			]
 		],
-		"width": 476.0
+		"width": 394.0
 	},
 	"console":
 	{
@@ -116,19 +89,19 @@
 	"file_history":
 	[
 		"/media/paulo/Arquivos/tcc/mono/confs/sublime/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
-		"/home/paulo/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
-		"/home/paulo/.config/sublime-text-3/Packages/User/LaTeXing.sublime-settings",
-		"/media/paulo/Arquivos/tcc/mono/.latexmkrc",
-		"/media/paulo/Arquivos/tcc/mono/confs/sublime/.config/sublime-text-3/Packages/LaTeXTools/LaTeX.sublime-build",
-		"/media/paulo/Arquivos/tcc/mono/Chapters/Chapter4.tex",
+		"/media/paulo/Arquivos/tcc/mono/tcc.tex",
+		"/media/paulo/Arquivos/tcc/mono/Chapters/Chapter1.tex",
 		"/media/paulo/Arquivos/tcc/mono/Chapters/Chapter6.tex",
 		"/media/paulo/Arquivos/tcc/mono/bibliografia.bib",
+		"/media/paulo/Arquivos/tcc/mono/.latexmkrc",
+		"/home/paulo/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+		"/home/paulo/.config/sublime-text-3/Packages/User/LaTeXing.sublime-settings",
+		"/media/paulo/Arquivos/tcc/mono/confs/sublime/.config/sublime-text-3/Packages/LaTeXTools/LaTeX.sublime-build",
+		"/media/paulo/Arquivos/tcc/mono/Chapters/Chapter4.tex",
 		"/media/paulo/Arquivos/tcc/mono/proposta.bib",
-		"/media/paulo/Arquivos/tcc/mono/tcc.tex",
 		"/home/paulo/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
 		"/home/paulo/.config/sublime-text-3/Packages/SideBarEnhancements/CHANGELOG",
 		"/media/paulo/Arquivos/tcc/mono/confs/script",
-		"/media/paulo/Arquivos/tcc/mono/Chapters/Chapter1.tex",
 		"/media/paulo/Arquivos/tcc/mono/confs/sublime/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
 		"/media/paulo/Arquivos/tcc/mono/confs/LaTeX.sublime-build",
 		"/media/paulo/Arquivos/tcc/mono/confs/tcc.sublime-workspace",
@@ -147,7 +120,7 @@
 	],
 	"find":
 	{
-		"height": 35.0
+		"height": 31.0
 	},
 	"find_in_files":
 	{
@@ -161,6 +134,10 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"^(\\s*)([^\\n]*)",
+			"^(\\s*)([^\\n]*)\\n",
+			"\\s",
+			"@",
 			"	\"",
 			"graphicx",
 			"colorinlistoftodos",
@@ -175,11 +152,14 @@
 			"maketi"
 		],
 		"highlight": true,
-		"in_selection": false,
+		"in_selection": true,
 		"preserve_case": false,
-		"regex": false,
+		"regex": true,
 		"replace_history":
 		[
+			"\\1\"*.\\2\",",
+			"\\n\\t",
+			"",
 			"80",
 			"100",
 			"include"
@@ -193,24 +173,51 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "/media/paulo/Arquivos/tcc/mono/tcc.tex",
+					"file": "/media/paulo/Arquivos/tcc/mono/bibliografia.bib",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5507,
+						"buffer_size": 7153,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1974,
-								1974
+								1518,
+								1518
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeX/Bibtex.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 1215.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/media/paulo/Arquivos/tcc/mono/tcc.tex",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5619,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4278,
+								4278
 							]
 						],
 						"settings":
@@ -220,88 +227,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2730.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "/media/paulo/Arquivos/tcc/mono/bibliografia.bib",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 6890,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								13,
-								13
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/LaTeX/Bibtex.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "/media/paulo/Arquivos/tcc/mono/.latexmkrc",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 908,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								660,
-								660
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "/media/paulo/Arquivos/tcc/mono/Chapters/Chapter6.tex",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 54,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								54,
-								54
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1846.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -309,24 +235,24 @@
 			]
 		},
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
-					"buffer": 4,
+					"buffer": 2,
 					"file": "/media/paulo/Arquivos/tcc/mono/Chapters/Chapter2.tex",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4652,
+						"buffer_size": 5776,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3526,
-								3526
+								1711,
+								1711
 							]
 						],
 						"settings":
@@ -337,35 +263,7 @@
 							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 351.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "sublime/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 956,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								953,
-								953
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 78.0,
+						"translation.y": 83.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -375,7 +273,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 34.0
+		"height": 28.0
 	},
 	"input":
 	{
@@ -418,7 +316,7 @@
 	"project": "tcc.sublime-project",
 	"replace":
 	{
-		"height": 64.0
+		"height": 56.0
 	},
 	"save_all_on_build": true,
 	"select_file":
