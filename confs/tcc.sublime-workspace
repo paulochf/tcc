@@ -8,18 +8,26 @@
 	"buffers":
 	[
 		{
-			"file": "/media/paulo/Arquivos/tcc/mono/bibliografia.bib",
+			"file": "/media/paulo/Arquivos/tcc/mono/tcc.tex",
 			"settings":
 			{
-				"buffer_size": 7153,
+				"buffer_size": 5552,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/media/paulo/Arquivos/tcc/mono/tcc.tex",
+			"file": "/media/paulo/Arquivos/tcc/mono/Chapters/Chapter6.tex",
 			"settings":
 			{
-				"buffer_size": 5619,
+				"buffer_size": 115,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/media/paulo/Arquivos/tcc/mono/bibliografia.bib",
+			"settings":
+			{
+				"buffer_size": 7697,
 				"line_ending": "Unix"
 			}
 		},
@@ -27,7 +35,7 @@
 			"file": "/media/paulo/Arquivos/tcc/mono/Chapters/Chapter2.tex",
 			"settings":
 			{
-				"buffer_size": 5776,
+				"buffer_size": 5675,
 				"line_ending": "Unix"
 			}
 		}
@@ -89,14 +97,14 @@
 	"file_history":
 	[
 		"/media/paulo/Arquivos/tcc/mono/confs/sublime/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
-		"/media/paulo/Arquivos/tcc/mono/tcc.tex",
-		"/media/paulo/Arquivos/tcc/mono/Chapters/Chapter1.tex",
 		"/media/paulo/Arquivos/tcc/mono/Chapters/Chapter6.tex",
+		"/media/paulo/Arquivos/tcc/mono/tcc.tex",
+		"/media/paulo/Arquivos/tcc/mono/confs/sublime/.config/sublime-text-3/Packages/LaTeXTools/LaTeX.sublime-build",
 		"/media/paulo/Arquivos/tcc/mono/bibliografia.bib",
+		"/media/paulo/Arquivos/tcc/mono/Chapters/Chapter1.tex",
 		"/media/paulo/Arquivos/tcc/mono/.latexmkrc",
 		"/home/paulo/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
 		"/home/paulo/.config/sublime-text-3/Packages/User/LaTeXing.sublime-settings",
-		"/media/paulo/Arquivos/tcc/mono/confs/sublime/.config/sublime-text-3/Packages/LaTeXTools/LaTeX.sublime-build",
 		"/media/paulo/Arquivos/tcc/mono/Chapters/Chapter4.tex",
 		"/media/paulo/Arquivos/tcc/mono/proposta.bib",
 		"/home/paulo/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
@@ -134,6 +142,14 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"site",
+			"\",\n",
+			"site",
+			"Misc",
+			"misc",
+			"GLSsentryname",
+			"Glssentryname",
+			"GLSsentryname",
 			"^(\\s*)([^\\n]*)",
 			"^(\\s*)([^\\n]*)\\n",
 			"\\s",
@@ -152,7 +168,7 @@
 			"maketi"
 		],
 		"highlight": true,
-		"in_selection": true,
+		"in_selection": false,
 		"preserve_case": false,
 		"regex": true,
 		"replace_history":
@@ -173,51 +189,24 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 2,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "/media/paulo/Arquivos/tcc/mono/bibliografia.bib",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 7153,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1518,
-								1518
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/LaTeX/Bibtex.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 1215.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
 					"file": "/media/paulo/Arquivos/tcc/mono/tcc.tex",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5619,
+						"buffer_size": 5552,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4278,
-								4278
+								5396,
+								5396
 							]
 						],
 						"settings":
@@ -227,7 +216,73 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1846.0,
+						"translation.y": 2659.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/media/paulo/Arquivos/tcc/mono/Chapters/Chapter6.tex",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 115,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								25,
+								25
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/media/paulo/Arquivos/tcc/mono/bibliografia.bib",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7697,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								7,
+								7
+							],
+							[
+								306,
+								306
+							],
+							[
+								560,
+								560
+							],
+							[
+								829,
+								829
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeX/Bibtex.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -239,20 +294,20 @@
 			"sheets":
 			[
 				{
-					"buffer": 2,
+					"buffer": 3,
 					"file": "/media/paulo/Arquivos/tcc/mono/Chapters/Chapter2.tex",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5776,
+						"buffer_size": 5675,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1711,
-								1711
+								2280,
+								2280
 							]
 						],
 						"settings":
@@ -263,7 +318,7 @@
 							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 83.0,
+						"translation.y": 507.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -311,7 +366,7 @@
 	"menu_visible": true,
 	"output.exec":
 	{
-		"height": 88.0
+		"height": 196.0
 	},
 	"project": "tcc.sublime-project",
 	"replace":
@@ -365,7 +420,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 150.0,
+	"side_bar_width": 126.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

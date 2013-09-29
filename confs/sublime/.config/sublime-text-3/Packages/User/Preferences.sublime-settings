@@ -16,6 +16,7 @@
 		"*.bbl",
 		"*.bcf",
 		"*.blg",
+		"*-blx.bib",
 		"*.brf",
 		"*.dvi",
 		"*.fdb_latexmk",
