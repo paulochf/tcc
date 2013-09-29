@@ -11,18 +11,18 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 
+% Links azuis
+\usepackage[unicode,colorlinks=true,linkcolor=blue]{hyperref}
+
 % Use the "Natbib" style for the references in the Bibliography
 \usepackage[style=numeric-comp,backend=biber]{biblatex}
 
 % \makeglossaries
 % http://en.wikibooks.org/wiki/LaTeX/Glossary#Using_defined_terms
-\usepackage[toc]{glossaries}
+\usepackage[toc,acronym]{glossaries}
 
 % http://texblog.org/tag/addcontentsline/
 \usepackage[numbib]{tocbibind}
-
-% Links azuis
-\usepackage[unicode,colorlinks=true,linkcolor=blue]{hyperref}
 
 % anotações TODO
 \usepackage[colorinlistoftodos,portuguese]{todonotes}
@@ -60,8 +60,8 @@
 
 \includeonly{
     Chapters/Chapter1,     % 1. Introdução
-    Chapters/Chapter2,      % 2. Histórico
-    Chapters/Chapter3,      % 3. Anatomia
+    Chapters/Chapter2,     % 2. Histórico
+    Chapters/Chapter3,     % 3. Anatomia
     Chapters/Chapter4,     % 4. Parte técnica
     Chapters/Chapter5,     % 5. Conclusão
     Chapters/Chapter6,     % 6. Referências
@@ -178,7 +178,9 @@
 \tableofcontents
 
 % Glossário
-\printglossaries
+\printglossary[type=main,style=altlist]
+
+\printglossary[type=\acronymtype]
 
 % Lista de figuras
 \listoffigures
