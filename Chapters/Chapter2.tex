@@ -13,42 +13,53 @@ Separarei em 3 períodos: o antes, a criação e as consequências disso no mund
 \end{comment}
 
 Para entendermos como e por que o BitTorrent se tornou o que é hoje, devemos voltar um
-pouco no tempo e rever a história do compartilhamento de arquivos pela Internet.
+pouco no tempo e rever a história que precedeu à sua criação, que é o fim da década dos
+anos 1990.
 
 % http://tex.stackexchange.com/a/99664
-\newglossaryentry{www}{
-    type=\acronymtype,
-    name={WWW},
-    description={World Wide Web},
-    first={World Wide Web (WWW)},
-    long={World Wide Web},
-    see=[ver]{glos-www}
-}
-
-\newglossaryentry{glos-www}{
-    name={World Wide Web},
-    description={World Wide Web (WWW) é nome que se dá à rede mundial de
-            computadores interligados, que originou a Internet}
-}
-\glsadd{glos-www}
-
-Desde o surgimento da computação, o compartilhamento de software já era necessário e
-feito usando-se dispositivos de armazenamento externos. Com o surgimento da \Gls{www},
-a troca de mensagens eletrônica através do mundo se popularizou.
+% \newglossaryentry{www}{
+%     name={World Wide Web},
+%     description={World Wide Web (WWW) é nome que se dá à rede mundial de
+%             computadores interligados, que originou a Internet},
+%     first={World Wide Web (WWW)},
+%     long={World Wide Web}
+% }
 
 \section{Período pré-torrent}
 
-Os primeiros métodos de acesso remoto a arquivos vieram nos anos 1970, omde era-se feito diretamente ao arquivo FTP (1985) e o
-IRC (1988). O Hotline (1997) ainda permitiam que seus usuários se comunicassem e
-enviassem arquivos. Até o fim dos anos 1990, esses métodos usados para transferir arquivos seguiam
-o modelo cliente-servidor. Neste modelo, o cliente é um computador que faz uma requisição
-de serviço ou recurso para um servidor, que se dedica a aguardar pedidos de clientes.
+\newglossaryentry{isp}{
+    name={ISP},
+    description={do inglês \emph{Internet Service Provider}; fornecedores de
+    acesso a Internet, que são empresas que vendem serviço e equipamento que permitem
+    o acesso de um computador pessoal acessar a Internet},
+    first={fornecedor de acesso a Internet (\glsentryname{isp})},
+    long={fornecedor de acesso a Internet},
+    plural={\glsentryname{isp}s},
+    firstplural={fornecedores de acesso a Internet (\glsentryname{isp})}
+}
 
-Com o advento da codificação MP3, os arquivos de música em formato digital passaram a ser
-largamente utilizados na segunda metade dos anos 1990, devido à grande redução de tamanho
-de arquivos de áudio nesse formato quando comparado aos outros formatos contemporâneos.
-Então, em 1998, dois sites de compartilhamento de músicas foram criados: o
-AudioGalaxy.com e o MP3.com, ambos sites de busca de MP3 sobre arquivos que seus usuários
+\newglossaryentry{mp3}{
+    name={MP3},
+    description={do inglês \emph{MPEG-1/2 Audio Layer 3}; formato patenteado de
+    compressão de dados de áudio digital que usa um método de compressão de dados com
+    perdas},
+    first={\glsentrylong{mp3} (\glsentryname{mp3})},
+    long={formato de áudio \glsentryname{mp3}},
+    plural={\glsentryname{mp3}s}
+}
+
+\cite{site:wiki-fs}
+\cite{site:wiki-fs-timeline}
+
+Entre o final dos anos 80 e o início dos 90, a Internet deixou de ser uma rede de
+computadores usada somente por entidades governamentais, laboratórios de pesquisa e
+universidades, passando a ter seu acesso comercializado para o público em geral pelos
+\glspl{isp} \cite{site:wiki-isp}. Com o advento do \gls{mp3} no final de 1991
+\todo{Como faz referência a uma coisa deste tipo?} e do seu primeiro reprodutor de
+áudio \gls{mp3} \cite{site:wiki-mp3} Winamp, o tráfego da Internet aumentou devido ao aumento da troca direta de arquivos.
+
+Em 1998, dois sites de compartilhamento de músicas foram criados: o AudioGalaxy.com e o
+MP3.com, ambos sites de busca de MP3 sobre arquivos que seus usuários
 faziam upload. Ambos os sites ajudaram na popularização do MP3 como forma de se escutar
 músicas no dia a dia, que foi catalisado quando indústrias de equipamentos eletrônicos
 anunciaram seus sucessores do toca- fitas: os tocadores de mídia portáteis, popularmente
