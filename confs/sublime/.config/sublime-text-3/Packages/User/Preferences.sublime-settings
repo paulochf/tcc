@@ -45,7 +45,7 @@
 		"*.tdo",
 		"*.toc",
 		"*.xdy",
-		"*.%R-blx.bib",
+		"*.%R-blx.bib"
 	],
 	"font_face": "Ubuntu Mono",
 	"font_size": 10,
