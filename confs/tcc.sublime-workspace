@@ -11,15 +11,15 @@
 			"file": "/media/paulo/Arquivos/tcc/mono/tcc.tex",
 			"settings":
 			{
-				"buffer_size": 5552,
+				"buffer_size": 5819,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/media/paulo/Arquivos/tcc/mono/Chapters/Chapter6.tex",
+			"file": "/media/paulo/Arquivos/tcc/mono/Chapters/Chapter4.tex",
 			"settings":
 			{
-				"buffer_size": 115,
+				"buffer_size": 586,
 				"line_ending": "Unix"
 			}
 		},
@@ -27,7 +27,7 @@
 			"file": "/media/paulo/Arquivos/tcc/mono/bibliografia.bib",
 			"settings":
 			{
-				"buffer_size": 7697,
+				"buffer_size": 11740,
 				"line_ending": "Unix"
 			}
 		},
@@ -35,7 +35,7 @@
 			"file": "/media/paulo/Arquivos/tcc/mono/Chapters/Chapter2.tex",
 			"settings":
 			{
-				"buffer_size": 5675,
+				"buffer_size": 7913,
 				"line_ending": "Unix"
 			}
 		}
@@ -142,6 +142,14 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"misc",
+			"\"(,?)(\\s)",
+			"\"",
+			"\"(,?)",
+			"\"(,?)(\\s)",
+			"\\s\"",
+			" },",
+			"Online",
 			"site",
 			"\",\n",
 			"site",
@@ -173,6 +181,8 @@
 		"regex": true,
 		"replace_history":
 		[
+			"}\\1\\2",
+			" {",
 			"\\1\"*.\\2\",",
 			"\\n\\t",
 			"",
@@ -189,7 +199,7 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -198,15 +208,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5552,
+						"buffer_size": 5819,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								5396,
-								5396
+								2324,
+								2324
 							]
 						],
 						"settings":
@@ -216,26 +226,26 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2659.0,
+						"translation.y": 852.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "/media/paulo/Arquivos/tcc/mono/Chapters/Chapter6.tex",
-					"semi_transient": false,
+					"file": "/media/paulo/Arquivos/tcc/mono/Chapters/Chapter4.tex",
+					"semi_transient": true,
 					"settings":
 					{
-						"buffer_size": 115,
+						"buffer_size": 586,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								25,
-								25
+								79,
+								79
 							]
 						],
 						"settings":
@@ -254,27 +264,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 7697,
+						"buffer_size": 11740,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								7,
-								7
-							],
-							[
-								306,
-								306
-							],
-							[
-								560,
-								560
-							],
-							[
-								829,
-								829
+								4673,
+								4673
 							]
 						],
 						"settings":
@@ -282,7 +280,7 @@
 							"syntax": "Packages/LaTeX/Bibtex.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1170.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -299,15 +297,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5675,
+						"buffer_size": 7913,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2280,
-								2280
+								5862,
+								5862
 							]
 						],
 						"settings":
@@ -318,7 +316,7 @@
 							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 507.0,
+						"translation.y": 1171.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
