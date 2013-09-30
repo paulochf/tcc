@@ -11,6 +11,9 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 
+% Cor
+\usepackage[table,dvipsnames]{xcolor}
+
 % Links azuis
 \usepackage[unicode,colorlinks=true,linkcolor=blue]{hyperref}
 
@@ -37,13 +40,6 @@
 \usepackage{afterpage}      % \afterpage
                             %   http://tex.stackexchange.com/q/88657
 
-%%%%%%%%%%%%%%%%%%%%%
-%  Podem ser úteis
-%%%%%%%%%%%%%%%%%%%%%
-% \usepackage{color}        % http://en.wikibooks.org/wiki/LaTeX/Colors
-% \usepackage{cite}         % citações intexto (substituída pelo natbib +
-                            %   sort&compress)
-
 
 %% ----------------------------------------------------------------
 %% CONFIGURATIONS
@@ -59,22 +55,44 @@
 \addbibresource{bibliografia.bib}
 
 \includeonly{
-    Chapters/Chapter1,     % 1. Introdução
+%    Chapters/Chapter1,     % 1. Introdução
     Chapters/Chapter2,     % 2. Histórico
-    Chapters/Chapter3,     % 3. Anatomia
-    Chapters/Chapter4,     % 4. Parte técnica
-    Chapters/Chapter5,     % 5. Conclusão
+%    Chapters/Chapter3,     % 3. Anatomia
+%    Chapters/Chapter4,     % 4. Parte técnica
+%    Chapters/Chapter5,     % 5. Conclusão
     Chapters/Chapter6,     % 6. Referências
-    Chapters/Chapter7,     % 7. Parte Subjetiva
+%    Chapters/Chapter7,     % 7. Parte Subjetiva
 }
 
 \hypersetup{
      colorlinks   = true,
-     citecolor    = gray
+     citecolor    = Sepia
 }
 
-% manual do todonote
-\newcommand{\insertref}[1]{\todo[inline,color=green!40]{#1}}
+% Do manual do todonote
+\newcommand{\todorefs}[1]{
+    \todo[
+        color=Orchid,
+        bordercolor=Plum,
+        inline
+    ]{#1}
+}
+
+\newcommand{\todoquestion}[1]{
+    \todo[
+        color=LimeGreen,
+        bordercolor=OliveGreen,
+        inline
+    ]{#1}
+}
+
+\newcommand{\todoerrors}[1]{
+    \todo[
+        color=BrickRed,
+        bordercolor=BrickRed,
+        inline
+    ]{\textcolor{White}{#1}}
+}
 
 % Seta pasta de figuras
 \graphicspath{{Figures/}}
