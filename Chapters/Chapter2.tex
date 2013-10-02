@@ -48,6 +48,15 @@ anos 1990.
     plural={\glsentryname{mp3}s}
 }
 
+\newglossaryentry{peer}{
+    name={peer},
+    description={do inglês \emph{peer-to-peer}; como são chamados cada nó da rede desse
+    tipo},
+    first={\glsentrylong{peer} (um nó da rede)},
+    long={\glsentryname{peer}},
+    plural={\glsentryname{peer}s}
+}
+
 \newglossaryentry{p2p}{
     name={P2P},
     description={do inglês \emph{peer-to-peer}; redes de arquitetura descentralizada e
@@ -74,15 +83,33 @@ anos 1990.
     long={\glsentryname{riaa}}
 }
 
-\todorefs{\cite{site:wiki-fs,site:wiki-fs-timeline}}
+\newglossaryentry{gnutella}{
+    name={Gnutella},
+    description={software de compartilhamento P2P desenvolvido por 3 programadores da
+    empresa Nullsoft, recém adquirida da AOL Inc., lançado em 2000 sob a licença GPL.
+    No dia seguinte, a AOL ordenou indisponibilizar o software alegando problemas
+    legais e proibindo a continuação do desenvolvimento. Alguns dias depois, o
+    protocolo já tinha sido alvo de engenharia reversa e já havia softwares que o
+    implementavam.},
+    first={\glsentryname{gnutella}}
+}
 
-Entre o final dos anos 80 e o início dos 90, a Internet deixou de ser uma rede de
-computadores usada somente por entidades governamentais, laboratórios de pesquisa e
-universidades, passando a ter seu acesso comercializado para o público em geral pelos
-\glspl{isp} \cite{site:wiki-isp}. Com o advento do \gls{mp3} \cite{site:wiki-mp3} no
-final de 1991 \todoquestion{Como fazer referência a uma coisa deste tipo?} e do seu
-primeiro reprodutor de áudio \gls*{mp3} Winamp, o tráfego da Internet aumentou devido
-ao aumento da troca direta desse tipo de arquivo.
+\newglossaryentry{anycast}{
+    name={anycast},
+    description={método de endereçamento e roteamento de rede onde os datagramas de um
+    único remetente são roteados para um membro de um grupo de receptores potenciais que
+    estão definidos pelo mesmo intervalo no endereço de destino. Geralmente é usado
+    para serviços que demandem alta disponibilidade},
+    first={\glsentryname{anycast}}
+}
+
+Entre o final dos anos 80 e o início dos 90 \cite{site:wiki-fs,site:wiki-fs-timeline}, a
+Internet deixou de ser uma rede de computadores usada somente por entidades
+governamentais, laboratórios de pesquisa e universidades, passando a ter seu acesso
+comercializado para o público em geral pelos \glspl{isp} \cite{site:wiki-isp}. Com o
+advento do \gls{mp3} \cite{site:wiki-mp3} no final de 1991 e do seu primeiro reprodutor
+de áudio \gls*{mp3} Winamp, o tráfego da Internet aumentou devido ao aumento da troca
+direta desse tipo de arquivo.
 
 Entre 1998 e 1999, dois sites de compartilhamento gratuito de músicas foram criados: o
 MP3.com \cite{site:wiki-mp3.com}, que era um site de divulgação de bandas independentes,
@@ -92,9 +119,11 @@ upload eram feitos a partir de um software cliente. A lista de músicas procurad
 página para o computador onde usuário tinha instalado o cliente, que então conectava
 com o do outro usuário, que era indicado pelo servidor. A lista possuía todos os
 arquivos que um dia passaram pela sua rede. Se algum arquivo fosse requisitado mas o
-usuário que possuísse não estivesse conectado, o servidor central do gls*{audiogalaxy}
+usuário que o possuísse não estivesse conectado, o servidor central do gls*{audiogalaxy}
 fazia a ponte, pegando o arquivo para si e enviando-o para o cliente do requisitante em
 seu próximo login.
+
+\subsection{Napster}
 
 Em maio de 1999 surgiu o Napster \cite{site:wiki-napster}, um programa de
 compartilhamento de \gls*{mp3} que inovou por desfigurar o usual modelo
@@ -113,39 +142,58 @@ circulava na rede \cite{site:napster-metallica,site:napster-metallica-orig}. Um 
 depois, outra ação, agora encabeçada pelo rapper Dr. Dre, que tinha feito pedido formal
 para a retirada de seu material de circular, também abriu processo
 \cite{site:napster-drdre-orig}. Isso fez com que o Napster tivesse atenção da mídia,
-ganhando popularidade e atingindo o 20 milhões de usuários em meados de 2000.
-
-\todorefs{referenciar o parágrafo seguinte melhor (?)}
+ganhando popularidade e atingindo o 20 milhões de usuários em meados de 2000
+\cite{site:napster-use-2000}.
 
 Em 2001, esses imbróglios judiciais resultaram numa liminar federal que ordenava a
 retirada de conteúdo protegido das entidades representadas pela \gls*{riaa}. O Napster
 tentou, mas a juíza do caso não ficou satisfeita ordenando então, em julho, o
-desligamento da rede enquanto não conseguisse controlar o conteúdo que trafegava ali. Em
-setembro, o Napster fez um acordo, onde pagou 26 milhões de dólares por danos já
-causados, uso indevido de música e também 10 milhões de dólares pelos danos futuros
-envolvendo royalties. Para pagar esse valor, o Napster tentou cobrar o serviço de seus
-usuários, que acabaram migrando de rede \gls*{p2p}, inclusive para o \gls*{audiogalaxy}.
-Não conseguindo, em 2002, o Napster decreta falência e é forçado a liquidar seus ativos.
-De lá para cá, foi negociado algumas vezes e atualmente pertence ao site Rhapsody
-\cite{site:napster-rhapsody}.
+desligamento da rede enquanto não conseguisse controlar o conteúdo que trafegava ali
+\cite{site:wiki-napster}. Em setembro, o Napster fez um acordo, onde pagou 26 milhões de
+dólares por danos já causados, uso indevido de música e também 10 milhões de dólares
+pelos danos futuros envolvendo royalties. Para pagar esse valor, o Napster tentou cobrar
+o serviço de seus usuários, que acabaram migrando de rede \gls*{p2p}, inclusive para o
+\gls*{audiogalaxy}. Não conseguindo, em 2002, o Napster decreta falência e é forçado a
+liquidar seus ativos. De lá para cá, foi negociado algumas vezes e atualmente pertence
+ao site Rhapsody \cite{site:napster-rhapsody}.
 
-\begin{comment}
-\todo{revisar}
+O sucesso do Napster, mesmo que por curto período tempo, mostrou o potencial das redes
+\gls*{p2p} poderiam ter, e com isso novos softwares e protocolos de redes foram sendo
+lançados, sempre tentando se diferenciar dos outros softwares a fim de não serem novos
+alvos de ações judiciais. A solução para isso foi tentar descentralizar os mecanismos de
+indexação e de busca, que foram os pontos fracos do Napster.
 
-O sucesso do Napster, mesmo que por curto período tempo, mostrou a eficiência que redes
-P2P poderiam ter, e com isso novos softwares e modelos de redes foram sendo lançados,
-porém tentando contornar o ponto fraco do antecessor a fim de não serem novos alvos de
-medidas judiciais. A solução para isso foi tentar descentralizar o mecanismo de indexação
-e busca, que foi o calcanhar de Aquiles do Napster.
+\subsection{Gnutella}
 
-A pioneira nessa tentativa foi a rede Gnutella, que foi lançada em 2003 mas que em sua
-primeira versão não conseguiu manter o bom desempenho do Napster. A busca era demorada e
-inconsistente, pois era repassada aleatória e finitamente de peers para seus izinhos, o
-que podia terminar em buscas sem resultados mesmo quando um arquivo estava sendo
-compartilhado por alguém conectado à rede.
-\end{comment}
+O tal sucessor foi o \gls{gnutella}, que foi a resposta de domínio público feita com
+\emph{gambiarras} para os problemas que o Napster encontrou com relação ás acusações de
+violação de direitos autorais. Enquanto o Napster possuía um servidor central como
+estrutura que, no julgamento, foi usado como prova de que o sistema encorajava a
+violação de direitos autorais, o \gls*{gnutella} foi modelado como um sistema \gls*{p2p}
+puro, onde todos os \glspl*{peer} são completamente iguais, sendo responsáveis pelos
+seus próprios atos.
 
-continua...
+O \gls*{gnutella} disponibiliza arquivos da mesma forma que o Napster, mas sem a
+limitação de ser de formato de música, ou seja, qualquer arquivo pode ser compartilhado.
+A diferença mais significativa entre os dois protocolos é o algoritmo de busca: a
+abordagem do \gls*{gnutella} é baseada numa forma de \gls{anycast}. Isso envolve duas
+partes: a primeira é como cada usuário é conectado a outros nós e mantém a lista dessas
+conexões atualizada. A segunda parte é como ele trata as buscas e trabalha inundando de
+pedidos para todos os nós que estão a uma certa distância do usuário (nó-cliente). Por
+exemplo, se a distância limite for de 4, então todos os nós que estiverem a 4 passos a
+partir do cliente serão verificados, começando a partir dos mais próximos.
+Eventualmente, algum nó possuirá o arquivo requisitado e responderá, e assim será feita
+a transferência desse arquivo. Muitos softwares que implementam o protocolo vão além
+dessa funcionalidade básica de download simples tentando transferir de forma paralela
+partes diferentes do arquivo desejado de nós diferentes, tentando amenizar eventuais
+problemas de velocidade de rede.
+
+Experiências sugerem assim que o sistema escala para um tamanho maior, o mecanismo de
+\gls*{anycast} se torna extremamente caro e em algumas vezes até proibitivo. O problema
+ocorre nas buscas por arquivos menos populares, onde será necessário um maior número de
+nós perguntados.
+
+\todo[inline]{falar do Gnutella 2}
 
 \section{Nascimento do BitTorrent}
 
