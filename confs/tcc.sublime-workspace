@@ -16,18 +16,10 @@
 			}
 		},
 		{
-			"file": "/media/paulo/Arquivos/tcc/mono/Chapters/Chapter4.tex",
-			"settings":
-			{
-				"buffer_size": 586,
-				"line_ending": "Unix"
-			}
-		},
-		{
 			"file": "/media/paulo/Arquivos/tcc/mono/bibliografia.bib",
 			"settings":
 			{
-				"buffer_size": 11740,
+				"buffer_size": 12518,
 				"line_ending": "Unix"
 			}
 		},
@@ -35,7 +27,7 @@
 			"file": "/media/paulo/Arquivos/tcc/mono/Chapters/Chapter2.tex",
 			"settings":
 			{
-				"buffer_size": 7913,
+				"buffer_size": 10617,
 				"line_ending": "Unix"
 			}
 		}
@@ -142,6 +134,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"begin",
 			"misc",
 			"\"(,?)(\\s)",
 			"\"",
@@ -199,7 +192,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -233,46 +226,19 @@
 				},
 				{
 					"buffer": 1,
-					"file": "/media/paulo/Arquivos/tcc/mono/Chapters/Chapter4.tex",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 586,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								79,
-								79
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
 					"file": "/media/paulo/Arquivos/tcc/mono/bibliografia.bib",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 11740,
+						"buffer_size": 12518,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4673,
-								4673
+								3334,
+								3334
 							]
 						],
 						"settings":
@@ -280,7 +246,7 @@
 							"syntax": "Packages/LaTeX/Bibtex.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 1170.0,
+						"translation.y": 1826.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -292,20 +258,20 @@
 			"sheets":
 			[
 				{
-					"buffer": 3,
+					"buffer": 2,
 					"file": "/media/paulo/Arquivos/tcc/mono/Chapters/Chapter2.tex",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 7913,
+						"buffer_size": 10617,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								5862,
-								5862
+								3774,
+								3774
 							]
 						],
 						"settings":
@@ -316,7 +282,7 @@
 							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 1171.0,
+						"translation.y": 2301.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
