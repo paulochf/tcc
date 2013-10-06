@@ -25,6 +25,8 @@ anos 1990.
 %     long={World Wide Web}
 % }
 
+\todo[inline]{adicionar firstplural ao glossário}
+
 \section{Período pré-torrent}
 
 \newglossaryentry{isp}{
@@ -35,7 +37,7 @@ anos 1990.
     first={fornecedor de acesso a Internet (\glsentryname{isp})},
     long={fornecedor de acesso a Internet},
     plural={\glsentryname{isp}s},
-    firstplural={fornecedores de acesso a Internet (\glsentryname{isp})}
+    firstplural={fornecedores de acesso a Internet (\glsentryname{isp}s)}
 }
 
 \newglossaryentry{mp3}{
@@ -90,7 +92,7 @@ anos 1990.
     No dia seguinte, a AOL ordenou indisponibilizar o software alegando problemas
     legais e proibindo a continuação do desenvolvimento. Alguns dias depois, o
     protocolo já tinha sido alvo de engenharia reversa e já havia softwares que o
-    implementavam.},
+    implementavam},
     first={\glsentryname{gnutella}}
 }
 
@@ -105,34 +107,70 @@ anos 1990.
 
 \newglossaryentry{edonkey}{
     name={eDonkey},
-    description={},
+    description={lançado em 6 de setembro de 2000, o protocolo foi inaugurado juntamente
+    com o software que o utilizava, o eDonkey2000, mas inúmeros softwares cliente para
+    diferentes plataforas surgiram nos dias seguintes ao lançamento},
     first={\glsentryname{edonkey}}
 }
 
 \newglossaryentry{swarming}{
     name={swarming},
-    description={},
+    description={também chamado de transmissão de \emph{arquivos por segmentação} ou de
+    \emph{múltiplas fontes}, é a transmissão coordenada de um arquivo a partir de
+    um ou vários locais onde este está disponível para um único destino, inclusive no
+    caso de um arquivo em um local sendo transmitido em várias partes paralelas. Cabe ao
+    software que faz o download juntar as partes no ponto de destino},
     first={\glsentryname{swarming}}
 }
 
-\newglossaryentry{hash}{
-    name={hash},
-    description={},
-    first={\glsentryname{hash}},
-    plural={hashes}
+\newglossaryentry{hashtable}{
+    name={tabela de hash},
+    description={ou \emph{mapa de hash}, é uma estrutura de dados que cria uma lista de
+    correspondência chave-valor, onde os dados são guardados como os valores e
+    indexados por seus respectivos \emph{valores hash}},
+    first={\glsentryname{hashtable}},
+    plural={tabelas de hash}
+}
+
+\newglossaryentry{hashfunction}{
+    name={função de hash},
+    description={é uma função ou algoritmo matemático que mapeia um dado de comprimento
+    variável em outro de comprimento fixo},
+    first={\glsentryname{hashfunction}},
+    plural={funções de hash}
+}
+
+\newglossaryentry{hashvalue}{
+    name={valor hash},
+    description={ou \emph{hash}; valores gerados por uma tabela hash},
+    first={\glsentryname{hashvalue}},
+    plural={valores hash}
 }
 
 \newglossaryentry{dht}{
     name={DHT},
-    description={},
-    first={\glsentryname{dht}}
+    description={do inglês \emph{distributed hash table}; tabela hash distribuída, é um
+    serviço de busca similar a uma tabela hash, mas na forma de sistema distribuído e
+    descentralizada},
+    first={\glsentryname{dht}},
+    plural={\glsentryname{dht}s}
 }
 
 \newglossaryentry{kademlia}{
     name={Kademlia},
-    description={},
+    description={DHT usado em redes P2P que especifica a estrutura da rede e a troca de
+    informações através de buscas de nós, guardando as localizações de recursos que
+    estão na rede},
     first={\glsentryname{kademlia}}
 }
+
+\newglossaryentry{betatester}{
+    name={beta tester},
+    description={blablabla},
+    first={\glsentryname{betatester}},
+    plural={\glsentryname{betatester}s}
+}
+
 
 Entre o final dos anos 80 e o início dos 90 \cite{site:wiki-fs,site:wiki-fs-timeline}, a
 Internet deixou de ser uma rede de computadores usada somente por entidades
@@ -153,6 +191,11 @@ arquivos que um dia passaram pela sua rede. Se algum arquivo fosse requisitado m
 usuário que o possuísse não estivesse conectado, o servidor central do
 \gls*{audiogalaxy} fazia a ponte, pegando o arquivo para si e enviando-o para o cliente
 do requisitante em seu próximo login.
+
+O período dos 3 anos seguintes à criação desses dois sites foi muito produtivo ao
+mundo \gls*{p2p} de modo geral, onde surgiram alguns protocolos desse paradigma e
+inúmeros softwares que os implementavam. Os mais relevantes foram o Napster, o Gnutella,
+o eDonkey e o BitTorrent.
 
 \subsection{Napster}
 
@@ -194,55 +237,49 @@ lançados, sempre tentando se diferenciar dos outros softwares a fim de não ser
 alvos de ações judiciais. A solução para isso foi tentar descentralizar os mecanismos de
 indexação e de busca, que foram os pontos fracos do Napster.
 
-\todorefs{falta apontar as refs}
-
 \subsection{Gnutella}
 
-O tal sucessor foi o \gls{gnutella}, em março de 2000, foi uma resposta de domínio
-público feita com ``gambiarras'' para os problemas que o Napster encontrou com relação
-ás acusações deviolação de direitos autorais. Enquanto o Napster possuía um servidor
-central como estrutura que, no julgamento, foi usado como prova de que o sistema
-encorajava a violação de direitos autorais, o \gls*{gnutella} foi modelado como um
-sistema \gls*{p2p} puro, onde todos os \glspl*{peer} são completamente iguais, sendo
-responsáveis pelos seus próprios atos.
+O tal sucessor foi o \gls{gnutella}, em março de 2000 \cite{wiki:gnutella}, foi uma
+resposta de domínio público feita com ``gambiarras'' para os problemas que o Napster
+encontrou com relação ás acusações deviolação de direitos autorais. Enquanto o Napster
+possuía um servidor central como estrutura que, no julgamento, foi usado como prova de
+que o sistema encorajava a violação de direitos autorais, o \gls*{gnutella} foi modelado
+como um sistema \gls*{p2p} puro, onde todos os \glspl*{peer} são completamente iguais,
+sendo responsáveis pelos seus próprios atos.
 
-O \gls*{gnutella} disponibiliza arquivos da mesma forma que o Napster, mas sem a
-limitação de ser de formato de música, ou seja, qualquer arquivo pode ser compartilhado.
-A diferença mais significativa entre os dois protocolos é o algoritmo de busca: a
-abordagem do \gls*{gnutella} é baseada numa forma de \gls{anycast}. Isso envolve duas
-partes: a primeira é como cada usuário é conectado a outros nós e mantém a lista dessas
-conexões atualizada. A segunda parte é como ele trata as buscas e trabalha inundando de
-pedidos para todos os nós que estão a uma certa distância do usuário (nó-cliente). Por
-exemplo, se a distância limite for de 4, então todos os nós que estiverem a 4 passos a
-partir do cliente serão verificados, começando a partir dos mais próximos.
-Eventualmente, algum nó possuirá o arquivo requisitado e responderá, e assim será feita
-a transferência desse arquivo. Muitos softwares que implementam o protocolo vão além
-dessa funcionalidade básica de download simples tentando transferir de forma paralela
-partes diferentes do arquivo desejado de nós diferentes, tentando amenizar eventuais
-problemas de velocidade de rede.
+O \gls*{gnutella} disponibiliza arquivos da mesma forma que o Napster
+\cite{book:birman}, mas sem a limitação de ser de formato de música, ou seja, qualquer
+arquivo pode ser compartilhado. A diferença mais significativa entre os dois protocolos
+é o algoritmo de busca: a abordagem do \gls*{gnutella} é baseada numa forma de
+\gls{anycast}. Isso envolve duas partes: a primeira é como cada usuário é conectado a
+outros nós e mantém a lista dessas conexões atualizada. A segunda parte é como ele
+trata as buscas e trabalha inundando de pedidos para todos os nós que estão a uma certa
+distância do usuário (nó- cliente). Por exemplo, se a distância limite for de 4, então
+todos os nós que estiverem a 4 passos a partir do cliente serão verificados, começando
+a partir dos mais próximos. Eventualmente, algum nó possuirá o arquivo requisitado e
+responderá, e assim será feita a transferência desse arquivo. Muitos softwares que
+implementam o protocolo vão além dessa funcionalidade básica de download simples
+tentando transferir de forma paralela partes diferentes do arquivo desejado de nós
+diferentes, tentando amenizar eventuais problemas de velocidade de rede.
 
 Experiências sugerem assim que o sistema escala para um tamanho maior, o mecanismo de
 \gls*{anycast} se torna extremamente caro e em algumas vezes até proibitivo. O problema
 ocorre nas buscas por arquivos menos populares, onde será necessário um maior número de
 nós perguntados.
 
-O \gls*{gnutella} ainda teve uma segunda versão, no final de 2002, onde utilizou o mesmo
-protocolo que o original, porém organizando a rede de \glspl*{peer} em \emph{leafs}
-(folhas, em inglês) e \emph{hubs}. Um \emph{hub} poderia ter centenas de conexões de
-folhas outras 7, em média, a outros \emph{hubs}, enquanto uma folha se conectaria
-apenas a 2 \emph{hubs}. Essa nova topologia, somada com uma nova tabela de índice de
-arquivos das folhas mantida pelos \emph{hubs} onde estavam conectados, melhorou o
-desempenho das buscas, que era ruim na versão antiga.
+O \gls*{gnutella} ainda teve uma segunda versão \cite{wiki:gnutella2}, no final de 2002,
+onde utilizou o mesmo protocolo que o original, porém organizando a rede de
+\glspl*{peer} em \emph{leafs} (folhas, em inglês) e \emph{hubs}. Um \emph{hub} poderia
+ter centenas de conexões de folhas outras 7, em média, a outros \emph{hubs}, enquanto
+uma folha se conectaria apenas a 2 \emph{hubs}. Essa nova topologia, somada com uma
+nova tabela de índice de arquivos das folhas mantida pelos \emph{hubs} onde estavam
+conectados, melhorou o desempenho das buscas, que era ruim na versão antiga.
 
 \subsection{eDonkey}
 
-%\todo[inline]{glossários para: edonkey, swarming, hash, dht, kademlia}
-
-Lançado em 6 de setembro de 2000, o protocolo \gls{edonkey} foi inaugurado juntamente
-com o software que o utilizava, o eDonkey2000, mas inúmeros softwares cliente para
-diferentes plataforas surgiram nos dias seguintes ao lançamento. Porém, não foi o
-cliente, mas sim o protocolo, que inovou em muitos aspectos de seus precursores, tendo
-papel fundamental na história das redes \gls*{p2p}.
+O protocolo \gls{edonkey} inovou em muitos aspectos de seus precursores, tendo papel
+fundamental na história das redes \gls*{p2p} e sua consolidação como ferramenta de
+compartilhamento especializado em arquivos grandes.
 
 O \gls*{edonkey} implementou o primeiro método de download por \gls{swarming}, que é
 chamado o método onde \glspl*{peer} fazem downloads de diferentes partes de um arquivo e
@@ -256,15 +293,15 @@ permitiu que os servidores repassassem buscas de seus clientes conectados localm
 outros servidores, facilitando a localização de \glspl*{peer} conectados em qualquer
 servidor da rede de buscas, aumentando a capacidade de download do enxame.
 
-Uma terceira diferença com o Napster foi o uso de \glspl{hash} de arquivos nos
-resultados de busca ao invés dos simples nomes dos arquivos. As buscas geradas
+Uma terceira diferença com o Napster foi o uso de \glspl{hashvalue} de arquivos
+nos resultados de busca ao invés dos simples nomes dos arquivos. As buscas geradas
 pelos usuários eram baseadas em palavras-chave e comparadas com a lista de nomes de
 arquivos armazenada no servidor, mas o servidor retornava uma lista de pares de nomes
-de arquivos com seus repectivos valores \gls*{hash}. Enfim, quando o usuário
+de arquivos com seus repectivos valores \gls*{hashvalue}. Enfim, quando o usuário
 selecionasse o arquivo desejado, o cliente iniciaria o download do arquivo usando o seu
-valor \gls*{hash}. Desse modo, um arquivo poderia ter muitos nomes entre os diferentes
-\gls*{peer} e servidores, mas seria considerado idêntico para download se possuísse o
-mesmo \gls*{hash}.
+valor \gls*{hashvalue}. Desse modo, um arquivo poderia ter muitos nomes entre os
+diferentes \gls*{peer} e servidores, mas seria considerado idêntico para download se
+possuísse o mesmo \gls*{hashvalue}.
 
 A arquitetura da rede em dois níveis usando cliente e servidor alcançou um meio termo
 entre as redes centralizadas, como o Napster, e as descentralizadas, como o
@@ -282,7 +319,17 @@ conteúdo e usuário; e autenticação.
 
 \section{Nascimento do BitTorrent}
 
-Aqui contarei a história do surgimento do protocolo.
+Em meados dos anos 90, Bram Cohen era um programador que tinha largado a faculdade no
+segundo ano do curso de Ciência da Computação da Universidade de Buffalo, Nova Iorque,
+para trabalhar em empresas \emph{pontocom}. A última foi a MojoNation, uma empresa que
+desenvolvia um software de distribuição de arquivos criptografados por \gls*{swarming},
+que ele já tinha percebido ser uma vantagem com relação ao Kazaa, que fazia
+transferências de uma única origem.
+
+Em abril de 2001, Bram saiu da MojoNation e começou a modelar o protocolo BitTorrent,
+lançando a primeira implementação em Python em julho de 2001. Em fevereiro de 2002, ele
+apresentou o seu trabalho na CodeCon \cite{site:codecon} e na mesma época começou a
+testá-lo, baixando uma coleção de material pornográfico para atrair \glspl{betatester}.
 
 \section{Mundo pós-torrent}
 

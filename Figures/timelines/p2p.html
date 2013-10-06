@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge, chrome=1" />
+  <title>untitled</title>
+
+  <script type="text/javascript" src="https://www.google.com/jsapi?autoload={'modules':[{'name':'visualization',
+  'version':'1','packages':['timeline']}]}"></script>
+  <script type="text/javascript">
+
+    google.setOnLoadCallback(drawChart);
+    function drawChart() {
+
+      var container = document.getElementById('example5.1');
+      var chart = new google.visualization.Timeline(container);
+      var dataTable = new google.visualization.DataTable();
+
+      dataTable.addColumn({ type: 'string', id: 'Protocolo' });
+      dataTable.addColumn({ type: 'date', id: 'Start' });
+      dataTable.addColumn({ type: 'date', id: 'End' });
+
+      function Data(mes,ano) {
+        return new Date(ano,mes,0,0,0,0);
+      }
+
+      dataTable.addRows([
+        [ 'AudioGalaxy',  new Data(11,1998),  new Data(5,2002) ],
+        [ 'Napster',  new Data(6,1999),  new Data(7,2001) ],
+        [ 'Gnutella',  new Data(3,2001),  new Data(12,2013) ],
+        [ 'Gnutella2',  new Data(11,2002),  new Data(12,2013) ],
+        [ 'FastTrack',    new Data(3,2001), new Data(12,2013) ],
+        [ 'eDonkey',    new Data(9,2000), new Data(12,2013) ],
+        [ 'BitTorrent',    new Data(7,2001), new Data(12,2013) ]
+      ]);
+
+      var options = {
+        timeline: {
+          colorByRowLabel: true
+        }
+      };
+
+      chart.draw(dataTable, options);
+    }
+
+  </script>
+
+</head>
+<body>
+
+<div id="example5.1" style="width: 900px; height: 500px;"></div>
+
+</body>
+</html>
