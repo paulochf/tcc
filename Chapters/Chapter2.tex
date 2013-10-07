@@ -2,16 +2,6 @@
 
 \chapter{Napster, Gnutella, eDonkey e BitTorrent}
 
-\begin{comment}
-Vou contar a história do BitTorrent, desde o aumento do uso de
-transferências de dados via internet, passando pela criação de protocolos e softwares
-usados para baixar arquivos de forma ilegal, até a sua criação e o boom de usuários que
-o utilizam para essa motivação. Em paralelo, discutirei os motivos legais pelos quais os
-softwares anteriores foram descontinuados, que influenciaram diretamente na sua criação.
-
-Separarei em 3 períodos: o antes, a criação e as consequências disso no mundo.
-\end{comment}
-
 Para entendermos como e por que o BitTorrent se tornou o que é hoje, devemos voltar um
 pouco no tempo e rever a história que precedeu à sua criação, que é o fim da década dos
 anos 1990.
@@ -24,8 +14,6 @@ anos 1990.
 %     first={World Wide Web (WWW)},
 %     long={World Wide Web}
 % }
-
-\todo[inline]{adicionar firstplural ao glossário}
 
 \section{Período pré-torrent}
 
@@ -45,8 +33,8 @@ anos 1990.
     description={do inglês \emph{MPEG-1/2 Audio Layer 3}; formato patenteado de
     compressão de dados de áudio digital que usa um método de compressão de dados com
     perdas},
-    first={\glsentrylong{mp3} (\glsentryname{mp3})},
     long={formato de áudio \glsentryname{mp3}},
+    first={\glsentrylong{mp3} (\glsentryname{mp3})},
     plural={\glsentryname{mp3}s}
 }
 
@@ -54,18 +42,19 @@ anos 1990.
     name={peer},
     description={do inglês \emph{peer-to-peer}; como são chamados cada nó da rede desse
     tipo},
-    first={\glsentrylong{peer} (um nó da rede)},
-    long={\glsentryname{peer}},
+    first={\glsentryname{peer} (um nó da rede)},
+    firstplural={\glsplural{peer} (nós da rede)},
     plural={\glsentryname{peer}s}
 }
 
 \newglossaryentry{p2p}{
     name={P2P},
     description={do inglês \emph{peer-to-peer}; redes de arquitetura descentralizada e
-    distribuída, onde cada nó (\emph{peer}) faz fornece e consome recursos},
-    first={\glsentrylong{p2p} (\glsentryname{p2p})},
-    long={rede \glsentryname{p2p}},
-    plural={redes \glsentryname{p2p}}
+    distribuída, onde cada nó (\emph{peer}) fornece e consome recursos},
+    long={peer-to-peer},
+    first={rede \glsentrylong{p2p} (\glsentryname{p2p})},
+    plural={redes \glsentrylong{p2p}},
+    firstplural={\glsentryplural{p2p} (\glsentryname{p2p})}
 }
 
 \newglossaryentry{audiogalaxy}{
@@ -120,7 +109,8 @@ anos 1990.
     um ou vários locais onde este está disponível para um único destino, inclusive no
     caso de um arquivo em um local sendo transmitido em várias partes paralelas. Cabe ao
     software que faz o download juntar as partes no ponto de destino},
-    first={\glsentryname{swarming}}
+    first={\glsentryname{swarming}},
+    plural={\glsentryname{swarming}s}
 }
 
 \newglossaryentry{hashtable}{
@@ -129,7 +119,8 @@ anos 1990.
     correspondência chave-valor, onde os dados são guardados como os valores e
     indexados por seus respectivos \emph{valores hash}},
     first={\glsentryname{hashtable}},
-    plural={tabelas de hash}
+    firstplural={tabelas de hash},
+    plural={\glsentryfirstplural{hashtable}},
 }
 
 \newglossaryentry{hashfunction}{
@@ -137,14 +128,16 @@ anos 1990.
     description={é uma função ou algoritmo matemático que mapeia um dado de comprimento
     variável em outro de comprimento fixo},
     first={\glsentryname{hashfunction}},
-    plural={funções de hash}
+    firstplural={funções de hash},
+    plural={\glsentryfirstplural{hashfunction}}
 }
 
 \newglossaryentry{hashvalue}{
     name={valor hash},
     description={ou \emph{hash}; valores gerados por uma tabela hash},
     first={\glsentryname{hashvalue}},
-    plural={valores hash}
+    firstplural={valores hash},
+    plural={\glsentryfirstplural{hashvalue}}
 }
 
 \newglossaryentry{dht}{
@@ -152,8 +145,10 @@ anos 1990.
     description={do inglês \emph{distributed hash table}; tabela hash distribuída, é um
     serviço de busca similar a uma tabela hash, mas na forma de sistema distribuído e
     descentralizada},
-    first={\glsentryname{dht}},
-    plural={\glsentryname{dht}s}
+    first={tabela hash distribuída (\glsentryname{dht})},
+    firstplural={tabelas hash distribuídas (\glsentryplural{dht})},
+    long={DHT},
+    plural={\glsentrylong{dht}s}
 }
 
 \newglossaryentry{kademlia}{
@@ -166,10 +161,20 @@ anos 1990.
 
 \newglossaryentry{betatester}{
     name={beta tester},
-    description={blablabla},
+    description={usuários de uma versão beta de um software},
     first={\glsentryname{betatester}},
     plural={\glsentryname{betatester}s}
 }
+
+\todoerrors{fazer: tracker}
+
+\newglossaryentry{tracker}{
+    name={tracker},
+    description={tracker blablabla},
+    first={\glsentryname{tracker}},
+    plural={\glsentryname{tracker}s}
+}
+
 
 
 Entre o final dos anos 80 e o início dos 90 \cite{site:wiki-fs,site:wiki-fs-timeline}, a
@@ -193,7 +198,7 @@ usuário que o possuísse não estivesse conectado, o servidor central do
 do requisitante em seu próximo login.
 
 O período dos 3 anos seguintes à criação desses dois sites foi muito produtivo ao
-mundo \gls*{p2p} de modo geral, onde surgiram alguns protocolos desse paradigma e
+mundo das \glspl{p2p} de modo geral, onde surgiram alguns protocolos desse paradigma e
 inúmeros softwares que os implementavam. Os mais relevantes foram o Napster, o Gnutella,
 o eDonkey e o BitTorrent.
 
@@ -254,7 +259,7 @@ arquivo pode ser compartilhado. A diferença mais significativa entre os dois pr
 \gls{anycast}. Isso envolve duas partes: a primeira é como cada usuário é conectado a
 outros nós e mantém a lista dessas conexões atualizada. A segunda parte é como ele
 trata as buscas e trabalha inundando de pedidos para todos os nós que estão a uma certa
-distância do usuário (nó- cliente). Por exemplo, se a distância limite for de 4, então
+distância do usuário (nó-cliente). Por exemplo, se a distância limite for de 4, então
 todos os nós que estiverem a 4 passos a partir do cliente serão verificados, começando
 a partir dos mais próximos. Eventualmente, algum nó possuirá o arquivo requisitado e
 responderá, e assim será feita a transferência desse arquivo. Muitos softwares que
@@ -309,11 +314,11 @@ entre as redes centralizadas, como o Napster, e as descentralizadas, como o
 legais, enquanto o segundo rapidamente mostrou-se inviável devido ao tráfego massivo de
 buscas entre \glspl*{peer}.
 
-Por fim, a inovação mais importante foi o uso de \gls{dht}, em específico o
+Por fim, a inovação mais importante foi o uso de \glspl{dht}, em específico o
 \gls{kademlia}, como algoritmo de indexação e busca nos servidores centrais dos
 arquivos através da rede \gls*{edonkey}. Além de ser uma das causas da melhora no
 desempenho nas buscas, \glspl*{dht} possuem ainda outras características como
-tolerância a falhas e escalabilidade. O \gls*{kademlia} em específico ainda oferece
+tolerância a falhas e escalabilidade. O \gls*{kademlia} ainda oferece
 outras vantagens como armazenamento de dados eficiente; anonimato; segurança de rede,
 conteúdo e usuário; e autenticação.
 
@@ -321,18 +326,88 @@ conteúdo e usuário; e autenticação.
 
 Em meados dos anos 90, Bram Cohen era um programador que tinha largado a faculdade no
 segundo ano do curso de Ciência da Computação da Universidade de Buffalo, Nova Iorque,
-para trabalhar em empresas \emph{pontocom}. A última foi a MojoNation, uma empresa que
-desenvolvia um software de distribuição de arquivos criptografados por \gls*{swarming},
-que ele já tinha percebido ser uma vantagem com relação ao Kazaa, que fazia
-transferências de uma única origem.
+para trabalhar em empresas \emph{pontocom}. A última delas foi a MojoNation, uma
+empresa que desenvolvia um software de distribuição de arquivos criptografados por
+\gls*{swarming}, que ele já tinha percebido ser uma vantagem com relação ao Kazaa, que
+fazia transferências de uma única origem.
 
 Em abril de 2001, Bram saiu da MojoNation e começou a modelar o protocolo BitTorrent,
 lançando a primeira implementação em Python em julho de 2001. Em fevereiro de 2002, ele
 apresentou o seu trabalho na CodeCon \cite{site:codecon} e na mesma época começou a
-testá-lo, baixando uma coleção de material pornográfico para atrair \glspl{betatester}.
+testá-lo, usando uma coleção de material pornográfico para atrair \glspl{betatester}
+\cite{site:bramcohen}. O software começou a ser usado imediatamente pelos usuários.
+
+Nesse meio tempo, Bram ainda passou pela Valve \cite{wiki:bramcohen}, empresa de
+desenvolvimento de jogos, para trabalhar no sistema de distribuição online do jogo
+Half Life 2. Em 2004, saiu da Valve e voltou o foco ao Torrent. Em setembro, fundou a
+BitTorrent Inc. com seu irmão Ross Cohen e o parceiro de negócios Ashwin Navin,
+sendo então responsável pelo desenvolvimento do protocolo. Nesse mesmo ano, o
+BitTorrent passou a ser bastante utilizado, quando surgiram os primeiros programas de
+televisão e filmes compartilhados pelo protocolo.
+
+Já em maio de 2005, Cohen lança uma nova versão do BitTorrent que não precisa de
+\glspl*{tracker}\todo{explicar o impacto legal disso}, juntamente com um site
+de buscas de conteúdo na Internet. Em setembro, a empresa recebe do investidor David
+Chao \$8.5 milhões de dólares. No final desse ano, a BitTorrent Inc. e a MCAA
+\cite{wiki:mcaa} fizeram um acordo que a empresa de ajudar os usuário a encontrar
+conteúdos não autorizado dos representados da associação, que não ajudou no combate a
+pirataria pois já havia outros sites de busca nessa época, como o TorrentSpy, Mininova,
+NewNova e o The Pirate Bay.
 
 \section{Mundo pós-torrent}
 
-Aqui discorrerei sobre as consequências do uso do BitTorrent, desde as influências acadêmico-tecnológicas da sua difusão, bem como explicarei as questões jurídicas envolvidas no seu uso.
+Desde o fechamento do site de buscas, a BitTorrent Inc. tem desenvolvido outros
+softwares baseados na tecnologia \gls*{p2p} \cite{site:bittorrent}, como transmissão de
+vídeos ao vivo (BitTorrent Live), sincronização de arquivos entre computadores ligados
+à Internet (BitTorrent Sync), publicação e distribuição de conteúdo de artistas a seus
+fãs (BitTorrent Bundles), entre outros serviços comerciais.
+
+Como protocolo, o BitTorrent criou um novo paradigma de transmissão de informação pela
+Internet, sendo utilizado de inúmeras formas e motivos.
+
+\begin{itemize}
+    \item alguns softwares de podcasting, como o Miro \cite{site:miro}, passaram a
+        usar o protocolo como forma de lidar com a grande quantidade de downloads de
+        programas online;
+
+    \item o site da gravadora DGM Live fornece o conteúdo via torrent após a venda
+        \cite{site:dgm};
+
+    \item VODO \cite{site:vodo} é um site de divulgação e distribuição de filmes sob a
+        licença Creative Commons e que faz a publicação em outros sites de buscas de
+        torrent;
+
+    \item canais como a americana CBC \cite{site:cbc} e a holandesa VPRO
+        \cite{site:vpro} já disponibilizaram programas de sua programação para
+        download. A norueguesa NRK o faz para conteúdos em HD \cite{site:nrk} e,
+        apesar de algumas restrições de direitos, tem aumentado a oferta;
+
+    \item o serviço da Amazon Web Services de armazenamento de conteúdo via web service,
+        a Amazon S3, permite o uso de torrent para a transmissão de arquivos
+        \cite{site:aws-s3};
+
+    \item as empresas de desenvolvimento de jogos CCP Games, produtora do jogo Eve
+        Online, usa o protocolo para distribuir o instalador de seu jogo
+        \cite{site:eve}. A Blizzard, dona de Diablo III, StarCraft II e World of
+        Warcraft, distribui esses jogos e ainda suas eventuais atualizações
+        \cite{site:blizzard};
+
+    \item o governo britânico distribuiu os detalhes de seus gastos \cite{site:gov-uk},
+        enquanto a Universidade do Estado da Flórida usa para transmitir grandes
+        conjuntos de dados científicos para seus pesquisadores \cite{site:univ-fl};
+
+    \item Facebook \cite{site:facebook-torrent} e Twitter \cite{site:twitter-torrent}
+        usam para transmitir o código atualizado de seus sites para seus servidores de
+        aplicação de forma eficiente \cite{site:twitter-torrent-power}.
+\end{itemize}
+
+Em 2013, o BitTorrent é um dos maiores geradores de tráfego de rede do mundo, ao lado
+do NetFlix, Youtube, Facebook e acessos HTTP \cite{report:internet-usage-2013}, em uma
+tendência de aumento.
+
+\todoerrors{falar sobre impactos das brigas judiciais}
+
+Academicamente, o protocolo é bastante estudado desde o seu surgimento, e alguns estudos
+vem mostrando... \todo[inline]{completar com dados das referências da proposta}
 
 \clearpage

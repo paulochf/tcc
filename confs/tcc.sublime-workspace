@@ -11,7 +11,7 @@
 			"file": "/media/paulo/Arquivos/tcc/mono/tcc.tex",
 			"settings":
 			{
-				"buffer_size": 5836,
+				"buffer_size": 5818,
 				"line_ending": "Unix"
 			}
 		},
@@ -19,7 +19,7 @@
 			"file": "/media/paulo/Arquivos/tcc/mono/bibliografia.bib",
 			"settings":
 			{
-				"buffer_size": 14588,
+				"buffer_size": 15857,
 				"line_ending": "Unix"
 			}
 		},
@@ -27,15 +27,7 @@
 			"file": "/media/paulo/Arquivos/tcc/mono/Chapters/Chapter2.tex",
 			"settings":
 			{
-				"buffer_size": 17389,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/media/paulo/Arquivos/tcc/mono/Figures/timelines/p2p.html",
-			"settings":
-			{
-				"buffer_size": 1614,
+				"buffer_size": 17315,
 				"line_ending": "Unix"
 			}
 		}
@@ -96,6 +88,7 @@
 	},
 	"file_history":
 	[
+		"/media/paulo/Arquivos/tcc/mono/Figures/timelines/p2p.html",
 		"/media/paulo/Arquivos/tcc/mono/tcc.gls",
 		"/media/paulo/Arquivos/tcc/mono/confs/sublime/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
 		"/media/paulo/Arquivos/tcc/mono/Chapters/Chapter6.tex",
@@ -129,7 +122,7 @@
 	],
 	"find":
 	{
-		"height": 40.0
+		"height": 31.0
 	},
 	"find_in_files":
 	{
@@ -143,6 +136,10 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"\"([^\\\\\\\\\"]*)\"",
+			"Wiki",
+			"wiki",
+			"face",
 			"    note = \"Online; retirado de http://macaubas.com/wp-content/uploads/2013/05/Sandvine_Global_Internet_Phenomena_Report_1H_2013.pdf\",\n",
 			"new Date\\([^\\)]*\\)",
 			"new Date(\\([^\\)]*\\))",
@@ -190,6 +187,7 @@
 		"regex": true,
 		"replace_history":
 		[
+			"{\\1}",
 			"new Date(0,0)",
 			"(0,0)",
 			"data()",
@@ -220,15 +218,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5836,
+						"buffer_size": 5818,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1452,
-								1452
+								1435,
+								1435
 							]
 						],
 						"settings":
@@ -238,7 +236,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 423.0,
+						"translation.y": 3276.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -249,15 +247,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 14588,
+						"buffer_size": 15857,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								7530,
-								7530
+								8661,
+								8661
 							]
 						],
 						"settings":
@@ -265,7 +263,7 @@
 							"syntax": "Packages/LaTeX/Bibtex.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 2728.0,
+						"translation.y": 3439.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -273,7 +271,7 @@
 			]
 		},
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -282,15 +280,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 17389,
+						"buffer_size": 17315,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								17160,
-								17160
+								16971,
+								16971
 							]
 						],
 						"settings":
@@ -301,37 +299,7 @@
 							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 2330.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "/media/paulo/Arquivos/tcc/mono/Figures/timelines/p2p.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1614,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1342,
-								1342
-							]
-						],
-						"settings":
-						{
-							"is_xml": false,
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 4079.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -384,7 +352,7 @@
 	"project": "tcc.sublime-project",
 	"replace":
 	{
-		"height": 74.0
+		"height": 56.0
 	},
 	"save_all_on_build": true,
 	"select_file":
