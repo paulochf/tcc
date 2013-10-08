@@ -11,7 +11,7 @@
 			"file": "/media/paulo/Arquivos/tcc/mono/tcc.tex",
 			"settings":
 			{
-				"buffer_size": 5818,
+				"buffer_size": 5799,
 				"line_ending": "Unix"
 			}
 		},
@@ -19,7 +19,7 @@
 			"file": "/media/paulo/Arquivos/tcc/mono/bibliografia.bib",
 			"settings":
 			{
-				"buffer_size": 15857,
+				"buffer_size": 19624,
 				"line_ending": "Unix"
 			}
 		},
@@ -27,7 +27,7 @@
 			"file": "/media/paulo/Arquivos/tcc/mono/Chapters/Chapter2.tex",
 			"settings":
 			{
-				"buffer_size": 17315,
+				"buffer_size": 21220,
 				"line_ending": "Unix"
 			}
 		}
@@ -88,10 +88,11 @@
 	},
 	"file_history":
 	[
+		"/media/paulo/Arquivos/tcc/mono/Chapters/Chapter6.tex",
+		"/home/paulo/.config/sublime-text-3/Packages/User/SideBarEnhancements/Open With/Side Bar.sublime-menu",
 		"/media/paulo/Arquivos/tcc/mono/Figures/timelines/p2p.html",
 		"/media/paulo/Arquivos/tcc/mono/tcc.gls",
 		"/media/paulo/Arquivos/tcc/mono/confs/sublime/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
-		"/media/paulo/Arquivos/tcc/mono/Chapters/Chapter6.tex",
 		"/media/paulo/Arquivos/tcc/mono/tcc.tex",
 		"/media/paulo/Arquivos/tcc/mono/confs/sublime/.config/sublime-text-3/Packages/LaTeXTools/LaTeX.sublime-build",
 		"/media/paulo/Arquivos/tcc/mono/bibliografia.bib",
@@ -136,6 +137,18 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"September",
+			"October",
+			"accessed",
+			"\"([^\\\\\\\\\"]*)\"",
+			" - ",
+			"--",
+			"\n@online{site:facebook-torrent,\n    author = {Ernesto},\n    title = {BitTorrent And MPAA join forces},\n    journal = {TorrentFreak},\n    day = {23},\n    month = {11},\n    year = {2005},\n    url = {http://http://torrentfreak.com/BitTorrent-and-mpaa-join-forces/}\n",
+			"bram",
+			"rips",
+			"publisher",
+			"Journal",
+			"journal",
 			"\"([^\\\\\\\\\"]*)\"",
 			"Wiki",
 			"wiki",
@@ -182,11 +195,17 @@
 			"maketi"
 		],
 		"highlight": true,
-		"in_selection": true,
+		"in_selection": false,
 		"preserve_case": false,
 		"regex": true,
 		"replace_history":
 		[
+			"setembro",
+			"outubro",
+			"acessado em",
+			"{\\1}",
+			" --- ",
+			"---",
 			"{\\1}",
 			"new Date(0,0)",
 			"(0,0)",
@@ -209,7 +228,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -218,15 +237,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5818,
+						"buffer_size": 5799,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1435,
-								1435
+								2597,
+								2597
 							]
 						],
 						"settings":
@@ -236,7 +255,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 3276.0,
+						"translation.y": 884.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -247,15 +266,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 15857,
+						"buffer_size": 19624,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								8661,
-								8661
+								7862,
+								7862
 							]
 						],
 						"settings":
@@ -263,7 +282,7 @@
 							"syntax": "Packages/LaTeX/Bibtex.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 3439.0,
+						"translation.y": 2841.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -280,15 +299,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 17315,
+						"buffer_size": 21220,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								16971,
-								16971
+								17831,
+								17831
 							]
 						],
 						"settings":
@@ -299,7 +318,7 @@
 							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 4079.0,
+						"translation.y": 4205.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -309,7 +328,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 28.0
+		"height": 21.0
 	},
 	"input":
 	{
