@@ -19,7 +19,7 @@
 			"file": "/media/paulo/Arquivos/tcc/mono/bibliografia.bib",
 			"settings":
 			{
-				"buffer_size": 19624,
+				"buffer_size": 19998,
 				"line_ending": "Unix"
 			}
 		},
@@ -27,7 +27,7 @@
 			"file": "/media/paulo/Arquivos/tcc/mono/Chapters/Chapter2.tex",
 			"settings":
 			{
-				"buffer_size": 21220,
+				"buffer_size": 22163,
 				"line_ending": "Unix"
 			}
 		}
@@ -228,7 +228,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -266,15 +266,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 19624,
+						"buffer_size": 19998,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								7862,
-								7862
+								12694,
+								12694
 							]
 						],
 						"settings":
@@ -282,7 +282,7 @@
 							"syntax": "Packages/LaTeX/Bibtex.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 2841.0,
+						"translation.y": 5219.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -299,15 +299,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 21220,
+						"buffer_size": 22163,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								17831,
-								17831
+								22013,
+								22013
 							]
 						],
 						"settings":
@@ -318,7 +318,7 @@
 							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 4205.0,
+						"translation.y": 5037.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
