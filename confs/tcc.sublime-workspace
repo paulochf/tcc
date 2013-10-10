@@ -19,15 +19,18 @@
 			"file": "/media/paulo/Arquivos/tcc/mono/bibliografia.bib",
 			"settings":
 			{
-				"buffer_size": 19998,
+				"buffer_size": 20383,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/media/paulo/Arquivos/tcc/mono/Chapters/Chapter2.tex",
+			"contents": "%!TEX root = ../tcc.tex\n\n\\chapter{Anatomia do BitTorrent}\n\nO processo de utilização do protocolo BitTorrent é um curto espaço de tempo, porém o\nprocedimento computacional é longo e complexo. Nesta seção, abordaremos todo o fluxo de\ntrabalho do protocolo utilizando o cliente Transmission, que é de código \n\n\\section{Busca por informações}\n\nFalarei quais informações um arquivo torrent pode conter e como o Transmission as utiliza, tentando mostrar detalhes da troca de mensagens dele com servidores de rastreamento.\n\n\\section{Fontes de arquivos}\n\nMostrarei o processamento dos dados adquiridos na seção anterior e como ele organiza a lista das fontes de arquivos usando a tabela hash DHT Kademlia.\n\n\\section{Jogo da troca de arquivos}\n\nExplicarei o algoritmo tit-for-tat padrão do protocolo BitTorrent, que vem da Teoria dos Jogos, e como o Transmission o implementa.\n\n\\clearpage\n",
+			"file": "/media/paulo/Arquivos/tcc/mono/Chapters/Chapter3.tex",
+			"file_size": 737,
+			"file_write_time": 130246381036156322,
 			"settings":
 			{
-				"buffer_size": 22163,
+				"buffer_size": 880,
 				"line_ending": "Unix"
 			}
 		}
@@ -88,6 +91,8 @@
 	},
 	"file_history":
 	[
+		"/media/paulo/Arquivos/tcc/mono/Chapters/Chapter2.tex",
+		"/media/paulo/Arquivos/tcc/mono/bibliografia.bib",
 		"/media/paulo/Arquivos/tcc/mono/Chapters/Chapter6.tex",
 		"/home/paulo/.config/sublime-text-3/Packages/User/SideBarEnhancements/Open With/Side Bar.sublime-menu",
 		"/media/paulo/Arquivos/tcc/mono/Figures/timelines/p2p.html",
@@ -95,7 +100,6 @@
 		"/media/paulo/Arquivos/tcc/mono/confs/sublime/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
 		"/media/paulo/Arquivos/tcc/mono/tcc.tex",
 		"/media/paulo/Arquivos/tcc/mono/confs/sublime/.config/sublime-text-3/Packages/LaTeXTools/LaTeX.sublime-build",
-		"/media/paulo/Arquivos/tcc/mono/bibliografia.bib",
 		"/media/paulo/Arquivos/tcc/mono/Chapters/Chapter1.tex",
 		"/media/paulo/Arquivos/tcc/mono/.latexmkrc",
 		"/home/paulo/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
@@ -108,7 +112,6 @@
 		"/media/paulo/Arquivos/tcc/mono/confs/sublime/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
 		"/media/paulo/Arquivos/tcc/mono/confs/LaTeX.sublime-build",
 		"/media/paulo/Arquivos/tcc/mono/confs/tcc.sublime-workspace",
-		"/media/paulo/Arquivos/tcc/mono/Chapters/Chapter2.tex",
 		"/media/paulo/Arquivos/tcc/mono/Chapters/Chapter3.tex",
 		"/media/paulo/Arquivos/tcc/mono/Chapters/Chapter5.tex",
 		"/media/paulo/Arquivos/tcc/mono/Chapters/Chapter7.tex",
@@ -244,8 +247,8 @@
 						"selection":
 						[
 							[
-								2597,
-								2597
+								2378,
+								2378
 							]
 						],
 						"settings":
@@ -255,7 +258,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 884.0,
+						"translation.y": 845.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -266,23 +269,25 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 19998,
+						"buffer_size": 20383,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								12694,
-								12694
+								0,
+								0
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/LaTeX/Bibtex.tmLanguage"
+							"syntax": "Packages/LaTeX/Bibtex.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 5219.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -295,30 +300,27 @@
 			[
 				{
 					"buffer": 2,
-					"file": "/media/paulo/Arquivos/tcc/mono/Chapters/Chapter2.tex",
+					"file": "/media/paulo/Arquivos/tcc/mono/Chapters/Chapter3.tex",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 22163,
+						"buffer_size": 880,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								22013,
-								22013
+								305,
+								305
 							]
 						],
 						"settings":
 						{
-							"auto_wrap": true,
-							"forward_sync": true,
-							"keep focus": false,
 							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 5037.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -354,7 +356,7 @@
 		"cols":
 		[
 			0.0,
-			0.490918096353,
+			0.5,
 			1.0
 		],
 		"rows":

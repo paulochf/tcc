@@ -1,0 +1,226 @@
+%!TEX root = tcc.tex
+
+% http://tex.stackexchange.com/a/99664
+% \newglossaryentry{www}{
+%     name={World Wide Web},
+%     description={World Wide Web (WWW) é nome que se dá à rede mundial de
+%             computadores interligados, que originou a Internet},
+%     first={World Wide Web (WWW)},
+%     long={World Wide Web}
+% }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% CAPITULO 2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newglossaryentry{isp}{
+    name={ISP},
+    description={do inglês \emph{Internet Service Provider}; fornecedores de
+    acesso a Internet, que são empresas que vendem serviço e equipamento que permitem
+    o acesso de um computador pessoal acessar a Internet},
+    first={fornecedor de acesso a Internet (\glsentryname{isp})},
+    long={fornecedor de acesso a Internet},
+    plural={\glsentryname{isp}s},
+    firstplural={fornecedores de acesso a Internet (\glsentryname{isp}s)}
+}
+
+\newglossaryentry{mp3}{
+    name={MP3},
+    description={do inglês \emph{MPEG-1/2 Audio Layer 3}; formato patenteado de
+    compressão de dados de áudio digital que usa um método de compressão de dados com
+    perdas},
+    long={formato de áudio \glsentryname{mp3}},
+    first={\glsentrylong{mp3} (\glsentryname{mp3})},
+    plural={\glsentryname{mp3}s}
+}
+
+\newglossaryentry{peer}{
+    name={peer},
+    description={do inglês \emph{peer-to-peer}; como são chamados cada nó da rede desse
+    tipo},
+    first={\glsentryname{peer} (um nó da rede)},
+    firstplural={\glsplural{peer} (nós da rede)},
+    plural={\glsentryname{peer}s}
+}
+
+\newglossaryentry{p2p}{
+    name={P2P},
+    description={do inglês \emph{peer-to-peer}; redes de arquitetura descentralizada e
+    distribuída, onde cada nó (\emph{peer}) fornece e consome recursos},
+    long={peer-to-peer},
+    first={rede \glsentrylong{p2p} (\glsentryname{p2p})},
+    plural={redes \glsentrylong{p2p}},
+    firstplural={\glsentryplural{p2p} (\glsentryname{p2p})}
+}
+
+\newglossaryentry{audiogalaxy}{
+    name={Audiogalaxy},
+    description={rede P2P de compartilhamento de músicas MP3 criado em 1998},
+    first={\glsentryname{audiogalaxy}.com},
+    long={\glsentryname{audiogalaxy}}
+}
+
+\newglossaryentry{riaa}{
+    name={RIAA},
+    description={do inglês \emph{Recording Industry Association of America}; Associação
+    da Indústria de Gravação da América, organização que representa as gravadoras
+    musicais e distribuidores, e tem sido autora de ações judiciais devido a quebra de
+    direitos autorais causada por compartilhamento indevido de música},
+    first={RIAA (do inglês \emph{Recording Industry Association of America})},
+    long={\glsentryname{riaa}}
+}
+
+\newglossaryentry{gnutella}{
+    name={Gnutella},
+    description={software de compartilhamento P2P desenvolvido por 3 programadores da
+    empresa Nullsoft, recém adquirida da AOL Inc., lançado em 2000 sob a licença GPL.
+    No dia seguinte, a AOL ordenou indisponibilizar o software alegando problemas
+    legais e proibindo a continuação do desenvolvimento. Alguns dias depois, o
+    protocolo já tinha sido alvo de engenharia reversa e já havia softwares que o
+    implementavam},
+    first={\glsentryname{gnutella}}
+}
+
+\newglossaryentry{anycast}{
+    name={anycast},
+    description={método de endereçamento e roteamento de rede onde os datagramas de um
+    único remetente são roteados para um membro de um grupo de receptores potenciais que
+    estão definidos pelo mesmo intervalo no endereço de destino. Geralmente é usado
+    para serviços que demandem alta disponibilidade},
+    first={\glsentryname{anycast}}
+}
+
+\newglossaryentry{edonkey}{
+    name={eDonkey},
+    description={lançado em 6 de setembro de 2000, o protocolo foi inaugurado juntamente
+    com o software que o utilizava, o eDonkey2000, mas inúmeros softwares cliente para
+    diferentes plataforas surgiram nos dias seguintes ao lançamento},
+    first={\glsentryname{edonkey}}
+}
+
+\newglossaryentry{swarming}{
+    name={swarming},
+    description={também chamado de transmissão de \emph{arquivos por segmentação} ou de
+    \emph{múltiplas fontes}, é a transmissão coordenada de um arquivo a partir de
+    um ou vários locais onde este está disponível para um único destino, inclusive no
+    caso de um arquivo em um local sendo transmitido em várias partes paralelas. Cabe ao
+    software que faz o download juntar as partes no ponto de destino},
+    first={\glsentryname{swarming}},
+    plural={\glsentryname{swarming}s}
+}
+
+\newglossaryentry{hashtable}{
+    name={tabela de hash},
+    description={ou \emph{mapa de hash}, é uma estrutura de dados que cria uma lista de
+    correspondência chave-valor, onde os dados são guardados como os valores e
+    indexados por seus respectivos \emph{valores hash}},
+    first={\glsentryname{hashtable}},
+    firstplural={tabelas de hash},
+    plural={\glsentryfirstplural{hashtable}},
+}
+
+\newglossaryentry{hashfunction}{
+    name={função de hash},
+    description={é uma função ou algoritmo matemático que mapeia um dado de comprimento
+    variável em outro de comprimento fixo},
+    first={\glsentryname{hashfunction}},
+    firstplural={funções de hash},
+    plural={\glsentryfirstplural{hashfunction}}
+}
+
+\newglossaryentry{hashvalue}{
+    name={valor hash},
+    description={ou \emph{hash}; valores gerados por uma tabela hash},
+    first={\glsentryname{hashvalue}},
+    firstplural={valores hash},
+    plural={\glsentryfirstplural{hashvalue}}
+}
+
+\newglossaryentry{dht}{
+    name={DHT},
+    description={do inglês \emph{distributed hash table}; tabela hash distribuída, é um
+    serviço de busca similar a uma tabela hash, mas na forma de sistema distribuído e
+    descentralizada},
+    first={tabela hash distribuída (\glsentryname{dht})},
+    firstplural={tabelas hash distribuídas (\glsentryplural{dht})},
+    long={DHT},
+    plural={\glsentrylong{dht}s}
+}
+
+\newglossaryentry{kademlia}{
+    name={Kademlia},
+    description={DHT usado em redes P2P que especifica a estrutura da rede e a troca de
+    informações através de buscas de nós, guardando as localizações de recursos que
+    estão na rede},
+    first={\glsentryname{kademlia}}
+}
+
+\newglossaryentry{betatester}{
+    name={beta tester},
+    description={usuários de uma versão beta de um software},
+    first={\glsentryname{betatester}},
+    plural={\glsentryname{betatester}s}
+}
+
+\newglossaryentry{tracker}{
+    name={tracker},
+    description={em português, rastreador; servidor que funciona como um ponto de
+    encontro de peers},
+    first={\glsentryname{tracker}},
+    plural={\glsentryname{tracker}s}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% CAPITULO 3
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newglossaryentry{magnetlink}{
+    name={magnet link},
+    description={em português, link magnético; padrão aberto, definido por convenção,
+    de esquema de caminho de Internet (URI) utilizado para localizar recursos de rede
+    BitTorrent para download},
+    first={link magnético (\glsentryname{magnetlink})},
+    long={link magnético},
+    plural={links magnéticos},
+    firstplural={\glsentryplural{magnetlink} (\glsentryname{magnetlink}s)}
+}
+
+\newglossaryentry{uri}{
+    name={URI},
+    description={do inglês \emph{Uniform Resource Identifier}; Identificador Uniforme
+    de Recursos, é uma cadeia de caracteres usada para identificar algum recurso,
+    especificando algum protocolo e um caminho. Por exemplo, o URI `file:///arquivo.
+    txt' indica um arquivo no computador local (nome de esquema `file'), enquanto
+    `http://pagina.com' se refere a uma página de Internet (nome de esquema `http')},
+    first={identificador uniforme de recursos (\glsentryname{uri})},
+    firstplural={identificadores uniformes de recursos (\glsentryname{uri})},
+    long={identificador uniforme de recursos},
+    plural={\glsentrylong{uri}s}
+}
+
+\newglossaryentry{url}{
+    name={URL},
+    description={do inglês \emph{Uniform Resource Locator}; Localizador Uniforme
+    de Recursos, é uma cadeia de caracteres usada para identificar algum recurso na
+    Internet, especificando algum protocolo de comunicação},
+    first={localizador uniforme de recursos (\glsentryname{url})},
+    firstplural={localizadores uniformes de recursos (\glsentryname{url})},
+    long={localizador uniforme de recursos},
+    plural={\glsentrylong{url}s}
+}
+
+\newglossaryentry{metadata}{
+    name={metadado},
+    description={dados sobre outros dados; informação sobre outra informação},
+    first={\glsentryname{metadata}},
+    plural={\glsentryname{metadata}s},
+    firstplural={\glsentryplural{metadata}}
+}
+
+\newglossaryentry{announce}{
+    name={announce},
+    description={endereço web (URL) do tracker},
+    first={\glsentryname{announce}},
+    plural={\glsentryname{announce}s},
+    firstplural={\glsentryplural{announce}}
+}

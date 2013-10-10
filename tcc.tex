@@ -52,15 +52,16 @@
 %\newcommand{\emptyaccsupp}[1]{\BeginAccSupp{ActualText={}}#1\EndAccSupp{}}
 
 \addbibresource{bibliografia.bib}
+\loadglsentries{glossario.tex}
 
 \includeonly{
-%    Chapters/Chapter1,     % 1. Introdução
+    Chapters/Chapter1,     % 1. Introdução
     Chapters/Chapter2,     % 2. Histórico
-%    Chapters/Chapter3,     % 3. Anatomia
-%    Chapters/Chapter4,     % 4. Parte técnica
-%    Chapters/Chapter5,     % 5. Conclusão
+    Chapters/Chapter3,     % 3. Anatomia
+    Chapters/Chapter4,     % 4. Parte técnica
+    Chapters/Chapter5,     % 5. Conclusão
     Chapters/Chapter6,     % 6. Referências
-%    Chapters/Chapter7,     % 7. Parte Subjetiva
+    Chapters/Chapter7,     % 7. Parte Subjetiva
 }
 
 \hypersetup{
@@ -206,6 +207,7 @@
 \listoffigures
 
 % Glossário
+\glsaddall
 \printglossary[type=main,style=altlist]
 
 % Lista de TODOs
