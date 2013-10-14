@@ -36,8 +36,9 @@
 
 \newglossaryentry{peer}{
     name={peer},
-    description={do inglês \emph{peer-to-peer}; como são chamados cada nó da rede desse
-    tipo},
+    description={em português significa par, colega; como são chamados cada nó da rede
+    desse tipo},
+    long={\glsentryname{peer}},
     first={\glsentryname{peer} (um nó da rede)},
     firstplural={\glsplural{peer} (nós da rede)},
     plural={\glsentryname{peer}s}
@@ -46,7 +47,7 @@
 \newglossaryentry{p2p}{
     name={P2P},
     description={do inglês \emph{peer-to-peer}; redes de arquitetura descentralizada e
-    distribuída, onde cada nó (\emph{peer}) fornece e consome recursos},
+    distribuída, onde cada nó (\glslink{peer}{peer}) fornece e consome recursos},
     long={peer-to-peer},
     first={rede \glsentrylong{p2p} (\glsentryname{p2p})},
     plural={redes \glsentrylong{p2p}},
@@ -55,7 +56,7 @@
 
 \newglossaryentry{audiogalaxy}{
     name={Audiogalaxy},
-    description={rede P2P de compartilhamento de músicas MP3 criado em 1998},
+    description={\glslink{p2p}{\glsentryname{p2p}} de compartilhamento de músicas \glslink{mp3}{\glsentryname{mp3}} criado em 1998},
     first={\glsentryname{audiogalaxy}.com},
     long={\glsentryname{audiogalaxy}}
 }
@@ -72,12 +73,12 @@
 
 \newglossaryentry{gnutella}{
     name={Gnutella},
-    description={software de compartilhamento P2P desenvolvido por 3 programadores da
-    empresa Nullsoft, recém adquirida da AOL Inc., lançado em 2000 sob a licença GPL.
-    No dia seguinte, a AOL ordenou indisponibilizar o software alegando problemas
-    legais e proibindo a continuação do desenvolvimento. Alguns dias depois, o
-    protocolo já tinha sido alvo de engenharia reversa e já havia softwares que o
-    implementavam},
+    description={software de compartilhamento \glslink{p2p}{\glsentryname{p2p}}
+    desenvolvido por 3 programadores da empresa Nullsoft, recém adquirida da AOL Inc.,
+    lançado em 2000 sob a licença GPL. No dia seguinte, a AOL ordenou indisponibilizar
+    o software alegando problemas legais e proibindo a continuação do desenvolvimento.
+    Alguns dias depois, o protocolo já tinha sido alvo de engenharia reversa e já havia
+    softwares que o implementavam},
     first={\glsentryname{gnutella}}
 }
 
@@ -100,8 +101,8 @@
 
 \newglossaryentry{swarming}{
     name={swarming},
-    description={também chamado de transmissão de \emph{arquivos por segmentação} ou de
-    \emph{múltiplas fontes}, é a transmissão coordenada de um arquivo a partir de
+    description={também chamado de transmissão de arquivos por segmentação ou de
+    múltiplas fontes, é a transmissão coordenada de um arquivo a partir de
     um ou vários locais onde este está disponível para um único destino, inclusive no
     caso de um arquivo em um local sendo transmitido em várias partes paralelas. Cabe ao
     software que faz o download juntar as partes no ponto de destino},
@@ -138,20 +139,24 @@
 
 \newglossaryentry{dht}{
     name={DHT},
-    description={do inglês \emph{distributed hash table}; tabela hash distribuída, é um
-    serviço de busca similar a uma tabela hash, mas na forma de sistema distribuído e
-    descentralizada},
-    first={tabela hash distribuída (\glsentryname{dht})},
-    firstplural={tabelas hash distribuídas (\glsentryplural{dht})},
+    description={do inglês \emph{distributed hash table};
+    \glslink{hashtable}{\glsentryname{hashtable}} distribuída, ou seja, é um serviço de
+    busca similar a uma \glslink{hashtable}{\glsentryname{hashtable}}, mas
+    descentralizada e na forma de sistema distribuído},
+    first={\glslink{hashtable}{\glsentryname{hashtable}} distribuída
+    (\glsentryname{dht})},
+    firstplural={\glslink{hashtable}{\glsentryplural{hashtable}} distribuídas
+    (\glsentryplural{dht})},
     long={DHT},
     plural={\glsentrylong{dht}s}
 }
 
 \newglossaryentry{kademlia}{
     name={Kademlia},
-    description={DHT usado em redes P2P que especifica a estrutura da rede e a troca de
-    informações através de buscas de nós, guardando as localizações de recursos que
-    estão na rede},
+    description={\glslink{dht}{\glsentryname{dht}} usado em
+    \glslink{p2p}{\glsentryname{p2p}} que especifica a estrutura da rede e a
+    troca de informações através de buscas de nós, guardando as localizações de
+    recursos que estão na rede},
     first={\glsentryname{kademlia}}
 }
 
@@ -165,7 +170,7 @@
 \newglossaryentry{tracker}{
     name={tracker},
     description={em português, rastreador; servidor que funciona como um ponto de
-    encontro de peers},
+    encontro de \glslink{peer}{\glsentryname{peer}}},
     first={\glsentryname{tracker}},
     plural={\glsentryname{tracker}s}
 }
@@ -173,17 +178,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%% CAPITULO 3
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\newglossaryentry{magnetlink}{
-    name={magnet link},
-    description={em português, link magnético; padrão aberto, definido por convenção,
-    de esquema de caminho de Internet (URI) utilizado para localizar recursos de rede
-    BitTorrent para download},
-    first={link magnético (\glsentryname{magnetlink})},
-    long={link magnético},
-    plural={links magnéticos},
-    firstplural={\glsentryplural{magnetlink} (\glsentryname{magnetlink}s)}
-}
 
 \newglossaryentry{uri}{
     name={URI},
@@ -196,6 +190,17 @@
     firstplural={identificadores uniformes de recursos (\glsentryname{uri})},
     long={identificador uniforme de recursos},
     plural={\glsentrylong{uri}s}
+}
+
+\newglossaryentry{magnetlink}{
+    name={magnet link},
+    description={em português, link magnético; padrão aberto, definido por convenção,
+    de esquema de \glslink{uri}{\glsentryname{uri}} utilizado para localizar recursos
+    de rede BitTorrent para download},
+    first={link magnético (\glsentryname{magnetlink})},
+    long={link magnético},
+    plural={links magnéticos},
+    firstplural={\glsentryplural{magnetlink} (\glsentryname{magnetlink}s)}
 }
 
 \newglossaryentry{url}{
@@ -219,7 +224,7 @@
 
 \newglossaryentry{announce}{
     name={announce},
-    description={endereço web (URL) do tracker},
+    description={endereço web (URL) do \glslink{tracker}{\glsentryname{tracker}}},
     first={\glsentryname{announce}},
     plural={\glsentryname{announce}s},
     firstplural={\glsentryplural{announce}}

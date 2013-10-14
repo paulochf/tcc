@@ -11,7 +11,7 @@
 			"file": "/media/paulo/Arquivos/tcc/mono/tcc.tex",
 			"settings":
 			{
-				"buffer_size": 5799,
+				"buffer_size": 7218,
 				"line_ending": "Unix"
 			}
 		},
@@ -24,13 +24,18 @@
 			}
 		},
 		{
-			"contents": "%!TEX root = ../tcc.tex\n\n\\chapter{Anatomia do BitTorrent}\n\nO processo de utilização do protocolo BitTorrent é um curto espaço de tempo, porém o\nprocedimento computacional é longo e complexo. Nesta seção, abordaremos todo o fluxo de\ntrabalho do protocolo utilizando o cliente Transmission, que é de código \n\n\\section{Busca por informações}\n\nFalarei quais informações um arquivo torrent pode conter e como o Transmission as utiliza, tentando mostrar detalhes da troca de mensagens dele com servidores de rastreamento.\n\n\\section{Fontes de arquivos}\n\nMostrarei o processamento dos dados adquiridos na seção anterior e como ele organiza a lista das fontes de arquivos usando a tabela hash DHT Kademlia.\n\n\\section{Jogo da troca de arquivos}\n\nExplicarei o algoritmo tit-for-tat padrão do protocolo BitTorrent, que vem da Teoria dos Jogos, e como o Transmission o implementa.\n\n\\clearpage\n",
-			"file": "/media/paulo/Arquivos/tcc/mono/Chapters/Chapter3.tex",
-			"file_size": 737,
-			"file_write_time": 130246381036156322,
+			"file": "/media/paulo/Arquivos/tcc/mono/glossario.tex",
 			"settings":
 			{
-				"buffer_size": 880,
+				"buffer_size": 9317,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/media/paulo/Arquivos/tcc/mono/Chapters/Chapter3.tex",
+			"settings":
+			{
+				"buffer_size": 884,
 				"line_ending": "Unix"
 			}
 		}
@@ -91,20 +96,22 @@
 	},
 	"file_history":
 	[
+		"/media/paulo/Arquivos/tcc/mono/Chapters/Chapter1.tex",
 		"/media/paulo/Arquivos/tcc/mono/Chapters/Chapter2.tex",
-		"/media/paulo/Arquivos/tcc/mono/bibliografia.bib",
+		"/media/paulo/Arquivos/tcc/mono/Chapters/Chapter7.tex",
 		"/media/paulo/Arquivos/tcc/mono/Chapters/Chapter6.tex",
+		"/media/paulo/Arquivos/tcc/mono/Chapters/Chapter5.tex",
+		"/media/paulo/Arquivos/tcc/mono/Chapters/Chapter4.tex",
+		"/media/paulo/Arquivos/tcc/mono/bibliografia.bib",
 		"/home/paulo/.config/sublime-text-3/Packages/User/SideBarEnhancements/Open With/Side Bar.sublime-menu",
 		"/media/paulo/Arquivos/tcc/mono/Figures/timelines/p2p.html",
 		"/media/paulo/Arquivos/tcc/mono/tcc.gls",
 		"/media/paulo/Arquivos/tcc/mono/confs/sublime/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
 		"/media/paulo/Arquivos/tcc/mono/tcc.tex",
 		"/media/paulo/Arquivos/tcc/mono/confs/sublime/.config/sublime-text-3/Packages/LaTeXTools/LaTeX.sublime-build",
-		"/media/paulo/Arquivos/tcc/mono/Chapters/Chapter1.tex",
 		"/media/paulo/Arquivos/tcc/mono/.latexmkrc",
 		"/home/paulo/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
 		"/home/paulo/.config/sublime-text-3/Packages/User/LaTeXing.sublime-settings",
-		"/media/paulo/Arquivos/tcc/mono/Chapters/Chapter4.tex",
 		"/media/paulo/Arquivos/tcc/mono/proposta.bib",
 		"/home/paulo/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
 		"/home/paulo/.config/sublime-text-3/Packages/SideBarEnhancements/CHANGELOG",
@@ -113,8 +120,6 @@
 		"/media/paulo/Arquivos/tcc/mono/confs/LaTeX.sublime-build",
 		"/media/paulo/Arquivos/tcc/mono/confs/tcc.sublime-workspace",
 		"/media/paulo/Arquivos/tcc/mono/Chapters/Chapter3.tex",
-		"/media/paulo/Arquivos/tcc/mono/Chapters/Chapter5.tex",
-		"/media/paulo/Arquivos/tcc/mono/Chapters/Chapter7.tex",
 		"/home/paulo/Downloads/monografia/intro.tex",
 		"/home/paulo/Downloads/monografia/monografia.tex",
 		"/media/paulo/Arquivos/tcc/mono/tcc-new.tex",
@@ -126,7 +131,7 @@
 	],
 	"find":
 	{
-		"height": 31.0
+		"height": 40.0
 	},
 	"find_in_files":
 	{
@@ -140,6 +145,10 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n",
+			"dht",
+			"swar",
+			"metada",
 			"September",
 			"October",
 			"accessed",
@@ -231,7 +240,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -240,15 +249,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5799,
+						"buffer_size": 7218,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2378,
-								2378
+								3411,
+								3411
 							]
 						],
 						"settings":
@@ -258,7 +267,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 845.0,
+						"translation.y": 996.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -276,8 +285,8 @@
 						"selection":
 						[
 							[
-								0,
-								0
+								13433,
+								13433
 							]
 						],
 						"settings":
@@ -287,7 +296,36 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 4982.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/media/paulo/Arquivos/tcc/mono/glossario.tex",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 9317,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6279,
+								6279
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1833.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -299,20 +337,20 @@
 			"sheets":
 			[
 				{
-					"buffer": 2,
+					"buffer": 3,
 					"file": "/media/paulo/Arquivos/tcc/mono/Chapters/Chapter3.tex",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 880,
+						"buffer_size": 884,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								305,
-								305
+								298,
+								298
 							]
 						],
 						"settings":
