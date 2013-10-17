@@ -8,18 +8,18 @@
 	"buffers":
 	[
 		{
-			"file": "/media/paulo/Arquivos/tcc/mono/tcc.tex",
+			"file": "/media/paulo/Arquivos/tcc/mono/bibliografia.bib",
 			"settings":
 			{
-				"buffer_size": 7218,
+				"buffer_size": 21642,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/media/paulo/Arquivos/tcc/mono/bibliografia.bib",
+			"file": "/media/paulo/Arquivos/tcc/mono/tcc.tex",
 			"settings":
 			{
-				"buffer_size": 20383,
+				"buffer_size": 7292,
 				"line_ending": "Unix"
 			}
 		},
@@ -27,7 +27,7 @@
 			"file": "/media/paulo/Arquivos/tcc/mono/glossario.tex",
 			"settings":
 			{
-				"buffer_size": 9317,
+				"buffer_size": 11385,
 				"line_ending": "Unix"
 			}
 		},
@@ -35,7 +35,7 @@
 			"file": "/media/paulo/Arquivos/tcc/mono/Chapters/Chapter3.tex",
 			"settings":
 			{
-				"buffer_size": 884,
+				"buffer_size": 3756,
 				"line_ending": "Unix"
 			}
 		}
@@ -96,18 +96,23 @@
 	},
 	"file_history":
 	[
-		"/media/paulo/Arquivos/tcc/mono/Chapters/Chapter1.tex",
+		"/media/paulo/Arquivos/tcc/mono/docs/night_of_the_living_dead_archive (read).torrent",
+		"/media/paulo/Arquivos/tcc/mono/docs/night_of_the_living_dead_archive (code).torrent",
 		"/media/paulo/Arquivos/tcc/mono/Chapters/Chapter2.tex",
+		"/media/paulo/Arquivos/tcc/mono/docs/night_of_the_living_dead_archive.torrent",
+		"/media/paulo/Arquivos/tcc/mono/Chapters/Chapter4.tex",
+		"/media/paulo/Arquivos/tcc/mono/glossario.tex",
+		"/media/paulo/Arquivos/tcc/mono/bibliografia.bib",
+		"/media/paulo/Arquivos/tcc/mono/tcc.tex",
+		"/media/paulo/Arquivos/tcc/mono/Chapters/Chapter3.tex",
+		"/media/paulo/Arquivos/tcc/mono/Chapters/Chapter1.tex",
 		"/media/paulo/Arquivos/tcc/mono/Chapters/Chapter7.tex",
 		"/media/paulo/Arquivos/tcc/mono/Chapters/Chapter6.tex",
 		"/media/paulo/Arquivos/tcc/mono/Chapters/Chapter5.tex",
-		"/media/paulo/Arquivos/tcc/mono/Chapters/Chapter4.tex",
-		"/media/paulo/Arquivos/tcc/mono/bibliografia.bib",
 		"/home/paulo/.config/sublime-text-3/Packages/User/SideBarEnhancements/Open With/Side Bar.sublime-menu",
 		"/media/paulo/Arquivos/tcc/mono/Figures/timelines/p2p.html",
 		"/media/paulo/Arquivos/tcc/mono/tcc.gls",
 		"/media/paulo/Arquivos/tcc/mono/confs/sublime/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
-		"/media/paulo/Arquivos/tcc/mono/tcc.tex",
 		"/media/paulo/Arquivos/tcc/mono/confs/sublime/.config/sublime-text-3/Packages/LaTeXTools/LaTeX.sublime-build",
 		"/media/paulo/Arquivos/tcc/mono/.latexmkrc",
 		"/home/paulo/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
@@ -119,7 +124,6 @@
 		"/media/paulo/Arquivos/tcc/mono/confs/sublime/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
 		"/media/paulo/Arquivos/tcc/mono/confs/LaTeX.sublime-build",
 		"/media/paulo/Arquivos/tcc/mono/confs/tcc.sublime-workspace",
-		"/media/paulo/Arquivos/tcc/mono/Chapters/Chapter3.tex",
 		"/home/paulo/Downloads/monografia/intro.tex",
 		"/home/paulo/Downloads/monografia/monografia.tex",
 		"/media/paulo/Arquivos/tcc/mono/tcc-new.tex",
@@ -131,7 +135,7 @@
 	],
 	"find":
 	{
-		"height": 40.0
+		"height": 31.0
 	},
 	"find_in_files":
 	{
@@ -145,6 +149,14 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"wiki",
+			"facebook",
+			".com",
+			"url",
+			"*",
+			"\n\\newglossaryentry{leecher}{\n    name={leecher},\n    description={em português, sugador; nome dado ao \\glslink{peer}{\\glsentryname{peer}}\n    que ainda não terminou um download de um torrent},\n    first={\\glsentryname{leecher} (sugador)},\n    firstplural={\\glsentryname{leecher}s},\n    plural={\\glsentryplural{leecher}}\n}",
+			"iden",
+			"rede",
 			"%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n",
 			"dht",
 			"swar",
@@ -209,9 +221,10 @@
 		"highlight": true,
 		"in_selection": false,
 		"preserve_case": false,
-		"regex": true,
+		"regex": false,
 		"replace_history":
 		[
+			"",
 			"setembro",
 			"outubro",
 			"acessado em",
@@ -245,48 +258,19 @@
 			[
 				{
 					"buffer": 0,
-					"file": "/media/paulo/Arquivos/tcc/mono/tcc.tex",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 7218,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3411,
-								3411
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 996.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
 					"file": "/media/paulo/Arquivos/tcc/mono/bibliografia.bib",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 20383,
+						"buffer_size": 21642,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								13433,
-								13433
+								13884,
+								13884
 							]
 						],
 						"settings":
@@ -296,7 +280,36 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 4982.0,
+						"translation.y": 5505.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/media/paulo/Arquivos/tcc/mono/tcc.tex",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7292,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3666,
+								3666
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1171.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -307,15 +320,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 9317,
+						"buffer_size": 11385,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								6279,
-								6279
+								7968,
+								7968
 							]
 						],
 						"settings":
@@ -325,7 +338,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1833.0,
+						"translation.y": 2307.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -342,15 +355,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 884,
+						"buffer_size": 3756,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								298,
-								298
+								3380,
+								3380
 							]
 						],
 						"settings":
@@ -358,7 +371,7 @@
 							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1131.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
