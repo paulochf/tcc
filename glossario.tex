@@ -37,7 +37,7 @@
 \newglossaryentry{peer}{
     name={peer},
     description={em português significa par, colega; como são chamados cada nó da rede
-    desse tipo},
+    desse tipo, ou seja, um computador conectado},
     long={\glsentryname{peer}},
     first={\glsentryname{peer} (um nó da rede)},
     firstplural={\glsplural{peer} (nós da rede)},
@@ -179,39 +179,23 @@
 %%%% CAPITULO 3
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newglossaryentry{uri}{
-    name={URI},
-    description={do inglês \emph{Uniform Resource Identifier}; Identificador Uniforme
-    de Recursos, é uma cadeia de caracteres usada para identificar algum recurso,
-    especificando algum protocolo e um caminho. Por exemplo, o URI `file:///arquivo.
-    txt' indica um arquivo no computador local (nome de esquema `file'), enquanto
-    `http://pagina.com' se refere a uma página de Internet (nome de esquema `http')},
-    first={identificador uniforme de recursos (\glsentryname{uri})},
-    firstplural={identificadores uniformes de recursos (\glsentryname{uri})},
-    long={identificador uniforme de recursos},
-    plural={\glsentrylong{uri}s}
+\newglossaryentry{leecher}{
+    name={leecher},
+    description={em português, sugador; nome dado ao \glslink{peer}{\glsentryname{peer}}
+    que ainda não terminou um download de um torrent},
+    first={\glsentryname{leecher} (sugador)},
+    firstplural={\glsentryplural{leecher} (sugadores)},
+    plural={\glsentryname{leecher}s}
 }
 
-\newglossaryentry{magnetlink}{
-    name={magnet link},
-    description={em português, link magnético; padrão aberto, definido por convenção,
-    de esquema de \glslink{uri}{\glsentryname{uri}} utilizado para localizar recursos
-    de rede BitTorrent para download},
-    first={link magnético (\glsentryname{magnetlink})},
-    long={link magnético},
-    plural={links magnéticos},
-    firstplural={\glsentryplural{magnetlink} (\glsentryname{magnetlink}s)}
-}
-
-\newglossaryentry{url}{
-    name={URL},
-    description={do inglês \emph{Uniform Resource Locator}; Localizador Uniforme
-    de Recursos, é uma cadeia de caracteres usada para identificar algum recurso na
-    Internet, especificando algum protocolo de comunicação},
-    first={localizador uniforme de recursos (\glsentryname{url})},
-    firstplural={localizadores uniformes de recursos (\glsentryname{url})},
-    long={localizador uniforme de recursos},
-    plural={\glsentrylong{url}s}
+\newglossaryentry{seeder}{
+    name={seeder},
+    description={em português, semeador; nome dado ao
+    \glslink{peer}{\glsentryname{peer}} que já terminou um download de um torrent e que,
+    por estar conectado à rede, fornece partes a possíveis interessados},
+    first={\glsentryname{seeder} (semeador)},
+    firstplural={\glsentryplural{seeder} (semeadores)},
+    plural={\glsentryname{seeder}s}
 }
 
 \newglossaryentry{metadata}{
@@ -222,10 +206,77 @@
     firstplural={\glsentryplural{metadata}}
 }
 
-\newglossaryentry{announce}{
-    name={announce},
-    description={endereço web (URL) do \glslink{tracker}{\glsentryname{tracker}}},
-    first={\glsentryname{announce}},
-    plural={\glsentryname{announce}s},
-    firstplural={\glsentryplural{announce}}
+\newglossaryentry{torrent}{
+    name={torrent},
+    description={arquivo de extensão .torrent que contém
+    \glslink{metadata}{\glsentryplural{metadata}} como a lista dos nomes dos arquivos a
+    serem baixados e seus tamanhos, \glslink{checksum}{\glsentryplural{checksum}} das
+    partes do torrent, além de endereços de um ou mais
+    \glslink{tracker}{\glsentryplural{tracker}}},
+    first={\emph{\glsentryname{torrent}}},
+    plural={\glsentryname{torrent}s},
+    firstplural={\glsentryplural{torrent}}
 }
+
+\newglossaryentry{checksum}{
+    name={checksum},
+    description={\todo[inline]{escrever}},
+    %first={\glsentryname{metadata}},
+    plural={\glsentryname{checksum}s}
+    %firstplural={\glsentryplural{metadata}}
+}
+
+\newglossaryentry{swarm}{
+    name={swarm},
+    description={em português, enxame; grupo de \glslink{peer}{\glsentryplural{peer}}
+    que estão compartilhando dados de um mesmo \glslink{torrent}{\glsentryname{torrent}}
+    num determinado momento},
+    first={\glsentryname{swarm} (enxame)},
+    plural={\glsentryname{swarm}s},
+    firstplural={\glsentryplural{swarm} (enxames)}
+}
+
+\begin{comment}
+    \newglossaryentry{uri}{
+        name={URI},
+        description={do inglês \emph{Uniform Resource Identifier}; Identificador Uniforme
+        de Recursos, é uma cadeia de caracteres usada para identificar algum recurso,
+        especificando algum protocolo e um caminho. Por exemplo, o URI `file:///arquivo.
+        txt' indica um arquivo no computador local (nome de esquema `file'), enquanto
+        `http://pagina.com' se refere a uma página de Internet (nome de esquema `http')},
+        first={identificador uniforme de recursos (\glsentryname{uri})},
+        firstplural={identificadores uniformes de recursos (\glsentryname{uri})},
+        long={identificador uniforme de recursos},
+        plural={\glsentrylong{uri}s}
+    }
+
+    \newglossaryentry{magnetlink}{
+        name={magnet link},
+        description={em português, link magnético; padrão aberto, definido por convenção,
+        de esquema de \glslink{uri}{\glsentryname{uri}} utilizado para localizar recursos
+        de rede BitTorrent para download},
+        first={link magnético (\glsentryname{magnetlink})},
+        long={link magnético},
+        plural={links magnéticos},
+        firstplural={\glsentryplural{magnetlink} (\glsentryname{magnetlink}s)}
+    }
+
+    \newglossaryentry{url}{
+        name={URL},
+        description={do inglês \emph{Uniform Resource Locator}; Localizador Uniforme
+        de Recursos, é uma cadeia de caracteres usada para identificar algum recurso na
+        Internet, especificando algum protocolo de comunicação},
+        first={localizador uniforme de recursos (\glsentryname{url})},
+        firstplural={localizadores uniformes de recursos (\glsentryname{url})},
+        long={localizador uniforme de recursos},
+        plural={\glsentrylong{url}s}
+    }
+
+    \newglossaryentry{announce}{
+        name={announce},
+        description={endereço web (URL) do \glslink{tracker}{\glsentryname{tracker}}},
+        first={\glsentryname{announce}},
+        plural={\glsentryname{announce}s},
+        firstplural={\glsentryplural{announce}}
+    }
+\end{comment}

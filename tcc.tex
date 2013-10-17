@@ -48,26 +48,26 @@
 % Links só nos primeiros usos de gls etc
 % http://tex.stackexchange.com/a/109137/5125
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage{etoolbox}
-\makeatletter
-% patch first occurence of
-% "\@gls@link[#1]{#2}{\@glo@text}", as
-% this is the one for \glsused{#2}
-\patchcmd{\@gls@}
-  {\@gls@link[#1]{#2}{\@glo@text}}
-  {\@gls@link[#1,hyper=false]{#2}{\@glo@text}}
-  {}{}
-
-\patchcmd{\@Gls@}
-  {\@gls@link[#1]{#2}}
-  {\@gls@link[#1,hyper=false]{#2}}
-  {}{}
-
-\patchcmd{\@GLS@}
-  {\@gls@link[#1]{#2}{\MakeUppercase{\@glo@text}}}
-  {\@gls@link[#1,hyper=false]{#2}{\MakeUppercase{\@glo@text}}}
-  {}{}
-\makeatother
+% \usepackage{etoolbox}
+% \makeatletter
+%% patch first occurence of
+%% "\@gls@link[#1]{#2}{\@glo@text}", as
+%% this is the one for \glsused{#2}
+%\patchcmd{\@gls@}
+%  {\@gls@link[#1]{#2}{\@glo@text}}
+%  {\@gls@link[#1,hyper=false]{#2}{\@glo@text}}
+%  {}{}
+%
+%\patchcmd{\@Gls@}
+%  {\@gls@link[#1]{#2}}
+%  {\@gls@link[#1,hyper=false]{#2}}
+%  {}{}
+%
+%\patchcmd{\@GLS@}
+%  {\@gls@link[#1]{#2}{\MakeUppercase{\@glo@text}}}
+%  {\@gls@link[#1,hyper=false]{#2}{\MakeUppercase{\@glo@text}}}
+%  {}{}
+%\makeatother
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% -------------------------------------------------------------------------------------
@@ -131,6 +131,10 @@
         inline
     ]{#1}
 }
+
+\newcommand{\todoimg}[1]{
+    \missingfigure{#1}
+}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Seta pasta de figuras
@@ -161,11 +165,11 @@
     linenos,
     frame=single,
     samepage=true,
-    gobble=2
+    gobble=2,
     numbersep=6pt,
     baselinestretch=1,
     fontfamily=courier,
-    fontsize=\footnotesize,
+    fontsize=\footnotesize
 }
 
 
