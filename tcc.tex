@@ -133,21 +133,21 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Seta pasta de figuras
-\graphicspath{{Figures/}}
+\graphicspath{{Figures/}{Figures/multiple/}}
 
 %%%%%%%%%%%%%%%%%%%%%
 %  Minted
 %%%%%%%%%%%%%%%%%%%%%
 
 % Do manual do minted
+\renewcommand\listingscaption{Código fonte}
 \renewcommand\listoflistingscaption{Lista de códigos fonte}
-\renewcommand\listingscaption{Códigos fonte}
 
 % http://tex.stackexchange.com/a/99656/5125
 \renewcommand{\listoflistings}{%
-  \cleardoublepage
-  \addcontentsline{toc}{chapter}{\listoflistingscaption}%
-  \listof{listing}{\listoflistingscaption}%
+    \cleardoublepage
+    \addcontentsline{toc}{chapter}{\listoflistingscaption}%
+    \listof{listing}{\listoflistingscaption}%
 }
 
 % usando valores predefinidos
