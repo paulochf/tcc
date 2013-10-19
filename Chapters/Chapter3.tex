@@ -21,30 +21,87 @@ download acabar, passará a ser um \gls{seeder}, que somente envia dados para ou
 fazem parte do \gls{swarm}, onde os dados contidos no pacote desse arquivo são
 compartilhados com os outros de forma independente e paralela por partes.
 
+%\begin{comment}
 \begin{figure}
-        \centering
-        \begin{subfigure}[b]{0.3\textwidth}
-                \includegraphics[width=\textwidth]{multiple/Torrentcomp_small-0.png}
-                \caption{A gull}
-                \label{fig:gull}
-        \end{subfigure}%
-        ~ %add desired spacing between images, e. g. ~, \quad, \qquad etc.
-          %(or a blank line to force the subfigure onto a new line)
-        \begin{subfigure}[b]{0.3\textwidth}
-                \includegraphics[width=\textwidth]{multiple/Torrentcomp_small-0.png}
-                \caption{A tiger}
-                \label{fig:tiger}
-        \end{subfigure}
-        ~ %add desired spacing between images, e. g. ~, \quad, \qquad etc.
-          %(or a blank line to force the subfigure onto a new line)
-        \begin{subfigure}[b]{0.3\textwidth}
-                \includegraphics[width=\textwidth]{multiple/Torrentcomp_small-0.png}
-                \caption{A mouse}
-                \label{fig:mouse}
-        \end{subfigure}
-        \caption{Pictures of animals}\label{fig:animals}
-\end{figure}
+    \newlength{\myvsize}
+    \newlength{\myhsize}
+    \setlength{\myvsize}{5mm}
+    \setlength{\myhsize}{0.28\textwidth}
 
+    \centering
+
+    \begin{subfigure}[hb!]{\myhsize}
+        \fbox{\includegraphics[width=\textwidth]{Torrentcomp_small-0.png}}
+        \caption{}
+        \label{fig:torrent-repr-0}
+    \end{subfigure}%
+    \qquad %add desired spacing between images (~, \quad, \qquad or blank line)
+    \begin{subfigure}[hb!]{\myhsize}
+        \fbox{\includegraphics[width=\textwidth]{Torrentcomp_small-1.png}}
+        \caption{}
+        \label{fig:torrent-repr-1}
+    \end{subfigure}%
+    \qquad
+    \begin{subfigure}[hb!]{\myhsize}
+        \fbox{\includegraphics[width=\textwidth]{Torrentcomp_small-2.png}}
+        \caption{}
+        \label{fig:torrent-repr-2}
+    \end{subfigure}
+
+    \vspace{\myvsize}
+
+    \begin{subfigure}[hb!]{\myhsize}
+        \fbox{\includegraphics[width=\textwidth]{Torrentcomp_small-3.png}}
+        \caption{}
+        \label{fig:torrent-repr-3}
+    \end{subfigure}%
+    \qquad
+    \begin{subfigure}[hb!]{\myhsize}
+        \fbox{\includegraphics[width=\textwidth]{Torrentcomp_small-4.png}}
+        \caption{}
+        \label{fig:torrent-repr-4}
+    \end{subfigure}%
+    \qquad
+    \begin{subfigure}[hb!]{\myhsize}
+        \fbox{\includegraphics[width=\textwidth]{Torrentcomp_small-5.png}}
+        \caption{}
+        \label{fig:torrent-repr-5}
+    \end{subfigure}
+
+    \vspace{\myvsize}
+
+    \begin{subfigure}[hb!]{\myhsize}
+        \fbox{\includegraphics[width=\textwidth]{Torrentcomp_small-6.png}}
+        \caption{}
+        \label{fig:torrent-repr-6}
+    \end{subfigure}%
+    \qquad
+    \begin{subfigure}[hb!]{\myhsize}
+        \fbox{\includegraphics[width=\textwidth]{Torrentcomp_small-7.png}}
+        \caption{}
+        \label{fig:torrent-repr-7}
+    \end{subfigure}%
+    \qquad
+    \begin{subfigure}[hb!]{\myhsize}
+        \fbox{\includegraphics[width=\textwidth]{Torrentcomp_small-8.png}}
+        \caption{}
+        \label{fig:torrent-repr-8}
+    \end{subfigure}
+
+    \vspace{\myvsize}
+
+    \begin{subfigure}[hb!]{\myhsize}
+        \fbox{\includegraphics[width=\textwidth]{Torrentcomp_small-9.png}}
+        \caption{}
+        \label{fig:torrent-repr-9}
+    \end{subfigure}
+
+    \caption{Representação de uma transferência torrent}
+    \label{fig:torrent-repr}
+\end{figure}
+%\end{comment}
+
+\newpage
 
 \section{Busca por informações}
 
