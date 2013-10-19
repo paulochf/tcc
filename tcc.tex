@@ -27,17 +27,20 @@
 % http://texblog.org/tag/addcontentsline/
 \usepackage[numbib]{tocbibind}
 
-% anotações TODO
-\usepackage[colorinlistoftodos,portuguese]{todonotes}
+\usepackage{csquotes}                                   % requerido por {babel}
+\usepackage{graphicx}                                   % \includegraphics
+\usepackage{subfigure}                                  % \begin{subfigure}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{verbatim}                                   % \begin{comment}
+\usepackage[chapter]{minted}                            % \newminted{cpp}
+\usepackage[colorinlistoftodos,portuguese]{todonotes}   % anotações TODO
+\usepackage{fullpage}                                   % margens menores
+\usepackage{indentfirst}                                % indentação dos 1os parágrafos
+\usepackage{setspace}                                   % \setstretch
 
-\usepackage{csquotes}       %
-\usepackage{graphicx}       % \includegraphics
-\usepackage{verbatim}       % \begin{comment}
-\usepackage{minted}         % syntax highlight (\newminted{cpp})
-\usepackage{fullpage}       % página com margens mais estreitas
-\usepackage{indentfirst}    % indentação dos 1os parágrafos
-\usepackage{setspace}       % \setstretch
-\usepackage{afterpage}      % \afterpage http://tex.stackexchange.com/q/88657
+% \afterpage http://tex.stackexchange.com/q/88657
+\usepackage{afterpage}
 
 % Desligando a ligatura do 'fi'
 % http://www.latex-community.org/forum/viewtopic.php?f=5&t=953#p13896
