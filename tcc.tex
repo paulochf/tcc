@@ -27,24 +27,30 @@
 % http://texblog.org/tag/addcontentsline/
 \usepackage[numbib]{tocbibind}
 
-\usepackage{csquotes}                                   % requerido por {babel}
-\usepackage{graphicx}                                   % \includegraphics
-\usepackage{subfigure}                                  % \begin{subfigure}
-\usepackage{caption}                                    % \begin{caption}
-\usepackage{verbatim}                                   % \begin{comment}
-\usepackage[chapter]{minted}                            % \newminted{cpp}
-\usepackage[colorinlistoftodos,portuguese]{todonotes}   % anotações TODO
-\usepackage{fullpage}                                   % margens menores
-\usepackage{indentfirst}                                % indentação dos 1ºs parágrafos
-\usepackage{setspace}                                   % \setstretch
+% \newminted{cpp}
+% [chapter] é para numerar usando o capítulo
+\usepackage[chapter]{minted}
 
-% \afterpage http://tex.stackexchange.com/q/88657
-\usepackage{afterpage}
+% anotações TODO
+\usepackage[colorinlistoftodos,portuguese]{todonotes}
+
+\usepackage{csquotes}      % requerido por {babel}
+\usepackage{graphicx}      % \includegraphics
+\usepackage{caption}       % \begin{caption}
+\usepackage{subcaption}    % \begin{subfigure}
+\usepackage{verbatim}      % \begin{comment}
+\usepackage{fullpage}      % margens menores
+\usepackage{indentfirst}   % indentação dos 1ºs parágrafos
+\usepackage{setspace}      % \setstretch
+\usepackage{afterpage}     % \afterpage http://tex.stackexchange.com/q/88657
 
 % Desligando a ligatura do 'fi'
 % http://www.latex-community.org/forum/viewtopic.php?f=5&t=953#p13896
 \usepackage{microtype}
 \DisableLigatures{encoding = *, family = *}
+
+% padding de imagens
+%\setlength\fboxsep{2mm}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Links só nos primeiros usos de gls etc
@@ -75,6 +81,13 @@
 %% -------------------------------------------------------------------------------------
 %% CONFIGURATIONS
 %% -------------------------------------------------------------------------------------
+
+%%%%%%%%%%%%%%%%%%%%%
+%  ???
+%%%%%%%%%%%%%%%%%%%%%
+% from http://tex.stackexchange.com/q/57151
+%\usepackage{accsupp}
+%\newcommand{\emptyaccsupp}[1]{\BeginAccSupp{ActualText={}}#1\EndAccSupp{}}
 
 \addbibresource{bibliografia.bib}
 

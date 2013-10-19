@@ -61,64 +61,68 @@ Se abrirmos esse arquivo, veremos um conteúdo ilegível de forma compacta. Apó
 conteúdo, obtemos o seguinte (parcialmente apagado para questões de formatação):
 \todoquestion{tudo bem fazer isso? preciso anexar o arquivo completo?}
 
-\begin{minted}[
-    linenos,
-    frame=single,
-    numbersep=6pt,
-    baselinestretch=1,
-    fontfamily=courier,
-    fontsize=\tiny
-]{text}
-d
-    8:announce
-    36:http://bt1.archive.org:6969/announce
-    13:announce-list
-    l
-        l36:http://bt1.archive.org:6969/announcee
-        l36:http://bt2.archive.org:6969/announcee
-    e
-    7:comment
-    13:creation date
-    i1343715473e
-    4:info
+\begin{listing}[!h]
+    \begin{minted}[
+        linenos,
+        frame=single,
+        numbersep=6pt,
+        baselinestretch=1,
+        fontfamily=courier,
+        gobble=4,
+        fontsize=\tiny,
+    ]{text}
     d
-        5:files
+        8:announce
+        36:http://bt1.archive.org:6969/announce
+        13:announce-list
         l
-            d
-                5:crc32
-                8:030208fe
-                6:length
-                i4127671704e
-                3:md5
-                32:627f5a428f9e454ccfcb29d31b87169a
-                5:mtime
-                10:1079402480
-                4:path
-                l29:night_of_the_living_dead.mpege
-                4:sha1
-                40:5e44bb1b3f700240249a5287c64dc02dc56d034b
-            e
+            l36:http://bt1.archive.org:6969/announcee
+            l36:http://bt2.archive.org:6969/announcee
         e
-        4:name
+        7:comment
+        13:creation date
+        i1343715473e
+        4:info
+        d
+            5:files
+            l
+                d
+                    5:crc32
+                    8:030208fe
+                    6:length
+                    i4127671704e
+                    3:md5
+                    32:627f5a428f9e454ccfcb29d31b87169a
+                    5:mtime
+                    10:1079402480
+                    4:path
+                    l29:night_of_the_living_dead.mpege
+                    4:sha1
+                    40:5e44bb1b3f700240249a5287c64dc02dc56d034b
+                e
+            e
+            4:name
+            24:night_of_the_living_dead
+            12:piece length
+            i4194304e
+            6:pieces
+            23720:<binary>
+        e
+        6:locale
+        2:en
+        5:title
         24:night_of_the_living_dead
-        12:piece length
-        i4194304e
-        6:pieces
-        23720:<binary>
+        8:url-list
+        l
+            28:http://archive.org/download/
+            39:http://ia600301.us.archive.org/22/items
+            39:http://ia700301.us.archive.org/22/items
+        e
     e
-    6:locale
-    2:en
-    5:title
-    24:night_of_the_living_dead
-    8:url-list
-    l
-        28:http://archive.org/download/
-        39:http://ia600301.us.archive.org/22/items
-        39:http://ia700301.us.archive.org/22/items
-    e
-e
-\caption{Exemplo de conteúdo de arquivo .torrent}
-\end{minted}
+    \end{minted}
+    \caption{Exemplo de conteúdo de arquivo .torrent}
+    \label{code:torrent-file}
+\end{listing}
 
 continua...
 
