@@ -14,8 +14,29 @@
 % Cor
 \usepackage[table,dvipsnames]{xcolor}
 
+%\usepackage{float}
+\usepackage{caption}       % \begin{caption}
+\usepackage{subcaption}    % \begin{subfigure}
+\usepackage{sidecap}
+\usepackage{csquotes}      % requerido por {babel}
+\usepackage{graphicx}      % \includegraphics
+\usepackage{verbatim}      % \begin{comment}
+\usepackage{fullpage}      % margens menores
+\usepackage{indentfirst}   % indentação dos 1ºs parágrafos
+\usepackage{setspace}      % \setstretch
+\usepackage{afterpage}     % \afterpage http://tex.stackexchange.com/q/88657
+
+% \newminted{cpp}
+% [chapter] é para numerar usando o capítulo
+\usepackage[chapter]{minted}
+
 % Links azuis
 \usepackage[unicode,colorlinks=true,linkcolor=blue]{hyperref}
+
+% Desligando a ligatura do 'fi'
+% http://www.latex-community.org/forum/viewtopic.php?f=5&t=953#p13896
+\usepackage{microtype}
+\DisableLigatures{encoding = *, family = *}
 
 % Usa estilo "Natbib" para as referências bibliográficas
 \usepackage[backend=biber,bibencoding=utf8,style=numeric-comp]{biblatex}
@@ -27,27 +48,8 @@
 % http://texblog.org/tag/addcontentsline/
 \usepackage[numbib]{tocbibind}
 
-% \newminted{cpp}
-% [chapter] é para numerar usando o capítulo
-\usepackage[chapter]{minted}
-
 % anotações TODO
 \usepackage[colorinlistoftodos,portuguese]{todonotes}
-
-\usepackage{csquotes}      % requerido por {babel}
-\usepackage{graphicx}      % \includegraphics
-\usepackage{caption}       % \begin{caption}
-\usepackage{subcaption}    % \begin{subfigure}
-\usepackage{verbatim}      % \begin{comment}
-\usepackage{fullpage}      % margens menores
-\usepackage{indentfirst}   % indentação dos 1ºs parágrafos
-\usepackage{setspace}      % \setstretch
-\usepackage{afterpage}     % \afterpage http://tex.stackexchange.com/q/88657
-
-% Desligando a ligatura do 'fi'
-% http://www.latex-community.org/forum/viewtopic.php?f=5&t=953#p13896
-\usepackage{microtype}
-\DisableLigatures{encoding = *, family = *}
 
 % padding de imagens
 %\setlength\fboxsep{2mm}
@@ -93,6 +95,9 @@
 
 \loadglsentries{glossario.tex}
 \makeglossaries
+
+% Seta pasta de figuras
+\graphicspath{{Figures/}{Figures/chap3/}}
 
 \includeonly{
     Chapters/Chapter1,     % 1. Introdução
@@ -145,20 +150,18 @@
 }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% Seta pasta de figuras
-\graphicspath{{Figures/}{Figures/multiple/}}
-
 %%%%%%%%%%%%%%%%%%%%%
 %  Minted
 %%%%%%%%%%%%%%%%%%%%%
 
 % Do manual do minted
 \renewcommand\listingscaption{Código fonte}
-\renewcommand\listoflistingscaption{Lista de códigos fonte}
+\renewcommand\listoflistingscaption{Lista de Códigos fonte}
 
 % http://tex.stackexchange.com/a/99656/5125
 \renewcommand{\listoflistings}{%
     \cleardoublepage
+    \phantomsection
     \addcontentsline{toc}{chapter}{\listoflistingscaption}%
     \listof{listing}{\listoflistingscaption}%
 }
@@ -218,7 +221,7 @@
 %%%%%%%%%%%%%%%%%%%%%
 \begin{titlepage}
     \begin{center}
-        \addcontentsline{toc}{chapter}{Capa}
+        %\addcontentsline{toc}{chapter}{Capa}
         \vspace*{1cm}
 
         \Huge
