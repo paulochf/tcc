@@ -11,7 +11,7 @@
 			"file": "/media/paulo/Arquivos/tcc/mono/bibliografia.bib",
 			"settings":
 			{
-				"buffer_size": 21906,
+				"buffer_size": 22194,
 				"line_ending": "Unix"
 			}
 		},
@@ -27,7 +27,7 @@
 			"file": "/media/paulo/Arquivos/tcc/mono/Chapters/Chapter3.tex",
 			"settings":
 			{
-				"buffer_size": 6920,
+				"buffer_size": 7983,
 				"line_ending": "Unix"
 			}
 		}
@@ -148,6 +148,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"hb!",
+			"(\\\"|\\\",)",
+			" \"",
 			"subfigure",
 			"Verba",
 			"\n\\",
@@ -243,11 +246,13 @@
 			"maketi"
 		],
 		"highlight": true,
-		"in_selection": false,
+		"in_selection": true,
 		"preserve_case": false,
-		"regex": false,
+		"regex": true,
 		"replace_history":
 		[
+			"}",
+			"{",
 			"\\mysize",
 			"}",
 			"{",
@@ -280,7 +285,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -289,15 +294,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 21906,
+						"buffer_size": 22194,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								14202,
-								14202
+								14308,
+								14308
 							]
 						],
 						"settings":
@@ -307,7 +312,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 5395.0,
+						"translation.y": 5640.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -336,7 +341,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1521.0,
+						"translation.y": 1599.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -353,15 +358,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 6920,
+						"buffer_size": 7983,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3727,
-								3727
+								6025,
+								6025
 							]
 						],
 						"settings":
@@ -369,7 +374,7 @@
 							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 1125.0,
+						"translation.y": 1261.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -417,7 +422,7 @@
 	"menu_visible": true,
 	"output.exec":
 	{
-		"height": 196.0
+		"height": 197.0
 	},
 	"project": "tcc.sublime-project",
 	"replace":

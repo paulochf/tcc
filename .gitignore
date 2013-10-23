@@ -33,5 +33,6 @@
 *.toc
 *.xdy
 
-*.SyncID
-*.SyncIgnore
+.SyncID
+.SyncIgnore
+.SyncArchive

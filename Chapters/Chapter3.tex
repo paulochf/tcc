@@ -12,16 +12,37 @@ pacote de dados daquele conjunto de dados e também um ou mais endereços de
 \glspl*{tracker}, que mantém listas atualizadas dos \glspl*{peer} que estão
 compartilhando os dados, atualizado em períodos de tempo curtos (usualmente 30 minutos).
 
+\begin{figure}[H]
+    \centering
+    \fbox{\includegraphics[width=0.64\textwidth]{torrent-basics.png}}
+    \caption{esquema básico do funcionamento do BitTorrent. Fonte: \cite[p. 12]{conf:swarming}}
+    \label{fig:torrent-basics}
+\end{figure}
+
 Enquanto um \gls*{peer} estiver fazendo download de um \gls*{torrent} é chamado de
 \gls{leecher}, pois ainda estará consumindo dados de outros \glspl*{peer}; quando o
 download acabar, passará a ser um \gls{seeder}, que somente envia dados para outros
 \glspl*{peer}.
 
+\begin{figure}[H]
+    \centering
+    \fbox{\includegraphics[width=0.85\textwidth]{swarming-universobt.png}}
+    \caption{amostra de uma rede de conexões BitTorrent. Fonte: \cite[p. 13]{conf:swarming}}
+    \label{fig:torrent-universo}
+\end{figure}
+
+Os arquivos \gls*{torrent} ficam disponíveis em vários sites de índice (às vezes
+chamados de comunidades), como o \href{http://thepiratebay.sx/}{ThePirateBay}, o
+\href{http://kickass.to/}{Kickass} ou \href{https://torrentz.eu/}{Torrentz}, muitas
+vezes em mais de um deles ao mesmo tempo. Apesar de todo conteúdo compartilhado possuir
+um arquivo \gls*{torrent}, não necessariamente um arquivo \gls*{torrent} está sendo
+compartilhado, podendo inclusive estar extinto.
+
 \Glspl*{peer} que participam do compartilhamento de um arquivo \gls*{torrent} específico
 fazem parte do \gls{swarm}, onde os dados contidos no pacote desse arquivo são
-compartilhados com os outros de forma independente e paralela por partes.
+compartilhados com outros de forma independente e paralela por partes.
 
-\begin{figure}
+\begin{figure}[H]
     \newlength{\myvsize}
     \newlength{\myhsize}
     \setlength{\myvsize}{5mm}
@@ -29,19 +50,19 @@ compartilhados com os outros de forma independente e paralela por partes.
 
     \centering
 
-    \begin{subfigure}[hb!]{\myhsize}
+    \begin{subfigure}[H]{\myhsize}
         \fbox{\includegraphics[width=\textwidth]{Torrentcomp_small-0.png}}
         \caption{}
         \label{fig:torrent-repr-0}
     \end{subfigure}%
-    \qquad %add desired spacing between images (~, \quad, \qquad or blank line)
-    \begin{subfigure}[hb!]{\myhsize}
+    \quad %add desired spacing between images (~, \quad, \qquad or blank line)
+    \begin{subfigure}[H]{\myhsize}
         \fbox{\includegraphics[width=\textwidth]{Torrentcomp_small-1.png}}
         \caption{}
         \label{fig:torrent-repr-1}
     \end{subfigure}%
-    \qquad
-    \begin{subfigure}[hb!]{\myhsize}
+    \quad
+    \begin{subfigure}[H]{\myhsize}
         \fbox{\includegraphics[width=\textwidth]{Torrentcomp_small-2.png}}
         \caption{}
         \label{fig:torrent-repr-2}
@@ -49,19 +70,19 @@ compartilhados com os outros de forma independente e paralela por partes.
 
     \vspace{\myvsize}
 
-    \begin{subfigure}[hb!]{\myhsize}
+    \begin{subfigure}[H]{\myhsize}
         \fbox{\includegraphics[width=\textwidth]{Torrentcomp_small-3.png}}
         \caption{}
         \label{fig:torrent-repr-3}
     \end{subfigure}%
-    \qquad
-    \begin{subfigure}[hb!]{\myhsize}
+    \quad
+    \begin{subfigure}[H]{\myhsize}
         \fbox{\includegraphics[width=\textwidth]{Torrentcomp_small-4.png}}
         \caption{}
         \label{fig:torrent-repr-4}
     \end{subfigure}%
-    \qquad
-    \begin{subfigure}[hb!]{\myhsize}
+    \quad
+    \begin{subfigure}[H]{\myhsize}
         \fbox{\includegraphics[width=\textwidth]{Torrentcomp_small-5.png}}
         \caption{}
         \label{fig:torrent-repr-5}
@@ -69,19 +90,19 @@ compartilhados com os outros de forma independente e paralela por partes.
 
     \vspace{\myvsize}
 
-    \begin{subfigure}[hb!]{\myhsize}
+    \begin{subfigure}[H]{\myhsize}
         \fbox{\includegraphics[width=\textwidth]{Torrentcomp_small-6.png}}
         \caption{}
         \label{fig:torrent-repr-6}
     \end{subfigure}%
-    \qquad
-    \begin{subfigure}[hb!]{\myhsize}
+    \quad
+    \begin{subfigure}[H]{\myhsize}
         \fbox{\includegraphics[width=\textwidth]{Torrentcomp_small-7.png}}
         \caption{}
         \label{fig:torrent-repr-7}
     \end{subfigure}%
-    \qquad
-    \begin{subfigure}[hb!]{\myhsize}
+    \quad
+    \begin{subfigure}[H]{\myhsize}
         \fbox{\includegraphics[width=\textwidth]{Torrentcomp_small-8.png}}
         \caption{}
         \label{fig:torrent-repr-8}
@@ -89,47 +110,40 @@ compartilhados com os outros de forma independente e paralela por partes.
 
     \vspace{\myvsize}
 
-    \begin{subfigure}[hb!]{\myhsize}
+    \begin{subfigure}[H]{\myhsize}
         \fbox{\includegraphics[width=\textwidth]{Torrentcomp_small-9.png}}
         \caption{}
         \label{fig:torrent-repr-9}
     \end{subfigure}
 
-    \caption{Representação de uma transferência torrent: o \gls{seeder}, na parte
+    \caption{Simulação de uma transferência torrent: o \gls{seeder}, na parte
     inferior das figuras, possui todas as 5 partes de um arquivo, que os outros
     computadores, os \glspl{leecher}, baixam de forma independente e paralela. Fonte:
     \cite{fig:torrent-dl}}
     \label{fig:torrent-repr}
 \end{figure}
 
-%\afterpage{\clearpage}
-
-\begin{figure}[ht!]
-    \centering
-    \fbox{\includegraphics[width=0.7\textwidth]{swarming-universobt.png}}
-    \caption{TODO escrever legenda explicativa}
-    \label{fig:torrent-universo}
-\end{figure}
-
-
-\afterpage{\clearpage}
+Todos esses agentes possuem relações de múltiplas entre si. Por exemplo, um mesmo
+arquivo \gls*{torrent} pode estar indexado por vários sites indexadores. Como veremos
+nos capítulos seguintes, eles contém uma informação que os identificam unicamente entre
+si, mantendo a consistência de dados através desses vários sites de busca. Outra
+observação a ser feita é que um \gls*{peer} pode estar baixando mais de um
+\gls*{torrent} simultaneamente, ou seja, participando de 2 \glspl*{swarm} ao mesmo
+tempo. Por fim, em alguns casos um arquivo \gls*{torrent} possui grande quantidade de
+\glspl*{peer}, havendo necessidade de se dividir o \gls*{swarm} em algumas partes para
+fins de escalabilidade da rede formada.
 
 \section{Busca por informações}
 
-Os arquivos \gls*{torrent} ficam disponíveis em vários sites de índice, como o
-\href{http://thepiratebay.sx/}{ThePirateBay}, o \href{http://kickass.to/}{Kickass} ou
-\href{https://torrentz.eu/}{Torrentz}, muitas vezes em mais de um deles ao mesmo tempo.
-Apesar de todo conteúdo compartilhado possuir um arquivo \gls*{torrent}, não
-necessariamente um arquivo \gls*{torrent} está sendo compartilhado, podendo inclusive
-estar extinto. Por questões didáticas, usaremos um arquivo torrent do filme `A Noite
-dos Mortos Vivos' de 1960 \cite{torrent-file}, que é de domínio público e livre de
-direitos autorais.
+Ao se adicionar um \gls*{torrent} em um programa cliente, ocorrem muitas transmissões de
+dados antes do download de fato. Para demonstrar isso, usaremos um arquivo torrent do
+filme `A Noite dos Mortos Vivos' de 1960 \cite{torrent-file}, que é de domínio público
+e livre de direitos autorais.
 
-Se abrirmos esse arquivo, veremos um conteúdo ilegível de forma compacta. Após tratar o
-conteúdo, obtemos o seguinte (parcialmente apagado para questões de formatação):
-\todoquestion{tudo bem fazer isso? preciso anexar o arquivo completo?}
+Se abrirmos esse arquivo, veremos um conteúdo ilegível e sob de uma forma compacta,
+mostrado no código~\ref{lst:torrent-file}.
 
-\begin{listing}[!h]
+\begin{listing}[ht!]
     \begin{minted}[
         linenos,
         frame=single,
@@ -137,7 +151,7 @@ conteúdo, obtemos o seguinte (parcialmente apagado para questões de formataç�
         baselinestretch=1,
         fontfamily=courier,
         gobble=4,
-        fontsize=\tiny,
+        fontsize=\scriptsize,
     ]{text}
     d
         8:announce
@@ -188,8 +202,9 @@ conteúdo, obtemos o seguinte (parcialmente apagado para questões de formataç�
         e
     e
     \end{minted}
-    \caption{Exemplo de conteúdo de arquivo .torrent}
-    \label{code:torrent-file}
+    \caption{trechos formatados de forma legícel do conteúdo do arquivo .torrent do
+    filme `A Noite dos Mortos Vivos', de 1960 \cite{torrent-file}}
+    \label{lst:torrent-file}
 \end{listing}
 
 continua...
