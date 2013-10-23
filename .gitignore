@@ -32,3 +32,6 @@
 *.tdo
 *.toc
 *.xdy
+
+*.SyncID
+*.SyncIgnore
