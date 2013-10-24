@@ -14,17 +14,18 @@
 % Cor
 \usepackage[table,dvipsnames]{xcolor}
 
-%\usepackage{float}
-\usepackage{caption}       % \begin{caption}
-\usepackage{subcaption}    % \begin{subfigure}
-\usepackage{sidecap}
-\usepackage{csquotes}      % requerido por {babel}
-\usepackage{graphicx}      % \includegraphics
-\usepackage{verbatim}      % \begin{comment}
-\usepackage{fullpage}      % margens menores
-\usepackage{indentfirst}   % indentação dos 1ºs parágrafos
-\usepackage{setspace}      % \setstretch
-\usepackage{afterpage}     % \afterpage http://tex.stackexchange.com/q/88657
+\usepackage[font={small,it},labelfont=bf]{caption}  % \begin{caption}
+\usepackage{subcaption}                             % \begin{subfigure}
+\usepackage{csquotes}                               % requerido por {babel}
+\usepackage{graphicx}                               % \includegraphics
+\usepackage{verbatim}                               % \begin{comment}
+\usepackage{fullpage}                               % margens menores
+\usepackage{indentfirst}                            % indentação dos 1ºs parágrafos
+\usepackage{setspace}                               % \setstretch
+
+% \afterpage http://tex.stackexchange.com/q/88657
+\usepackage{afterpage}
+\usepackage{layouts}
 
 % \newminted{cpp}
 % [chapter] é para numerar usando o capítulo
@@ -209,7 +210,7 @@
 
 % OBS:
 % \clearpage vs \newpage
-% http://tex.stackexchange.com/q/45609
+% http://tex.stackexchange.com/a/45619/5125
 %
 % \afterpage{\clearpage}
 % http://tex.stackexchange.com/q/88657
@@ -310,8 +311,16 @@
 % Conteúdo
 %%%%%%%%%%%%%%%%%%%%%
 
-% Pula uma linha entre parágrafos
-\addtolength{\parskip}{\baselineskip}
+% Tamanhos / Distâncias
+% http://tex.stackexchange.com/a/24468/5125
+% http://www.las.ic.unicamp.br/pub/ctan/macros/latex/contrib/layouts/layman.pdf
+\setlength{\baselineskip}{17pt}             % Entre linhas do texto
+\setlength{\parskip}{15pt}                  % Entre parágrafos
+\setlength{\textfloatsep}{\baselineskip}    % Entre floats [t] ou [b]
+\setlength{\intextsep}{\baselineskip}       % Entre floats [h]
+\setlength{\abovecaptionskip}{2pt}          % Acima das legendas
+\setlength{\belowcaptionskip}{2pt}          % Abaixo das legendas
+
 
 % Numeração normal em indo-arábico
 \mainmatter

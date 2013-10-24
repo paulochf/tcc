@@ -239,21 +239,28 @@
 \newglossaryentry{bencode}{
     name={bencode},
     description={\emph{codificação B}, pronunciado \emph{bê encode}; formato de
-    codificação de arquivos \glslink{torrent}{\glsentryname{torrent} para transmissão de
-    \glslink{metadata}{\glsentryplural{metadata}. É chamado assim porque contém
-    sequências de bytes ()},
+    codificação compacta de arquivos \glslink{torrent}{\glsentryname{torrent}} para
+    transmissão de \glslink{metadata}{\glsentryplural{metadata}}},
     first={\glsentryname{bencode}}
 }
 
+\newglossaryentry{string}{
+    name={string},
+    description={sequência de caracteres},
+    first={\glsentryname{string} (sequência de caracteres)},
+    firstplural={\glsentryplural{string} (sequências de caracteres)},
+    plural={strings}
+}
 
 \begin{comment}
     \newglossaryentry{uri}{
         name={URI},
-        description={do inglês \emph{Uniform Resource Identifier}; Identificador Uniforme
-        de Recursos, é uma cadeia de caracteres usada para identificar algum recurso,
-        especificando algum protocolo e um caminho. Por exemplo, o URI `file:///arquivo.
-        txt' indica um arquivo no computador local (nome de esquema `file'), enquanto
-        `http://pagina.com' se refere a uma página de Internet (nome de esquema `http')},
+        description={do inglês \emph{Uniform Resource Identifier}; Identificador
+        Uniforme de Recursos, é uma \glslink{string}{\glsentryname{string}} usada para
+        identificar algum recurso, especificando algum protocolo e um caminho. Por
+        exemplo, o URI ``file:///arquivo.txt'' indica um arquivo no computador local
+        (nome de esquema ``file''), enquanto ``http://pagina.com'' se refere a uma
+        página de Internet (nome de esquema ``http'')},
         first={identificador uniforme de recursos (\glsentryname{uri})},
         firstplural={identificadores uniformes de recursos (\glsentryname{uri})},
         long={identificador uniforme de recursos},
@@ -274,8 +281,9 @@
     \newglossaryentry{url}{
         name={URL},
         description={do inglês \emph{Uniform Resource Locator}; Localizador Uniforme
-        de Recursos, é uma cadeia de caracteres usada para identificar algum recurso na
-        Internet, especificando algum protocolo de comunicação},
+        de Recursos, é uma \glslink{string}{\glsentryname{string}} usada para
+        identificar algum recurso na Internet, especificando algum protocolo de
+        comunicação},
         first={localizador uniforme de recursos (\glsentryname{url})},
         firstplural={localizadores uniformes de recursos (\glsentryname{url})},
         long={localizador uniforme de recursos},

@@ -137,11 +137,46 @@ fins de escalabilidade da rede formada.
 
 Ao se adicionar um \gls*{torrent} em um programa cliente, ocorrem muitas transmissões de
 dados antes do download de fato. Para demonstrar isso, usaremos um arquivo torrent do
-filme `A Noite dos Mortos Vivos' de 1960 \cite{torrent-file}, que é de domínio público
+filme ``A Noite dos Mortos Vivos'' de 1960 \cite{torrent-file}, que é de domínio público
 e livre de direitos autorais.
 
-Se abrirmos esse arquivo, veremos um conteúdo ilegível e sob de uma forma compacta,
-mostrado no código~\ref{lst:torrent-file}.
+Se abrirmos esse arquivo, veremos uma grande \gls{string}, caracteres diferentes e
+incomuns, formando um conteúdo ilegível e de sob uma forma compacta, mostrado no
+código~\ref{lst:torrent-file-raw}.
+
+\begin{listing}[H]
+    \begin{minted}[
+        linenos,
+        frame=single,
+        numbersep=6pt,
+        baselinestretch=1,
+        fontfamily=courier,
+        gobble=4,
+        fontsize=\scriptsize
+    ]{text}
+    d8:announce36:http://bt1.archive.org:6969/announce13:announce-listll36:http://bt1.
+    archive.org:6969/announceel36:http://bt2.archive.org:6969/announceee7:comment13:crea
+    tiondatei1343715473e4:infod5:filesld5:crc328:030208fe6:lengthi4127671704e3:md532:627
+    f5a428f9e454ccfcb29d31b87169a5:mtime10:10794024804:pathl29:night_of_the_living_dead.
+    mpege4:sha140:5e44bb1b3f700240249a5287c64dc02dc56d034bee4:name24:night_of_the_living
+    _dead12:piecelengthi4194304e6:pieces23720:<binary>
+
+    (...)
+
+    e6:locale2:en5:title24:night_of_the_living_dead8:url-listl28:http://archive.org/
+    download/39:http://ia600301.us.archive.org/22/items39:http://ia700301.us.archive.
+    org/22/itemsee
+    \end{minted}
+
+    \caption{trecho do conteúdo do arquivo .torrent do filme ``A Noite dos Mortos
+    Vivos'', de 1960 \cite{torrent-file}, com a parte binária truncada}
+    \label{lst:torrent-file-raw}
+\end{listing}
+
+Esse conteúdo está organizado usando o formato \gls{bencode}, que é um formato de
+codificação compacta de arquivos especial para arquivos .torrent e não é legível ao ser
+humano. Com alguma formatação grosseira, podemos enxergar os componentes separadamente,
+como mostra o código~\ref{lst:torrent-file-code}.
 
 \begin{listing}[ht!]
     \begin{minted}[
@@ -151,7 +186,7 @@ mostrado no código~\ref{lst:torrent-file}.
         baselinestretch=1,
         fontfamily=courier,
         gobble=4,
-        fontsize=\scriptsize,
+        fontsize=\scriptsize
     ]{text}
     d
         8:announce
@@ -202,14 +237,41 @@ mostrado no código~\ref{lst:torrent-file}.
         e
     e
     \end{minted}
-    \caption{trechos formatados de forma legícel do conteúdo do arquivo .torrent do
-    filme `A Noite dos Mortos Vivos', de 1960 \cite{torrent-file}}
-    \label{lst:torrent-file}
+    \caption{trechos formatados de forma legível do conteúdo do arquivo .torrent do
+    filme ``A Noite dos Mortos Vivos'', de 1960 \cite{torrent-file}, com a parte
+    binária truncada}
+    \label{lst:torrent-file-code}
 \end{listing}
 
-Esse conteúdo está na forma de \gls{bencode}
+\newpage
 
-\todo[inline]{explicar isso \cite{site:torrent-spec-wiki}}
+Esse conteúdo tem significado, sendo utilizado da seguinte forma
+\cite{site:torrent-spec-wiki}:
+
+\begin{itemize}
+    \item \gls*{string} são prefixos de números na base 10 que representam
+        comprimentos, seguidos por um caractere `:' e então o conteúdo. Por exemplo, na
+        linha 2, \verb|8:announce| corresponde à \gls*{string} "announce".
+
+    \item números são representados por um `i', seguidos do valor na base 10 (sem
+        qualquer limite, mas sem zeros precedentes como em $0003$, e podendo ser
+        negativo), e terminados por um `e'. Por exemplo, na linha 11,
+        \verb|i1343715473e| corresponde ao número 1343715473.
+
+    \item listas são formadas por `l', seguidos por seus elementos (também no formato
+        \gls*{bencode}), e então terminados por `e'. Por exemplo, \verb|l3:foo3:bare|
+        corresponde a ["foo", "bar"]. No código acima, é presente entre as linhas 43
+        e 47.
+
+    \item dicionários são definidos por `d', seguidos de uma lista alternada de chaves e
+        seus valores correspondentes, terminando com `e', onde as chaves devem estar
+        ordenadas usando-se comparação binária ao invés da usual alfanumérica.
+        Por exemplo, a \gls*{string} \verb|d3:foo3:bar6:foobar6:bazbare| corresponde a
+        \{"foo: "bar", "foobar": "bazbar"\}, e \verb|d3:fool6:foobar3:bazee| a
+        \{"foo": ["foobar", "baz"]\}.
+\end{itemize}
+
+\todo[inline]{explicar como o Transmission usa o torrent}
 
 \section{Fontes de arquivos}
 
