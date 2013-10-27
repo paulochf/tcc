@@ -271,10 +271,54 @@ Esse conteúdo tem significado, sendo utilizado da seguinte forma
         \{"foo": ["foobar", "baz"]\}.
 \end{itemize}
 
-Além do arquivo \gls*{torrent}, existe uma outra forma de se transmitir os \glspl*{metadata} necessários para se iniciar a transmissão, que é utilizando \gls{magnetlink}.
+Além do arquivo \gls*{torrent}, existe uma outra forma de se transmitir os
+\glspl*{metadata} necessários para se iniciar a transmissão, que é utilizando
+\gls{magnetlink}.
 
-\Glspl*{magnetlink}, ao contrário dos arquivos \gls*{torrent}, não estão gravados em algum dispositivo de armazenamento, nem possuem um padrão com as regras mencionadas anteriormente. Basicamente, é um esquema de \gls{url} usado exclusivamente para o protocolo. 
+\Glspl*{magnetlink}, ao contrário dos arquivos \gls*{torrent}, não estão gravados em
+algum dispositivo de armazenamento. Basicamente, é um esquema de \gls{uri} usado
+exclusivamente para o protocolo.
 
+No caso citado, o site de origem do \gls*{torrent} que estamos usando não fornece um
+\gls*{magnetlink} oficialmente. Porém, o Transmission consegue construir uma \gls*{uri}
+a partir do arquivo original, para fins de compartilhamento direto. O resultado, após
+decodificar o endereço para um formato legível (retirando a codificação de caracteres
+especiais \cite{wiki:urlencode}) foi o seguinte:
+
+\begin{listing}[ht!]
+    \begin{minted}[
+        linenos,
+        frame=single,
+        numbersep=6pt,
+        baselinestretch=1,
+        fontfamily=courier,
+        gobble=4,
+        fontsize=\scriptsize
+    ]{text}
+    magnet:?xt=urn:btih:72d7a3179da3de7a76b98f3782c31843e3f818ee
+    &dn=night_of_the_living_dead
+    &tr=http://bt1.archive.org:6969/announce&tr=http://bt2.archive.org:6969/announce
+    &ws=http://archive.org/download/
+    &ws=http://ia600301.us.archive.org/22/items/&ws=http://ia700301.us.archive.org/22/items/
+    \end{minted}
+    \caption{\gls*{magnetlink} do arquivo .torrent do filme ``A Noite dos Mortos Vivos''
+    , de 1960 \cite{torrent-file}, com parâmetros divididos entre linhas para melhor
+    visualização}
+    \label{lst:torrent-file-magnet-link}
+\end{listing}
+
+Esse endereço é composto por vários pares de nomes de parâmetros (sem qualquer ordem
+específica) e seus respectivos valores, formando uma \gls{querystring}. Podemos
+dividir esse endereço em partes, cada uma tendo o seu significado:
+
+\begin{itemize}
+    \item \verb|xt|: parâmetro para \emph{exact topic}, ou tópico exato, contém a
+    informação mais importante do \gls*{magnetlink}, que serve para encontrar e
+    verificar os arquivos especificados. No caso, \verb|urn:btih:<hash>| corresponde ao
+    \gls{urn} btih (\emph{BitTorrent Info Hash}), cujo \gls{hashvalue} é o valor
+    convertido para hexadecimal fornecido pela \gls{hashfunction} SHA-1 (ver
+    seção~\ref{sec:sha1})
+\end{itemize}
 
 \todo[inline]{explicar como o Transmission usa o torrent}
 

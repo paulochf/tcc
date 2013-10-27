@@ -17,7 +17,7 @@
     name={ISP},
     description={do inglês \emph{Internet Service Provider}; fornecedores de
     acesso a Internet, que são empresas que vendem serviço e equipamento que permitem
-    o acesso de um computador pessoal acessar a Internet},
+    o acesso de um computador pessoal à Internet},
     first={fornecedor de acesso a Internet (\glsentryname{isp})},
     long={fornecedor de acesso a Internet},
     plural={\glsentryname{isp}s},
@@ -27,7 +27,7 @@
 \newglossaryentry{mp3}{
     name={MP3},
     description={do inglês \emph{MPEG-1/2 Audio Layer 3}; formato patenteado de
-    compressão de dados de áudio digital que usa um método de compressão de dados com
+    compressão de dados de áudio digital, que usa um método de compressão de dados com
     perdas},
     long={formato de áudio \glsentryname{mp3}},
     first={\glsentrylong{mp3} (\glsentryname{mp3})},
@@ -36,8 +36,8 @@
 
 \newglossaryentry{peer}{
     name={peer},
-    description={em português significa par, colega; como são chamados cada nó da rede
-    desse tipo, ou seja, um computador conectado},
+    description={em português, significa par, colega; nome que se dá a cada nó da rede,
+    ou seja, a um computador conectado},
     long={\glsentryname{peer}},
     first={\glsentryname{peer} (um nó da rede)},
     firstplural={\glsplural{peer} (nós da rede)},
@@ -75,10 +75,10 @@
     name={Gnutella},
     description={software de compartilhamento \glslink{p2p}{\glsentryname{p2p}}
     desenvolvido por 3 programadores da empresa Nullsoft, recém adquirida da AOL Inc.,
-    lançado em 2000 sob a licença GPL. No dia seguinte, a AOL ordenou indisponibilizar
-    o software alegando problemas legais e proibindo a continuação do desenvolvimento.
-    Alguns dias depois, o protocolo já tinha sido alvo de engenharia reversa e já havia
-    softwares que o implementavam},
+    lançado em 2000 sob a licença GPL. No dia seguinte ao lançamento, a AOL ordenou
+    indisponibilizar o software, alegando problemas legais e proibindo a continuação do
+    desenvolvimento. Alguns dias depois, o protocolo já tinha sido alvo de engenharia
+    reversa e já havia softwares que o implementavam},
     first={\glsentryname{gnutella}}
 }
 
@@ -95,17 +95,16 @@
     name={eDonkey},
     description={lançado em 6 de setembro de 2000, o protocolo foi inaugurado juntamente
     com o software que o utilizava, o eDonkey2000, mas inúmeros softwares cliente para
-    diferentes plataforas surgiram nos dias seguintes ao lançamento},
+    diferentes plataformas surgiram nos dias seguintes ao lançamento},
     first={\glsentryname{edonkey}}
 }
 
 \newglossaryentry{swarming}{
     name={swarming},
     description={também chamado de transmissão de arquivos por segmentação ou de
-    múltiplas fontes, é a transmissão coordenada de um arquivo a partir de
-    um ou vários locais onde este está disponível para um único destino, inclusive no
-    caso de um arquivo em um local sendo transmitido em várias partes paralelas. Cabe ao
-    software que faz o download juntar as partes no ponto de destino},
+    múltiplas fontes, é a transmissão em paralelo de um arquivo, a partir de
+    um ou vários locais onde estiver disponível, para um único destino. Cabe ao
+    software do destinatário juntar as partes recebidas},
     first={\glsentryname{swarming}},
     plural={\glsentryname{swarming}s}
 }
@@ -113,7 +112,7 @@
 \newglossaryentry{hashtable}{
     name={tabela de hash},
     description={ou \emph{mapa de hash}, é uma estrutura de dados que cria uma lista de
-    correspondência chave-valor, onde os dados são guardados como os valores e
+    correspondência chave-valor, onde os dados são guardados como valores e
     indexados por seus respectivos \emph{valores hash}},
     first={\glsentryname{hashtable}},
     firstplural={tabelas de hash},
@@ -131,7 +130,7 @@
 
 \newglossaryentry{hashvalue}{
     name={valor hash},
-    description={ou \emph{hash}; valores gerados por uma tabela hash},
+    description={ou \emph{hash}; valores gerados por uma \glslink{hashfunction}{\glsentryname{hashfunction}}},
     first={\glsentryname{hashvalue}},
     firstplural={valores hash},
     plural={\glsentryfirstplural{hashvalue}}
@@ -192,7 +191,7 @@
     name={seeder},
     description={em português, semeador; nome dado ao
     \glslink{peer}{\glsentryname{peer}} que já terminou um download de um torrent e que,
-    por estar conectado à rede, fornece partes a possíveis interessados},
+    por ainda estar conectado à rede, fornece partes a possíveis interessados},
     first={\glsentryname{seeder} (semeador)},
     firstplural={\glsentryplural{seeder} (semeadores)},
     plural={\glsentryname{seeder}s}
@@ -209,7 +208,7 @@
 \newglossaryentry{torrent}{
     name={torrent},
     description={arquivo de extensão .torrent que contém
-    \glslink{metadata}{\glsentryplural{metadata}} como a lista dos nomes dos arquivos a
+    \glslink{metadata}{\glsentryplural{metadata}}, como a lista dos nomes dos arquivos a
     serem baixados e seus tamanhos, \glslink{checksum}{\glsentryplural{checksum}} das
     partes do torrent, além de endereços de um ou mais
     \glslink{tracker}{\glsentryplural{tracker}}},
@@ -252,42 +251,69 @@
     plural={strings}
 }
 
-    \newglossaryentry{uri}{
-        name={URI},
-        description={do inglês \emph{Uniform Resource Identifier}; Identificador
-        Uniforme de Recursos, é uma \glslink{string}{\glsentryname{string}} usada para
-        identificar algum recurso, especificando algum protocolo e um caminho. Por
-        exemplo, o URI ``file:///arquivo.txt'' indica um arquivo no computador local
-        (nome de esquema ``file''), enquanto ``http://pagina.com'' se refere a uma
-        página de Internet (nome de esquema ``http'')},
-        first={identificador uniforme de recursos (\glsentryname{uri})},
-        firstplural={identificadores uniformes de recursos (\glsentryname{uri})},
-        long={identificador uniforme de recursos},
-        plural={\glsentrylong{uri}s}
-    }
+\newglossaryentry{magnetlink}{
+    name={magnet link},
+    description={em português, link magnético; padrão aberto, definido por convenção,
+    de esquema de \glslink{uri}{\glsentryname{uri}} utilizado para localizar recursos
+    de rede BitTorrent para download},
+    first={link magnético (\glsentryname{magnetlink})},
+    long={link magnético},
+    plural={links magnéticos},
+    firstplural={\glsentryplural{magnetlink} (\glsentryname{magnetlink}s)}
+}
 
-    \newglossaryentry{magnetlink}{
-        name={magnet link},
-        description={em português, link magnético; padrão aberto, definido por convenção,
-        de esquema de \glslink{uri}{\glsentryname{uri}} utilizado para localizar recursos
-        de rede BitTorrent para download},
-        first={link magnético (\glsentryname{magnetlink})},
-        long={link magnético},
-        plural={links magnéticos},
-        firstplural={\glsentryplural{magnetlink} (\glsentryname{magnetlink}s)}
-    }
+\newglossaryentry{uri}{
+    name={URI},
+    description={do inglês \emph{Uniform Resource Identifier}; Identificador
+    Uniforme de Recursos, é uma \glslink{string}{\glsentryname{string}} usada para
+    identificar algum recurso, especificando algum protocolo e um caminho. Por
+    exemplo, o URI ``file:///arquivo.txt'' indica um arquivo no computador local
+    (nome de esquema ``file''), enquanto ``http://pagina.com'' se refere a uma
+    página de Internet (nome de esquema ``http'')},
+    first={identificador uniforme de recursos (\glsentryname{uri})},
+    firstplural={identificadores uniformes de recursos (\glsentryname{uri})},
+    long={identificador uniforme de recursos},
+    plural={\glsentrylong{uri}s}
+}
 
-    \newglossaryentry{url}{
-        name={URL},
-        description={do inglês \emph{Uniform Resource Locator}; Localizador Uniforme
-        de Recursos, é uma \glslink{string}{\glsentryname{string}} usada para
-        identificar algum recurso na Internet, especificando algum protocolo de
-        comunicação},
-        first={localizador uniforme de recursos (\glsentryname{url})},
-        firstplural={localizadores uniformes de recursos (\glsentryname{url})},
-        long={localizador uniforme de recursos},
-        plural={\glsentrylong{url}s}
-    }
+\newglossaryentry{url}{
+    name={URL},
+    description={do inglês \emph{Uniform Resource Locator}; Localizador Uniforme
+    de Recursos, é uma \glslink{string}{\glsentryname{string}} usada para
+    identificar algum recurso na Internet, especificando algum protocolo de
+    comunicação},
+    first={localizador uniforme de recursos (\glsentryname{url})},
+    firstplural={localizadores uniformes de recursos (\glsentryname{url})},
+    long={localizador uniforme de recursos},
+    plural={\glsentrylong{url}s}
+}
+
+\newglossaryentry{caseinsensitive}{
+    name={case insensitive},
+    description={\todo[inline]{escrever}},
+    first={\emph{\glsentryname{caseinsensitive}}}
+}
+
+\newglossaryentry{querystring}{
+    name={query string},
+    description={\todo[inline]{escrever}},
+    first={\emph{\glsentryname{querystring}}}
+}
+
+\newglossaryentry{urn}{
+    name={URN},
+    description={do inglês \emph{Uniform Resource Name}; Nome Uniforme
+    de Recursos, é o nome histórico dado a uma \glslink{uri}{\glsentryname{uri}}
+    que usa o esquema ``urn:''. Sua sintaxe é ``urn:<NID>:<NSS>'', onde ``urn:'' é
+    o prefixo \glslink{caseinsensitive}{\glsentryname{caseinsensitive}}, ``<NID>''
+    é o identificador de espaço de nomes, que determina a interpretação sintática de
+    ``<NSS>'', que é a \glslink{string}{\glsentryname{string}} específica do espaço de
+    nomes usado},
+    first={nome uniforme de recursos (\glsentryname{urn})},
+    firstplural={nomes uniformes de recursos (\glsentryname{urn})},
+    long={nome uniforme de recursos},
+    plural={\glsentrylong{urn}s}
+}
 
 \begin{comment}
     \newglossaryentry{announce}{
