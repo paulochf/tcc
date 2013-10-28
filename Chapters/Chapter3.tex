@@ -313,12 +313,24 @@ dividir esse endereço em partes, cada uma tendo o seu significado:
 
 \begin{itemize}
     \item \verb|xt|: parâmetro para \emph{exact topic}, ou tópico exato, contém a
-    informação mais importante do \gls*{magnetlink}, que serve para encontrar e
-    verificar os arquivos especificados. No caso, \verb|urn:btih:<hash>| corresponde ao
-    \gls{urn} btih (\emph{BitTorrent Info Hash}), cujo \gls{hashvalue} é o valor
-    convertido para hexadecimal fornecido pela \gls{hashfunction} SHA-1 (ver
-    seção~\ref{sec:sha1})
+        informação mais importante do \gls*{magnetlink}, que serve para encontrar e
+        verificar os arquivos especificados. No caso, \verb|urn:btih:<hash>|
+        corresponde ao \gls{urn} btih (\emph{BitTorrent Info Hash}), cujo
+        \gls{hashvalue} é o valor convertido para hexadecimal fornecido pela
+        \gls{hashfunction} SHA-1 (ver seção~\ref{sec:sha1})
+
+    \item \verb|dn|: parâmetro que contém o \emph{display name}, ou nome de
+        visualização, contém um nome que é mostrado para o usuário, por conveniência
+
+    \item \verb|tr|: o \emph{address tracker}, ou endereço do \gls*{tracker}, onde o
+        programa cliente vai procurar as informações de \glspl*{peer}
+
+    \item \verb|ws|: endereço do arquivo para \emph{webseed}, ou fornecimento web,
+        que é o endereço do arquivo em um servidor HTTP ou FTP, sendo utilizado como
+        alternativa a um \gls*{swarm} problemático \cite{wiki:torrent}
 \end{itemize}
+
+
 
 \todo[inline]{explicar como o Transmission usa o torrent}
 

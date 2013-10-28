@@ -11,7 +11,7 @@
 			"file": "/media/paulo/Arquivos/tcc/mono/bibliografia.bib",
 			"settings":
 			{
-				"buffer_size": 22476,
+				"buffer_size": 22685,
 				"line_ending": "Unix"
 			}
 		},
@@ -27,15 +27,7 @@
 			"file": "/media/paulo/Arquivos/tcc/mono/tcc.tex",
 			"settings":
 			{
-				"buffer_size": 8571,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/media/paulo/Arquivos/tcc/mono/bla.tex",
-			"settings":
-			{
-				"buffer_size": 905,
+				"buffer_size": 8631,
 				"line_ending": "Unix"
 			}
 		},
@@ -43,7 +35,7 @@
 			"file": "/media/paulo/Arquivos/tcc/mono/Chapters/Chapter3.tex",
 			"settings":
 			{
-				"buffer_size": 13189,
+				"buffer_size": 13769,
 				"line_ending": "Unix"
 			}
 		},
@@ -113,6 +105,7 @@
 	"file_history":
 	[
 		"/media/paulo/Arquivos/tcc/mono/Chapters/Chapter2.tex",
+		"/media/paulo/Arquivos/tcc/mono/bla.tex",
 		"/media/paulo/Arquivos/tcc/mono/glossario.tex",
 		"/media/paulo/Arquivos/tcc/mono/tcc.log",
 		"/media/paulo/Arquivos/tcc/mono/pkgloader.sty",
@@ -172,6 +165,15 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"\\\"([^\\\"]*)\\\"",
+			"site:wiki-",
+			"site:wiki",
+			"site:wiki-isp",
+			"site:isp",
+			"BitTorremt",
+			"wikipedia.org/Bi",
+			"wikipedia.org/BitTo",
+			" ",
 			"bla",
 			"funçã",
 			"case-insensitive",
@@ -299,6 +301,9 @@
 		"replace_history":
 		[
 			"{\\1}",
+			"wiki:",
+			"",
+			"{\\1}",
 			"",
 			"%",
 			"\\%",
@@ -339,7 +344,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -348,15 +353,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 22476,
+						"buffer_size": 22685,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								14691,
-								14691
+								14932,
+								14932
 							]
 						],
 						"settings":
@@ -366,7 +371,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 6070.0,
+						"translation.y": 6067.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -384,8 +389,8 @@
 						"selection":
 						[
 							[
-								5019,
-								5019
+								5030,
+								5030
 							]
 						],
 						"settings":
@@ -395,7 +400,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1286.0,
+						"translation.y": 1559.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -406,15 +411,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 8571,
+						"buffer_size": 8631,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1825,
-								1825
+								0,
+								0
 							]
 						],
 						"settings":
@@ -428,35 +433,6 @@
 						"zoom_level": 1.0
 					},
 					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "/media/paulo/Arquivos/tcc/mono/bla.tex",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 905,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								527,
-								527
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
 				}
 			]
 		},
@@ -465,20 +441,20 @@
 			"sheets":
 			[
 				{
-					"buffer": 4,
+					"buffer": 3,
 					"file": "/media/paulo/Arquivos/tcc/mono/Chapters/Chapter3.tex",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 13189,
+						"buffer_size": 13769,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								12708,
-								12708
+								13299,
+								13299
 							]
 						],
 						"settings":
@@ -486,13 +462,13 @@
 							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 3999.0,
+						"translation.y": 3921.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 5,
+					"buffer": 4,
 					"file": "/media/paulo/Arquivos/tcc/mono/Chapters/Chapter4.tex",
 					"semi_transient": false,
 					"settings":
