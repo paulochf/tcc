@@ -133,7 +133,7 @@ tempo. Por fim, em alguns casos um arquivo \gls*{torrent} possui grande quantida
 \glspl*{peer}, havendo necessidade de se dividir o \gls*{swarm} em algumas partes para
 fins de escalabilidade da rede formada.
 
-\section{Busca por informações}
+\section{Arquivo .torrent}
 
 Ao se adicionar um \gls*{torrent} em um programa cliente, ocorrem muitas transmissões de
 dados antes do download de fato. Para demonstrar isso, usaremos um arquivo torrent do
@@ -178,7 +178,7 @@ codificação compacta de arquivos especial para arquivos .torrent e não é leg
 humano. Com alguma formatação grosseira, podemos enxergar os componentes separadamente,
 como mostra o código~\ref{lst:torrent-file-code}.
 
-\begin{listing}[ht!]
+\begin{listing}[H]
     \begin{minted}[
         linenos,
         frame=single,
@@ -243,8 +243,6 @@ como mostra o código~\ref{lst:torrent-file-code}.
     \label{lst:torrent-file-code}
 \end{listing}
 
-\newpage
-
 Esse conteúdo tem significado, sendo utilizado da seguinte forma
 \cite{site:torrent-spec-wiki}:
 
@@ -270,6 +268,8 @@ Esse conteúdo tem significado, sendo utilizado da seguinte forma
         \{"foo: "bar", "foobar": "bazbar"\}, e \verb|d3:fool6:foobar3:bazee| a
         \{"foo": ["foobar", "baz"]\}.
 \end{itemize}
+
+\section{Magnet Link}
 
 Além do arquivo \gls*{torrent}, existe uma outra forma de se transmitir os
 \glspl*{metadata} necessários para se iniciar a transmissão, que é utilizando
@@ -329,6 +329,8 @@ dividir esse endereço em partes, cada uma tendo o seu significado:
         que é o endereço do arquivo em um servidor HTTP ou FTP, sendo utilizado como
         alternativa a um \gls*{swarm} problemático \cite{wiki:torrent}
 \end{itemize}
+
+\section{Busca por informações}
 
 
 

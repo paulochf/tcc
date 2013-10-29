@@ -1,4 +1,4 @@
-MONO_FOLDER=/media/paulo/Arquivos/tcc/mono
+MONO_FOLDER=/home/paulo/Arquivos/tcc/mono
 
 ln -s $MONO_FOLDER/confs/aspell/.aspell.conf		~/.aspell.conf
 ln -s $MONO_FOLDER/confs/aspell/.aspell.pt_BR.prepl	~/.aspell.pt_BR.prepl
