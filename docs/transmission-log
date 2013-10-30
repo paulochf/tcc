@@ -1,0 +1,262 @@
+* About to connect() to www.example.com port 80 (#0)
+*   Trying 93.184.216.119...
+* Connected to www.example.com (93.184.216.119) port 80 (#0)
+> GET /blocklist HTTP/1.1
+User-Agent: Transmission/2.82
+Host: www.example.com
+Accept: */*
+Accept-Encoding: gzip;q=1.0, deflate, identity
+
+< HTTP/1.1 404 Not Found
+< Accept-Ranges: bytes
+< Cache-Control: max-age=604800
+< Content-Type: text/html
+< Date: Wed, 30 Oct 2013 05:15:27 GMT
+< Etag: "359670651"
+< Expires: Wed, 06 Nov 2013 05:15:27 GMT
+< Last-Modified: Fri, 09 Aug 2013 23:54:35 GMT
+< Server: ECS (fll/0778)
+< X-Cache: 404-HIT
+< x-ec-custom-error: 1
+< Content-Length: 1270
+< 
+* Connection #0 to host www.example.com left intact
+
+(transmission-gtk:26279): GLib-CRITICAL **: g_strchug: assertion `string != NULL' failed
+
+(transmission-gtk:26279): GLib-CRITICAL **: g_strchomp: assertion `string != NULL' failed
+* About to connect() to www.mvgroup.org port 2710 (#1)
+*   Trying 88.129.153.50...
+* Connected to www.mvgroup.org (88.129.153.50) port 2710 (#1)
+> GET /scrape?info_hash=%83F%24%b62%e5Q%cc4%10h%ba%1e8%e2C%f7%80%01%87 HTTP/1.1
+User-Agent: Transmission/2.82
+Host: www.mvgroup.org:2710
+Accept: */*
+Accept-Encoding: gzip;q=1.0, deflate, identity
+
+* HTTP 1.0, assume close after body
+< HTTP/1.0 200 OK
+< 
+* Closing connection 1
+Scrape response:
+< {
+    "files": {
+        "F$2Q4h8C": {
+            "complete": 9, 
+            "downloaded": 59074, 
+            "incomplete": 2
+        }
+    }
+}
+
+* About to connect() to tracker.torrenty.org port 6969 (#2)
+*   Trying 85.17.143.16...
+* About to connect() to memtracker.appspot.com port 80 (#3)
+*   Trying 74.125.137.141...
+* Connected to tracker.torrenty.org (85.17.143.16) port 6969 (#2)
+> GET /scrape?info_hash=%606%ef%83%e5k%24K%13Q%e3%3d%9e%c2%f7CQ%ac%2bl HTTP/1.1
+User-Agent: Transmission/2.82
+Host: tracker.torrenty.org:6969
+Accept: */*
+Accept-Encoding: gzip;q=1.0, deflate, identity
+
+* Connected to memtracker.appspot.com (74.125.137.141) port 80 (#3)
+> GET /scrape?info_hash=%cb%f2%ac%02r%80Z%d44%3e%29%0bZ%a5i%f4%b86%1cO HTTP/1.1
+User-Agent: Transmission/2.82
+Host: memtracker.appspot.com
+Accept: */*
+Accept-Encoding: gzip;q=1.0, deflate, identity
+
+* HTTP 1.0, assume close after body
+< HTTP/1.0 200 OK
+< 
+* Closing connection 2
+Scrape response:
+< {
+    "files": {
+        "`6k$KQ=CQ+l": {
+            "complete": 566, 
+            "downloaded": 25041, 
+            "incomplete": 203
+        }
+    }
+}
+
+< HTTP/1.1 200 OK
+< ETag: "rm7_zg"
+< Date: Wed, 30 Oct 2013 05:17:12 GMT
+< Expires: Wed, 30 Oct 2013 05:27:12 GMT
+< Cache-Control: public, max-age=600
+< Content-Type: text/html
+< Server: Google Frontend
+< Alternate-Protocol: 80:quic
+< Transfer-Encoding: chunked
+< 
+* Connection #3 to host memtracker.appspot.com left intact
+Scrape response:
+< {
+    "failure reason": "App is disabled.", 
+    "interval": 86400, 
+    "min interval": 3600
+}
+
+* Found bundle for host memtracker.appspot.com: 0x7fbb0804ac50
+* Re-using existing connection! (#3) with host memtracker.appspot.com
+* Connected to memtracker.appspot.com (74.125.137.141) port 80 (#3)
+> GET /scrape?info_hash=%cb%f2%ac%02r%80Z%d44%3e%29%0bZ%a5i%f4%b86%1cO HTTP/1.1
+User-Agent: Transmission/2.82
+Host: memtracker.appspot.com
+Accept: */*
+Accept-Encoding: gzip;q=1.0, deflate, identity
+
+< HTTP/1.1 200 OK
+< ETag: "rm7_zg"
+< Date: Wed, 30 Oct 2013 05:17:12 GMT
+< Expires: Wed, 30 Oct 2013 05:27:12 GMT
+< Content-Type: text/html
+< Server: Google Frontend
+< Cache-Control: public, max-age=600
+< Content-Length: 77
+< Age: 29
+< Alternate-Protocol: 80:quic
+< 
+* Connection #3 to host memtracker.appspot.com left intact
+Scrape response:
+< {
+    "failure reason": "App is disabled.", 
+    "interval": 86400, 
+    "min interval": 3600
+}
+
+* About to connect() to h33t.com port 80 (#4)
+*   Trying 67.215.65.132...
+* Connected to h33t.com (67.215.65.132) port 80 (#4)
+> GET /favicon.ico HTTP/1.1
+User-Agent: Transmission/2.82
+Host: h33t.com
+Accept: */*
+Accept-Encoding: gzip;q=1.0, deflate, identity
+
+* HTTP 1.0, assume close after body
+< HTTP/1.0 404 Not Found
+< Content-Type: text/html
+< Content-Length: 345
+< Connection: close
+< Date: Wed, 30 Oct 2013 05:20:07 GMT
+< Server: OpenDNS Guide
+< 
+* Closing connection 4
+* About to connect() to h33t.com port 80 (#5)
+*   Trying 67.215.65.132...
+* Connected to h33t.com (67.215.65.132) port 80 (#5)
+> GET /favicon.png HTTP/1.1
+User-Agent: Transmission/2.82
+Host: h33t.com
+Accept: */*
+Accept-Encoding: gzip;q=1.0, deflate, identity
+
+* HTTP 1.0, assume close after body
+< HTTP/1.0 404 Not Found
+< Content-Type: text/html
+< Content-Length: 345
+< Connection: close
+< Date: Wed, 30 Oct 2013 05:20:07 GMT
+< Server: OpenDNS Guide
+< 
+* Closing connection 5
+* About to connect() to h33t.com port 80 (#6)
+*   Trying 67.215.65.132...
+* Connected to h33t.com (67.215.65.132) port 80 (#6)
+> GET /favicon.gif HTTP/1.1
+User-Agent: Transmission/2.82
+Host: h33t.com
+Accept: */*
+Accept-Encoding: gzip;q=1.0, deflate, identity
+
+* HTTP 1.0, assume close after body
+< HTTP/1.0 404 Not Found
+< Content-Type: text/html
+< Content-Length: 345
+< Connection: close
+< Date: Wed, 30 Oct 2013 05:20:08 GMT
+< Server: OpenDNS Guide
+< 
+* Closing connection 6
+* About to connect() to h33t.com port 80 (#7)
+*   Trying 67.215.65.132...
+* Connected to h33t.com (67.215.65.132) port 80 (#7)
+> GET /favicon.jpg HTTP/1.1
+User-Agent: Transmission/2.82
+Host: h33t.com
+Accept: */*
+Accept-Encoding: gzip;q=1.0, deflate, identity
+
+* About to connect() to exodus.desync.com port 6969 (#8)
+*   Trying 208.83.20.164...
+* HTTP 1.0, assume close after body
+< HTTP/1.0 404 Not Found
+< Content-Type: text/html
+< Content-Length: 345
+< Connection: close
+< Date: Wed, 30 Oct 2013 05:20:08 GMT
+< Server: OpenDNS Guide
+< 
+* Closing connection 7
+* Connected to exodus.desync.com (208.83.20.164) port 6969 (#8)
+> GET /announce?info_hash=%88%15%8c%7bW%e0%85%21%86~%d0%b5%de%06%5b%7dWI%cf%d7&peer_id=-TR2820-ne1joqgh8z9o&port=51413&uploaded=0&downloaded=0&left=52406288292&numwant=80&key=6ee99240&compact=1&supportcrypto=1&requirecrypto=1&event=started HTTP/1.1
+User-Agent: Transmission/2.82
+Host: exodus.desync.com:6969
+Accept: */*
+Accept-Encoding: gzip;q=1.0, deflate, identity
+
+< HTTP/1.1 200 OK
+< Content-Type: text/plain
+< Content-Length: 136
+< 
+* Connection #8 to host exodus.desync.com left intact
+Announce response:
+< {
+    "complete": 1, 
+    "downloaded": 11, 
+    "incomplete": 6, 
+    "interval": 1732, 
+    "min interval": 866, 
+    "peers": "H\u055cW<nT\u057cF*`\u02a0'7EFUIVR"
+}
+
+* Found bundle for host exodus.desync.com: 0x7fbb0804a0e0
+* Connection 8 seems to be dead!
+* Closing connection 8
+* About to connect() to exodus.desync.com port 6969 (#9)
+*   Trying 208.83.20.164...
+* After 45000ms connect time, move on!
+*   Trying 2607:f178::164...
+* Failed to connect to 2607:f178::164: Network is unreachable
+* Failed connect to exodus.desync.com:6969; Network is unreachable
+* Closing connection 9
+* About to connect() to exodus.desync.com port 6969 (#10)
+*   Trying 208.83.20.164...
+* Found bundle for host exodus.desync.com: 0x7fbb08040220
+* About to connect() to exodus.desync.com port 6969 (#11)
+*   Trying 208.83.20.164...
+* Connected to exodus.desync.com (208.83.20.164) port 6969 (#11)
+> GET /announce?info_hash=%88%15%8c%7bW%e0%85%21%86~%d0%b5%de%06%5b%7dWI%cf%d7&peer_id=-TR2820-ne1joqgh8z9o&port=51413&uploaded=0&downloaded=0&left=52406288292&numwant=0&key=6ee99240&compact=1&supportcrypto=1&requirecrypto=1&event=stopped HTTP/1.1
+User-Agent: Transmission/2.82
+Host: exodus.desync.com:6969
+Accept: */*
+Accept-Encoding: gzip;q=1.0, deflate, identity
+
+< HTTP/1.1 200 OK
+< Content-Type: text/plain
+< Content-Length: 76
+< 
+* Connection #11 to host exodus.desync.com left intact
+Announce response:
+< {
+    "complete": 1, 
+    "incomplete": 4, 
+    "interval": 1763, 
+    "min interval": 881, 
+    "peers": ""
+}
+
