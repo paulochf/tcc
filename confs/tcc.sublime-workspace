@@ -11,38 +11,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "/home/paulo/Arquivos/tcc/mono/glossario.tex",
-			"settings":
-			{
-				"buffer_size": 13394,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/paulo/Arquivos/tcc/mono/bibliografia.bib",
-			"settings":
-			{
-				"buffer_size": 22987,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/paulo/Arquivos/tcc/mono/Chapters/Chapter3.tex",
-			"settings":
-			{
-				"buffer_size": 19526,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/paulo/Arquivos/tcc/mono/docs/transmission-log",
-			"settings":
-			{
-				"buffer_size": 7780,
-				"line_ending": "Windows"
-			}
-		}
 	],
 	"build_system": "Packages/LaTeXTools/LaTeX.sublime-build",
 	"command_palette":
@@ -100,6 +68,9 @@
 	},
 	"file_history":
 	[
+		"/home/paulo/Arquivos/tcc/mono/glossario.tex",
+		"/home/paulo/Arquivos/tcc/mono/bibliografia.bib",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/Chapter3.tex",
 		"/home/paulo/Arquivos/tcc/mono/tcc.tex",
 		"/home/paulo/.config/sublime-text-3/Packages/User/latex-gls-ast.sublime-snippet",
 		"/home/paulo/.config/sublime-text-3/Packages/User/latex-glspl-ast.sublime-snippet",
@@ -347,131 +318,8 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "/home/paulo/Arquivos/tcc/mono/glossario.tex",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 13394,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								13130,
-								13130
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 5748.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "/home/paulo/Arquivos/tcc/mono/bibliografia.bib",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 22987,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								13629,
-								13629
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/LaTeX/Bibtex.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 5843.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 1,
-			"sheets":
-			[
-				{
-					"buffer": 2,
-					"file": "/home/paulo/Arquivos/tcc/mono/Chapters/Chapter3.tex",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 19526,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								15950,
-								15950
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 6291.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "/home/paulo/Arquivos/tcc/mono/docs/transmission-log",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 7780,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								5692,
-								5692
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 3691.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -492,18 +340,11 @@
 				0,
 				1,
 				1
-			],
-			[
-				1,
-				0,
-				2,
-				1
 			]
 		],
 		"cols":
 		[
 			0.0,
-			0.0430292598967,
 			1.0
 		],
 		"rows":
@@ -555,12 +396,6 @@
 				0,
 				0,
 				1,
-				1
-			],
-			[
-				1,
-				0,
-				2,
 				1
 			]
 		]
