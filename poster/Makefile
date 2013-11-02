@@ -2,7 +2,7 @@
 # makefile para a compilação do documento
 #
 
-BASE_NAME = poster-surf
+BASE_NAME = tcc-poster
 
 PARAMS	   = -shell-escape
 LATEX      = latex $(PARAMS)
