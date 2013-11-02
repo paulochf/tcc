@@ -8,6 +8,7 @@
 *.bbl
 *.bcf
 *.blg
+*.brf
 *.dvi
 *.fdb_latexmk
 *.fls
@@ -25,10 +26,14 @@
 *.maf
 *.mtc
 *.mtc1
+*.nav
 *.out
+*.ps
 *.pyg
 *.run.xml
+*.snm
 *.synctex.gz
+*.synctex.gz(busy)
 *.tdo
 *.toc
 *.xdy
