@@ -11,29 +11,17 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "/home/paulo/Arquivos/tcc/mono/poster/tcc-poster.tex",
-			"settings":
-			{
-				"buffer_size": 42453,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/paulo/Arquivos/tcc/mono/poster/beamerthemeI6dv.sty",
-			"settings":
-			{
-				"buffer_size": 6252,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "Packages/LaTeXTools/LaTeX.sublime-build",
 	"command_palette":
 	{
-		"height": 394.0,
+		"height": 386.0,
 		"selected_items":
 		[
+			[
+				"Snippet: ",
+				"Snippet: latex-gls"
+			],
 			[
 				"in",
 				"Indentation: Reindent Lines"
@@ -63,7 +51,7 @@
 				"Package Control: Install Package"
 			]
 		],
-		"width": 451.0
+		"width": 394.0
 	},
 	"console":
 	{
@@ -85,9 +73,18 @@
 	"file_history":
 	[
 		"/home/paulo/Arquivos/tcc/mono/tcc.tex",
-		"/home/paulo/Arquivos/tcc/mono/poster/beamerthemeI6dv.sty",
-		"/home/paulo/Arquivos/tcc/mono/poster/beamerthemeI6pd2.sty",
+		"/home/paulo/Arquivos/tcc/mono/poster/bibliografia.bib",
 		"/home/paulo/Arquivos/tcc/mono/poster/tcc-poster.tex",
+		"/home/paulo/Arquivos/tcc/mono/docs/transmission-log",
+		"/home/paulo/Arquivos/tcc/mono/poster/beamerthemeI6dv.sty",
+		"/home/paulo/Downloads/poster/poster.tex",
+		"/home/paulo/Arquivos/tcc/poster/bibliografia.bib",
+		"/home/paulo/Arquivos/tcc/mono/bibliografia.bib",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/Chapter6.tex",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/Chapter2.tex",
+		"/home/paulo/.config/sublime-text-3/Packages/User/Default (Linux).sublime-keymap",
+		"/home/paulo/Downloads/poster/beamerthemeposter-exemplo.sty",
+		"/home/paulo/Arquivos/tcc/mono/poster/beamerthemeI6pd2.sty",
 		"/home/paulo/Arquivos/tcc/mono/.gitignore",
 		"/home/paulo/Arquivos/tcc/mono/.latexmkrc",
 		"/home/paulo/Arquivos/tcc/mono/Makefile",
@@ -95,11 +92,9 @@
 		"/home/paulo/Arquivos/tcc/mono/poster/Makefile",
 		"/home/paulo/Arquivos/tcc/mono/confs/sublime/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
 		"/home/paulo/Arquivos/tcc/mono/glossario.tex",
-		"/home/paulo/Arquivos/tcc/mono/bibliografia.bib",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/Chapter3.tex",
 		"/home/paulo/.config/sublime-text-3/Packages/User/latex-gls-ast.sublime-snippet",
 		"/home/paulo/.config/sublime-text-3/Packages/User/latex-glspl-ast.sublime-snippet",
-		"/home/paulo/.config/sublime-text-3/Packages/User/Default (Linux).sublime-keymap",
 		"/home/paulo/Arquivos/tcc/mono/confs/tcc.sublime-workspace",
 		"/home/paulo/Arquivos/tcc/mono/confs/script",
 		"/media/paulo/Arquivos/tcc/mono/Chapters/Chapter4.tex",
@@ -152,7 +147,7 @@
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 81.0,
 		"where_history":
 		[
 		]
@@ -162,6 +157,28 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"swarm",
+			"\\'",
+			"\"",
+			"\\\"([^\"]*)\\\"",
+			"\\\"",
+			"\"",
+			" )",
+			"itemize",
+			" \\\\",
+			"                    \\",
+			"enumera",
+			")",
+			" )",
+			"innercol",
+			"columns",
+			"}\n",
+			"begin",
+			"block",
+			"vskip1ex",
+			"\\vskip1ex",
+			"minipa",
+			"mini",
 			"vskip3ex",
 			"insti",
 			"codifi",
@@ -267,29 +284,7 @@
 			"misc",
 			"\"(,?)(\\s)",
 			"\"",
-			"\"(,?)",
-			"\"(,?)(\\s)",
-			"\\s\"",
-			" },",
-			"Online",
-			"site",
-			"\",\n",
-			"site",
-			"Misc",
-			"misc",
-			"GLSsentryname",
-			"Glssentryname",
-			"GLSsentryname",
-			"^(\\s*)([^\\n]*)",
-			"^(\\s*)([^\\n]*)\\n",
-			"\\s",
-			"@",
-			"	\"",
-			"graphicx",
-			"colorinlistoftodos",
-			"100",
-			"80",
-			"wrap"
+			"\"(,?)"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -297,6 +292,14 @@
 		"regex": true,
 		"replace_history":
 		[
+			"'",
+			"\\'",
+			"\\\"",
+			"``\\1''",
+			"\"",
+			"\\\"",
+			"",
+			"blockouterspace",
 			"wikitheory:bencoding",
 			"home",
 			"{\\1}",
@@ -343,79 +346,14 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "/home/paulo/Arquivos/tcc/mono/poster/tcc-poster.tex",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 42453,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1443,
-								1443
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 390.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 0,
-			"sheets":
-			[
-				{
-					"buffer": 1,
-					"file": "/home/paulo/Arquivos/tcc/mono/poster/beamerthemeI6dv.sty",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 6252,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3465,
-								3465
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/LaTeX/TeX.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1599.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
 			]
 		}
 	],
 	"incremental_find":
 	{
-		"height": 28.0
+		"height": 20.0
 	},
 	"input":
 	{
@@ -430,18 +368,11 @@
 				0,
 				1,
 				1
-			],
-			[
-				1,
-				0,
-				2,
-				1
 			]
 		],
 		"cols":
 		[
 			0.0,
-			0.5,
 			1.0
 		],
 		"rows":
@@ -494,12 +425,6 @@
 				0,
 				1,
 				1
-			],
-			[
-				1,
-				0,
-				2,
-				1
 			]
 		]
 	},
@@ -507,7 +432,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 204.0,
+	"side_bar_width": 263.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
