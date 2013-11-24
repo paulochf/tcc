@@ -157,7 +157,7 @@
 %%%%%%%%%%%%%%%%%%%%%
 
 % Do manual do minted
-\renewcommand\listingscaption{Código fonte}
+\renewcommand\listingscaption{Código-fonte}
 \renewcommand\listoflistingscaption{Lista de Códigos fonte}
 
 % http://tex.stackexchange.com/a/99656/5125
@@ -315,13 +315,16 @@
 % Tamanhos / Distâncias
 % http://tex.stackexchange.com/a/24468/5125
 % http://www.las.ic.unicamp.br/pub/ctan/macros/latex/contrib/layouts/layman.pdf
-\setlength{\baselineskip}{17pt}             % Entre linhas do texto
-\setlength{\parskip}{15pt}                  % Entre parágrafos
-\setlength{\textfloatsep}{\baselineskip}    % Entre floats [t] ou [b]
-\setlength{\intextsep}{\baselineskip}       % Entre floats [h]
-\setlength{\abovecaptionskip}{2pt}          % Acima das legendas
-\setlength{\belowcaptionskip}{2pt}          % Abaixo das legendas
-
+\setlength{\baselineskip}{15pt}                % Entre linhas do texto
+\setlength{\parskip}{15pt}                     % Entre parágrafos
+\setlength{\textfloatsep}{.3\baselineskip}     % Entre floats [t] ou [b] e parágrafos
+\setlength{\intextsep}{\baselineskip}          % Entre floats [h] e parágrafos
+\setlength{\abovecaptionskip}{.3\parskip}      % Acima das legendas
+\setlength{\belowcaptionskip}{-\baselineskip}  % Abaixo das legendas
+\addtolength{\belowcaptionskip}{1.2ex}
+\setlength{\topsep}{0pt}                       % Espaço superior de listas 1
+\setlength{\partopsep}{-\baselineskip}         % Espaço superior de listas 2
+\addtolength{\partopsep}{1.2ex}
 
 % Numeração normal em indo-arábico
 \mainmatter
