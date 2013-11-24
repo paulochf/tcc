@@ -12,19 +12,21 @@ pacote de dados daquele conjunto de dados e também um ou mais endereços de
 \glspl*{tracker}, que mantém listas atualizadas dos \glspl*{peer} que estão
 compartilhando os dados, atualizado em períodos de tempo curtos (usualmente 30 minutos).
 
-\begin{figure}[H]
-    \centering
-    \fbox{\includegraphics[width=0.64\textwidth]{funcionamento.png}}
-    \caption{esquema básico do funcionamento do BitTorrent}
-    \label{fig:torrent-basics}
-\end{figure}
+\begin{comment}
+    \begin{figure}[H]
+        \centering
+        \fbox{\includegraphics[width=0.64\textwidth]{funcionamento.png}}
+        \caption{esquema básico do funcionamento do BitTorrent}
+        \label{fig:torrent-basics}
+    \end{figure}
+\end{comment}
 
 Enquanto um \gls*{peer} estiver fazendo download de um \gls*{torrent} é chamado de
 \gls{leecher}, pois ainda estará consumindo dados de outros \glspl*{peer}; quando o
 download acabar, passará a ser um \gls{seeder}, que somente envia dados para outros
 \glspl*{peer}.
 
-\begin{figure}[H]
+\begin{figure}[ht]
     \centering
     \fbox{\includegraphics[width=0.85\textwidth]{universobt.png}}
     \caption{amostra de uma rede de conexões BitTorrent}
@@ -40,9 +42,9 @@ compartilhado, podendo inclusive estar extinto.
 
 \Glspl*{peer} que participam do compartilhamento de um arquivo \gls*{torrent} específico
 fazem parte do \gls{swarm}, onde os dados contidos no pacote desse arquivo são
-compartilhados com outros de forma independente e paralela por partes.
+compartilhados com outros por partes.
 
-\begin{figure}[H]
+\begin{figure}[hp]
     \newlength{\myvsize}
     \newlength{\myhsize}
     \setlength{\myvsize}{5mm}
@@ -123,16 +125,24 @@ compartilhados com outros de forma independente e paralela por partes.
     \label{fig:torrent-repr}
 \end{figure}
 
+Essas partes variam de acordo com cada arquivo \gls*{torrent}. O tamanho total do
+conjunto de arquivos contidos nesse arquivo é dividido em partes de tamanho fixo
+(geralmente 256kB) e transmitido de forma independente das outras, seguindo a ordem
+estabelecida pelo algoritmo de troca de partes (explicado na seção~\ref{titfortat}),
+ordem essa que varia de acordo com o estado atual do \gls*{swarm} para o arquivo
+\gls*{torrent} dado.
+
 Todos esses agentes possuem relações de múltiplas entre si. Por exemplo, um mesmo
 arquivo \gls*{torrent} pode estar indexado por vários sites indexadores. Como veremos
 nos capítulos seguintes, eles contém uma informação que os identificam unicamente entre
 si, mantendo a consistência de dados através desses vários sites de busca. Outra
 observação a ser feita é que um \gls*{peer} pode estar baixando mais de um
-\gls*{torrent} simultaneamente, ou seja, participando de 2 \glspl*{swarm} ao mesmo
+\gls*{torrent} simultaneamente, ou seja, participando de dois \glspl*{swarm} ao mesmo
 tempo. Por fim, em alguns casos um arquivo \gls*{torrent} possui grande quantidade de
 \glspl*{peer}, havendo necessidade de se dividir o \gls*{swarm} em algumas partes para
 fins de escalabilidade da rede formada.
 
+\newpage
 \subsection*{Arquivo .torrent}
 
 Ao se adicionar um \gls*{torrent} em um programa cliente, ocorrem muitas transmissões de
@@ -141,8 +151,8 @@ filme ``A Noite dos Mortos Vivos'' de 1960 \cite{torrent-file}, que é de domín
 e livre de direitos autorais.
 
 Se abrirmos esse arquivo, veremos uma grande \gls{string}, caracteres diferentes e
-incomuns, formando um conteúdo ilegível e de sob uma forma compacta, mostrado no
-código~\ref{lst:torrent-file-raw}.
+incomuns, formando um conteúdo ilegível (na seção binária) e sob uma forma compacta,
+mostrado no código~\ref{lst:torrent-file-raw}.
 
 \begin{listing}[H]
     \begin{minted}[
@@ -174,9 +184,35 @@ código~\ref{lst:torrent-file-raw}.
 \end{listing}
 
 Esse conteúdo está organizado usando o formato \gls{bencode}, que é um formato de
-codificação compacta de arquivos especial para arquivos .torrent e não é legível ao ser
-humano. Com alguma formatação grosseira, podemos enxergar os componentes separadamente,
+codificação compacta de arquivos especial para arquivos \gls*{torrent} e não é legível
+ao ser humano. Com alguma formatação, podemos enxergar os componentes separadamente,
 como mostra o código~\ref{lst:torrent-file-code}.
+
+Esse conteúdo tem significado, sendo utilizado da seguinte forma
+\cite{wikitheory:bencoding}:
+
+\begin{itemize}
+    \item \gls*{string} são prefixos de números na base 10 que representam
+        comprimentos, seguidos por um caractere `:' e então o conteúdo. Por exemplo, na
+        linha 2, \verb|8:announce| corresponde à \gls*{string} "announce".
+
+    \item números são representados por um `i', seguidos do valor na base 10 (sem
+        qualquer limite, mas sem zeros precedentes como em $0003$, e podendo ser
+        negativo), e terminados por um `e'. Por exemplo, na linha 11,
+        \verb|i1343715473e| corresponde ao número 1343715473.
+
+    \item listas são formadas por `l', seguidos por seus elementos (também no formato
+        \gls*{bencode}), e então terminados por `e'. Por exemplo, \verb|l3:foo3:bare|
+        corresponde a ["foo", "bar"]. No código acima, é presente entre as linhas 43
+        e 47.
+
+    \item dicionários são definidos por `d', seguidos de uma lista alternada de chaves e
+        seus valores correspondentes, terminando com `e', onde as chaves devem estar
+        ordenadas usando-se comparação binária ao invés da usual alfanumérica.
+        Por exemplo, a \gls*{string} \verb|d3:foo3:bar6:foobar6:bazbare| corresponde a
+        \{"foo: "bar", "foobar": "bazbar"\}, e \verb|d3:fool6:foobar3:bazee| a
+        \{"foo": ["foobar", "baz"]\}.
+\end{itemize}
 
 \begin{listing}[H]
     \begin{minted}[
@@ -242,32 +278,6 @@ como mostra o código~\ref{lst:torrent-file-code}.
     binária truncada}
     \label{lst:torrent-file-code}
 \end{listing}
-
-Esse conteúdo tem significado, sendo utilizado da seguinte forma
-\cite{wikitheory:bencoding}:
-
-\begin{itemize}
-    \item \gls*{string} são prefixos de números na base 10 que representam
-        comprimentos, seguidos por um caractere `:' e então o conteúdo. Por exemplo, na
-        linha 2, \verb|8:announce| corresponde à \gls*{string} "announce".
-
-    \item números são representados por um `i', seguidos do valor na base 10 (sem
-        qualquer limite, mas sem zeros precedentes como em $0003$, e podendo ser
-        negativo), e terminados por um `e'. Por exemplo, na linha 11,
-        \verb|i1343715473e| corresponde ao número 1343715473.
-
-    \item listas são formadas por `l', seguidos por seus elementos (também no formato
-        \gls*{bencode}), e então terminados por `e'. Por exemplo, \verb|l3:foo3:bare|
-        corresponde a ["foo", "bar"]. No código acima, é presente entre as linhas 43
-        e 47.
-
-    \item dicionários são definidos por `d', seguidos de uma lista alternada de chaves e
-        seus valores correspondentes, terminando com `e', onde as chaves devem estar
-        ordenadas usando-se comparação binária ao invés da usual alfanumérica.
-        Por exemplo, a \gls*{string} \verb|d3:foo3:bar6:foobar6:bazbare| corresponde a
-        \{"foo: "bar", "foobar": "bazbar"\}, e \verb|d3:fool6:foobar3:bazee| a
-        \{"foo": ["foobar", "baz"]\}.
-\end{itemize}
 
 \subsection*{Magnet Link}
 
