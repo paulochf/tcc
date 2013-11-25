@@ -22,10 +22,9 @@
 \usepackage{fullpage}                               % margens menores
 \usepackage{indentfirst}                            % indentação dos 1ºs parágrafos
 \usepackage{setspace}                               % \setstretch
-
+\usepackage{afterpage}                              % \afterpage
+% \usepackage{layouts}                              % debug dos tamanhos do documento
 % \afterpage http://tex.stackexchange.com/q/88657
-\usepackage{afterpage}
-\usepackage{layouts}
 
 % \newminted{cpp}
 % [chapter] é para numerar usando o capítulo
@@ -185,18 +184,18 @@
 %   }
 % \end{cppcode*}
 %
-% labels: http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.169.9130&rep=rep1&type=pdf
-\newminted{cpp}{
+% labels: http://citeseerx.ist.psu.edu/viewdoc/
+%      download?doi=10.1.1.169.9130&rep=rep1&type=pdf
+
+\newmintedfile[cfile]{c}{
     linenos,
     frame=single,
     samepage=true,
-    gobble=2,
     numbersep=6pt,
     baselinestretch=1,
     fontfamily=courier,
-    fontsize=\footnotesize
+    fontsize=\scriptsize
 }
-
 
 %% -------------------------------------------------------------------------------------
 %% DOCUMENT
@@ -317,8 +316,8 @@
 % http://www.las.ic.unicamp.br/pub/ctan/macros/latex/contrib/layouts/layman.pdf
 \setlength{\baselineskip}{15pt}                % Entre linhas do texto
 \setlength{\parskip}{15pt}                     % Entre parágrafos
-\setlength{\textfloatsep}{\baselineskip}     % Entre floats [t] ou [b] e parágrafos
-\setlength{\intextsep}{1.25\baselineskip}          % Entre floats [h] e parágrafos
+\setlength{\textfloatsep}{1.25\baselineskip}   % Entre floats [t] ou [b] e parágrafos
+\setlength{\intextsep}{1.25\baselineskip}      % Entre floats [h] e parágrafos
 \setlength{\abovecaptionskip}{.3\parskip}      % Acima das legendas
 \setlength{\belowcaptionskip}{-\baselineskip}  % Abaixo das legendas
 \addtolength{\belowcaptionskip}{1.2ex}

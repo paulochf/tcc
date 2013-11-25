@@ -118,7 +118,7 @@ compartilhados com outros por partes.
         \label{fig:torrent-repr-9}
     \end{subfigure}
 
-    \caption{Simulação de uma transferência torrent: o \gls{seeder}, na parte
+    \caption{simulação de uma transferência torrent: o \gls{seeder}, na parte
     inferior das figuras, possui todas as 5 partes de um arquivo, que os outros
     computadores, os \glspl{leecher}, baixam de forma independente e paralela. Fonte:
     \cite{fig:torrent-dl}}
@@ -192,26 +192,26 @@ Esse conteúdo tem significado, sendo utilizado da seguinte forma
 \cite{wikitheory:bencoding}:
 
 \begin{itemize}
-    \item \gls*{string} são prefixos de números na base 10 que representam
+    \item \textbf{\glspl*{string}} são prefixos de números na base 10 que representam
         comprimentos, seguidos por um caractere `:' e então o conteúdo. Por exemplo, na
         linha 2, \verb|8:announce| corresponde à \gls*{string} "announce".
 
-    \item números são representados por um `i', seguidos do valor na base 10 (sem
-        qualquer limite, mas sem zeros precedentes como em $0003$, e podendo ser
+    \item \textbf{números} são representados por um `i', seguidos do valor na base 10
+        (sem qualquer limite, mas sem zeros precedentes como em $0003$, e podendo ser
         negativo), e terminados por um `e'. Por exemplo, na linha 11,
         \verb|i1343715473e| corresponde ao número 1343715473.
 
-    \item listas são formadas por `l', seguidos por seus elementos (também no formato
-        \gls*{bencode}), e então terminados por `e'. Por exemplo, \verb|l3:foo3:bare|
-        corresponde a ["foo", "bar"]. No código acima, é presente entre as linhas 43
-        e 47.
+    \item \textbf{listas} são formadas por `l', seguidos por seus elementos (também no
+        formato \gls*{bencode}), e então terminados por `e'. Por exemplo,
+        \verb|l3:foo3:bare| corresponde a ["foo", "bar"]. No código acima, é presente
+        entre as linhas 43 e 47.
 
-    \item dicionários são definidos por `d', seguidos de uma lista alternada de chaves e
-        seus valores correspondentes, terminando com `e', onde as chaves devem estar
-        ordenadas usando-se comparação binária ao invés da usual alfanumérica.
-        Por exemplo, a \gls*{string} \verb|d3:foo3:bar6:foobar6:bazbare| corresponde a
-        \{"foo: "bar", "foobar": "bazbar"\}, e \verb|d3:fool6:foobar3:bazee| a
-        \{"foo": ["foobar", "baz"]\}.
+    \item \textbf{dicionários} são definidos por `d', seguidos de uma lista alternada
+        de chaves e seus valores correspondentes, terminando com `e', onde as chaves
+        devem estar ordenadas usando-se comparação binária ao invés da usual
+        alfanumérica. Por exemplo, a \gls*{string} \verb|d3:foo3:bar6:foobar6:bazbare|
+        corresponde a \{"foo: "bar", "foobar": "bazbar"\}, e
+        \verb|d3:fool6:foobar3:bazee| a \{"foo": ["foobar", "baz"]\}.
 \end{itemize}
 
 \begin{listing}[H]
@@ -342,41 +342,25 @@ dividir esse endereço em partes, cada uma tendo o seu significado:
 
 \section{Busca por informações}
 
+Ao se adicionar um \gls*{torrent} ao Transmission, ocorre um processamento para
+identificar a fonte dos dados (arquivo .torrent ou \gls*{magnetlink}) e se obter algumas
+informações, como lista de arquivos, endereços de \glspl*{tracker}, quantidade de
+partes e seus \glspl*{hashvalue}, etc.
+
+\newpage
+\cfile{./Codes/chap3/001-leiturametadata.c}
+
 Para cada \gls*{swarm} gerenciado, o \gls*{tracker} possui uma lista dos \glspl*{peer}
-que participam dele, que é enviada ao \gls*{peer} que a quer, quando este faz um pedido
-por meio de uma requisição \gls{httpget}. Quando essa requisição é recebida pelo
-\gls*{tracker}, este inclui ou atualiza o registro do \gls*{peer} solicitante e devolve
-para ele uma lista de 50 \glspl*{peer} aleatórios, de forma uniforme, que fazem parte do
-\gls*{swarm}. Não havendo essa quantidade total, a lista toda é enviada ao requisitante;
-caso contrário, a aleatoriedade proporciona uma diversidade de listas enviadas,
-proporcionando robustez ao sistema \cite{wikitheory:tracker-response}.
+que participam dele, que é enviada ao \gls*{peer} que a requer por meio de uma
+requisição \gls{httpget}. Quando essa requisição é recebida pelo \gls*{tracker}, este
+inclui ou atualiza o registro do \gls*{peer} solicitante e devolve uma lista de 50
+\glspl*{peer} aleatórios, de forma uniforme, que fazem parte do \gls*{swarm}. Não
+havendo essa quantidade total, a lista toda é enviada ao requisitante; caso contrário,
+a aleatoriedade proporciona uma diversidade de listas enviadas, proporcionando robustez
+ao sistema \cite{wikitheory:tracker-response}.
 
-Esse contato de um \gls*{peer} com o \gls*{tracker} é chamado de \gls{announce}, e
-ocorre nas seguintes situações:
-
-\begin{itemize}
-    \item no primeiro contato do \gls*{peer}, para que ele tenha acesso a um
-        \gls*{swarm}
-
-    \item a cada período de tempo, estipulado pelo tracker, para que o \gls*{peer}
-        continue mostrando que ainda está conectado, além de pode receber endereços de
-        \glspl*{peer} novos
-
-    \item quando a quantidade de \glspl*{peer} conhecidos que estão ativos é menor do 5
-
-    \item quando terminar o download, notificando que passou a ser um \gls*{seeder}
-
-    \item quando sai do \gls*{swarm}, seja por desconexão ou por encerramento do
-        programa cliente
-\end{itemize}
-
-Além do \gls*{announce}, outra forma de troca de informação entre \glspl*{peer} e
-\glspl*{tracker} é pelo \emph{scrape}. Geralmente usado pelos programas cliente para
-decidir quando realizar um \gls*{announce}, informa o número de \glspl*{peer},
-\glspl*{leecher} e \glspl*{seeder} de uma lista de um ou mais \glspl*{torrent}. É dessa
-forma que os sites de indexação sabem dessas informações e as apresentam nas páginas.
-
-No \gls*{announce}, vários dados devem ser enviados ao \gls*{tracker}. São eles:
+Esse contato de um \gls*{peer} com o \gls*{tracker} é chamado de \gls{announce}, e são
+passadas várias informações para o \gls*{tracker}:
 
 \begin{itemize}
     \item \textbf{info\_hash}: \gls*{hashvalue} de 20 bytes resultante da
@@ -433,13 +417,43 @@ No \gls*{announce}, vários dados devem ser enviados ao \gls*{tracker}. São ele
     \gls{proxy} ou quando ambos cliente e \gls*{tracker} estão no mesmo lado local de um
     \gls{nat}, pois nesse caso o endereço IP não é roteável
 
-    \item \textbf{numwant} (opcional): quantidade de \glspl*{peer} que o requisitante gostaria de receber do \gls*{tracker}. É permitido valor zero. Se omitido, assume valor padrão de 50
+    \item \textbf{numwant} (opcional): quantidade de \glspl*{peer} que o requisitante
+    gostaria de receber do \gls*{tracker}. É permitido valor zero. Se omitido, assume
+    valor padrão de 50
 
-    \item \textbf{key} (opcional): mecanismo de idetificação adicional para o programa cliente provar sua identidade caso tenha ocorrido mudança no seu endereço IP
+    \item \textbf{key} (opcional): mecanismo de idetificação adicional para o programa
+    cliente provar sua identidade caso tenha ocorrido mudança no seu endereço IP
 
     \item \textbf{trackerid} (opcional): se a resposta de um \gls*{announce} anterior
     continha o endereço IP de um \gls*{tracker}, deve ser enviado neste campo
 \end{itemize}
+
+\newpage
+\cfile{./Codes/chap3/002-announce.c}
+
+Essa comunicação ocorre nas seguintes situações:
+
+\begin{itemize}
+    \item no primeiro contato do \gls*{peer}, para que ele tenha acesso a um
+        \gls*{swarm}
+
+    \item a cada período de tempo, estipulado pelo tracker, para que o \gls*{peer}
+        continue mostrando que ainda está conectado, além de pode receber endereços de
+        \glspl*{peer} novos
+
+    \item quando a quantidade de \glspl*{peer} conhecidos que estão ativos é menor do 5
+
+    \item quando terminar o download, notificando que passou a ser um \gls*{seeder}
+
+    \item quando sai do \gls*{swarm}, seja por desconexão ou por encerramento do
+        programa cliente
+\end{itemize}
+
+Além do \gls*{announce}, outra forma de troca de informação entre \glspl*{peer} e
+\glspl*{tracker} é pelo \emph{scrape}. Geralmente usado pelos programas cliente para
+decidir quando realizar um \gls*{announce}, informa o número de \glspl*{peer},
+\glspl*{leecher} e \glspl*{seeder} de uma lista de um ou mais \glspl*{torrent}. É dessa
+forma que os sites de indexação sabem dessas informações e as apresentam nas páginas.
 
 \todo[inline]{explicar como o Transmission usa o torrent}
 
@@ -448,6 +462,7 @@ No \gls*{announce}, vários dados devem ser enviados ao \gls*{tracker}. São ele
 Mostrarei o processamento dos dados adquiridos na seção anterior e como ele organiza a lista das fontes de arquivos usando a tabela hash DHT Kademlia.
 
 \section{Jogo da troca de arquivos}
+\label{titfortat}
 
 Explicarei o algoritmo tit-for-tat padrão do protocolo BitTorrent, que vem da Teoria dos Jogos, e como o Transmission o implementa.
 
