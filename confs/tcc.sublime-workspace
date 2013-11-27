@@ -11,6 +11,47 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "/home/paulo/Arquivos/tcc/mono/tcc.tex",
+			"settings":
+			{
+				"buffer_size": 9009,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/paulo/Arquivos/tcc/mono/Codes/chap3/002-announce.c",
+			"settings":
+			{
+				"buffer_size": 2658,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/paulo/Arquivos/tcc/mono/Codes/chap3/001-leiturametadata.c",
+			"settings":
+			{
+				"buffer_size": 2613,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/paulo/Arquivos/tcc/mono/Chapters/Chapter3.tex",
+			"settings":
+			{
+				"buffer_size": 20343,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "  static const char*\n  tr_metainfoParseImpl (const tr_session  * session,\n                        tr_info           * inf,\n                        bool              * hasInfoDict,\n                        int               * infoDictLength,\n                        const tr_variant     * meta_in)\n  {\n    int64_t i;\n    size_t len;\n    const char * str;\n    const uint8_t * raw;\n    tr_variant * d;\n    tr_variant * infoDict = NULL;\n    tr_variant * meta = (tr_variant *) meta_in;\n    bool b;\n    bool isMagnet = false;\n\n    /* info_hash: urlencoded 20-byte SHA1 hash of the value of the info key\n     * from the Metainfo file. Note that the value will be a bencoded\n     * dictionary, given the definition of the info key above. */\n    b = tr_variantDictFindDict (meta, TR_KEY_info, &infoDict);\n    if (hasInfoDict != NULL)\n      *hasInfoDict = b;\n\n    if (!b)\n      {\n        /* no info dictionary... is this a magnet link? */\n        if (tr_variantDictFindDict (meta, TR_KEY_magnet_info, &d))\n          {",
+			"settings":
+			{
+				"buffer_size": 1006,
+				"line_ending": "Unix",
+				"name": "static const char*"
+			}
+		}
 	],
 	"build_system": "Packages/LaTeXTools/LaTeX.sublime-build",
 	"command_palette":
@@ -72,14 +113,17 @@
 	},
 	"file_history":
 	[
+		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/001-leiturametadata.c",
+		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/code1.c",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/Chapter4.tex",
+		"/home/paulo/Arquivos/tcc/mono/bibliografia.bib",
+		"/home/paulo/Arquivos/tcc/mono/poster/tcc-poster.tex",
 		"/home/paulo/Arquivos/tcc/mono/tcc.tex",
 		"/home/paulo/Arquivos/tcc/mono/poster/bibliografia.bib",
-		"/home/paulo/Arquivos/tcc/mono/poster/tcc-poster.tex",
 		"/home/paulo/Arquivos/tcc/mono/docs/transmission-log",
 		"/home/paulo/Arquivos/tcc/mono/poster/beamerthemeI6dv.sty",
 		"/home/paulo/Downloads/poster/poster.tex",
 		"/home/paulo/Arquivos/tcc/poster/bibliografia.bib",
-		"/home/paulo/Arquivos/tcc/mono/bibliografia.bib",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/Chapter6.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/Chapter2.tex",
 		"/home/paulo/.config/sublime-text-3/Packages/User/Default (Linux).sublime-keymap",
@@ -157,6 +201,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"hash",
+			"hashes",
 			"swarm",
 			"\\'",
 			"\"",
@@ -282,9 +328,7 @@
 			"hash",
 			"begin",
 			"misc",
-			"\"(,?)(\\s)",
-			"\"",
-			"\"(,?)"
+			"\"(,?)(\\s)"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -346,14 +390,167 @@
 	"groups":
 	[
 		{
+			"selected": 2,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "/home/paulo/Arquivos/tcc/mono/tcc.tex",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 9009,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5358,
+								5358
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2286.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/home/paulo/Arquivos/tcc/mono/Codes/chap3/002-announce.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2658,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1630,
+								1630
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 234.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/home/paulo/Arquivos/tcc/mono/Codes/chap3/001-leiturametadata.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2613,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								617,
+								617
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 429.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 3,
+					"file": "/home/paulo/Arquivos/tcc/mono/Chapters/Chapter3.tex",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 20343,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								18807,
+								18807
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 5489.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1006,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2,
+								2
+							]
+						],
+						"settings":
+						{
+							"auto_name": "static const char*",
+							"is_xml": false,
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
 			]
 		}
 	],
 	"incremental_find":
 	{
-		"height": 20.0
+		"height": 21.0
 	},
 	"input":
 	{
@@ -368,11 +565,18 @@
 				0,
 				1,
 				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
 			]
 		],
 		"cols":
 		[
 			0.0,
+			0.5,
 			1.0
 		],
 		"rows":
@@ -389,7 +593,7 @@
 	"project": "tcc.sublime-project",
 	"replace":
 	{
-		"height": 56.0
+		"height": 38.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -425,6 +629,12 @@
 				0,
 				1,
 				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
 			]
 		]
 	},
@@ -432,7 +642,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 263.0,
+	"side_bar_width": 177.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
