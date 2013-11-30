@@ -342,25 +342,53 @@ dividir esse endereço em partes, cada uma tendo o seu significado:
 
 \section{Busca por informações}
 
-Ao se adicionar um \gls*{torrent} ao Transmission, ocorre um processamento para
-identificar a fonte dos dados (arquivo .torrent ou \gls*{magnetlink}) e se obter algumas
-informações, como lista de arquivos, endereços de \glspl*{tracker}, quantidade de
-partes e seus \glspl*{hashvalue}, etc.
+Quando adicionamos um \gls*{torrent} ao Transmission, o programa salva as informações
+em disco durante todo o período que estiverem sendo gerenciados por ele. Caso tenha
+sido por meio de um arquivo de \glspl*{metadata}, uma cópia deste é salva em uma pasta
+pré-definida para seu controle interno; caso seja por \gls*{magnetlink}, um novo
+arquivo é criado contendo as informações obtidas por ele, por questões de praticidade,
+para que não necessite fazer essa aquisição dos dados novamente ao ser aberto ou quando
+alguma transferência for pausada e depois continuada.
 
-\newpage
-\cfile{./Codes/chap3/001-leiturametadata.c}
+Após esse processo de arquivamento, o programa processa essas informações salvas para
+deixá-las carregadas em memória a fim de obter o \gls*{hashvalue} que identifica o
+\gls*{torrent}.
+
+\cfile[label="./libtransmission/metainfo.c:367"]{./Codes/chap3/001-leiturametadata.c}
+
+Se aquele arquivo para controle interno tiver sido criado por conta de um
+\glspl*{magnetlink}, não possuirá a chave \verb|info| em seu conteúdo, mas deverá
+conter as chaves \verb|urn:btih:<hash>| e \verb|info_hash|.
+
+\cfile[label="./libtransmission/metainfo.c:367"]{./Codes/chap3/002-leiturametadata2.c}
+
+Já se o arquivo para controle interno tiver sido gerado como cópia do arquivo torrent,
+possuirá o mesmo dicionário original, que contém a chave \verb|info_hash|, que é
+utilizada para calcular o \gls*{hashvalue} do arquivo.
+
+\cfile[label="./libtransmission/metainfo.c:367"]{./Codes/chap3/003-leiturametadata3.c}
+
+Outras informações podem ser recuperadas dependendo do formato de origem do
+\gls*{torrent}, como a privacidade, lista de arquivos e seus respectivos tamanhos,
+\gls*{hashvalue} de cada parte, entre outras. Por fim, termina coletando os endereços de
+\gls{announce}.
+
+\cfile[label="./libtransmission/metainfo.c:367"]{./Codes/chap3/004-leiturametadata4.c}
+
+\subsection*{Announce}
 
 Para cada \gls*{swarm} gerenciado, o \gls*{tracker} possui uma lista dos \glspl*{peer}
 que participam dele, que é enviada ao \gls*{peer} que a requer por meio de uma
 requisição \gls{httpget}. Quando essa requisição é recebida pelo \gls*{tracker}, este
-inclui ou atualiza o registro do \gls*{peer} solicitante e devolve uma lista de 50
+inclui ou atualiza um registro para o \gls*{peer} solicitante e devolve uma lista de 50
 \glspl*{peer} aleatórios, de forma uniforme, que fazem parte do \gls*{swarm}. Não
 havendo essa quantidade total, a lista toda é enviada ao requisitante; caso contrário,
 a aleatoriedade proporciona uma diversidade de listas enviadas, proporcionando robustez
 ao sistema \cite{wikitheory:tracker-response}.
 
-Esse contato de um \gls*{peer} com o \gls*{tracker} é chamado de \gls{announce}, e são
-passadas várias informações para o \gls*{tracker}:
+Esse contato entre um \gls*{peer} e um \gls*{tracker} é chamado de \gls{announce}, que
+pode ser feito usando-se tanto com o protocolo \gls{tcp} bem como \gls{udp}, e é onde
+\glspl*{peer} passam várias informações
 
 \begin{itemize}
     \item \textbf{info\_hash}: \gls*{hashvalue} de 20 bytes resultante da

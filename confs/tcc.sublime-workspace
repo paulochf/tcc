@@ -15,23 +15,31 @@
 			"file": "/home/paulo/Arquivos/tcc/mono/tcc.tex",
 			"settings":
 			{
-				"buffer_size": 9009,
+				"buffer_size": 9008,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/home/paulo/Arquivos/tcc/mono/Codes/chap3/002-announce.c",
+			"file": "/home/paulo/Arquivos/tcc/mono/Codes/chap3/announce.c",
 			"settings":
 			{
-				"buffer_size": 2658,
+				"buffer_size": 1507,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/home/paulo/Arquivos/tcc/mono/Codes/chap3/001-leiturametadata.c",
+			"file": "/home/paulo/Arquivos/tcc/mono/glossario.tex",
 			"settings":
 			{
-				"buffer_size": 2613,
+				"buffer_size": 13394,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/paulo/Arquivos/tcc/mono/Codes/chap3/004-leiturametadata4.c",
+			"settings":
+			{
+				"buffer_size": 1213,
 				"line_ending": "Unix"
 			}
 		},
@@ -39,17 +47,8 @@
 			"file": "/home/paulo/Arquivos/tcc/mono/Chapters/Chapter3.tex",
 			"settings":
 			{
-				"buffer_size": 20343,
+				"buffer_size": 21913,
 				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "  static const char*\n  tr_metainfoParseImpl (const tr_session  * session,\n                        tr_info           * inf,\n                        bool              * hasInfoDict,\n                        int               * infoDictLength,\n                        const tr_variant     * meta_in)\n  {\n    int64_t i;\n    size_t len;\n    const char * str;\n    const uint8_t * raw;\n    tr_variant * d;\n    tr_variant * infoDict = NULL;\n    tr_variant * meta = (tr_variant *) meta_in;\n    bool b;\n    bool isMagnet = false;\n\n    /* info_hash: urlencoded 20-byte SHA1 hash of the value of the info key\n     * from the Metainfo file. Note that the value will be a bencoded\n     * dictionary, given the definition of the info key above. */\n    b = tr_variantDictFindDict (meta, TR_KEY_info, &infoDict);\n    if (hasInfoDict != NULL)\n      *hasInfoDict = b;\n\n    if (!b)\n      {\n        /* no info dictionary... is this a magnet link? */\n        if (tr_variantDictFindDict (meta, TR_KEY_magnet_info, &d))\n          {",
-			"settings":
-			{
-				"buffer_size": 1006,
-				"line_ending": "Unix",
-				"name": "static const char*"
 			}
 		}
 	],
@@ -113,12 +112,15 @@
 	},
 	"file_history":
 	[
+		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/003-leiturametadata3.c",
+		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/002-leiturametadata2.c",
+		"/media/Arquivos/tcc/mono/Codes/chap3/003-leiturametadata3.c",
 		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/001-leiturametadata.c",
+		"/home/paulo/Arquivos/tcc/mono/tcc.tex",
 		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/code1.c",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/Chapter4.tex",
 		"/home/paulo/Arquivos/tcc/mono/bibliografia.bib",
 		"/home/paulo/Arquivos/tcc/mono/poster/tcc-poster.tex",
-		"/home/paulo/Arquivos/tcc/mono/tcc.tex",
 		"/home/paulo/Arquivos/tcc/mono/poster/bibliografia.bib",
 		"/home/paulo/Arquivos/tcc/mono/docs/transmission-log",
 		"/home/paulo/Arquivos/tcc/mono/poster/beamerthemeI6dv.sty",
@@ -201,6 +203,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"^\\-",
+			"de",
 			"hash",
 			"hashes",
 			"swarm",
@@ -326,9 +330,7 @@
 			"decentra",
 			"    ",
 			"hash",
-			"begin",
-			"misc",
-			"\"(,?)(\\s)"
+			"begin"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -336,6 +338,7 @@
 		"regex": true,
 		"replace_history":
 		[
+			"",
 			"'",
 			"\\'",
 			"\\\"",
@@ -390,7 +393,7 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -399,15 +402,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 9009,
+						"buffer_size": 9008,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								5358,
-								5358
+								5405,
+								5405
 							]
 						],
 						"settings":
@@ -417,26 +420,26 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2286.0,
+						"translation.y": 2067.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "/home/paulo/Arquivos/tcc/mono/Codes/chap3/002-announce.c",
+					"file": "/home/paulo/Arquivos/tcc/mono/Codes/chap3/announce.c",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2658,
+						"buffer_size": 1507,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1630,
-								1630
+								1426,
+								1426
 							]
 						],
 						"settings":
@@ -446,36 +449,64 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 234.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "/home/paulo/Arquivos/tcc/mono/Codes/chap3/001-leiturametadata.c",
+					"file": "/home/paulo/Arquivos/tcc/mono/glossario.tex",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2613,
+						"buffer_size": 13394,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								617,
-								617
+								7903,
+								7903
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/C++/C++.tmLanguage",
-							"tab_size": 2,
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
+							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 429.0,
+						"translation.y": 2307.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/home/paulo/Arquivos/tcc/mono/Codes/chap3/004-leiturametadata4.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1213,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1213,
+								1213
+							]
+						],
+						"settings":
+						{
+							"is_xml": false,
+							"syntax": "Packages/C++/C++.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -483,24 +514,24 @@
 			]
 		},
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
-					"buffer": 3,
+					"buffer": 4,
 					"file": "/home/paulo/Arquivos/tcc/mono/Chapters/Chapter3.tex",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 20343,
+						"buffer_size": 21913,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								18807,
-								18807
+								16520,
+								16520
 							]
 						],
 						"settings":
@@ -510,37 +541,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 5489.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1006,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2,
-								2
-							]
-						],
-						"settings":
-						{
-							"auto_name": "static const char*",
-							"is_xml": false,
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 4803.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -593,7 +594,7 @@
 	"project": "tcc.sublime-project",
 	"replace":
 	{
-		"height": 38.0
+		"height": 56.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -642,7 +643,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 177.0,
+	"side_bar_width": 202.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
