@@ -7,17 +7,81 @@ Aqui mostrarei detalhes técnicos sobre as partes coadjuvantes do BitTorrent e d
 
 
 \section{Estruturas de dados, listas ligadas e árvores}
+
+Aqui vou falar de tipos de estruturas de dados utilizadas no programa, como
+\emph{structs} e a sua utilização na implementação de listas ligadas e árvores e em como
+estes são usados na implementação de filas.
+
 \section{Funções de hash} % SHA1
 \label{sec:sha1}
+
+Aqui vou explicar como funciona o algoritmo da \gls{hashfunction} SHA-1 e mostrar como
+e para que é usado na identificação de torrents e na verificação de integridade de
+partes.
+
 \section{Criptografia} %RC4
+
+Aqui vou explicar como este algoritmo de chave simétrica funciona e como é utilizado
+pelo Transmission para criptografar pacotes de dados.
+
 \section{Bitfields}
+
+Apesar de ser um simples array de bits usado no gerenciamento de partes que o programa
+já baixou ou não, foi percebido que o seu uso de forma não-convencional, chamado de
+\emph{lazy bitfield}, pode ajudar a evitar o controle de banda (chamado de modelagem de
+tráfego, ou \emph{traffic shaping} em inglês), feito por \glspl{isp}.
+
 \section{Protocolos de redes} % HTTP e UDP
+
+Aqui vou explicar o que são os protocolos de rede TCP e UDP, apontar suas diferenças e
+mostrar os motivos pelos quais o UDP é preferido ao TCP no uso de endereços de
+\gls*{announce} de \glspl*{tracker}.
+
 \section{Multicast}
+
+Apesar de não ser utilizado pelo protocolo BitTorrent, o multicast, que é uma forma de
+entregar dados a um grupo de computadores simultaneamente numa só transmissão, é usado
+pelo Transmission para tentar descobrir \glspl*{peer} que estão na mesma rede local,
+otimizando as conexões.
+
 \section{Roteamento de pacotes} %NAT PMP
-\section{IPv6}
+
+Em alguns roteadores que são ponte entre a Internet e a rede que ele gerencia, existe
+uma função de se configurar portas de comunicação de rede automaticamente usando-se o
+\emph{Network Address Translation Port Mapping Protocol}. Assim, não é necessário
+realizar uma configuração específica somente pare esse fim.
+
 \section{Retomada de downloads}
+
+No Transmission e em algums outros softwares que realizam downloads, existe a função de
+se pausar a transferência do arquivo para que seja retomado em outro momento. Nesta
+seção, mostrarei qual a idéiapor trás desse mecanismo e a forma como foi implementado no
+Transmission.
+
 \section{Conexão com a Internet}
+
+Aqui mostrarei a parte técnica da programação em linguagem C para utilização de
+transmissão de dados por rede.
+
+\section{IPv6}
+
+O IPv6 é a versão mais recente do protocolo de Internet (IP), que foi criado para
+substituir o IPv4, que atualmente é mais o usado porém sofre de exaustão de endereços.
+Nesta seção, falarei sobre o novo protocolo e quais as implicações na programação de
+softwares com comunicação de redes.
+
 \section{Threads}
+
+Dentro de um contexto de programas que utilizam a Internet e funcionalidades que chegam
+próximas ao tempo real, processamentos pesados devem ser tratados com cautela a fim de
+se manter a instantaneidade do processo. Aqui explicarei como o Transmission usa o
+conceito de \emph{threads} para paralelizar esses processamentos e, com isso, conseguir
+utilizar as informações de rápida mudança antes que seja necessário obtê-las novamente.
+
 \section{Engenharia de Software}
+
+O Transmission é um programa extenso e complexo, desenvolvido por vários programadores
+que estão espalhados pelo globo. Nesta seção, abordarei alguns pontos utilizados pelos
+desenvolvedores na manutenção do código aberto de qualidade e em funcionamento.
 
 \afterpage{\clearpage}
