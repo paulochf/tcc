@@ -31,7 +31,8 @@
     perdas},
     long={formato de áudio \glsentryname{mp3}},
     first={\glsentrylong{mp3} (\glsentryname{mp3})},
-    plural={\glsentryname{mp3}s}
+    plural={\glsentryname{mp3}s},
+    firstplural={\glsentryplural{mp3}}
 }
 
 \newglossaryentry{peer}{
@@ -40,14 +41,14 @@
     ou seja, a um computador conectado},
     long={\glsentryname{peer}},
     first={\glsentryname{peer} (um nó da rede)},
-    firstplural={\glsplural{peer} (nós da rede)},
-    plural={\glsentryname{peer}s}
+    plural={\glsentryname{peer}s},
+    firstplural={\glsplural{peer} (nós da rede)}
 }
 
 \newglossaryentry{p2p}{
     name={P2P},
     description={do inglês \emph{peer-to-peer}; redes de arquitetura descentralizada e
-    distribuída, onde cada nó (\glslink{peer}{peer}) fornece e consome recursos},
+    distribuída, onde cada nó (\glink{peer}) fornece e consome recursos},
     long={peer-to-peer},
     first={rede \glsentrylong{p2p} (\glsentryname{p2p})},
     plural={redes \glsentrylong{p2p}},
@@ -56,9 +57,10 @@
 
 \newglossaryentry{audiogalaxy}{
     name={Audiogalaxy},
-    description={\glslink{p2p}{\glsentryname{p2p}} de compartilhamento de músicas \glslink{mp3}{\glsentryname{mp3}} criado em 1998},
+    description={Rede \glink{p2p} de compartilhamento de músicas \glink{mp3} criado em
+    1998},
     first={\glsentryname{audiogalaxy}.com},
-    long={\glsentryname{audiogalaxy}}
+    long={\glsentryname{audiogalaxy}},
 }
 
 \newglossaryentry{riaa}{
@@ -67,19 +69,20 @@
     da Indústria de Gravação da América, organização que representa as gravadoras
     musicais e distribuidores, e tem sido autora de ações judiciais devido a quebra de
     direitos autorais causada por compartilhamento indevido de música},
-    first={RIAA (do inglês \emph{Recording Industry Association of America})},
-    long={\glsentryname{riaa}}
+    long={\glsentryname{riaa} (do inglês \emph{Recording Industry Association of
+    America})},
+    first={\glsentrylong{riaa}},
 }
 
 \newglossaryentry{gnutella}{
     name={Gnutella},
-    description={software de compartilhamento \glslink{p2p}{\glsentryname{p2p}}
-    desenvolvido por 3 programadores da empresa Nullsoft, recém adquirida da AOL Inc.,
-    lançado em 2000 sob a licença GPL. No dia seguinte ao lançamento, a AOL ordenou
-    indisponibilizar o software, alegando problemas legais e proibindo a continuação do
-    desenvolvimento. Alguns dias depois, o protocolo já tinha sido alvo de engenharia
-    reversa e já havia softwares que o implementavam},
-    first={\glsentryname{gnutella}}
+    description={software de compartilhamento \glink{p2p} desenvolvido por 3
+    programadores da empresa Nullsoft, recém adquirida da AOL Inc., lançado em 2000 sob
+    a licença GPL. No dia seguinte ao lançamento, a AOL ordenou indisponibilizar o
+    software, alegando problemas legais e proibindo a continuação do desenvolvimento.
+    Alguns dias depois, o protocolo já tinha sido alvo de engenharia reversa e já havia
+    softwares que o implementavam},
+    first={\glsentryname{gnutella}},
 }
 
 \newglossaryentry{anycast}{
@@ -105,7 +108,8 @@
     múltiplas fontes, é a transmissão em paralelo de um arquivo, a partir de
     um ou vários locais onde estiver disponível, para um único destino. Cabe ao
     software do destinatário juntar as partes recebidas},
-    first={\glsentryname{swarming}},
+    first={\glsentryname{swarming} (enxame de \glsentryplural{peer}},
+    firstplural={\glsentryname{swarming}s (enxames de \glsentryplural{peer})},
     plural={\glsentryname{swarming}s}
 }
 
@@ -130,7 +134,7 @@
 
 \newglossaryentry{hashvalue}{
     name={valor hash},
-    description={ou \emph{hash}; valores gerados por uma \glslink{hashfunction}{\glsentryname{hashfunction}}},
+    description={ou \emph{hash}; valores gerados por uma \glink{hashfunction}},
     first={\glsentryname{hashvalue}},
     firstplural={valores hash},
     plural={\glsentryfirstplural{hashvalue}}
@@ -138,23 +142,19 @@
 
 \newglossaryentry{dht}{
     name={DHT},
-    description={do inglês \emph{distributed hash table};
-    \glslink{hashtable}{\glsentryname{hashtable}} distribuída, ou seja, é um serviço de
-    busca similar a uma \glslink{hashtable}{\glsentryname{hashtable}}, mas
+    description={do inglês \emph{distributed hash table}; \glink{hashtable}
+    distribuída, ou seja, é um serviço de busca similar a uma \glink{hashtable}, mas
     descentralizada e na forma de sistema distribuído},
-    first={\glslink{hashtable}{\glsentryname{hashtable}} distribuída
-    (\glsentryname{dht})},
-    firstplural={\glslink{hashtable}{\glsentryplural{hashtable}} distribuídas
-    (\glsentryplural{dht})},
-    long={DHT},
+    long={\glink{hashtable} distribuída},
+    first={\glsentrylong{dht} (\glsentryname{dht})},
+    firstplural={\glinkpl{hashtable} distribuídas (\glsentryplural{dht})},
     plural={\glsentrylong{dht}s}
 }
 
 \newglossaryentry{kademlia}{
     name={Kademlia},
-    description={\glslink{dht}{\glsentryname{dht}} usado em
-    \glslink{p2p}{\glsentryname{p2p}} que especifica a estrutura da rede e a
-    troca de informações através de buscas de nós, guardando as localizações de
+    description={\glink{dht} usado em \glink{p2p} que especifica a estrutura da rede e
+    a troca de informações através de buscas de nós, guardando as localizações de
     recursos que estão na rede},
     first={\glsentryname{kademlia}}
 }
@@ -162,16 +162,19 @@
 \newglossaryentry{betatester}{
     name={beta tester},
     description={usuários de uma versão beta de um software},
-    first={\glsentryname{betatester}},
+    long={usuário da versão não final (\emph{\glsentryname{betatester}})}
+    first={\glsentrylong{betatester}},
     plural={\glsentryname{betatester}s}
 }
 
 \newglossaryentry{tracker}{
     name={tracker},
     description={em português, rastreador; servidor que funciona como um ponto de
-    encontro de \glslink{peer}{\glsentryname{peer}}},
-    first={\glsentryname{tracker}},
-    plural={\glsentryname{tracker}s}
+    encontro de \glink{peer}},
+    long={rastreador (\emph{\glsentryname{tracker}})}
+    first={\glsentrylong{tracker}},
+    firstplural={rastreadores (\emph{\glsentryname{tracker}s})}
+    plural={\glsentryname{tracker}s},
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -180,18 +183,19 @@
 
 \newglossaryentry{leecher}{
     name={leecher},
-    description={em português, sugador; nome dado ao \glslink{peer}{\glsentryname{peer}}
-    que ainda não terminou um download de um torrent},
-    first={\glsentryname{leecher} (sugador)},
-    firstplural={\glsentryplural{leecher} (sugadores)},
+    description={em português, sugador; nome dado ao \glink{peer} que ainda não
+    terminou um download de um torrent},
+    long={sugador (\emph{\glsentryname{leecher}})}
+    first={\glsentrylong{leecher}},
+    firstplural={sugadores (\emph{\glsentryname{leecher}s})},
     plural={\glsentryname{leecher}s}
 }
 
 \newglossaryentry{seeder}{
     name={seeder},
-    description={em português, semeador; nome dado ao
-    \glslink{peer}{\glsentryname{peer}} que já terminou um download de um torrent e que,
-    por ainda estar conectado à rede, fornece partes a possíveis interessados},
+    description={em português, semeador; nome dado ao \glink{peer} que já terminou um
+    download de um torrent e que, por ainda estar conectado à rede, fornece partes a
+    possíveis interessados},
     first={\glsentryname{seeder} (semeador)},
     firstplural={\glsentryplural{seeder} (semeadores)},
     plural={\glsentryname{seeder}s}
@@ -207,29 +211,27 @@
 
 \newglossaryentry{torrent}{
     name={torrent},
-    description={arquivo de extensão .torrent que contém
-    \glslink{metadata}{\glsentryplural{metadata}}, como a lista dos nomes dos arquivos a
-    serem baixados e seus tamanhos, \glslink{checksum}{\glsentryplural{checksum}} das
-    partes do torrent, além de endereços de um ou mais
-    \glslink{tracker}{\glsentryplural{tracker}}},
+    description={arquivo de extensão .torrent que contém \glinkpl{metadata}, como a
+    lista dos nomes dos arquivos a serem baixados e seus tamanhos, \glinkpl{checksum}
+    das partes do torrent, além de endereços de um ou mais \glinkpl{tracker}},
     first={\emph{\glsentryname{torrent}}},
     plural={\glsentryname{torrent}s},
-    firstplural={\glsentryplural{torrent}}
 }
 
 \newglossaryentry{checksum}{
     name={checksum},
-    description={\todo[inline]{escrever}},
-    %first={\glsentryname{metadata}},
+    description={em português, soma de verificação; bloco de dados de tamanho fixo
+    gerado por algum algoritmo de verificação de integridade usado no certificado de
+    integridade contra problemas durante a transmissão ou de armazenamento (leitura
+    ou escrita)},
+    first={verificação por soma (\emph{\glsentryname{checksum}})},
     plural={\glsentryname{checksum}s}
-    %firstplural={\glsentryplural{metadata}}
 }
 
 \newglossaryentry{swarm}{
     name={swarm},
-    description={em português, enxame; grupo de \glslink{peer}{\glsentryplural{peer}}
-    que estão compartilhando dados de um mesmo \glslink{torrent}{\glsentryname{torrent}}
-    num determinado momento},
+    description={em português, enxame; grupo de \glinkpl{peer} que estão compartilhando
+    dados de um mesmo \glink{torrent} num determinado momento},
     first={\glsentryname{swarm} (enxame)},
     plural={\glsentryname{swarm}s},
     firstplural={\glsentryplural{swarm} (enxames)}
@@ -238,8 +240,8 @@
 \newglossaryentry{bencode}{
     name={bencode},
     description={\emph{codificação B}, pronunciado \emph{bê encode}; formato de
-    codificação compacta de arquivos \glslink{torrent}{\glsentryname{torrent}} para
-    transmissão de \glslink{metadata}{\glsentryplural{metadata}}},
+    codificação compacta de arquivos \glink{torrent} para transmissão de
+    \glinkpl{metadata}},
     first={\glsentryname{bencode}}
 }
 
@@ -254,8 +256,8 @@
 \newglossaryentry{magnetlink}{
     name={magnet link},
     description={em português, link magnético; padrão aberto, definido por convenção,
-    de esquema de \glslink{uri}{\glsentryname{uri}} utilizado para localizar recursos
-    de rede BitTorrent para download},
+    de esquema de \glink{uri} utilizado para localizar recursos de rede BitTorrent para
+    download},
     first={link magnético (\glsentryname{magnetlink})},
     long={link magnético},
     plural={links magnéticos},
@@ -265,11 +267,11 @@
 \newglossaryentry{uri}{
     name={URI},
     description={do inglês \emph{Uniform Resource Identifier}; Identificador
-    Uniforme de Recursos, é uma \glslink{string}{\glsentryname{string}} usada para
-    identificar algum recurso, especificando algum protocolo e um caminho. Por
-    exemplo, o URI ``file:///arquivo.txt'' indica um arquivo no computador local
-    (nome de esquema ``file''), enquanto ``http://pagina.com'' se refere a uma
-    página de Internet (nome de esquema ``http'')},
+    Uniforme de Recursos, é uma \glink{string} usada para identificar algum recurso,
+    especificando algum protocolo e um caminho. Por exemplo, o URI
+    file:///arquivo.txt indica um arquivo no computador local (nome de esquema
+    "file"), enquanto http://pagina.com se refere a uma página de Internet (nome
+    de esquema "http")},
     first={identificador uniforme de recursos (\glsentryname{uri})},
     firstplural={identificadores uniformes de recursos (\glsentryname{uri})},
     long={identificador uniforme de recursos},
@@ -279,8 +281,8 @@
 \newglossaryentry{url}{
     name={URL},
     description={do inglês \emph{Uniform Resource Locator}; Localizador Uniforme
-    de Recursos, é uma \glslink{string}{\glsentryname{string}} usada para
-    identificar algum recurso na Internet, especificando algum protocolo de
+    de Recursos, é uma \glink{string} usada para identificar algum recurso na Internet,
+    especificando algum protocolo de
     comunicação},
     first={localizador uniforme de recursos (\glsentryname{url})},
     firstplural={localizadores uniformes de recursos (\glsentryname{url})},
@@ -309,18 +311,14 @@
 \newglossaryentry{urlencode}{
     name={URL encode},
     description={\todo[inline]{escrever}},
-    first={\emph{\glsentryname{urlencode}}},
-    long={codificação de endereços URI}
+    first={\glsentrylong{urlencode}},
+    long={\emph{\glsentryname{urlencode}}}
 }
 
 \newglossaryentry{urn}{
     name={URN},
-    description={do inglês \emph{Uniform Resource Name}; Nome Uniforme
-    de Recursos, é o nome histórico dado a uma \glslink{uri}{\glsentryname{uri}}
-    que usa o esquema ``urn:''. Sua sintaxe é ``urn:<NID>:<NSS>'', onde ``urn:'' é
-    o prefixo \glslink{caseinsensitive}{\glsentryname{caseinsensitive}}, ``<NID>''
-    é o identificador de espaço de nomes, que determina a interpretação sintática de
-    ``<NSS>'', que é a \glslink{string}{\glsentryname{string}} específica do espaço de
+    description={do inglês \emph{Uniform Resource Name}; Nome Uniforme de Recursos, é o
+    nome histórico dado a uma \glink{uri} que usa o esquema "urn:". Sua sintaxe é ``urn:<NID>:<NSS>'', onde ``urn:'' é o prefixo \glink{caseinsensitive}, ``<NID>'' é o identificador de espaço de nomes, que determina a interpretação sintática de ``<NSS>'', que é a \glink{string} específica do espaço de
     nomes usado},
     first={nome uniforme de recursos (\glsentryname{urn})},
     firstplural={nomes uniformes de recursos (\glsentryname{urn})},
@@ -330,10 +328,18 @@
 
 \newglossaryentry{announce}{
     name={announce},
-    description={endereço web (URL) do \glslink{tracker}{\glsentryname{tracker}}},
+    description={endereço web (URL) do \glink{tracker}},
     first={\glsentryname{announce}},
     plural={\glsentryname{announce}s},
     firstplural={\glsentryplural{announce}}
+}
+
+\newglossaryentry{scrape}{
+    name={scrape},
+    description={endereço web (URL) do \glink{tracker}},
+    first={\glsentryname{scrape}},
+    plural={\glsentryname{scrape}s},
+    firstplural={\glsentryplural{scrape}}
 }
 
 \newglossaryentry{proxy}{
@@ -346,4 +352,16 @@
     name={gateway NAT},
     description={\todo[inline]{escrever}},
     first={\emph{\glsentryname{nat}}}
+}
+
+\newglossaryentry{tcp}{
+    name={TCP},
+    description={\todo[inline]{escrever}},
+    first={\glsentryname{tcp}}
+}
+
+\newglossaryentry{udp}{
+    name={UDP},
+    description={\todo[inline]{escrever}},
+    first={\glsentryname{udp}}
 }

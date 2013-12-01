@@ -23,6 +23,8 @@
 \usepackage{indentfirst}                            % indentação dos 1ºs parágrafos
 \usepackage{setspace}                               % \setstretch
 \usepackage{afterpage}                              % \afterpage
+\usepackage{newverbs}
+
 % \usepackage{layouts}                              % debug dos tamanhos do documento
 % \afterpage http://tex.stackexchange.com/q/88657
 
@@ -52,35 +54,6 @@
 % anotações TODO
 \usepackage[colorinlistoftodos,portuguese]{todonotes}
 
-% padding de imagens
-%\setlength\fboxsep{2mm}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Links só nos primeiros usos de gls etc
-% http://tex.stackexchange.com/a/109137/5125
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \usepackage{etoolbox}
-% \makeatletter
-%% patch first occurence of
-%% "\@gls@link[#1]{#2}{\@glo@text}", as
-%% this is the one for \glsused{#2}
-%\patchcmd{\@gls@}
-%  {\@gls@link[#1]{#2}{\@glo@text}}
-%  {\@gls@link[#1,hyper=false]{#2}{\@glo@text}}
-%  {}{}
-%
-%\patchcmd{\@Gls@}
-%  {\@gls@link[#1]{#2}}
-%  {\@gls@link[#1,hyper=false]{#2}}
-%  {}{}
-%
-%\patchcmd{\@GLS@}
-%  {\@gls@link[#1]{#2}{\MakeUppercase{\@glo@text}}}
-%  {\@gls@link[#1,hyper=false]{#2}{\MakeUppercase{\@glo@text}}}
-%  {}{}
-%\makeatother
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 %% -------------------------------------------------------------------------------------
 %% CONFIGURATIONS
 %% -------------------------------------------------------------------------------------
@@ -88,9 +61,23 @@
 %%%%%%%%%%%%%%%%%%%%%
 %  ???
 %%%%%%%%%%%%%%%%%%%%%
+% padding de imagens
+% \setlength\fboxsep{2mm}
+%
+% Links só nos primeiros usos de gls etc
+% http://tex.stackexchange.com/a/109137/5125
+%
 % from http://tex.stackexchange.com/q/57151
-%\usepackage{accsupp}
-%\newcommand{\emptyaccsupp}[1]{\BeginAccSupp{ActualText={}}#1\EndAccSupp{}}
+% \usepackage{accsupp}
+% \newcommand{\emptyaccsupp}[1]{\BeginAccSupp{ActualText={}}#1\EndAccSupp{}}
+
+\newcommand{\glink}[1]{
+    \glslink{#1}{\glsentryname{#1}}
+}
+
+\newcommand{\glinkpl}[1]{
+    \glslink{#1}{\glsentryname{#1}}
+}
 
 \addbibresource{bibliografia.bib}
 
@@ -118,6 +105,14 @@
 % Fonte 'Times' do sistema (mais bonita)
 % http://www.tug.org/pracjourn/2006-1/schmidt/schmidt.pdf
 \renewcommand{\rmdefault}{ptm}
+
+% cor de fundo do \verb
+% http://tex.stackexchange.com/a/120985/5125
+\newverbcommand{\bverb}
+  {\begin{lrbox}{\verbbox}}
+  {\end{lrbox}\colorbox{gray!30}{\box\verbbox}}
+
+\newverbcommand{\sverb}{\color{Bittersweet}}{}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Do manual do todonote

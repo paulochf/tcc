@@ -152,7 +152,7 @@ e livre de direitos autorais.
 
 Se abrirmos esse arquivo, veremos uma grande \gls{string}, caracteres diferentes e
 incomuns, formando um conteúdo ilegível (na seção binária) e sob uma forma compacta,
-mostrado no código~\ref{lst:torrent-file-raw}.
+mostrado abaixo.
 
 \begin{listing}[H]
     \begin{minted}[
@@ -193,25 +193,27 @@ Esse conteúdo tem significado, sendo utilizado da seguinte forma
 
 \begin{itemize}
     \item \textbf{\glspl*{string}} são prefixos de números na base 10 que representam
-        comprimentos, seguidos por um caractere `:' e então o conteúdo. Por exemplo, na
-        linha 2, \verb|8:announce| corresponde à \gls*{string} "announce".
+        comprimentos, seguidos por um caractere \bverb|:| e então o conteúdo. Por
+        exemplo, na linha 2, \bverb|8:announce| corresponde à \gls*{string}
+        \sverb|"announce"|.
 
-    \item \textbf{números} são representados por um `i', seguidos do valor na base 10
-        (sem qualquer limite, mas sem zeros precedentes como em $0003$, e podendo ser
-        negativo), e terminados por um `e'. Por exemplo, na linha 11,
-        \verb|i1343715473e| corresponde ao número 1343715473.
+    \item \textbf{números} são representados por um \bverb|i|, seguidos do valor na
+        base 10 (sem qualquer limite, mas sem zeros precedentes como em \bverb|0003|, e
+        podendo ser negativo), e terminados por um \bverb|e|. Por exemplo, na linha 11,
+        \bverb|i1343715473e| corresponde ao número \sverb|1343715473|.
 
-    \item \textbf{listas} são formadas por `l', seguidos por seus elementos (também no
-        formato \gls*{bencode}), e então terminados por `e'. Por exemplo,
-        \verb|l3:foo3:bare| corresponde a ["foo", "bar"]. No código acima, é presente
-        entre as linhas 43 e 47.
+    \item \textbf{listas} são formadas por \bverb|l|, seguidos por seus elementos
+        (também no formato \gls*{bencode}), e então terminados por \bverb|e|. Por
+        exemplo, \bverb|l3:foo3:bare| corresponde a \sverb|["foo", "bar"]|. No código
+        acima, é presente entre as linhas 43 e 47.
 
-    \item \textbf{dicionários} são definidos por `d', seguidos de uma lista alternada
-        de chaves e seus valores correspondentes, terminando com `e', onde as chaves
-        devem estar ordenadas usando-se comparação binária ao invés da usual
-        alfanumérica. Por exemplo, a \gls*{string} \verb|d3:foo3:bar6:foobar6:bazbare|
-        corresponde a \{"foo: "bar", "foobar": "bazbar"\}, e
-        \verb|d3:fool6:foobar3:bazee| a \{"foo": ["foobar", "baz"]\}.
+    \item \textbf{dicionários} são definidos por \bverb|d|, seguidos de uma lista
+        alternada de chaves e seus valores correspondentes, terminando com \bverb|e|,
+        onde as chaves devem estar ordenadas usando-se comparação binária ao invés da
+        usual alfanumérica. Por exemplo, a \gls*{string}
+        \bverb|d3:foo3:bar6:foobar6:bazbare| corresponde ao dicionário puro \\
+        \sverb|{"foo": "bar", "foobar": "bazbar"}|, e a estrutura mais complexa dada por
+        \\ \bverb|d3:fool6:foobar3:bazee| equivale a \sverb|{"foo": ["foobar", "baz"]}|.
 \end{itemize}
 
 \begin{listing}[H]
@@ -322,20 +324,20 @@ específica) e seus respectivos valores, formando uma \gls{querystring}. Podemos
 dividir esse endereço em partes, cada uma tendo o seu significado:
 
 \begin{itemize}
-    \item \verb|xt|: parâmetro para \emph{exact topic}, ou tópico exato, contém a
+    \item \textbf{xt}: parâmetro para \emph{exact topic}, ou tópico exato, contém a
         informação mais importante do \gls*{magnetlink}: o identificador único de
         \gls*{torrent}. Serve para encontrar e verificar os arquivos especificados.
-        No caso, \verb|urn:btih:<hash>| corresponde ao \gls{urn} \verb|btih|
+        No caso, \bverb|urn:btih:<hash>| corresponde ao \gls{urn} \sverb|btih|
         (\emph{BitTorrent Info Hash}), que é a \gls*{string} \gls{hashvalue} resultado
         da \gls{hashfunction} SHA-1, convertida para hexadecimal
 
-    \item \verb|dn|: parâmetro que contém o \emph{display name}, ou nome de
+    \item \textbf{dn}: parâmetro que contém o \emph{display name}, ou nome de
         visualização, contém um nome que é mostrado para o usuário, por conveniência
 
-    \item \verb|tr|: o \emph{address tracker}, ou endereço do \gls*{tracker}, onde o
+    \item \textbf{tr}: o \emph{address tracker}, ou endereço do \gls*{tracker}, onde o
         programa cliente vai procurar as informações de \glspl*{peer}
 
-    \item \verb|ws|: endereço do arquivo para \emph{webseed}, ou fornecimento web,
+    \item \textbf{ws}: endereço do arquivo para \emph{webseed}, ou fornecimento web,
         que é o endereço do arquivo em um servidor HTTP ou FTP, sendo utilizado como
         alternativa a um \gls*{swarm} problemático \cite{wiki:torrent}
 \end{itemize}
@@ -357,13 +359,13 @@ deixá-las carregadas em memória a fim de obter o \gls*{hashvalue} que identifi
 \cfile[label="./libtransmission/metainfo.c:367"]{./Codes/chap3/001-leiturametadata.c}
 
 Se aquele arquivo para controle interno tiver sido criado por conta de um
-\glspl*{magnetlink}, não possuirá a chave \verb|info| em seu conteúdo, mas deverá
-conter as chaves \verb|urn:btih:<hash>| e \verb|info_hash|.
+\glspl*{magnetlink}, não possuirá a chave \bverb|info| em seu conteúdo, mas deverá
+conter as chaves \bverb|urn:btih:<hash>| e \bverb|info_hash|.
 
 \cfile[label="./libtransmission/metainfo.c:367"]{./Codes/chap3/002-leiturametadata2.c}
 
 Já se o arquivo para controle interno tiver sido gerado como cópia do arquivo torrent,
-possuirá o mesmo dicionário original, que contém a chave \verb|info_hash|, que é
+possuirá o mesmo dicionário original, que contém a chave \bverb|info_hash|, que é
 utilizada para calcular o \gls*{hashvalue} do arquivo.
 
 \cfile[label="./libtransmission/metainfo.c:367"]{./Codes/chap3/003-leiturametadata3.c}
@@ -388,11 +390,11 @@ ao sistema \cite{wikitheory:tracker-response}.
 
 Esse contato entre um \gls*{peer} e um \gls*{tracker} é chamado de \gls{announce}, que
 pode ser feito usando-se tanto com o protocolo \gls{tcp} bem como \gls{udp}, e é onde
-\glspl*{peer} passam várias informações
+\glspl*{peer} podem passam várias informações
 
 \begin{itemize}
     \item \textbf{info\_hash}: \gls*{hashvalue} de 20 bytes resultante da
-    \gls*{hashfunction} SHA-1 com \gls*{urlencode} do valor da chave \verb|info| do
+    \gls*{hashfunction} SHA-1 com \gls*{urlencode} do valor da chave \bverb|info| do
     arquivo de \gls*{metadata}
 
     \item \textbf{peer\_id}: \gls*{string} com \gls*{urlencode} de 20 bytes usado como
@@ -413,24 +415,27 @@ pode ser feito usando-se tanto com o protocolo \gls{tcp} bem como \gls{udp}, e �
     requisitante aceita respostas compactas. A lista de \glspl*{peer} enviada é
     substituída por uma \gls*{string} de peers, cada um com 6 bytes, onde os 4 bytes
     iniciais são o host e os 2 bytes finais são a porta de transmissão. Por exemplo, o
-    endereço IP 10.10.10.5:80 seria transmitido como \verb|0A 0A 0A 05 00 80|. Deve-se
+    endereço IP 10.10.10.5:80 seria transmitido como \bverb|0A 0A 0A 05 00 80|. Deve-se
     observar que alguns \glspl*{tracker} suportam somente conexões deste tipo para
     otimização da utilização da banda de rede e, pra isso, ou recusam requisições sem
-    \verb|compact=1| ou, caso não as recusem, enviam respostas compactas a menos que a
-    requisição possua \verb|compact=0|
+    \bverb|compact=1| ou, caso não as recusem, enviam respostas compactas a menos que a
+    requisição possua \bverb|compact=0|
 
     \item \textbf{no\_peer\_id} (opcional): sinaliza que o \gls*{tracker} por omitir o
-    campo ``\gls*{peer} id'' no dicionário de \glspl*{peer}. É ignorado caso o modo
+    campo \bverb{peer id} no dicionário de \glspl*{peer}. É ignorado caso o modo
     compacto esteja habilitado
 
-    \item \textbf{event} (opcional): pode possuir os valores ``started'' (iniciado),
-    ``completed'' (terminado), ``stopped'' (parado), ou vazio para não especificar.
+    \item \textbf{event} (opcional): pode possuir os valores \sverb|started|
+    (iniciado), \sverb|completed| (terminado), \sverb|stopped| (parado), ou vazio para
+    não especificar.
+
     \begin{itemize}
-        \item started : a primeira requisição para o \gls*{tracker} deve enviar este
-        valor
-        \item stopped : avisa que o programa cliente está fechando
-        \item completed : quando o download que estava ocorrendo termina, ou seja, não
-        é enviado quando o programa cliente inicia com o \gls*{torrent} em 100\%
+        \item \emph{started} : a primeira requisição para o \gls*{tracker} deve enviar
+        este valor
+        \item \emph{stopped} : avisa que o programa cliente está fechando
+        \item \emph{completed} : quando o download que estava ocorrendo termina, ou
+        seja, não é enviado quando o programa cliente inicia com o \gls*{torrent} em
+        100\%
     \end{itemize}
 
     \item \textbf{port} (opcional): o número da porta de conexão que o programa cliente
@@ -438,12 +443,12 @@ pode ser feito usando-se tanto com o protocolo \gls{tcp} bem como \gls{udp}, e �
     BitTorrent estão entre a 6881 e a 6889. Se esse for o caso, pode ser omitido
 
     \item \textbf{ip} (opcional): o endereço IP verdadeiro do requisitante no formato
-    legível do IPv4 (4 conjuntos de número de 0 a 255 separados por `.') ou do IPv6 (8
-    conjuntos de números hexadecimais de 4 dígitos separados por `:'). Não é sempre
-    necessário, pois o endereço pode ser conhecido através da requisição. Assim, é usado
-    quando o programa cliente está se comunicando com o \gls*{tracker} através de um
-    \gls{proxy} ou quando ambos cliente e \gls*{tracker} estão no mesmo lado local de um
-    \gls{nat}, pois nesse caso o endereço IP não é roteável
+    legível do IPv4 (4 conjuntos de número de 0 a 255 separados por \bverb|.|) ou do
+    IPv6 (8 conjuntos de números hexadecimais de 4 dígitos separados por \bverb|:|).
+    Não é sempre necessário, pois o endereço pode ser conhecido através da requisição.
+    Assim, é usado quando o programa cliente está se comunicando com o \gls*{tracker}
+    através de um \gls{proxy} ou quando ambos cliente e \gls*{tracker} estão no mesmo
+    lado local de um \gls{nat}, pois nesse caso o endereço IP não é roteável
 
     \item \textbf{numwant} (opcional): quantidade de \glspl*{peer} que o requisitante
     gostaria de receber do \gls*{tracker}. É permitido valor zero. Se omitido, assume
@@ -478,7 +483,7 @@ Essa comunicação ocorre nas seguintes situações:
 \end{itemize}
 
 Além do \gls*{announce}, outra forma de troca de informação entre \glspl*{peer} e
-\glspl*{tracker} é pelo \emph{scrape}. Geralmente usado pelos programas cliente para
+\glspl*{tracker} é pelo \gls{scrape}. Geralmente usado pelos programas cliente para
 decidir quando realizar um \gls*{announce}, informa o número de \glspl*{peer},
 \glspl*{leecher} e \glspl*{seeder} de uma lista de um ou mais \glspl*{torrent}. É dessa
 forma que os sites de indexação sabem dessas informações e as apresentam nas páginas.
