@@ -265,14 +265,16 @@
     firstplural={links magnéticos (\glsentryname{magnetlink}s)}
 }
 
+% \textcolor{Bittersweet}{\ttfamily file} não é substituível por novo comando
 \newglossaryentry{uri}{
     name={URI},
     description={do inglês \emph{Uniform Resource Identifier}; Identificador
     Uniforme de Recursos, é uma \glink{string} usada para identificar algum recurso,
     especificando algum protocolo e um caminho. Por exemplo, o URI
-    file:///arquivo.txt indica um arquivo no computador local (nome de esquema
-    \sverb|file|), enquanto http://pagina.com se refere a uma página de
-    Internet (nome de esquema \sverb|http|)},
+    \textcolor{Bittersweet}{\ttfamily file:///arquivo.txt} indica um arquivo computador
+    local (nome de esquema \textcolor{Bittersweet}{\ttfamily file}), enquanto
+    \textcolor{Bittersweet}{\ttfamily http://pagina.com} se refere a uma página de
+    Internet (nome de esquema \textcolor{Bittersweet}{\ttfamily http})},
     first={identificador uniforme de recursos (\glsentryname{uri})},
     firstplural={identificadores uniformes de recursos (\glsentryname{uri}s)},
     long={identificador uniforme de recursos},
