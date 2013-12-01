@@ -294,20 +294,31 @@
 
 \newglossaryentry{caseinsensitive}{
     name={case insensitive},
-    description={\todo[inline]{escrever}},
-    first={\emph{\glsentryname{caseinsensitive}}}
+    description={em português, insensível ao tamanho das letras (maiúsculas ou
+    minúsculas); uma \glink{string} \glsentryname{caseinsensitive} não é diferenciada
+    com letras iguais em caixas alta ou baixa. Assim,
+    \textcolor{Bittersweet}{\ttfamily FOO}, \textcolor{Bittersweet}{\ttfamily Foo}
+    e \textcolor{Bittersweet}{\ttfamily foo} seriam \glinkpl{string} dadas como iguais},
+    first={insensível ao tamanho das letras (\emph{\glsentryname{caseinsensitive}})},
 }
 
 \newglossaryentry{querystring}{
     name={query string},
-    description={\todo[inline]{escrever}},
-    first={\emph{\glsentryname{querystring}}}
+    description={em português, \glink{string} de busca; parte de uma \glink{url} que
+    possui um dicionário de dados a serem transmitidos para alguma aplicação de
+    Internet, determinado por um caractere \textcolor{Bittersweet}{\ttfamily ?}. Por
+    exemplo, em \textcolor{Bittersweet}{\ttfamily http://um/endereco/qualquer/?key1=value1\&key2=value2}},
+    first={\glink{string} de busca (\emph{\glsentryname{querystring}})},
+    firstplural={\glinkpl{string} de busca (\emph{\glsentryname{querystring}s})},
+    plural={\glsentryname{querystring}s}
 }
 
 \newglossaryentry{httpget}{
     name={HTTP GET},
-    description={\todo[inline]{escrever}},
-    first={\emph{\glsentryname{httpget}}}
+    description={método de requisição do protocolo HTTP que permite uso de
+    \glinkpl{querystring} para troca de informações},
+    first={método de requisição GET do protocolo HTTP},
+    firstplural={métodos de requisição GET do protocolo HTTP}
 }
 
 \newglossaryentry{urlencode}{
@@ -320,8 +331,13 @@
 \newglossaryentry{urn}{
     name={URN},
     description={do inglês \emph{Uniform Resource Name}; Nome Uniforme de Recursos, é o
-    nome histórico dado a uma \glink{uri} que usa o esquema "urn:". Sua sintaxe é ``urn:<NID>:<NSS>'', onde ``urn:'' é o prefixo \glink{caseinsensitive}, ``<NID>'' é o identificador de espaço de nomes, que determina a interpretação sintática de ``<NSS>'', que é a \glink{string} específica do espaço de
-    nomes usado},
+    nome histórico dado a uma \glink{uri} que usa o esquema
+    \textcolor{Bittersweet}{\ttfamily urn}. Sua sintaxe é
+    \textcolor{Bittersweet}{\ttfamily urn:<NID>:<NSS>}, onde
+    \textcolor{Bittersweet}{\ttfamily urn} é o prefixo \glink{caseinsensitive},
+    \textcolor{Bittersweet}{\ttfamily <NID>} é o identificador de espaço de nomes, que
+    determina a interpretação sintática de \textcolor{Bittersweet}{\ttfamily <NSS>},
+    que é a \glink{string} específica do espaço de nomes usado},
     first={nome uniforme de recursos (\glsentryname{urn})},
     firstplural={nomes uniformes de recursos (\glsentryname{urn})},
     long={nome uniforme de recursos},

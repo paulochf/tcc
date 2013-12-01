@@ -12,6 +12,14 @@
 	"buffers":
 	[
 		{
+			"file": "/home/paulo/Arquivos/tcc/mono/glossario.tex",
+			"settings":
+			{
+				"buffer_size": 14089,
+				"line_ending": "Unix"
+			}
+		},
+		{
 			"file": "/home/paulo/Arquivos/tcc/mono/tcc.tex",
 			"settings":
 			{
@@ -20,26 +28,10 @@
 			}
 		},
 		{
-			"file": "/home/paulo/Arquivos/tcc/mono/Codes/chap3/announce.c",
+			"file": "/home/paulo/Arquivos/tcc/mono/poster/tcc-poster.tex",
 			"settings":
 			{
-				"buffer_size": 1507,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/paulo/Arquivos/tcc/mono/glossario.tex",
-			"settings":
-			{
-				"buffer_size": 13701,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/paulo/Arquivos/tcc/mono/Codes/chap3/004-leiturametadata4.c",
-			"settings":
-			{
-				"buffer_size": 1213,
+				"buffer_size": 19417,
 				"line_ending": "Unix"
 			}
 		},
@@ -112,6 +104,9 @@
 	},
 	"file_history":
 	[
+		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/announce.c",
+		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/004-leiturametadata4.c",
+		"/home/paulo/Arquivos/tcc/mono/tcc.tex",
 		"/home/paulo/Arquivos/tcc/mono/[no file]",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/Chapter4.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/Chapter6.tex",
@@ -121,7 +116,6 @@
 		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/002-leiturametadata2.c",
 		"/media/Arquivos/tcc/mono/Codes/chap3/003-leiturametadata3.c",
 		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/001-leiturametadata.c",
-		"/home/paulo/Arquivos/tcc/mono/tcc.tex",
 		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/code1.c",
 		"/home/paulo/Arquivos/tcc/mono/bibliografia.bib",
 		"/home/paulo/Arquivos/tcc/mono/poster/tcc-poster.tex",
@@ -206,6 +200,10 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"ttfamily",
+			"\\stexttt",
+			"stexttt",
+			"seeder",
 			"indefini",
 			"todo",
 			"announce",
@@ -329,11 +327,7 @@
 			"accessed",
 			"\"([^\\\\\\\\\"]*)\"",
 			" - ",
-			"--",
-			"\n@online{site:facebook-torrent,\n    author = {Ernesto},\n    title = {BitTorrent And MPAA join forces},\n    journal = {TorrentFreak},\n    day = {23},\n    month = {11},\n    year = {2005},\n    url = {http://http://torrentfreak.com/BitTorrent-and-mpaa-join-forces/}\n",
-			"bram",
-			"rips",
-			"publisher"
+			"--"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -404,11 +398,40 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
+					"file": "/home/paulo/Arquivos/tcc/mono/glossario.tex",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 14089,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								10559,
+								10559
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 3573.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
 					"file": "/home/paulo/Arquivos/tcc/mono/tcc.tex",
 					"semi_transient": false,
 					"settings":
@@ -420,8 +443,8 @@
 						"selection":
 						[
 							[
-								4186,
-								4186
+								3732,
+								3732
 							]
 						],
 						"settings":
@@ -431,93 +454,36 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1714.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "/home/paulo/Arquivos/tcc/mono/Codes/chap3/announce.c",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1507,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1426,
-								1426
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1170.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "/home/paulo/Arquivos/tcc/mono/glossario.tex",
-					"semi_transient": false,
+					"file": "/home/paulo/Arquivos/tcc/mono/poster/tcc-poster.tex",
+					"semi_transient": true,
 					"settings":
 					{
-						"buffer_size": 13701,
+						"buffer_size": 19417,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								7582,
-								7582
+								0,
+								0
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
-							"tab_size": 4,
+							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2151.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "/home/paulo/Arquivos/tcc/mono/Codes/chap3/004-leiturametadata4.c",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1213,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1213,
-								1213
-							]
-						],
-						"settings":
-						{
-							"is_xml": false,
-							"syntax": "Packages/C++/C++.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 156.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -529,7 +495,7 @@
 			"sheets":
 			[
 				{
-					"buffer": 4,
+					"buffer": 3,
 					"file": "/home/paulo/Arquivos/tcc/mono/Chapters/Chapter3.tex",
 					"semi_transient": false,
 					"settings":
@@ -541,8 +507,8 @@
 						"selection":
 						[
 							[
-								21688,
-								21688
+								21295,
+								21295
 							]
 						],
 						"settings":
@@ -552,7 +518,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 6004.0,
+						"translation.y": 5419.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
