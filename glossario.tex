@@ -147,7 +147,7 @@
     descentralizada e na forma de sistema distribuído},
     long={\glink{hashtable} distribuída},
     first={\glsentrylong{dht} (\glsentryname{dht})},
-    firstplural={\glinkpl{hashtable} distribuídas (\glsentryplural{dht})},
+    firstplural={\glinkpl{hashtable} distribuídas (\glsentryplural{dht}s)},
     plural={\glsentrylong{dht}s}
 }
 
@@ -171,10 +171,9 @@
     name={tracker},
     description={em português, rastreador; servidor que funciona como um ponto de
     encontro de \glink{peer}},
-    long={rastreador (\emph{\glsentryname{tracker}})}
-    first={\glsentrylong{tracker}},
-    firstplural={rastreadores (\emph{\glsentryname{tracker}s})}
-    plural={\glsentryname{tracker}s},
+    first={rastreador (\emph{\glsentryname{tracker}})},
+    firstplural={rastreadores (\emph{\glsentryname{tracker}s})},
+    plural={\glsentryname{tracker}s}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -185,7 +184,7 @@
     name={leecher},
     description={em português, sugador; nome dado ao \glink{peer} que ainda não
     terminou um download de um torrent},
-    long={sugador (\emph{\glsentryname{leecher}})}
+    long={sugador (\emph{\glsentryname{leecher}})},
     first={\glsentrylong{leecher}},
     firstplural={sugadores (\emph{\glsentryname{leecher}s})},
     plural={\glsentryname{leecher}s}
@@ -196,8 +195,9 @@
     description={em português, semeador; nome dado ao \glink{peer} que já terminou um
     download de um torrent e que, por ainda estar conectado à rede, fornece partes a
     possíveis interessados},
-    first={\glsentryname{seeder} (semeador)},
-    firstplural={\glsentryplural{seeder} (semeadores)},
+    long={semeador (\emph{\glsentryname{seeder}})},
+    first={\glsentrylong{seeder}},
+    firstplural={semeadores (\emph{\glsentryname{seeder}s})},
     plural={\glsentryname{seeder}s}
 }
 
@@ -216,6 +216,7 @@
     das partes do torrent, além de endereços de um ou mais \glinkpl{tracker}},
     first={\emph{\glsentryname{torrent}}},
     plural={\glsentryname{torrent}s},
+    firstplural={\emph{\glsentryname{torrent}s}}
 }
 
 \newglossaryentry{checksum}{
@@ -225,6 +226,7 @@
     integridade contra problemas durante a transmissão ou de armazenamento (leitura
     ou escrita)},
     first={verificação por soma (\emph{\glsentryname{checksum}})},
+    firstplural={verificações por soma (\emph{\glsentryname{checksum}s})},
     plural={\glsentryname{checksum}s}
 }
 
@@ -232,9 +234,9 @@
     name={swarm},
     description={em português, enxame; grupo de \glinkpl{peer} que estão compartilhando
     dados de um mesmo \glink{torrent} num determinado momento},
-    first={\glsentryname{swarm} (enxame)},
-    plural={\glsentryname{swarm}s},
-    firstplural={\glsentryplural{swarm} (enxames)}
+    first={enxame (\emph{\glsentryname{swarm}})},
+    firstplural={enxames (\emph{\glsentryname{swarm}s})},
+    plural={\glsentryname{swarm}s}
 }
 
 \newglossaryentry{bencode}{
@@ -242,15 +244,15 @@
     description={\emph{codificação B}, pronunciado \emph{bê encode}; formato de
     codificação compacta de arquivos \glink{torrent} para transmissão de
     \glinkpl{metadata}},
-    first={\glsentryname{bencode}}
+    first={codificação B (\glsentryname{bencode})}
 }
 
 \newglossaryentry{string}{
     name={string},
     description={sequência de caracteres},
-    first={\glsentryname{string} (sequência de caracteres)},
-    firstplural={\glsentryplural{string} (sequências de caracteres)},
-    plural={strings}
+    first={sequência de caracteres (\emph{\glsentryname{string}})},
+    firstplural={sequências de caracteres (\emph{\glsentryname{string}s})},
+    plural={\glsentryname{string}s}
 }
 
 \newglossaryentry{magnetlink}{
@@ -258,10 +260,9 @@
     description={em português, link magnético; padrão aberto, definido por convenção,
     de esquema de \glink{uri} utilizado para localizar recursos de rede BitTorrent para
     download},
-    first={link magnético (\glsentryname{magnetlink})},
-    long={link magnético},
-    plural={links magnéticos},
-    firstplural={\glsentryplural{magnetlink} (\glsentryname{magnetlink}s)}
+    first={link magnético (\emph{\glsentryname{magnetlink}})},
+    plural={\glsentryname{magnetlink}s},
+    firstplural={links magnéticos (\glsentryname{magnetlink}s)}
 }
 
 \newglossaryentry{uri}{
@@ -270,24 +271,23 @@
     Uniforme de Recursos, é uma \glink{string} usada para identificar algum recurso,
     especificando algum protocolo e um caminho. Por exemplo, o URI
     file:///arquivo.txt indica um arquivo no computador local (nome de esquema
-    "file"), enquanto http://pagina.com se refere a uma página de Internet (nome
-    de esquema "http")},
+    \sverb|file|), enquanto http://pagina.com se refere a uma página de
+    Internet (nome de esquema \sverb|http|)},
     first={identificador uniforme de recursos (\glsentryname{uri})},
-    firstplural={identificadores uniformes de recursos (\glsentryname{uri})},
+    firstplural={identificadores uniformes de recursos (\glsentryname{uri}s)},
     long={identificador uniforme de recursos},
-    plural={\glsentrylong{uri}s}
+    plural={\glsentryname{uri}s}
 }
 
 \newglossaryentry{url}{
     name={URL},
-    description={do inglês \emph{Uniform Resource Locator}; Localizador Uniforme
-    de Recursos, é uma \glink{string} usada para identificar algum recurso na Internet,
-    especificando algum protocolo de
-    comunicação},
+    description={do inglês \emph{Uniform Resource Locator}; Localizador Uniforme de
+    Recursos, é uma \glink{string} usada para identificar algum recurso na Internet,
+    especificando algum protocolo de comunicação},
     first={localizador uniforme de recursos (\glsentryname{url})},
-    firstplural={localizadores uniformes de recursos (\glsentryname{url})},
+    firstplural={localizadores uniformes de recursos (\glsentryname{url}s)},
     long={localizador uniforme de recursos},
-    plural={\glsentrylong{url}s}
+    plural={\glsentryname{url}s}
 }
 
 \newglossaryentry{caseinsensitive}{

@@ -15,7 +15,7 @@
 			"file": "/home/paulo/Arquivos/tcc/mono/tcc.tex",
 			"settings":
 			{
-				"buffer_size": 9008,
+				"buffer_size": 8687,
 				"line_ending": "Unix"
 			}
 		},
@@ -31,7 +31,7 @@
 			"file": "/home/paulo/Arquivos/tcc/mono/glossario.tex",
 			"settings":
 			{
-				"buffer_size": 13394,
+				"buffer_size": 13701,
 				"line_ending": "Unix"
 			}
 		},
@@ -47,7 +47,7 @@
 			"file": "/home/paulo/Arquivos/tcc/mono/Chapters/Chapter3.tex",
 			"settings":
 			{
-				"buffer_size": 21913,
+				"buffer_size": 22134,
 				"line_ending": "Unix"
 			}
 		}
@@ -112,13 +112,17 @@
 	},
 	"file_history":
 	[
+		"/home/paulo/Arquivos/tcc/mono/[no file]",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/Chapter4.tex",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/Chapter6.tex",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/Chapter7.tex",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/Chapter5.tex",
 		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/003-leiturametadata3.c",
 		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/002-leiturametadata2.c",
 		"/media/Arquivos/tcc/mono/Codes/chap3/003-leiturametadata3.c",
 		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/001-leiturametadata.c",
 		"/home/paulo/Arquivos/tcc/mono/tcc.tex",
 		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/code1.c",
-		"/home/paulo/Arquivos/tcc/mono/Chapters/Chapter4.tex",
 		"/home/paulo/Arquivos/tcc/mono/bibliografia.bib",
 		"/home/paulo/Arquivos/tcc/mono/poster/tcc-poster.tex",
 		"/home/paulo/Arquivos/tcc/mono/poster/bibliografia.bib",
@@ -126,7 +130,6 @@
 		"/home/paulo/Arquivos/tcc/mono/poster/beamerthemeI6dv.sty",
 		"/home/paulo/Downloads/poster/poster.tex",
 		"/home/paulo/Arquivos/tcc/poster/bibliografia.bib",
-		"/home/paulo/Arquivos/tcc/mono/Chapters/Chapter6.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/Chapter2.tex",
 		"/home/paulo/.config/sublime-text-3/Packages/User/Default (Linux).sublime-keymap",
 		"/home/paulo/Downloads/poster/beamerthemeposter-exemplo.sty",
@@ -203,6 +206,20 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"indefini",
+			"todo",
+			"announce",
+			"\\\\verb",
+			"verb",
+			"string",
+			"\\\"([^\\\"]*)\\\"",
+			"verb",
+			"glslinkplural",
+			"nat",
+			"udp",
+			"ref",
+			"\\\"",
+			"udp",
 			"^\\-",
 			"de",
 			"hash",
@@ -316,21 +333,7 @@
 			"\n@online{site:facebook-torrent,\n    author = {Ernesto},\n    title = {BitTorrent And MPAA join forces},\n    journal = {TorrentFreak},\n    day = {23},\n    month = {11},\n    year = {2005},\n    url = {http://http://torrentfreak.com/BitTorrent-and-mpaa-join-forces/}\n",
 			"bram",
 			"rips",
-			"publisher",
-			"Journal",
-			"journal",
-			"\"([^\\\\\\\\\"]*)\"",
-			"Wiki",
-			"wiki",
-			"face",
-			"    note = \"Online; retirado de http://macaubas.com/wp-content/uploads/2013/05/Sandvine_Global_Internet_Phenomena_Report_1H_2013.pdf\",\n",
-			"new Date\\([^\\)]*\\)",
-			"new Date(\\([^\\)]*\\))",
-			"new Date\\([^\\)]*\\)",
-			"decentra",
-			"    ",
-			"hash",
-			"begin"
+			"publisher"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -338,6 +341,14 @@
 		"regex": true,
 		"replace_history":
 		[
+			"\\\\bverb",
+			"\\bverb",
+			"bverb",
+			"\\\\verb|\\1|",
+			"\\\\verb|\"\\1\"|",
+			"\\\\verb|\\1|",
+			"\\verb|\\1|",
+			"glinkpl",
 			"",
 			"'",
 			"\\'",
@@ -393,7 +404,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -402,15 +413,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 9008,
+						"buffer_size": 8687,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								5405,
-								5405
+								4186,
+								4186
 							]
 						],
 						"settings":
@@ -420,7 +431,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2067.0,
+						"translation.y": 1714.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -460,15 +471,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 13394,
+						"buffer_size": 13701,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								7903,
-								7903
+								7582,
+								7582
 							]
 						],
 						"settings":
@@ -478,7 +489,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2307.0,
+						"translation.y": 2151.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -523,15 +534,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 21913,
+						"buffer_size": 22134,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								16520,
-								16520
+								21688,
+								21688
 							]
 						],
 						"settings":
@@ -541,7 +552,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 4803.0,
+						"translation.y": 6004.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
