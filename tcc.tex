@@ -71,13 +71,9 @@
 % \usepackage{accsupp}
 % \newcommand{\emptyaccsupp}[1]{\BeginAccSupp{ActualText={}}#1\EndAccSupp{}}
 
-\newcommand{\glink}[1]{
-    \glslink{#1}{\glsentryname{#1}}
-}
+\newcommand{\glink}[1]{\glslink{#1}{\glsentryname{#1}}}
 
-\newcommand{\glinkpl}[1]{
-    \glslink{#1}{\glsentryplural{#1}}
-}
+\newcommand{\glinkpl}[1]{\glslink{#1}{\glsentryplural{#1}}}
 
 \addbibresource{bibliografia.bib}
 

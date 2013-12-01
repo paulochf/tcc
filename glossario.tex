@@ -222,7 +222,7 @@
 \newglossaryentry{checksum}{
     name={checksum},
     description={em português, soma de verificação; bloco de dados de tamanho fixo
-    gerado por algum algoritmo de verificação de integridade usado no certificado de
+    gerado por algum algoritmo de soma para verificação, usado no certificado de
     integridade contra problemas durante a transmissão ou de armazenamento (leitura
     ou escrita)},
     first={verificação por soma (\emph{\glsentryname{checksum}})},
@@ -241,7 +241,7 @@
 
 \newglossaryentry{bencode}{
     name={bencode},
-    description={\emph{codificação B}, pronunciado \emph{bê encode}; formato de
+    description={``codificação B'', pronunciado \emph{bê encode}; formato de
     codificação compacta de arquivos \glink{torrent} para transmissão de
     \glinkpl{metadata}},
     first={codificação B (\glsentryname{bencode})}
@@ -265,16 +265,16 @@
     firstplural={links magnéticos (\glsentryname{magnetlink}s)}
 }
 
-% \textcolor{Bittersweet}{\ttfamily file} não é substituível por novo comando
+% \textcolor{Bittersweet}{\texttt{file}} não é substituível por novo comando
 \newglossaryentry{uri}{
     name={URI},
     description={do inglês \emph{Uniform Resource Identifier}; Identificador
     Uniforme de Recursos, é uma \glink{string} usada para identificar algum recurso,
     especificando algum protocolo e um caminho. Por exemplo, o URI
-    \textcolor{Bittersweet}{\ttfamily file:///arquivo.txt} indica um arquivo computador
-    local (nome de esquema \textcolor{Bittersweet}{\ttfamily file}), enquanto
-    \textcolor{Bittersweet}{\ttfamily http://pagina.com} se refere a uma página de
-    Internet (nome de esquema \textcolor{Bittersweet}{\ttfamily http})},
+    \textcolor{Bittersweet}{\texttt{file:///arquivo.txt}} indica um arquivo computador
+    local (nome de esquema \textcolor{Bittersweet}{\texttt{file}}), enquanto
+    \textcolor{Bittersweet}{\texttt{http://pagina.com}} se refere a uma página de
+    Internet (nome de esquema \textcolor{Bittersweet}{\texttt{http}})},
     first={identificador uniforme de recursos (\glsentryname{uri})},
     firstplural={identificadores uniformes de recursos (\glsentryname{uri}s)},
     long={identificador uniforme de recursos},
@@ -295,10 +295,10 @@
 \newglossaryentry{caseinsensitive}{
     name={case insensitive},
     description={em português, insensível ao tamanho das letras (maiúsculas ou
-    minúsculas); uma \glink{string} \glsentryname{caseinsensitive} não é diferenciada
-    com letras iguais em caixas alta ou baixa. Assim,
-    \textcolor{Bittersweet}{\ttfamily FOO}, \textcolor{Bittersweet}{\ttfamily Foo}
-    e \textcolor{Bittersweet}{\ttfamily foo} seriam \glinkpl{string} dadas como iguais},
+    minúsculas); uma \glink{string} \glsentryname{caseinsensitive} não é
+    diferenciada com letras iguais em caixas alta ou baixa. Assim,
+    \textcolor{Bittersweet}{\texttt{FOO}}, \textcolor{Bittersweet}{\texttt{Foo}}
+    e \textcolor{Bittersweet}{\texttt{foo}} seriam \glinkpl{string} dadas como iguais},
     first={insensível ao tamanho das letras (\emph{\glsentryname{caseinsensitive}})},
 }
 
@@ -306,8 +306,8 @@
     name={query string},
     description={em português, \glink{string} de busca; parte de uma \glink{url} que
     possui um dicionário de dados a serem transmitidos para alguma aplicação de
-    Internet, determinado por um caractere \textcolor{Bittersweet}{\ttfamily ?}. Por
-    exemplo, em \textcolor{Bittersweet}{\ttfamily http://um/endereco/qualquer/?key1=value1\&key2=value2}},
+    Internet, determinado por um caractere \textcolor{Bittersweet}{\texttt{?}}. Por
+    exemplo, em \textcolor{Bittersweet}{\texttt{http://um/endereco/qualquer/?key1=value1\&key2=value2}}},
     first={\glink{string} de busca (\emph{\glsentryname{querystring}})},
     firstplural={\glinkpl{string} de busca (\emph{\glsentryname{querystring}s})},
     plural={\glsentryname{querystring}s}
@@ -323,20 +323,27 @@
 
 \newglossaryentry{urlencode}{
     name={URL encode},
-    description={\todo[inline]{escrever}},
-    first={\glsentrylong{urlencode}},
-    long={\emph{\glsentryname{urlencode}}}
+    description={em português, codificação de \glink{url}; por possuir caracteres
+    especiais, \glinkpl{url} devem converter esses caracteres quando se desejar
+    transmití-los. Letras (A-Z e a-z), números (0-9), caracteres
+    (\textcolor{Bittersweet}{\texttt{.\~{}\textunderscore},}); espaços são convertidos
+    para \textcolor{Bittersweet}{\texttt{+}} ou \textcolor{Bittersweet}{\texttt{\%20}};
+    o restante é convertido para o respectivo valor em hexadecimal do caractere
+    convertido para UTF-8},
+    first={\glink{string} de busca (\emph{\glsentryname{querystring}})},
+    firstplural={\glinkpl{string} de busca (\emph{\glsentryname{querystring}s})},
+    plural={\glsentryname{querystring}s}
 }
 
 \newglossaryentry{urn}{
     name={URN},
     description={do inglês \emph{Uniform Resource Name}; Nome Uniforme de Recursos, é o
     nome histórico dado a uma \glink{uri} que usa o esquema
-    \textcolor{Bittersweet}{\ttfamily urn}. Sua sintaxe é
-    \textcolor{Bittersweet}{\ttfamily urn:<NID>:<NSS>}, onde
-    \textcolor{Bittersweet}{\ttfamily urn} é o prefixo \glink{caseinsensitive},
-    \textcolor{Bittersweet}{\ttfamily <NID>} é o identificador de espaço de nomes, que
-    determina a interpretação sintática de \textcolor{Bittersweet}{\ttfamily <NSS>},
+    \textcolor{Bittersweet}{\texttt{urn}}. Sua sintaxe é
+    \textcolor{Bittersweet}{\texttt{urn:<NID>:<NSS>}}, onde
+    \textcolor{Bittersweet}{\texttt{urn}} é o prefixo \glink{caseinsensitive},
+    \textcolor{Bittersweet}{\texttt{<NID>}} é o identificador de espaço de nomes, que
+    determina a interpretação sintática de \textcolor{Bittersweet}{\texttt{<NSS>}},
     que é a \glink{string} específica do espaço de nomes usado},
     first={nome uniforme de recursos (\glsentryname{urn})},
     firstplural={nomes uniformes de recursos (\glsentryname{urn})},
@@ -346,10 +353,12 @@
 
 \newglossaryentry{announce}{
     name={announce},
-    description={endereço web (URL) do \glink{tracker}},
-    first={\glsentryname{announce}},
-    plural={\glsentryname{announce}s},
-    firstplural={\glsentryplural{announce}}
+    description={\glink{url} do \glink{tracker} para troca de mensagens com
+    \glinkpl{peer}},
+    first={endereço web de contato do \glink{tracker} (\emph{\glsentryname{announce}})},
+    firstplural={endereços web de contato do \glink{tracker}
+    (\emph{\glsentryname{announce}s})},
+    plural={\glsentryname{announce}s}
 }
 
 \newglossaryentry{scrape}{
