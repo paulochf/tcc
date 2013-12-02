@@ -209,6 +209,7 @@
     firstplural={\glsentryplural{metadata}}
 }
 
+% diferenciar arquivo .torrent e download de torrent
 \newglossaryentry{torrent}{
     name={torrent},
     description={arquivo de extensão .torrent que contém \glinkpl{metadata}, como a
@@ -233,7 +234,7 @@
 \newglossaryentry{swarm}{
     name={swarm},
     description={em português, enxame; grupo de \glinkpl{peer} que estão compartilhando
-    dados de um mesmo \glink{torrent} num determinado momento},
+    dados de um mesmo torrent num determinado momento},
     first={enxame (\emph{\glsentryname{swarm}})},
     firstplural={enxames (\emph{\glsentryname{swarm}s})},
     plural={\glsentryname{swarm}s}
@@ -353,8 +354,11 @@
 
 \newglossaryentry{announce}{
     name={announce},
-    description={\glink{url} do \glink{tracker} para troca de mensagens com
-    \glinkpl{peer}},
+    description={endereço \glink{url} do \glink{tracker} para troca de informações,
+    onde este recebe de \glinkpl{peer} informações sobre as respectivas situações com
+    relação a um torrent específico naquele momento, as processa e então responde
+    informando sobre a situação geral daquele torrent e uma lista de outros
+    \glsentryplural{peer} conectados naquele momento},
     first={endereço web de contato do \glink{tracker} (\emph{\glsentryname{announce}})},
     firstplural={endereços web de contato do \glink{tracker}
     (\emph{\glsentryname{announce}s})},
@@ -363,22 +367,36 @@
 
 \newglossaryentry{scrape}{
     name={scrape},
-    description={endereço web (URL) do \glink{tracker}},
-    first={\glsentryname{scrape}},
-    plural={\glsentryname{scrape}s},
-    firstplural={\glsentryplural{scrape}}
+    description={do inglês \emph{screen scraping}; sondagem de tela, que era um
+    processo automatizado para recolhimento de informações sobre torrents que acessavam
+    páginas web dos \glinkpl{tracker}. Por questões práticas e econômicas, foi
+    estabelecido que neste endereço \glink{url} do \glsentryname{tracker}, ao contrário
+    do \glink{announce}, o \glsentryname{tracker} somente informa as quantidades de
+    \glinkpl{peer} que estão participando de uma lista de torrents naquele momento},
+    first={endereço web do \glink{tracker} para informações básicas
+    (\emph{\glsentryname{scrape}})},
+    firstplural={endereços web do \glink{tracker} para informações básicas
+    (\emph{\glsentryname{scrape}s})},
+    plural={\glsentryname{scrape}s}
 }
 
 \newglossaryentry{proxy}{
     name={proxy},
-    description={\todo[inline]{escrever}},
-    first={\emph{\glsentryname{proxy}}}
+    description={servidor que funciona como intermediário de acessos, repassando
+    requisições de um computador cliente para o servidor de destino},
+    first={servidor \emph{\glsentryname{proxy}}},
+    firstplural={servidores \emph{\glsentryname{proxy}} (\emph{proxies})}
+    plural={proxies},
 }
 
 \newglossaryentry{nat}{
     name={gateway NAT},
-    description={\todo[inline]{escrever}},
-    first={\emph{\glsentryname{nat}}}
+    description={do inglês \emph{Network Address Translation}; tradução de endereço de
+    rede, é uma funcionalidade empregada por roteadores de rede, que por associarem um
+    endereço de Internet (o fornecido pelo \glink{isp}) para vários dispositivos dentro
+    dessa rede, precisa manter uma tabela de tradução de endereços para que saiba rotear
+    os pacotes de dados transmitidos entre as redes interna e externa},
+    first={tradução de endereço de rede (\emph{\glsentryname{nat}})}
 }
 
 \newglossaryentry{tcp}{
