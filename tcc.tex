@@ -23,7 +23,7 @@
 \usepackage{indentfirst}                            % indentação dos 1ºs parágrafos
 \usepackage{setspace}                               % \setstretch
 \usepackage{afterpage}                              % \afterpage
-\usepackage{newverbs}
+\usepackage{newverbs}                               % \newverbcommand
 
 % \usepackage{layouts}                              % debug dos tamanhos do documento
 % \afterpage http://tex.stackexchange.com/q/88657
@@ -46,7 +46,7 @@
 % \makeglossaries
 % http://en.wikibooks.org/wiki/LaTeX/Glossary#Using_defined_terms
 % sanitize=none: http://tex.stackexchange.com/a/14930/5125
-\usepackage[xindy,toc,sanitize=none]{glossaries}
+\usepackage[xindy,toc,section=chapter,numberedsection=autolabel,sanitize=none]{glossaries}
 
 % http://texblog.org/tag/addcontentsline/
 \usepackage[numbib]{tocbibind}
@@ -91,6 +91,7 @@
     Chapters/Chapter5,     % 5. Conclusão
     Chapters/Chapter6,     % 6. Referências
     Chapters/Chapter7,     % 7. Parte Subjetiva
+    Chapters/Chapter8     % 7. Parte Subjetiva
 }
 
 \hypersetup{
@@ -267,10 +268,6 @@
 % Lista de figuras
 \listoffigures
 
-% Glossário
-% \glsaddall
-\printglossary[type=main,style=altlist]
-
 % Lista de TODOs
 \listoftodos
 \todototoc
@@ -329,9 +326,11 @@
 
 \include{Chapters/Chapter5} % Conclusão
 
-\include{Chapters/Chapter6} % Referências
+\include{Chapters/Chapter6} % Glossário
 
-\include{Chapters/Chapter7} % Parte Subjetiva
+\include{Chapters/Chapter7} % Referências
+
+\include{Chapters/Chapter8} % Parte Subjetiva
 
 % Espaço no ToC, por estética
 % \addtocontents{toc}{\vspace{2em}}

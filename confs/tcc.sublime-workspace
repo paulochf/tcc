@@ -15,23 +15,15 @@
 			"file": "/home/paulo/Arquivos/tcc/mono/glossario.tex",
 			"settings":
 			{
-				"buffer_size": 14089,
+				"buffer_size": 15982,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/home/paulo/Arquivos/tcc/mono/tcc.tex",
+			"file": "/home/paulo/Arquivos/tcc/mono/bibliografia.bib",
 			"settings":
 			{
-				"buffer_size": 8687,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/paulo/Arquivos/tcc/mono/poster/tcc-poster.tex",
-			"settings":
-			{
-				"buffer_size": 19417,
+				"buffer_size": 23280,
 				"line_ending": "Unix"
 			}
 		},
@@ -104,9 +96,10 @@
 	},
 	"file_history":
 	[
+		"/home/paulo/Arquivos/tcc/mono/tcc.gls",
+		"/home/paulo/Arquivos/tcc/mono/tcc.tex",
 		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/announce.c",
 		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/004-leiturametadata4.c",
-		"/home/paulo/Arquivos/tcc/mono/tcc.tex",
 		"/home/paulo/Arquivos/tcc/mono/[no file]",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/Chapter4.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/Chapter6.tex",
@@ -200,6 +193,12 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"ttfamily\\s([^\\}]*)",
+			"check",
+			"chec",
+			"bencode",
+			"cap",
+			"http",
 			"ttfamily",
 			"\\stexttt",
 			"stexttt",
@@ -321,13 +320,7 @@
 			"%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n",
 			"dht",
 			"swar",
-			"metada",
-			"September",
-			"October",
-			"accessed",
-			"\"([^\\\\\\\\\"]*)\"",
-			" - ",
-			"--"
+			"metada"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -335,6 +328,7 @@
 		"regex": true,
 		"replace_history":
 		[
+			"texttt{\\1}",
 			"\\\\bverb",
 			"\\bverb",
 			"bverb",
@@ -407,15 +401,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 14089,
+						"buffer_size": 15982,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								10559,
-								10559
+								14068,
+								14068
 							]
 						],
 						"settings":
@@ -425,65 +419,36 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 3573.0,
+						"translation.y": 4087.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "/home/paulo/Arquivos/tcc/mono/tcc.tex",
+					"file": "/home/paulo/Arquivos/tcc/mono/bibliografia.bib",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 8687,
+						"buffer_size": 23280,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3732,
-								3732
+								15458,
+								15458
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
+							"syntax": "Packages/LaTeX/Bibtex.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1170.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "/home/paulo/Arquivos/tcc/mono/poster/tcc-poster.tex",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 19417,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 156.0,
+						"translation.y": 6017.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -495,7 +460,7 @@
 			"sheets":
 			[
 				{
-					"buffer": 3,
+					"buffer": 2,
 					"file": "/home/paulo/Arquivos/tcc/mono/Chapters/Chapter3.tex",
 					"semi_transient": false,
 					"settings":
@@ -518,7 +483,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 5419.0,
+						"translation.y": 6082.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
