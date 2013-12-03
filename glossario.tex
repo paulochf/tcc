@@ -40,9 +40,9 @@
     description={em português, significa par, colega; nome que se dá a cada nó da rede,
     ou seja, a um computador conectado},
     long={\glsentryname{peer}},
-    first={\glsentryname{peer} (um nó da rede)},
+    first={nó da rede (\emph{\glsentryname{peer}})},
     plural={\glsentryname{peer}s},
-    firstplural={\glsplural{peer} (nós da rede)}
+    firstplural={nós da rede (\emph{\glsplural{peer}})}
 }
 
 \newglossaryentry{p2p}{
@@ -108,18 +108,18 @@
     múltiplas fontes, é a transmissão em paralelo de um arquivo, a partir de
     um ou vários locais onde estiver disponível, para um único destino. Cabe ao
     software do destinatário juntar as partes recebidas},
-    first={\glsentryname{swarming} (enxame de \glsentryplural{peer}},
-    firstplural={\glsentryname{swarming}s (enxames de \glsentryplural{peer})},
+    first={enxame de \glsentryplural{peer} (\emph{\glsentryname{swarming}})},
+    firstplural={enxames de \glsentryplural{peer} (\emph{\glsentryname{swarming}s})},
     plural={\glsentryname{swarming}s}
 }
 
 \newglossaryentry{hashtable}{
-    name={tabela de hash},
+    name={tabela hash},
     description={ou \emph{mapa de hash}, é uma estrutura de dados que cria uma lista de
-    correspondência chave-valor, onde os dados são guardados como valores e
-    indexados por seus respectivos \emph{valores hash}},
+    correspondência chave-valor, onde os dados são guardados como valores e indexados
+    por seus respectivos \emph{valores hash}},
     first={\glsentryname{hashtable}},
-    firstplural={tabelas de hash},
+    firstplural={tabelas hash},
     plural={\glsentryfirstplural{hashtable}},
 }
 
@@ -147,8 +147,8 @@
     descentralizada e na forma de sistema distribuído},
     long={\glink{hashtable} distribuída},
     first={\glsentrylong{dht} (\glsentryname{dht})},
-    firstplural={\glinkpl{hashtable} distribuídas (\glsentryplural{dht}s)},
-    plural={\glsentrylong{dht}s}
+    firstplural={\glinkpl{hashtable} distribuídas (\glsentryname{dht}s)},
+    plural={\glsentryname{dht}s}
 }
 
 \newglossaryentry{kademlia}{
@@ -209,15 +209,23 @@
     firstplural={\glsentryplural{metadata}}
 }
 
-% diferenciar arquivo .torrent e download de torrent
+\newglossaryentry{torrentfile}{
+    name={arquivo .torrent},
+    description={arquivo que contém \glinkpl{metadata}, como a lista dos nomes dos
+    arquivos a serem baixados e seus tamanhos, \glinkpl{checksum} das partes desses
+    arquivos, endereços de um ou mais \glinkpl{tracker}, etc, formando um pacote chamado
+    \glink{torrent}},
+    first={arquivo de extensão .torrent},
+    firstplural={arquivos de extensão .torrent},
+    plural={arquivos .torrent}
+}
+
 \newglossaryentry{torrent}{
     name={torrent},
-    description={arquivo de extensão .torrent que contém \glinkpl{metadata}, como a
-    lista dos nomes dos arquivos a serem baixados e seus tamanhos, \glinkpl{checksum}
-    das partes do torrent, além de endereços de um ou mais \glinkpl{tracker}},
-    first={\emph{\glsentryname{torrent}}},
+    description={conjunto de um ou mais arquivos definidos por um \glink{torrentfile}},
+    first={torrent},
     plural={\glsentryname{torrent}s},
-    firstplural={\emph{\glsentryname{torrent}s}}
+    firstplural={\glsentryplural{torrent}}
 }
 
 \newglossaryentry{checksum}{

@@ -2,15 +2,15 @@
 
 \chapter{Anatomia do BitTorrent}
 
-O BitTorrent é uma rede \gls{p2p} onde cada um de seus usuários assume o papel híbrido
-de servidor, que fornece os arquivos, e de cliente, que adquire os arquivos. Cada
+O BitTorrent é uma rede \gls{p2p}, onde cada um de seus usuários assume o papel híbrido
+de servidor (que fornece os arquivos) e de cliente (que adquire os arquivos). Cada
 computador é chamado de \gls{peer}.
 
-Cada transferência por BitTorrent está associada a um arquivo de \glspl{metadata}
-chamado \gls{torrent}. Esse arquivo contém informações sobre os arquivos que formam o
-pacote de dados daquele conjunto de dados e também um ou mais endereços de
-\glspl*{tracker}, que mantém listas atualizadas dos \glspl*{peer} que estão
-compartilhando os dados, atualizado em períodos de tempo curtos (usualmente 30 minutos).
+Cada transferência por BitTorrent está associada a um \gls{torrentfile}, que contém
+\glspl{metadata}, que são informações sobre arquivos que constituem um pacote chamado
+\gls{torrent}. Além disso, possui um ou mais endereços de \glspl{tracker}, que são
+servidores que mantém listas atualizadas dos \glspl*{peer} que estão compartilhando
+aqueles arquivos, atualizadas em curtos períodos de tempo (usualmente 30 minutos).
 
 \begin{comment}
     \begin{figure}[H]
@@ -21,10 +21,9 @@ compartilhando os dados, atualizado em períodos de tempo curtos (usualmente 30 
     \end{figure}
 \end{comment}
 
-Enquanto um \gls*{peer} estiver fazendo download de um \gls*{torrent} é chamado de
-\gls{leecher}, pois ainda estará consumindo dados de outros \glspl*{peer}; quando o
-download acabar, passará a ser um \gls{seeder}, que somente envia dados para outros
-\glspl*{peer}.
+Enquanto um \gls*{peer} estiver fazendo download de um \gls*{torrent}, ele é chamado de
+\gls{leecher}, pois ainda consumirá dados de outros \glspl*{peer}; quando o download
+acabar, passará a ser um \gls{seeder}, que somente enviará dados.
 
 \begin{figure}[ht]
     \centering
@@ -33,14 +32,14 @@ download acabar, passará a ser um \gls{seeder}, que somente envia dados para ou
     \label{fig:torrent-universo}
 \end{figure}
 
-Os arquivos \gls*{torrent} ficam disponíveis em vários sites de índice (às vezes
-chamados de comunidades), como o \href{http://thepiratebay.sx/}{ThePirateBay}, o
+Os \glspl*{torrentfile} ficam disponíveis em vários sites de índice (às vezes, chamados
+de comunidades), como o \href{http://thepiratebay.sx/}{ThePirateBay}, o
 \href{http://kickass.to/}{Kickass} ou \href{https://torrentz.eu/}{Torrentz}, muitas
 vezes em mais de um deles ao mesmo tempo. Apesar de todo conteúdo compartilhado possuir
-um arquivo \gls*{torrent}, não necessariamente um arquivo \gls*{torrent} está sendo
-compartilhado, podendo inclusive estar extinto.
+um \gls*{torrentfile}, não necessariamente um \gls*{torrentfile} está sendo
+compartilhado naquele momento, podendo até mesmo estar extinto.
 
-\Glspl*{peer} que participam do compartilhamento de um arquivo \gls*{torrent} específico
+\Glspl*{peer} que participam do compartilhamento de um \gls*{torrentfile} específico
 fazem parte do \gls{swarm}, onde os dados contidos no pacote desse arquivo são
 compartilhados com outros por partes.
 
@@ -126,27 +125,27 @@ compartilhados com outros por partes.
     \label{fig:torrent-repr}
 \end{figure}
 
-Essas partes variam de acordo com cada arquivo \gls*{torrent}. O tamanho total do
+Essas partes variam de acordo com cada \gls*{torrentfile}. O tamanho total do
 conjunto de arquivos contidos nesse arquivo é dividido em partes de tamanho fixo
 (geralmente 256kB) e transmitido de forma independente das outras, seguindo a ordem
 estabelecida pelo algoritmo de troca de partes (explicado na seção~\ref{titfortat}),
 ordem essa que varia de acordo com o estado atual do \gls*{swarm} para o arquivo
-\gls*{torrent} dado.
+\gls*{torrentfile} dado.
 
 Todos esses agentes possuem relações de múltiplas entre si. Por exemplo, um mesmo
-arquivo \gls*{torrent} pode estar indexado por vários sites indexadores. Como veremos
+\gls*{torrentfile} pode estar indexado por vários sites indexadores. Como veremos
 nos capítulos seguintes, eles contém uma informação que os identificam unicamente entre
 si, mantendo a consistência de dados através desses vários sites de busca. Outra
 observação a ser feita é que um \gls*{peer} pode estar baixando mais de um
-\gls*{torrent} simultaneamente, ou seja, participando de dois \glspl*{swarm} ao mesmo
-tempo. Por fim, em alguns casos um arquivo \gls*{torrent} possui grande quantidade de
+\gls*{torrentfile} simultaneamente, ou seja, participando de dois \glspl*{swarm} ao mesmo
+tempo. Por fim, em alguns casos um \gls*{torrentfile} possui grande quantidade de
 \glspl*{peer}, havendo necessidade de se dividir o \gls*{swarm} em algumas partes para
 fins de escalabilidade da rede formada.
 
 \newpage
 \subsection*{Arquivo .torrent}
 
-Ao se adicionar um \gls*{torrent} em um programa cliente, ocorrem muitas transmissões de
+Ao se adicionar um \gls*{torrentfile} em um programa cliente, ocorrem muitas transmissões de
 dados antes do download de fato. Para demonstrar isso, usaremos um arquivo torrent do
 filme ``A Noite dos Mortos Vivos'' de 1960 \cite{torrent-file}, que é de domínio público
 e livre de direitos autorais.
@@ -185,7 +184,7 @@ mostrado abaixo.
 \end{listing}
 
 Esse conteúdo está organizado usando o formato \gls{bencode}, que é um formato de
-codificação compacta de arquivos especial para arquivos \gls*{torrent} e não é legível
+codificação compacta de arquivos especial para arquivos \gls*{torrentfile} e não é legível
 ao ser humano. Com alguma formatação, podemos enxergar os componentes separadamente,
 como mostra o código~\ref{lst:torrent-file-code}.
 
@@ -284,15 +283,15 @@ Esse conteúdo tem significado, sendo utilizado da seguinte forma
 
 \subsection*{Magnet Link}
 
-Além do arquivo \gls*{torrent}, existe uma outra forma de se transmitir os
+Além do \gls*{torrentfile}, existe uma outra forma de se transmitir os
 \glspl*{metadata} necessários para se iniciar a transmissão, que é utilizando
 \gls{magnetlink}.
 
-\Glspl*{magnetlink}, ao contrário dos arquivos \gls*{torrent}, não estão gravados em
+\Glspl*{magnetlink}, ao contrário dos arquivos \gls*{torrentfile}, não estão gravados em
 algum dispositivo de armazenamento. Basicamente, é um esquema de \gls{uri} usado
 exclusivamente para o protocolo.
 
-No caso citado, o site de origem do \gls*{torrent} que estamos usando não fornece um
+No caso citado, o site de origem do \gls*{torrentfile} que estamos usando não fornece um
 \gls*{magnetlink} oficialmente. Porém, o Transmission consegue construir uma \gls*{uri}
 a partir do arquivo original, para fins de compartilhamento direto. O resultado, após
 decodificar o endereço para um formato legível (retirando a codificação de caracteres
@@ -327,7 +326,7 @@ dividir esse endereço em partes, cada uma tendo o seu significado:
 \begin{itemize}
     \item \textbf{xt}: parâmetro para \emph{exact topic}, ou tópico exato, contém a
         informação mais importante do \gls*{magnetlink}: o identificador único de
-        \gls*{torrent}. Serve para encontrar e verificar os arquivos especificados.
+        \gls*{torrentfile}. Serve para encontrar e verificar os arquivos especificados.
         No caso, \bverb|urn:btih:<hash>| corresponde ao \gls{urn} \sverb|btih|
         (\emph{BitTorrent Info Hash}), que é a \gls*{string} \gls{hashvalue} resultado
         da \gls{hashfunction} SHA-1, convertida para hexadecimal
@@ -345,7 +344,7 @@ dividir esse endereço em partes, cada uma tendo o seu significado:
 
 \section{Busca por informações}
 
-Quando adicionamos um \gls*{torrent} ao Transmission, o programa salva as informações
+Quando adicionamos um \gls*{torrentfile} ao Transmission, o programa salva as informações
 em disco durante todo o período que estiverem sendo gerenciados por ele. Caso tenha
 sido por meio de um arquivo de \glspl*{metadata}, uma cópia deste é salva em uma pasta
 pré-definida para seu controle interno; caso seja por \gls*{magnetlink}, um novo
@@ -355,7 +354,7 @@ alguma transferência for pausada e depois continuada.
 
 Após esse processo de arquivamento, o programa processa essas informações salvas para
 deixá-las carregadas em memória a fim de obter o \gls*{hashvalue} que identifica o
-\gls*{torrent}.
+\gls*{torrentfile}.
 
 \cfile[label="./libtransmission/metainfo.c:367"]{./Codes/chap3/001-leiturametadata.c}
 
@@ -372,7 +371,7 @@ utilizada para calcular o \gls*{hashvalue} do arquivo.
 \cfile[label="./libtransmission/metainfo.c:367"]{./Codes/chap3/003-leiturametadata3.c}
 
 Outras informações podem ser recuperadas dependendo do formato de origem do
-\gls*{torrent}, como a privacidade, lista de arquivos e seus respectivos tamanhos,
+\gls*{torrentfile}, como a privacidade, lista de arquivos e seus respectivos tamanhos,
 \gls*{hashvalue} de cada parte, entre outras. Por fim, termina coletando os endereços de
 \gls{announce}.
 
@@ -410,7 +409,7 @@ pode ser feito usando-se tanto com o protocolo \gls{tcp} bem como \gls{udp}, e �
     quando o cliente enviou o primeiro aviso ao \gls*{tracker}
 
     \item \textbf{left}: a quantidade total de dados, em bytes, que faltam para o
-    requisitante terminar o download do \gls*{torrent} e passe a ser um \gls*{seeder}
+    requisitante terminar o download do \gls*{torrentfile} e passe a ser um \gls*{seeder}
 
     \item \textbf{compact} (opcional): se o valor passado for 1, significa que o
     requisitante aceita respostas compactas. A lista de \glspl*{peer} enviada é
@@ -435,7 +434,7 @@ pode ser feito usando-se tanto com o protocolo \gls{tcp} bem como \gls{udp}, e �
         este valor
         \item \emph{stopped} : avisa que o programa cliente está fechando
         \item \emph{completed} : quando o download que estava ocorrendo termina, ou
-        seja, não é enviado quando o programa cliente inicia com o \gls*{torrent} em
+        seja, não é enviado quando o programa cliente inicia com o \gls*{torrentfile} em
         100\%
     \end{itemize}
 
