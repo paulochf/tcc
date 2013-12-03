@@ -13,7 +13,7 @@ servidores que mantém listas atualizadas dos \glspl*{peer} que estão compartil
 aqueles arquivos, atualizadas em curtos períodos de tempo (usualmente 30 minutos).
 
 \begin{comment}
-    \begin{figure}[H]
+    \begin{figure}[ht!]
         \centering
         \fbox{\includegraphics[width=0.64\textwidth]{funcionamento.png}}
         \caption{esquema básico do funcionamento do BitTorrent}
@@ -25,25 +25,28 @@ Enquanto um \gls*{peer} estiver fazendo download de um \gls*{torrent}, ele é ch
 \gls{leecher}, pois ainda consumirá dados de outros \glspl*{peer}; quando o download
 acabar, passará a ser um \gls{seeder}, que somente enviará dados.
 
-\begin{figure}[ht]
+\newpage
+
+Os \glspl*{torrentfile} ficam disponíveis em vários sites de índice (às vezes, chamados
+de comunidades), como o \href{http://thepiratebay.sx/}{ThePirateBay}, o
+\href{http://kickass.to/}{Kickass} ou \href{https://torrentz.eu/}{Torrentz} (muitas
+vezes em mais de um deles ao mesmo tempo). Apesar de todo conteúdo compartilhado possuir
+um \gls*{torrentfile}, não necessariamente um \gls*{torrentfile} está sendo
+compartilhado naquele momento, podendo até mesmo estar extinto.
+
+\Glspl*{peer} que participam do compartilhamento de um \gls*{torrent} específico
+fazem parte do \gls{swarm}, onde os dados contidos nesse \gls*{torrent} são
+compartilhados por partes com outros \glspl*{peer}.
+
+\begin{figure}[H]
     \centering
     \fbox{\includegraphics[width=0.85\textwidth]{universobt.png}}
     \caption{amostra de uma rede de conexões BitTorrent}
     \label{fig:torrent-universo}
 \end{figure}
 
-Os \glspl*{torrentfile} ficam disponíveis em vários sites de índice (às vezes, chamados
-de comunidades), como o \href{http://thepiratebay.sx/}{ThePirateBay}, o
-\href{http://kickass.to/}{Kickass} ou \href{https://torrentz.eu/}{Torrentz}, muitas
-vezes em mais de um deles ao mesmo tempo. Apesar de todo conteúdo compartilhado possuir
-um \gls*{torrentfile}, não necessariamente um \gls*{torrentfile} está sendo
-compartilhado naquele momento, podendo até mesmo estar extinto.
-
-\Glspl*{peer} que participam do compartilhamento de um \gls*{torrentfile} específico
-fazem parte do \gls{swarm}, onde os dados contidos no pacote desse arquivo são
-compartilhados com outros por partes.
-
-\begin{figure}[hp]
+\newpage
+\begin{figure}[H]
     \newlength{\myvsize}
     \newlength{\myhsize}
     \setlength{\myvsize}{5mm}
@@ -125,30 +128,31 @@ compartilhados com outros por partes.
     \label{fig:torrent-repr}
 \end{figure}
 
-Essas partes variam de acordo com cada \gls*{torrentfile}. O tamanho total do
-conjunto de arquivos contidos nesse arquivo é dividido em partes de tamanho fixo
-(geralmente 256kB) e transmitido de forma independente das outras, seguindo a ordem
-estabelecida pelo algoritmo de troca de partes (explicado na seção~\ref{titfortat}),
-ordem essa que varia de acordo com o estado atual do \gls*{swarm} para o arquivo
-\gls*{torrentfile} dado.
+\newpage
 
-Todos esses agentes possuem relações de múltiplas entre si. Por exemplo, um mesmo
+A quantidade total de partes varia de acordo com cada \gls*{torrent}: o tamanho total
+dos arquivos contidos nesse \gls*{torrent} é dividido em blocos de tamanho fixo
+(geralmente 256kB) e transmitido de forma independente das outras partes, seguindo uma
+ordem estabelecida pelo algoritmo de troca de partes (explicado na seção~\ref{titfortat}).
+Essa ordem varia de acordo com o estado atual do \gls*{swarm} desse \gls*{torrent}.
+
+Todos esses agentes possuem relações múltiplas entre si. Por exemplo, um mesmo
 \gls*{torrentfile} pode estar indexado por vários sites indexadores. Como veremos
-nos capítulos seguintes, eles contém uma informação que os identificam unicamente entre
-si, mantendo a consistência de dados através desses vários sites de busca. Outra
-observação a ser feita é que um \gls*{peer} pode estar baixando mais de um
-\gls*{torrentfile} simultaneamente, ou seja, participando de dois \glspl*{swarm} ao mesmo
-tempo. Por fim, em alguns casos um \gls*{torrentfile} possui grande quantidade de
-\glspl*{peer}, havendo necessidade de se dividir o \gls*{swarm} em algumas partes para
-fins de escalabilidade da rede formada.
+nos capítulos seguintes, eles contêm uma informação que os identificam unicamente,
+gerando consistência entre esses vários sites de busca. Outra observação a ser feita é
+que um \gls*{peer} pode estar baixando um ou mais \glspl*{torrent} simultaneamente, ou
+seja, participando de vários \glspl*{swarm} ao mesmo tempo. Por fim, em alguns casos,
+um mesmo \gls*{torrent} pode possuir uma grande quantidade de \glspl*{peer}
+participantes, havendo necessidade de dividí-los em vários \glspl*{swarm}, para fins de
+escalabilidade da rede formada.
 
 \newpage
 \subsection*{Arquivo .torrent}
 
-Ao se adicionar um \gls*{torrentfile} em um programa cliente, ocorrem muitas transmissões de
-dados antes do download de fato. Para demonstrar isso, usaremos um arquivo torrent do
-filme ``A Noite dos Mortos Vivos'' de 1960 \cite{torrent-file}, que é de domínio público
-e livre de direitos autorais.
+Ao se adicionar um \gls*{torrentfile} em um programa cliente, ocorrem muitas
+transmissões de dados antes do download de fato. Para demonstrar isso, usaremos um
+\gls*{torrentfile} do filme ``A Noite dos Mortos Vivos'', de 1960 \cite{torrent-file},
+que é de domínio público e livre de direitos autorais.
 
 Se abrirmos esse arquivo, veremos uma grande \gls{string}, caracteres diferentes e
 incomuns, formando um conteúdo ilegível (na seção binária) e sob uma forma compacta,
@@ -183,33 +187,33 @@ mostrado abaixo.
     \label{lst:torrent-file-raw}
 \end{listing}
 
-Esse conteúdo está organizado usando o formato \gls{bencode}, que é um formato de
-codificação compacta de arquivos especial para arquivos \gls*{torrentfile} e não é legível
-ao ser humano. Com alguma formatação, podemos enxergar os componentes separadamente,
-como mostra o código~\ref{lst:torrent-file-code}.
+Esse conteúdo está organizado usando a \gls{bencode}, que é uma codificação compacta de
+arquivos, especial para \glspl*{torrentfile}, e ininteligível. Com alguma formatação,
+podemos enxergar os componentes separadamente, como mostra o código
+~\ref{lst:torrent-file-code}.
 
 Esse conteúdo tem significado, sendo utilizado da seguinte forma
 \cite{wikitheory:bencoding}:
 
 \begin{itemize}
-    \item \textbf{\glspl*{string}} são prefixos de números na base 10 que representam
+    \item \textbf{\glspl*{string}} são prefixos de números na base 10, que representam
         comprimentos, seguidos por um caractere \bverb|:| e então o conteúdo. Por
         exemplo, na linha 2, \bverb|8:announce| corresponde à \gls*{string}
         \sverb|"announce"|.
 
     \item \textbf{números} são representados por um \bverb|i|, seguidos do valor na
-        base 10 (sem qualquer limite, mas sem zeros precedentes como em \bverb|0003|, e
-        podendo ser negativo), e terminados por um \bverb|e|. Por exemplo, na linha 11,
-        \bverb|i1343715473e| corresponde ao número \sverb|1343715473|.
+        base 10 (sem qualquer limite de tamanho, mas sem zeros precedentes - como em
+        \bverb|0003| - e pode ser negativo), terminados por um \bverb|e|. Por exemplo,
+        na linha 11, \bverb|i1343715473e| corresponde ao número \sverb|1343715473|.
 
     \item \textbf{listas} são formadas por \bverb|l|, seguidos por seus elementos
         (também no formato \gls*{bencode}), e então terminados por \bverb|e|. Por
         exemplo, \bverb|l3:foo3:bare| corresponde a \sverb|["foo", "bar"]|. No código
-        acima, é presente entre as linhas 43 e 47.
+        ~\ref{lst:torrent-file-code}, é presente entre as linhas 43 e 47.
 
     \item \textbf{dicionários} são definidos por \bverb|d|, seguidos de uma lista
         alternada de chaves e seus valores correspondentes, terminando com \bverb|e|,
-        onde as chaves devem estar ordenadas usando-se comparação binária ao invés da
+        onde as chaves devem estar ordenadas usando-se comparação binária, ao invés da
         usual alfanumérica. Por exemplo, a \gls*{string}
         \bverb|d3:foo3:bar6:foobar6:bazbare| corresponde ao dicionário puro \\
         \sverb|{"foo": "bar", "foobar": "bazbar"}|, e a estrutura mais complexa dada por
@@ -283,19 +287,18 @@ Esse conteúdo tem significado, sendo utilizado da seguinte forma
 
 \subsection*{Magnet Link}
 
-Além do \gls*{torrentfile}, existe uma outra forma de se transmitir os
-\glspl*{metadata} necessários para se iniciar a transmissão, que é utilizando
-\gls{magnetlink}.
+Além do \gls*{torrentfile}, existe uma outra forma de se obter os \glspl*{metadata}
+necessários para se iniciar a transmissão, utilizando-se de \glspl{magnetlink}.
 
-\Glspl*{magnetlink}, ao contrário dos arquivos \gls*{torrentfile}, não estão gravados em
-algum dispositivo de armazenamento. Basicamente, é um esquema de \gls{uri} usado
+\Glspl*{magnetlink}, ao contrário dos \glspl*{torrentfile}, não estão gravados em
+algum dispositivo de armazenamento. Basicamente, é um esquema de \gls{uri}, usado
 exclusivamente para o protocolo.
 
 No caso citado, o site de origem do \gls*{torrentfile} que estamos usando não fornece um
 \gls*{magnetlink} oficialmente. Porém, o Transmission consegue construir uma \gls*{uri}
 a partir do arquivo original, para fins de compartilhamento direto. O resultado, após
-decodificar o endereço para um formato legível (retirando a codificação de caracteres
-especiais \cite{wiki:urlencode}) foi o seguinte:
+decodificar o endereço para um formato legível (retirando a \gls{urlencode})
+\cite{wiki:urlencode}, foi o seguinte:
 
 \begin{listing}[ht!]
     \begin{minted}[
@@ -319,61 +322,61 @@ especiais \cite{wiki:urlencode}) foi o seguinte:
     \label{lst:torrent-file-magnet-link}
 \end{listing}
 
-Esse endereço é composto por vários pares de nomes de parâmetros (sem qualquer ordem
-específica) e seus respectivos valores, formando uma \gls{querystring}. Podemos
-dividir esse endereço em partes, cada uma tendo o seu significado:
+Esse endereço é composto por vários pares, compostos por nomes de parâmetros e seus
+respectivos valores, sem qualquer ordem específica, formando uma \gls{querystring}.
+Podemos dividir esse endereço em partes, cada uma tendo o seu significado:
 
 \begin{itemize}
-    \item \textbf{xt}: parâmetro para \emph{exact topic}, ou tópico exato, contém a
+    \item \textbf{xt}: parâmetro para \emph{exact topic}, ou tópico exato, que contém a
         informação mais importante do \gls*{magnetlink}: o identificador único de
-        \gls*{torrentfile}. Serve para encontrar e verificar os arquivos especificados.
+        \glspl*{torrent}. Serve para encontrar e verificar os arquivos especificados.
         No caso, \bverb|urn:btih:<hash>| corresponde ao \gls{urn} \sverb|btih|
         (\emph{BitTorrent Info Hash}), que é a \gls*{string} \gls{hashvalue} resultado
-        da \gls{hashfunction} SHA-1, convertida para hexadecimal
+        da \gls{hashfunction} SHA-1, convertida para hexadecimal;
 
     \item \textbf{dn}: parâmetro que contém o \emph{display name}, ou nome de
-        visualização, contém um nome que é mostrado para o usuário, por conveniência
+        visualização, que é um texto de apresentação amigável para o usuário;
 
     \item \textbf{tr}: o \emph{address tracker}, ou endereço do \gls*{tracker}, onde o
-        programa cliente vai procurar as informações de \glspl*{peer}
+        programa cliente vai procurar as informações de \glspl*{peer};
 
     \item \textbf{ws}: endereço do arquivo para \emph{webseed}, ou fornecimento web,
-        que é o endereço do arquivo em um servidor HTTP ou FTP, sendo utilizado como
-        alternativa a um \gls*{swarm} problemático \cite{wiki:torrent}
+        que é o endereço de Internet de um servidor HTTP ou FTP, que será utilizado como
+        alternativa a um \gls*{swarm} problemático \cite{wiki:torrent};
 \end{itemize}
 
 \section{Busca por informações}
 
-Quando adicionamos um \gls*{torrentfile} ao Transmission, o programa salva as informações
-em disco durante todo o período que estiverem sendo gerenciados por ele. Caso tenha
-sido por meio de um arquivo de \glspl*{metadata}, uma cópia deste é salva em uma pasta
-pré-definida para seu controle interno; caso seja por \gls*{magnetlink}, um novo
-arquivo é criado contendo as informações obtidas por ele, por questões de praticidade,
-para que não necessite fazer essa aquisição dos dados novamente ao ser aberto ou quando
-alguma transferência for pausada e depois continuada.
+Quando adicionamos um \gls*{torrent} ao Transmission, o programa salva as
+informações em disco durante todo o período em que estas estiverem sendo gerenciadas
+por ele. Caso tenha sido por meio de um \gls*{torrentfile}, uma cópia deste é salva em
+uma pasta pré-definida para seu controle interno; caso seja por \gls*{magnetlink}, um
+novo arquivo é criado contendo as informações obtidas através dele (por questões de
+praticidade), para que não necessite fazer essa aquisição dos dados novamente ao ser
+aberto, ou quando alguma transferência for pausada e depois continuada.
 
-Após esse processo de arquivamento, o programa processa essas informações salvas para
-deixá-las carregadas em memória a fim de obter o \gls*{hashvalue} que identifica o
+Após esse arquivamento, o programa processa as informações salvas para deixá-las
+carregadas em memória, a fim de obter o \gls*{hashvalue} que identifica o
 \gls*{torrentfile}.
 
 \cfile[label="./libtransmission/metainfo.c:367"]{./Codes/chap3/001-leiturametadata.c}
 
 Se aquele arquivo para controle interno tiver sido criado por conta de um
-\glspl*{magnetlink}, não possuirá a chave \bverb|info| em seu conteúdo, mas deverá
+\gls*{magnetlink}, não possuirá a chave \bverb|info| em seu dicionário, mas deverá
 conter as chaves \bverb|urn:btih:<hash>| e \bverb|info_hash|.
 
 \cfile[label="./libtransmission/metainfo.c:367"]{./Codes/chap3/002-leiturametadata2.c}
 
-Já se o arquivo para controle interno tiver sido gerado como cópia do arquivo torrent,
-possuirá o mesmo dicionário original, que contém a chave \bverb|info_hash|, que é
-utilizada para calcular o \gls*{hashvalue} do arquivo.
+Porém, se o arquivo para controle interno tiver sido criado como cópia do
+\gls*{torrentfile}, possuirá o mesmo dicionário, que contém a chave \bverb|info_hash|,
+que é utilizada para calcular o \gls*{hashvalue} do arquivo.
 
 \cfile[label="./libtransmission/metainfo.c:367"]{./Codes/chap3/003-leiturametadata3.c}
 
-Outras informações podem ser recuperadas dependendo do formato de origem do
-\gls*{torrentfile}, como a privacidade, lista de arquivos e seus respectivos tamanhos,
-\gls*{hashvalue} de cada parte, entre outras. Por fim, termina coletando os endereços de
-\gls{announce}.
+Outras informações podem ser recuperadas, dependendo da origem do \gls*{torrentfile},
+tais como a privacidade do \gls*{torrent}, a lista de arquivos e seus respectivos
+tamanhos, \gls*{hashvalue} de cada parte, entre outras. Por fim, termina coletando os
+\glspl{announce}.
 
 \cfile[label="./libtransmission/metainfo.c:367"]{./Codes/chap3/004-leiturametadata4.c}
 
@@ -381,49 +384,49 @@ Outras informações podem ser recuperadas dependendo do formato de origem do
 
 Para cada \gls*{swarm} gerenciado, o \gls*{tracker} possui uma lista dos \glspl*{peer}
 que participam dele, que é enviada ao \gls*{peer} que a requer por meio de uma
-requisição \gls{httpget}. Quando essa requisição é recebida pelo \gls*{tracker}, este
-inclui ou atualiza um registro para o \gls*{peer} solicitante e devolve uma lista de 50
+\gls{httpget}. Quando essa requisição é recebida pelo \gls*{tracker}, este incluirá ou
+atualizará um registro para o \gls*{peer} solicitante, e devolverá uma lista de 50
 \glspl*{peer} aleatórios, de forma uniforme, que fazem parte do \gls*{swarm}. Não
-havendo essa quantidade total, a lista toda é enviada ao requisitante; caso contrário,
-a aleatoriedade proporciona uma diversidade de listas enviadas, proporcionando robustez
-ao sistema \cite{wikitheory:tracker-response}.
+havendo essa quantidade total, a lista toda será enviada ao requisitante. Caso
+contrário, a aleatoriedade proporcionará uma diversidade de listas enviadas,
+ocasionando robustez ao sistema \cite{wikitheory:tracker-response}.
 
 Esse contato entre um \gls*{peer} e um \gls*{tracker} é chamado de \gls{announce}, que
-pode ser feito usando-se tanto com o protocolo \gls{tcp} bem como \gls{udp}, e é onde
-\glspl*{peer} podem passam várias informações
+pode ser feito usando-se tanto o \gls{tcp}, bem como o \gls{udp}, e é como \glspl*{peer}
+podem passar várias informações:
 
 \begin{itemize}
     \item \textbf{info\_hash}: \gls*{hashvalue} de 20 bytes resultante da
-    \gls*{hashfunction} SHA-1 com \gls*{urlencode} do valor da chave \bverb|info| do
-    arquivo de \gls*{metadata}
+    \gls*{hashfunction} SHA-1, com \gls*{urlencode}, do valor da chave \bverb|info| do
+    arquivo \gls*{torrentfile};
 
-    \item \textbf{peer\_id}: \gls*{string} com \gls*{urlencode} de 20 bytes usado como
+    \item \textbf{peer\_id}: \gls*{string} de 20 bytes, com \gls*{urlencode}, usado como
     identificador único do programa cliente, gerado no ínício da sua execução. Para
-    isso, provavelmente deve incorporar informações do computador, a fim de se gerar um
-    valor único para o computador
+    isso, provavelmente deverá incorporar informações do computador, a fim de se gerar
+    um valor único;
 
-    \item \textbf{uploaded}: a quantidade total de dados, em bytes, enviados desde
-    quando o cliente enviou o primeiro aviso ao \gls*{tracker}
+    \item \textbf{uploaded}: a quantidade total de dados, em bytes, enviados desde o
+    momento em que o cliente enviou o primeiro aviso ao \gls*{tracker};
 
     \item \textbf{downloaded}: a quantidade total de dados, em bytes, recebidos desde
-    quando o cliente enviou o primeiro aviso ao \gls*{tracker}
+    momento em que o cliente enviou o primeiro aviso ao \gls*{tracker};
 
     \item \textbf{left}: a quantidade total de dados, em bytes, que faltam para o
-    requisitante terminar o download do \gls*{torrentfile} e passe a ser um \gls*{seeder}
+    requisitante terminar o download do \gls*{torrent} e passe a ser um \gls*{seeder};
 
     \item \textbf{compact} (opcional): se o valor passado for 1, significa que o
     requisitante aceita respostas compactas. A lista de \glspl*{peer} enviada é
-    substituída por uma \gls*{string} de peers, cada um com 6 bytes, onde os 4 bytes
-    iniciais são o host e os 2 bytes finais são a porta de transmissão. Por exemplo, o
-    endereço IP 10.10.10.5:80 seria transmitido como \bverb|0A 0A 0A 05 00 80|. Deve-se
-    observar que alguns \glspl*{tracker} suportam somente conexões deste tipo para
-    otimização da utilização da banda de rede e, pra isso, ou recusam requisições sem
-    \bverb|compact=1| ou, caso não as recusem, enviam respostas compactas a menos que a
-    requisição possua \bverb|compact=0|
+    substituída por uma única \gls*{string} de peers, sendo que cada \gls*{peer} terá
+    6 bytes, onde os 4 bytes iniciais são o host e os 2 bytes finais são a porta de
+    transmissão. Por exemplo, o endereço IP 10.10.10.5:80 seria transmitido como
+    \bverb|0A 0A 0A 05 00 80|. Deve-se observar que alguns \glspl*{tracker} suportam
+    somente conexões deste tipo para otimização da utilização da banda de rede e, para
+    isso, ou recusarão requisições sem \bverb|compact=1| ou, caso não as recusem,
+    enviarão respostas compactas a menos que a requisição possua \bverb|compact=0|;
 
-    \item \textbf{no\_peer\_id} (opcional): sinaliza que o \gls*{tracker} por omitir o
-    campo \textcolor{Bittersweet}{\texttt{peer\_id}} no dicionário de \glspl*{peer}. É
-    ignorado caso o modo compacto esteja habilitado
+    \item \textbf{no\_peer\_id} (opcional): sinaliza que o \gls*{tracker} pode omitir o
+    campo \textcolor{Bittersweet}{\texttt{peer\_id}} no dicionário de \glspl*{peer},
+    porém será ignorado caso o modo compacto esteja habilitado;
 
     \item \textbf{event} (opcional): pode possuir os valores \sverb|started|
     (iniciado), \sverb|completed| (terminado), \sverb|stopped| (parado), ou vazio para
@@ -431,34 +434,35 @@ pode ser feito usando-se tanto com o protocolo \gls{tcp} bem como \gls{udp}, e �
 
     \begin{itemize}
         \item \emph{started} : a primeira requisição para o \gls*{tracker} deve enviar
-        este valor
-        \item \emph{stopped} : avisa que o programa cliente está fechando
-        \item \emph{completed} : quando o download que estava ocorrendo termina, ou
-        seja, não é enviado quando o programa cliente inicia com o \gls*{torrentfile} em
-        100\%
+        este valor;
+        \item \emph{stopped} : avisa que o programa cliente está fechando;
+        \item \emph{completed} : quando o download que estava ocorrendo termina numa
+        mesma execução do programa cliente (não é enviado quando o programa cliente é
+        iniciado com o \gls*{torrent} em 100\%);
     \end{itemize}
 
     \item \textbf{port} (opcional): o número da porta de conexão que o programa cliente
     está escutando por transmissões de dados. Em geral, portas reservadas para
-    BitTorrent estão entre a 6881 e a 6889. Se esse for o caso, pode ser omitido
+    BitTorrent estão entre 6881 e 6889. Se esse for o caso, pode ser omitido;
 
-    \item \textbf{ip} (opcional): o endereço IP verdadeiro do requisitante no formato
+    \item \textbf{ip} (opcional): o endereço IP verdadeiro do requisitante, no formato
     legível do IPv4 (4 conjuntos de número de 0 a 255 separados por \bverb|.|) ou do
     IPv6 (8 conjuntos de números hexadecimais de 4 dígitos separados por \bverb|:|).
     Não é sempre necessário, pois o endereço pode ser conhecido através da requisição.
     Assim, é usado quando o programa cliente está se comunicando com o \gls*{tracker}
-    através de um \gls{proxy} ou quando ambos cliente e \gls*{tracker} estão no mesmo
-    lado local de um \gls{nat}, pois nesse caso o endereço IP não é roteável
+    através de um \gls{proxy} ou quando ambos (cliente e \gls*{tracker}) estão no mesmo
+    lado local de um roteador - com \gls{nat} -, pois, nesse caso o endereço IP não é
+    roteável;
 
     \item \textbf{numwant} (opcional): quantidade de \glspl*{peer} que o requisitante
-    gostaria de receber do \gls*{tracker}. É permitido valor zero. Se omitido, assume
-    valor padrão de 50
+    gostaria de receber do \gls*{tracker}. É permitido valor zero. Se omitido, assumirá
+    valor padrão de 50;
 
-    \item \textbf{key} (opcional): mecanismo de idetificação adicional para o programa
-    cliente provar sua identidade caso tenha ocorrido mudança no seu endereço IP
+    \item \textbf{key} (opcional): mecanismo de identificação adicional para o programa
+    cliente provar sua identidade, caso tenha ocorrido mudança no seu endereço IP;
 
     \item \textbf{trackerid} (opcional): se a resposta de um \gls*{announce} anterior
-    continha o endereço IP de um \gls*{tracker}, deve ser enviado neste campo
+    continha o endereço IP de um \gls*{tracker}, deve ser enviado neste campo;
 \end{itemize}
 
 %\newpage
@@ -468,27 +472,28 @@ Essa comunicação ocorre nas seguintes situações:
 
 \begin{itemize}
     \item no primeiro contato do \gls*{peer}, para que ele tenha acesso a um
-        \gls*{swarm}
+        \gls*{swarm};
 
     \item a cada período de tempo, estipulado pelo tracker, para que o \gls*{peer}
-        continue mostrando que ainda está conectado, além de pode receber endereços de
-        \glspl*{peer} novos
+        continue mostrando que ainda está conectado, além de poder receber endereços de
+        \glspl*{peer} novos;
 
-    \item quando a quantidade de \glspl*{peer} conhecidos que estão ativos é menor do 5
+    \item quando a quantidade de \glspl*{peer} conhecidos que estiverem ativos for
+        menor do que 5;
 
-    \item quando terminar o download, notificando que passou a ser um \gls*{seeder}
+    \item quando terminar o download, notificando que passou a ser um \gls*{seeder};
 
-    \item quando sai do \gls*{swarm}, seja por desconexão ou por encerramento do
-        programa cliente
+    \item quando sair do \gls*{swarm}, seja por desconexão ou por encerramento do
+        programa cliente;
 \end{itemize}
 
 Além do \gls*{announce}, outra forma de troca de informação entre \glspl*{peer} e
-\glspl*{tracker} é pelo \gls{scrape}. Geralmente usado pelos programas cliente para
+\glspl*{tracker} se dá pelo \gls{scrape}. Geralmente usado pelos programas cliente para
 decidir quando realizar um \gls*{announce}, informa o número de \glspl*{peer},
 \glspl*{leecher} e \glspl*{seeder} de uma lista de um ou mais \glspl*{torrent}. É dessa
-forma que os sites de indexação sabem dessas informações e as apresentam nas páginas.
+forma que os sites de indexação sabem dessas informações e as apresentam nas em páginas.
 
-\todo[inline]{explicar como o Transmission usa o torrent}
+%\todo[inline]{explicar como o Transmission usa o torrent}
 
 \section{Fontes de arquivos}
 
