@@ -36,10 +36,18 @@
 			}
 		},
 		{
-			"file": "/home/paulo/Arquivos/tcc/mono/Chapters/Chapter3.tex",
+			"file": "/home/paulo/Arquivos/tcc/mono/Chapters/Chapter2.tex",
 			"settings":
 			{
-				"buffer_size": 22351,
+				"buffer_size": 16311,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/paulo/Arquivos/tcc/mono/Codes/chap3/announce.c",
+			"settings":
+			{
+				"buffer_size": 1507,
 				"line_ending": "Unix"
 			}
 		}
@@ -104,17 +112,18 @@
 	},
 	"file_history":
 	[
+		"/home/paulo/Arquivos/tcc/mono/Chapters/Chapter8.tex",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/Chapter7.tex",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/Chapter6.tex",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/Chapter5.tex",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/Chapter4.tex",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/Chapter3.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/Chapter2.tex",
 		"/home/paulo/Arquivos/tcc/mono/tcc.tex",
 		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/announce.c",
-		"/home/paulo/Arquivos/tcc/mono/Chapters/Chapter6.tex",
-		"/home/paulo/Arquivos/tcc/mono/Chapters/Chapter7.tex",
-		"/home/paulo/Arquivos/tcc/mono/Chapters/Chapter8.tex",
-		"/home/paulo/Arquivos/tcc/mono/Chapters/Chapter5.tex",
 		"/home/paulo/Arquivos/tcc/mono/tcc.gls",
 		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/004-leiturametadata4.c",
 		"/home/paulo/Arquivos/tcc/mono/[no file]",
-		"/home/paulo/Arquivos/tcc/mono/Chapters/Chapter4.tex",
 		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/003-leiturametadata3.c",
 		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/002-leiturametadata2.c",
 		"/media/Arquivos/tcc/mono/Codes/chap3/003-leiturametadata3.c",
@@ -137,7 +146,6 @@
 		"/home/paulo/Arquivos/tcc/mono/poster/Makefile",
 		"/home/paulo/Arquivos/tcc/mono/confs/sublime/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
 		"/home/paulo/Arquivos/tcc/mono/glossario.tex",
-		"/home/paulo/Arquivos/tcc/mono/Chapters/Chapter3.tex",
 		"/home/paulo/.config/sublime-text-3/Packages/User/latex-gls-ast.sublime-snippet",
 		"/home/paulo/.config/sublime-text-3/Packages/User/latex-glspl-ast.sublime-snippet",
 		"/home/paulo/Arquivos/tcc/mono/confs/tcc.sublime-workspace",
@@ -406,7 +414,7 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 4,
 			"sheets":
 			[
 				{
@@ -480,8 +488,8 @@
 						"selection":
 						[
 							[
-								6795,
-								6795
+								6960,
+								6960
 							]
 						],
 						"settings":
@@ -491,26 +499,26 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2886.0,
+						"translation.y": 3315.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 3,
-					"file": "/home/paulo/Arquivos/tcc/mono/Chapters/Chapter3.tex",
+					"file": "/home/paulo/Arquivos/tcc/mono/Chapters/Chapter2.tex",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 22351,
+						"buffer_size": 16311,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								21900,
-								21900
+								15827,
+								15827
 							]
 						],
 						"settings":
@@ -520,7 +528,36 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 6279.0,
+						"translation.y": 2788.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/home/paulo/Arquivos/tcc/mono/Codes/chap3/announce.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1507,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -609,7 +646,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 40.0,
+	"side_bar_width": 159.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
