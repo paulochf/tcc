@@ -25,8 +25,6 @@ Enquanto um \gls*{peer} estiver fazendo download de um \gls*{torrent}, ele é ch
 \gls{leecher}, pois ainda consumirá dados de outros \glspl*{peer}; quando o download
 acabar, passará a ser um \gls{seeder}, que somente enviará dados.
 
-\newpage
-
 Os \glspl*{torrentfile} ficam disponíveis em vários sites de índice (às vezes, chamados
 de comunidades), como o \href{http://thepiratebay.sx/}{ThePirateBay}, o
 \href{http://kickass.to/}{Kickass} ou \href{https://torrentz.eu/}{Torrentz} (muitas
@@ -38,12 +36,11 @@ compartilhado naquele momento, podendo até mesmo estar extinto.
 fazem parte do \gls{swarm}, onde os dados contidos nesse \gls*{torrent} são
 compartilhados por partes com outros \glspl*{peer}.
 
-\begin{figure}[H]
-    \centering
-    \fbox{\includegraphics[width=0.85\textwidth]{universobt.png}}
-    \caption{amostra de uma rede de conexões BitTorrent}
-    \label{fig:torrent-universo}
-\end{figure}
+A quantidade total de partes varia de acordo com cada \gls*{torrent}: o tamanho total
+dos arquivos contidos nesse \gls*{torrent} é dividido em blocos de tamanho fixo
+(geralmente 256kB) e transmitido de forma independente das outras partes, seguindo uma
+ordem estabelecida pelo algoritmo de troca de partes (explicado na seção~\ref{titfortat}).
+Essa ordem varia de acordo com o estado atual do \gls*{swarm} desse \gls*{torrent}.
 
 \newpage
 \begin{figure}[H]
@@ -128,14 +125,6 @@ compartilhados por partes com outros \glspl*{peer}.
     \label{fig:torrent-repr}
 \end{figure}
 
-\newpage
-
-A quantidade total de partes varia de acordo com cada \gls*{torrent}: o tamanho total
-dos arquivos contidos nesse \gls*{torrent} é dividido em blocos de tamanho fixo
-(geralmente 256kB) e transmitido de forma independente das outras partes, seguindo uma
-ordem estabelecida pelo algoritmo de troca de partes (explicado na seção~\ref{titfortat}).
-Essa ordem varia de acordo com o estado atual do \gls*{swarm} desse \gls*{torrent}.
-
 Todos esses agentes possuem relações múltiplas entre si. Por exemplo, um mesmo
 \gls*{torrentfile} pode estar indexado por vários sites indexadores. Como veremos
 nos capítulos seguintes, eles contêm uma informação que os identificam unicamente,
@@ -145,6 +134,13 @@ seja, participando de vários \glspl*{swarm} ao mesmo tempo. Por fim, em alguns 
 um mesmo \gls*{torrent} pode possuir uma grande quantidade de \glspl*{peer}
 participantes, havendo necessidade de dividí-los em vários \glspl*{swarm}, para fins de
 escalabilidade da rede formada.
+
+\begin{figure}[H]
+    \centering
+    \fbox{\includegraphics[width=0.85\textwidth]{universobt.png}}
+    \caption{amostra de uma rede de conexões BitTorrent}
+    \label{fig:torrent-universo}
+\end{figure}
 
 \newpage
 \subsection*{Arquivo .torrent}
@@ -466,7 +462,8 @@ podem passar várias informações:
 \end{itemize}
 
 %\newpage
-%\cfile{./Codes/chap3/002-announce.c}
+\cfile[label="./libtransmission/announcer-common.h:127"]{./Codes/chap3/005-announcestruct.c}
+\cfile[label="./libtransmission/announcer.c:1200"]{./Codes/chap3/006-announce.c}
 
 Essa comunicação ocorre nas seguintes situações:
 
@@ -492,6 +489,13 @@ Além do \gls*{announce}, outra forma de troca de informação entre \glspl*{pee
 decidir quando realizar um \gls*{announce}, informa o número de \glspl*{peer},
 \glspl*{leecher} e \glspl*{seeder} de uma lista de um ou mais \glspl*{torrent}. É dessa
 forma que os sites de indexação sabem dessas informações e as apresentam nas em páginas.
+
+Da mesma forma que o \gls*{announce}, o \gls*{scrape} é um endereço do \gls*{tracker}
+usando-se o \gls*{tcp} ou o \gls*{udp}, e é tratado de forma semelhante pelo
+Transmission.
+
+\cfile[label="./libtransmission/announcer-common.h:37"]{./Codes/chap3/007-scrapestruct.c}
+\cfile[label="./libtransmission/announcer.c:1397"]{./Codes/chap3/008-scrape.c}
 
 %\todo[inline]{explicar como o Transmission usa o torrent}
 
