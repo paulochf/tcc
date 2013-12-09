@@ -389,7 +389,7 @@ ocasionando robustez ao sistema \cite{wikitheory:tracker-response}.
 
 Esse contato entre um \gls*{peer} e um \gls*{tracker} é chamado de \gls{announce}, que
 pode ser feito usando-se tanto o \gls{tcp}, bem como o \gls{udp}, e é como \glspl*{peer}
-podem passar várias informações:
+podem passar várias informações, usando um dicionário no formato \gls*{bencode}:
 
 \begin{itemize}
     \item \textbf{info\_hash}: \gls*{hashvalue} de 20 bytes resultante da
@@ -465,6 +465,107 @@ podem passar várias informações:
 \cfile[label="./libtransmission/announcer-common.h:127"]{./Codes/chap3/005-announcestruct.c}
 \cfile[label="./libtransmission/announcer.c:1200"]{./Codes/chap3/006-announce.c}
 
+Como resposta, é recebida um outro dicionário em \gls*{bencode}, podendo conter as
+seguintes chaves:
+
+\begin{itemize}
+    \item \textbf{failure\_reason}: se presente, não podem existir outras chaves no
+    dicionário. Seu valor é uma \gls*{string} de mensagem de erro legível sobre o
+    porque a requisição falhou;
+
+    \item \textbf{warning\_message} (opcional): similar à chave
+    \bverb|failure\_reason|, mas com a requisição tendo sido processada normalmente. A
+    mensagem é mostrada como um erro;
+
+    \item \textbf{interval}: intervalo, em segundos, que o cliente deve esperar emtre
+    requisições de \gls*{announce} ao \gls*{tracker};
+
+    \item \textbf{min\_interval} (opcional): intervalo mínimo, em segundos, entre
+    requisições de \gls*{announce}. Se presente, o pragrama cliente não deve efetuar
+    essas requisições acima da frequência estipulada;
+
+    \item \textbf{tracker\_id}: \gls*{string} que o programa cliente deve enviar de
+    volta nas próximas requisições. Se ausente e um valor tiver sido passado
+    anteriormente, o uso desse valor antigo é continuado;
+
+    \item \textbf{complete}: quantidade de \glspl*{seeder};
+
+    \item \textbf{incomplete}: quantidade de \glspl*{leecher};
+
+    \item \textbf{peers}: pode ser uma das opções
+
+    \begin{enumerate}
+        \item lista de dicionários \gls*{bencode}, com as seguintes chaves:
+
+        \begin{itemize}
+            \item \textbf{peer\_id}: identificador de um \gls*{peer} na forma de
+            \gls*{string}, escolhido por si próprio da mesma forma que a descrito pela
+            definição de requisição;
+
+            \item \textbf{ip}: endereço IP do \gls*{peer} nos formatos IPv4 (4 octetos)
+            ou IPv6 (valores hexadecimais), ou ainda o nome de domínio DNS (string);
+
+            \item \textbf{port}: número da porta utilizada pelo \gls*{peer};
+        \end{itemize}
+
+        \item \gls*{string} binária cujo tamanho é de 6 bytes para cada \gls*{peer},
+        onde os 4 primeiros representam o endereço IP e os 2 últimos são o número da
+        porta, em notação de rede (\emph{big endian});
+    \end{enumerate}
+\end{itemize}
+
+\begin{listing}[H]
+    \begin{minted}[
+        linenos,
+        frame=single,
+        numbersep=6pt,
+        baselinestretch=1,
+        fontfamily=courier,
+        gobble=4,
+        fontsize=\scriptsize
+    ]{text}
+    * About to connect() to exodus.desync.com port 6969 (#8)
+    *   Trying 208.83.20.164...
+    * HTTP 1.0, assume close after body
+    < HTTP/1.0 404 Not Found
+    < Content-Type: text/html
+    < Content-Length: 345
+    < Connection: close
+    < Date: Wed, 30 Oct 2013 05:20:08 GMT
+    < Server: OpenDNS Guide
+    <
+    * Closing connection 7
+    * Connected to exodus.desync.com (208.83.20.164) port 6969 (#8)
+    > GET /announce?info_hash=\%88\%15\%8c\%7bW\%e0\%85\%21\%86~\%d0\%b5\%de\%06\%5b\%
+    7dWI\%cf\%d7&peer_id=-TR2820-ne1joqgh8z9o&port=51413&uploaded=0&downloaded=0&left=52
+    406288292&numwant=80&key=6ee99240&compact=1&supportcrypto=1&requirecrypto=1&event=
+    started HTTP/1.1
+    User-Agent: Transmission/2.82
+    Host: exodus.desync.com:6969
+    Accept: */*
+    Accept-Encoding: gzip;q=1.0, deflate, identity
+
+    < HTTP/1.1 200 OK
+    < Content-Type: text/plain
+    < Content-Length: 136
+    <
+    * Connection #8 to host exodus.desync.com left intact
+    Announce response:
+    < {
+        "complete": 1,
+        "downloaded": 11,
+        "incomplete": 6,
+        "interval": 1732,
+        "min interval": 866,
+        "peers": \"<binary>\"
+    }
+    \end{minted}
+
+    \caption{Logs do Transmission sobre uma requisição de announce e a respectiva
+    resposta, com o conteúdo binário truncado}
+    \label{lst:announce}
+\end{listing}
+
 Essa comunicação ocorre nas seguintes situações:
 
 \begin{itemize}
@@ -484,24 +585,129 @@ Essa comunicação ocorre nas seguintes situações:
         programa cliente;
 \end{itemize}
 
+\newpage
+\subsection*{Scrape}
+
 Além do \gls*{announce}, outra forma de troca de informação entre \glspl*{peer} e
 \glspl*{tracker} se dá pelo \gls{scrape}. Geralmente usado pelos programas cliente para
 decidir quando realizar um \gls*{announce}, informa o número de \glspl*{peer},
 \glspl*{leecher} e \glspl*{seeder} de uma lista de um ou mais \glspl*{torrent}. É dessa
 forma que os sites de indexação sabem dessas informações e as apresentam nas em páginas.
 
+A requisição de \gls*{scrape} pode ser sobre todos os \glspl*{torrent} que o
+\gls*{tracker} gerencia ou sobre um ou mais \glspl*{torrent} em específico, quando são
+passados seus respectivos \glspl*{hashvalue}. Sua resposta é um dicionário na forma
+\gls*{bencode} contendo as chaves
+
+\begin{itemize}
+    \item \textbf{files}: um dicionário contendo um par chave-valor para cada
+    \gls*{torrent} especificado na requisição do \gls*{scrape} através do
+    \gls*{hashvalue} do \gls*{torrent} de 20 bytes:
+
+    \begin{itemize}
+        \item \textbf{complete}: quantidade de \glspl*{seeder};
+
+        \item \textbf{incomplete}: quantidade de \glspl*{leecher};
+
+        \item \textbf{downloaded}: quantidade total de vezes que o \gls*{tracker}
+        registrou uma finalização (\sverb|event=complete| ao término de um download);
+
+        \item \textbf{name} (opcional): o nome interno do \gls*{torrent}, como
+        especificado pelo respectivo \gls*{torrentfile}, na sua seção \bverb|info|;
+    \end{itemize}
+\end{itemize}
+
 Da mesma forma que o \gls*{announce}, o \gls*{scrape} é um endereço do \gls*{tracker}
-usando-se o \gls*{tcp} ou o \gls*{udp}, e é tratado de forma semelhante pelo
-Transmission.
+usando-se o \gls*{tcp} ou o \gls*{udp}, e é tratado de forma semelhante pelo Transmission.
 
 \cfile[label="./libtransmission/announcer-common.h:37"]{./Codes/chap3/007-scrapestruct.c}
 \cfile[label="./libtransmission/announcer.c:1397"]{./Codes/chap3/008-scrape.c}
 
-%\todo[inline]{explicar como o Transmission usa o torrent}
+\begin{listing}[H]
+    \begin{minted}[
+        linenos,
+        frame=single,
+        numbersep=6pt,
+        baselinestretch=1,
+        fontfamily=courier,
+        gobble=4,
+        fontsize=\scriptsize
+    ]{text}
+    * About to connect() to www.mvgroup.org port 2710 (#1)
+    *   Trying 88.129.153.50...
+    * Connected to www.mvgroup.org (88.129.153.50) port 2710 (#1)
+    > GET /scrape?info_hash=\%83F\%24\%b62\%e5Q\%cc4\%10h\%ba\%1e8\%e2C\%f7\%80\%01\%87 HTTP/1.1
+    User-Agent: Transmission/2.82
+    Host: www.mvgroup.org:2710
+    Accept: */*
+    Accept-Encoding: gzip;q=1.0, deflate, identity
+
+    * HTTP 1.0, assume close after body
+    < HTTP/1.0 200 OK
+    <
+    * Closing connection 1
+    Scrape response:
+    < {
+        "files": {
+            \"<binary>\": {
+                "complete": 9,
+                "downloaded": 59074,
+                "incomplete": 2
+            }
+        }
+    }
+    \end{minted}
+
+    \caption{Logs do Transmission sobre uma requisição de scrape e a respectiva
+    resposta, com o conteúdo binário truncado}
+    \label{lst:scrape}
+\end{listing}
+
+\subsection*{Convenção de scrape de trackers}
+
+O endereço de \gls*{scrape} pode ser obtido a partir do endereço de \gls*{announce},
+seguindo-se a seguinte convenção:
+
+\begin{enumerate}
+    \item comece a partir do endereço de \gls*{announce}
+
+    \item encontre o último caractere \bverb|/|
+
+    \item se o texto que segue a última \bverb|/| não for \sverb|announce|, é um sinal
+    que o \gls*{tracker} não segue a convenção
+
+    \item caso contrário, substituir \sverb|announce| por \sverb|scrape|
+\end{enumerate}
+
+Alguns exemplos:
+
+\begin{itemize}
+    \item suportam \sverb|scrape|
+        \begin{enumerate}
+            \item \url{http://example.com/announce} $\rightarrow$ \url{http://example.com/scrape}
+            \item \url{http://example.com/announce.php} $\rightarrow$ \url{http://example.com/scrape.php}
+            \item \url{http://example.com/x/announce} $\rightarrow$ \url{http://example.com/x/scrape}
+            \item \url{http://example.com/announce?x2\%0644} $\rightarrow$ \url{http://example.com/scrape?x2\%0644}
+        \end{enumerate}
+
+    \item não suportam \sverb|scrape|
+        \begin{enumerate}
+            \item \url{http://example.com/a}
+            \item \url{http://example.com/announce?x=2/4}
+            \item \url{http://example.com/x\%064announce}
+        \end{enumerate}
+\end{enumerate}
 
 \section{Fontes de arquivos}
 
-Mostrarei o processamento dos dados adquiridos na seção anterior e como ele organiza a lista das fontes de arquivos usando a tabela hash DHT Kademlia.
+Após receber a lista de \glspl*{peer} do  \gls*{announce}, o Transmission inicia a
+comunicação com cada um deles para verificar sua disponibilidade. Em caso afirmativo,
+guarda esses endereços para adquirir as partes do \gls*{torrent}.
+
+\begin{comment}
+Mostrarei o processamento dos dados adquiridos na seção anterior e como ele organiza a
+lista das fontes de arquivos usando a tabela hash DHT Kademlia.
+\end{comment}
 
 \section{Jogo da troca de arquivos}
 \label{titfortat}
