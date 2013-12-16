@@ -15,15 +15,7 @@
 			"file": "/home/paulo/Arquivos/tcc/mono/glossario.tex",
 			"settings":
 			{
-				"buffer_size": 18396,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/paulo/Arquivos/tcc/mono/bibliografia.bib",
-			"settings":
-			{
-				"buffer_size": 23907,
+				"buffer_size": 18520,
 				"line_ending": "Unix"
 			}
 		},
@@ -36,18 +28,50 @@
 			}
 		},
 		{
-			"file": "/home/paulo/Arquivos/tcc/mono/Chapters/Chapter2.tex",
+			"file": "/home/paulo/Arquivos/tcc/mono/Chapters/Chapter3.tex",
 			"settings":
 			{
-				"buffer_size": 16311,
+				"buffer_size": 30939,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/home/paulo/Arquivos/tcc/mono/Codes/chap3/announce.c",
+			"file": "/home/paulo/Arquivos/tcc/mono/Codes/chap3/011-bla.c",
 			"settings":
 			{
-				"buffer_size": 1507,
+				"buffer_size": 1369,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/paulo/Arquivos/tcc/mono/Codes/chap3/012-ble.c",
+			"settings":
+			{
+				"buffer_size": 510,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/paulo/Arquivos/tcc/mono/Codes/chap3/013-bli.c",
+			"settings":
+			{
+				"buffer_size": 1584,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/paulo/Arquivos/tcc/mono/Codes/chap3/014-blo.c",
+			"settings":
+			{
+				"buffer_size": 560,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/paulo/Arquivos/tcc/mono/Codes/chap3/015-blu.c",
+			"settings":
+			{
+				"buffer_size": 1059,
 				"line_ending": "Unix"
 			}
 		}
@@ -112,14 +136,22 @@
 	},
 	"file_history":
 	[
+		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/010-onhttpannouncedone.c",
+		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/009-httpannounce.c",
+		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/006-announce.c",
+		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/008-scrape.c",
+		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/007-scrapestruct.c",
+		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/005-announcestruct.c",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/Chapter3.tex",
+		"/home/paulo/Arquivos/tcc/mono/glossario.tex",
+		"/home/paulo/Arquivos/tcc/mono/bibliografia.bib",
+		"/home/paulo/Arquivos/tcc/mono/tcc.tex",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/Chapter2.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/Chapter8.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/Chapter7.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/Chapter6.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/Chapter5.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/Chapter4.tex",
-		"/home/paulo/Arquivos/tcc/mono/Chapters/Chapter3.tex",
-		"/home/paulo/Arquivos/tcc/mono/Chapters/Chapter2.tex",
-		"/home/paulo/Arquivos/tcc/mono/tcc.tex",
 		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/announce.c",
 		"/home/paulo/Arquivos/tcc/mono/tcc.gls",
 		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/004-leiturametadata4.c",
@@ -129,7 +161,6 @@
 		"/media/Arquivos/tcc/mono/Codes/chap3/003-leiturametadata3.c",
 		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/001-leiturametadata.c",
 		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/code1.c",
-		"/home/paulo/Arquivos/tcc/mono/bibliografia.bib",
 		"/home/paulo/Arquivos/tcc/mono/poster/tcc-poster.tex",
 		"/home/paulo/Arquivos/tcc/mono/poster/bibliografia.bib",
 		"/home/paulo/Arquivos/tcc/mono/docs/transmission-log",
@@ -145,7 +176,6 @@
 		"/home/paulo/Arquivos/tcc/mono/poster/poster-surf.tex",
 		"/home/paulo/Arquivos/tcc/mono/poster/Makefile",
 		"/home/paulo/Arquivos/tcc/mono/confs/sublime/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
-		"/home/paulo/Arquivos/tcc/mono/glossario.tex",
 		"/home/paulo/.config/sublime-text-3/Packages/User/latex-gls-ast.sublime-snippet",
 		"/home/paulo/.config/sublime-text-3/Packages/User/latex-glspl-ast.sublime-snippet",
 		"/home/paulo/Arquivos/tcc/mono/confs/tcc.sublime-workspace",
@@ -210,6 +240,15 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"torrent",
+			"lst:announce",
+			"ipv",
+			"IP",
+			"torrent",
+			"%",
+			"\\\\item\\s(\\S*)\\s+\\->\\s\\~([^\\n]*)",
+			"itemize",
+			"protocolo",
 			"requisi",
 			"arquivo \\gls*{torrentfile}",
 			"gls*{torrent}",
@@ -328,16 +367,7 @@
 			"0.25\\textwidth",
 			"textwi",
 			"\"",
-			"\\\"([^\\\\\\\\\"])\\\"",
-			"\\\"([^\\\\\\\"])\\\"",
-			"\\\"([^\\\\\"])\\\"",
-			"\\\"([^\\\"])\\\"",
-			"\"([^\"])\"",
-			"\\\"([^\\\\\\\\\"])\\\"",
-			"\"([^\\\\\\\\\"])\"",
-			"\"([^\\\\\\\"])\"",
-			"\"([^\\\\\"])\"",
-			"\"([^\"])\""
+			"\\\"([^\\\\\\\\\"])\\\""
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -345,6 +375,12 @@
 		"regex": false,
 		"replace_history":
 		[
+			"\\%",
+			"\\\\item \\\\url{\\1} $\\\\rightarrow$ \\\\url{\\2}",
+			"\\item \\\\url{\\1} $\\\\rightarrow$ \\\\url{\\2}",
+			"\\item \\\\url{\\1} $\\\\rightarrow$ \\\\url{2}",
+			"\\item \\url{\\1} $\\\\rightarrow$ \\url{2}",
+			"\\item \\url{\\1} $\\rightarrow$ \\url{2}",
 			"\\gls*{torrentfile}",
 			"gls*{torrentfile}",
 			"\\\\glink{torrent}\\1",
@@ -414,7 +450,7 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -423,15 +459,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 18396,
+						"buffer_size": 18520,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								13609,
-								13609
+								18518,
+								18518
 							]
 						],
 						"settings":
@@ -441,42 +477,13 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 3945.0,
+						"translation.y": 5131.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "/home/paulo/Arquivos/tcc/mono/bibliografia.bib",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 23907,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								9433,
-								9433
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/LaTeX/Bibtex.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 3620.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
 					"file": "/home/paulo/Arquivos/tcc/mono/tcc.tex",
 					"semi_transient": false,
 					"settings":
@@ -488,8 +495,8 @@
 						"selection":
 						[
 							[
-								6960,
-								6960
+								4211,
+								4211
 							]
 						],
 						"settings":
@@ -499,26 +506,26 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 3315.0,
+						"translation.y": 1230.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "/home/paulo/Arquivos/tcc/mono/Chapters/Chapter2.tex",
+					"buffer": 2,
+					"file": "/home/paulo/Arquivos/tcc/mono/Chapters/Chapter3.tex",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 16311,
+						"buffer_size": 30939,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								15827,
-								15827
+								30425,
+								30425
 							]
 						],
 						"settings":
@@ -528,18 +535,53 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2788.0,
+						"translation.y": 9077.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 3,
+					"file": "/home/paulo/Arquivos/tcc/mono/Codes/chap3/011-bla.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1369,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1294,
+								1294
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 39.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 4,
-					"file": "/home/paulo/Arquivos/tcc/mono/Codes/chap3/announce.c",
+					"file": "/home/paulo/Arquivos/tcc/mono/Codes/chap3/012-ble.c",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1507,
+						"buffer_size": 510,
 						"regions":
 						{
 						},
@@ -553,7 +595,92 @@
 						"settings":
 						{
 							"syntax": "Packages/C++/C++.tmLanguage",
-							"tab_size": 2,
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/home/paulo/Arquivos/tcc/mono/Codes/chap3/013-bli.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1584,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1584,
+								1584
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "/home/paulo/Arquivos/tcc/mono/Codes/chap3/014-blo.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 560,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								464,
+								464
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "/home/paulo/Arquivos/tcc/mono/Codes/chap3/015-blu.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1059,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								18,
+								18
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
@@ -582,11 +709,18 @@
 				0,
 				1,
 				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
 			]
 		],
 		"cols":
 		[
 			0.0,
+			0.5,
 			1.0
 		],
 		"rows":
@@ -632,15 +766,6 @@
 	},
 	"settings":
 	{
-		"last_automatic_layout":
-		[
-			[
-				0,
-				0,
-				1,
-				1
-			]
-		]
 	},
 	"show_minimap": true,
 	"show_open_files": false,

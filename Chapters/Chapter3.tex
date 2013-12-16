@@ -700,14 +700,31 @@ Alguns exemplos:
 
 \section{Fontes de arquivos}
 
-Após receber a lista de \glspl*{peer} do  \gls*{announce}, o Transmission inicia a
-comunicação com cada um deles para verificar sua disponibilidade. Em caso afirmativo,
-guarda esses endereços para adquirir as partes do \gls*{torrent}.
+Com a requisição do \gls*{announce}, o Transmission recebe a sua resposta e prepara
+esses dados para utilização, colocando-os em memória.
 
-\begin{comment}
-Mostrarei o processamento dos dados adquiridos na seção anterior e como ele organiza a
-lista das fontes de arquivos usando a tabela hash DHT Kademlia.
-\end{comment}
+\cfile[label="./libtransmission/announcer-http.c:288"]{./Codes/chap3/009-httpannounce.c}
+\cfile[label="./libtransmission/announcer-http.c:189"]{./Codes/chap3/010-onhttpannouncedone.c}
+
+Após essa preparação dos dados da resposta do \gls*{announce}, cuja informação
+principal é a lista de \glspl*{peer}, o Transmission gerencia o tempo para a próxima
+requisição periódica de \gls*{announce} ou \gls*{scrape}. Além disso, sinaliza a
+\gls{thread} principal do programa que recebeu a resposta do \gls*{tracker}.
+
+\cfile[label="./libtransmission/announcer.c:1012"]{./Codes/chap3/011-onannouncedone.c}
+\cfile[label="./libtransmission/announcer.c:523"]{./Codes/chap3/012-publicapeers.c}
+
+A \gls*{thread} principal percebe que foi sinalizado o recebimento de uma resposta de
+\gls*{tracker} e começa a utilizar a lista de \glspl*{peer} adquirida, adicionando-os ao
+\gls{pool} do objeto em memória que representa o \gls{swarm}.
+
+\cfile[label="./libtransmission/torrent.c:552"]{./Codes/chap3/013-ontrackerresponse.c}
+\cfile[label="./libtransmission/peer-mgr.c:2113"]{./Codes/chap3/014-addpex.c}
+
+Essa inclusão é condicionada ao fato de que o endereço de um \gls*{peer} ainda não está
+contido na lista de \glspl*{peer}.
+
+\cfile[label="./libtransmission/peer-mgr.c:1852"]{./Codes/chap3/015-verificapeer.c}
 
 \section{Jogo da troca de arquivos}
 \label{titfortat}
