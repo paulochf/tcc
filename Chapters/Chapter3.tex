@@ -794,9 +794,30 @@ na procura de seus nós. Cada um destes nós é identificado por um identificado
 \gls*{hashvalue}) associado ao objeto - neste caso, o ID do \gls*{torrent}, que é seu
 \gls*{hashvalue} - e explora a rede em passos, encontrando nós mais próximos da chave,
 até encontrar o valor buscado ou não nós existirem mais próximos que o atual. Dessa
-forma, para uma rede com $n$ nós, o algoritmo visita apenas O(log n) nós.
+forma, para uma rede com $n$ nós, o algoritmo visita apenas $O(\log n)$ nós.
 
 \subsubsection*{Funcionamento}
+
+No Kademlia, objetos e nós possuem IDs únicos: o primeiro utiliza
+
+
+Como o algoritmo Kademlia é construído com base em distâncias entre nós, a função de
+medida escolhida foi
+
+\begin{equation}
+    d(x,y) = x \oplus y
+\end{equation}
+
+pois possui algumas propriedades em comum com a equação de distância euclidiana usual.
+
+\begin{itemize}
+    \item $d(x,x) = 0$
+    \item $x \neq y$, $d(x,y) > 0$
+    \item $\forall x,y$ , $d(x,y) = d(y,x)$
+    \item desigualdade triangular: $d(x,y) + d(y,z) \geq d(x,z)$. \\
+        Isto vem do fato de $d(x,z) = d(x,y) \oplus d(y,z)$ e que $\forall a \geq 0,
+        \forall b \geq 0 : a + b \geq a \oplus b$
+\end{itemize}
 
 %\todo[inline]{explicar teoria}
 
