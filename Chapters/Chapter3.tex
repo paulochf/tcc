@@ -526,15 +526,7 @@ seguintes chaves:
     ]{text}
     * About to connect() to exodus.desync.com port 6969 (#8)
     *   Trying 208.83.20.164...
-    * HTTP 1.0, assume close after body
-    < HTTP/1.0 404 Not Found
-    < Content-Type: text/html
-    < Content-Length: 345
-    < Connection: close
-    < Date: Wed, 30 Oct 2013 05:20:08 GMT
-    < Server: OpenDNS Guide
-    <
-    * Closing connection 7
+    *
     * Connected to exodus.desync.com (208.83.20.164) port 6969 (#8)
     > GET /announce?info_hash=\%88\%15\%8c\%7bW\%e0\%85\%21\%86~\%d0\%b5\%de\%06\%5b\%
     7dWI\%cf\%d7&peer_id=-TR2820-ne1joqgh8z9o&port=51413&uploaded=0&downloaded=0&left=52
@@ -585,7 +577,6 @@ Essa comunicação ocorre nas seguintes situações:
         programa cliente;
 \end{itemize}
 
-\newpage
 \subsection*{Scrape}
 
 Além do \gls*{announce}, outra forma de troca de informação entre \glspl*{peer} e
@@ -698,7 +689,7 @@ Alguns exemplos:
         \end{enumerate}
 \end{enumerate}
 
-\section{Fontes de arquivos}
+%\section{Fontes de arquivos}
 
 Com a requisição do \gls*{announce}, o Transmission recebe a sua resposta e prepara
 esses dados para utilização, carregando-os em memória.
@@ -730,15 +721,11 @@ Assim, a lista de \glspl*{peer} do Transmission está pronta para ser utilizada 
 pedidos das partes do \gls*{torrent}.
 
 \newpage
-\subsection*{Tabelas Hash Distribuídas e o Kademlia}
-
-%\todo[inline]{Explicar a funcionalidade de DHTs}
+\section{Tabelas Hash Distribuídas e o Kademlia}
 
 Os \glspl{dht} surgiram quando buscas em \glspl{p2p} não eram eficientes, fosse pelos
 problemas da supercentralização dos sistemas ou pela falta dela, tentando criar uma
 maneira híbrida de buscar e localizar recursos nessas redes.
-
-\subsubsection*{Introdução}
 
 Existem duas formas de se encontrar objetos: busca e endereçamento. A primeira se baseia
 no casamento de palavras-chave com as das descrições dos objetos, sendo mais amigável
@@ -778,7 +765,7 @@ essas funcionalidades dependem da troca de mensagens eficiente entre \glspl*{pee
     %\label{fig:torrent-universo}
 \end{figure}
 
-\subsubsection*{Kademlia}
+\subsection*{Kademlia}
 
 O Kademlia é um \gls*{dht} criado em 2002 \cite{artigo:kademlia} com o objetivo de
 melhorar os métodos de busca atuais (Napster e\gls*{gnutella}), que eram ineficientes.
@@ -787,45 +774,61 @@ conhecida como ``rede de Plaxton'' (\emph{Plaxton mesh}), nome que remete a um d
 autores \cite{artigo:dht}. Por ter causado boas impressões, foi usado na implementação
 da busca de arquivos no programa cliente eMule.
 
-O Kademlia implementa uma rede \emph{overlay} cuja estrutura e comunicação se baseiam
+O algoritmo implementa uma rede \emph{overlay} cuja estrutura e comunicação se baseiam
 na procura de seus nós. Cada um destes nós é identificado por um identificador único
 (ID), que serve tanto para a identificação quanto para a localização de valores na
-\gls*{hashtable}. Durante uma busca, o algoritmo deve conhecer a chave (que é um
+\gls*{hashtable}. Durante uma busca, o processo deve conhecer a chave (que é um
 \gls*{hashvalue}) associado ao objeto - neste caso, o ID do \gls*{torrent}, que é seu
 \gls*{hashvalue} - e explora a rede em passos, encontrando nós mais próximos da chave,
 até encontrar o valor buscado ou não nós existirem mais próximos que o atual. Dessa
 forma, para uma rede com $n$ nós, o algoritmo visita apenas $O(\log n)$ nós.
 
-\subsubsection*{Funcionamento}
+\subsection*{Funcionamento}
 
-No Kademlia, objetos e nós possuem IDs únicos: o primeiro utiliza
+No Kademlia, objetos e nós possuem IDs únicos de 160 bits: enquanto o primeiro utiliza
+o \gls*{hashvalue} de 20 bytes SHA-1 da chave \bverb|info_hash| do \gls*{torrentfile},
+o segundo é um valor aleatório escolhido pelo próprio programa.
 
-
-Como o algoritmo Kademlia é construído com base em distâncias entre nós, a função de
-medida escolhida foi
+Como este \gls*{dht} é construído com base em distâncias entre nós, a função de medida
+escolhida foi
 
 \begin{equation}
     d(x,y) = x \oplus y
 \end{equation}
 
 pois possui algumas propriedades em comum com a equação de distância euclidiana usual.
+Assim, seguem suas propriedades:
 
 \begin{itemize}
     \item $d(x,x) = 0$
     \item $x \neq y$, $d(x,y) > 0$
-    \item $\forall x,y$ , $d(x,y) = d(y,x)$
+    \item simetria: $\forall x,y$, $d(x,y) = d(y,x)$
     \item desigualdade triangular: $d(x,y) + d(y,z) \geq d(x,z)$. \\
         Isto vem do fato de $d(x,z) = d(x,y) \oplus d(y,z)$ e que $\forall a \geq 0,
         \forall b \geq 0 : a + b \geq a \oplus b$
+    \item unidirecionalidade: para um dado ponto $x$ e uma distância $\Delta > 0$,
+        existe exatamente um ponto $y$ tal que $d(x,y) = \Delta$. Isso garante que todas
+        as procuras por uma mesma chave convirjam para um mesmo percurso, independente
+        do ponto de partida.
 \end{itemize}
+
+\subsubsubsection*{Estado dos nós}
+
+Cada nó do Kademlia armazena informações sobre outros nós para rotear mensagens de
+pesquisa. Para cada bit dos IDs (cada ID tem 160 bits) é mantido um $k$-bucket, que é
+uma lista de triplas ordenada pelo horário da última notícia do \gls*{peer} listado,
+contendo seu endereço IP, porta de comunicação \gls*{udp} e o ID, para os nós cuja
+distância para ele está entre $2^i$ e $w^{i+1}$. Para distâncias pequenas, essas listas
+geralmente serão vazias, enquanto para distâncias maiores poderão ser de tamanho $k$.
+Este valor, que é o de replicação do sistema, é escolhido de tal forma que, para dados
+quaisquer $k$ nós sejam improváveis de falharem na próxima hora.
 
 %\todo[inline]{explicar teoria}
 
+\section{Peer Exchange}
 
-
-
-\subsection*{Peer Exchange}
-
+\todo[inline]{Funciona somente no \gls*{swarm}!}
+tuplas
 \todo[inline]{Explicar a funcionalidade de PEX}
 
 \section{Jogo da troca de arquivos}

@@ -39,7 +39,7 @@
 			"file": "/home/paulo/Arquivos/tcc/mono/Chapters/Chapter3.tex",
 			"settings":
 			{
-				"buffer_size": 35382,
+				"buffer_size": 36251,
 				"line_ending": "Unix"
 			}
 		}
@@ -214,6 +214,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"}!\n",
+			"dist",
 			"arti",
 			"kademl",
 			"kadm",
@@ -339,9 +341,7 @@
 			"string",
 			"hb!",
 			"(\\\"|\\\",)",
-			" \"",
-			"subfigure",
-			"Verba"
+			" \""
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -424,7 +424,7 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -440,8 +440,8 @@
 						"selection":
 						[
 							[
-								16579,
-								16579
+								5747,
+								5747
 							]
 						],
 						"settings":
@@ -451,10 +451,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 4843.0,
+						"translation.y": 1567.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
@@ -514,7 +514,7 @@
 						"translation.y": 7004.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 2,
 					"type": "text"
 				}
 			]
@@ -529,15 +529,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 35382,
+						"buffer_size": 36251,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								34313,
-								34313
+								35686,
+								35686
 							]
 						],
 						"settings":
@@ -547,7 +547,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 10231.0,
+						"translation.y": 10644.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
