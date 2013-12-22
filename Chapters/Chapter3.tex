@@ -812,16 +812,18 @@ Assim, seguem suas propriedades:
         do ponto de partida.
 \end{itemize}
 
-\subsubsubsection*{Estado dos nós}
+\subsubsection*{Estado dos nós}
 
 Cada nó do Kademlia armazena informações sobre outros nós para rotear mensagens de
 pesquisa. Para cada bit dos IDs (cada ID tem 160 bits) é mantido um $k$-bucket, que é
 uma lista de triplas ordenada pelo horário da última notícia do \gls*{peer} listado,
 contendo seu endereço IP, porta de comunicação \gls*{udp} e o ID, para os nós cuja
-distância para ele está entre $2^i$ e $w^{i+1}$. Para distâncias pequenas, essas listas
+distância para ele está entre $2^i$ e $2^{i+1}$. Para distâncias pequenas, essas listas
 geralmente serão vazias, enquanto para distâncias maiores poderão ser de tamanho $k$.
 Este valor, que é o de replicação do sistema, é escolhido de tal forma que, para dados
 quaisquer $k$ nós sejam improváveis de falharem na próxima hora.
+
+\subsubsection*{Protocolo}
 
 %\todo[inline]{explicar teoria}
 
