@@ -15,7 +15,7 @@
 			"file": "/home/paulo/Arquivos/tcc/mono/glossario.tex",
 			"settings":
 			{
-				"buffer_size": 18887,
+				"buffer_size": 19365,
 				"line_ending": "Unix"
 			}
 		},
@@ -31,7 +31,7 @@
 			"file": "/home/paulo/Arquivos/tcc/mono/bibliografia.bib",
 			"settings":
 			{
-				"buffer_size": 25355,
+				"buffer_size": 25602,
 				"line_ending": "Unix"
 			}
 		},
@@ -39,7 +39,7 @@
 			"file": "/home/paulo/Arquivos/tcc/mono/Chapters/Chapter3.tex",
 			"settings":
 			{
-				"buffer_size": 36968,
+				"buffer_size": 38652,
 				"line_ending": "Unix"
 			}
 		}
@@ -219,6 +219,17 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"artigo",
+			"renewnewcommand",
+			"newcommand",
+			"b",
+			"B",
+			"b",
+			"B",
+			"A",
+			"glink",
+			"$k$-bucket",
+			"emph",
 			"\\item",
 			"asdasd",
 			"Kademlia",
@@ -335,18 +346,7 @@
 			"\\%",
 			"%",
 			"bar",
-			" ",
-			"\\@\\\\textbf\\{([^\\}]*)\\}",
-			"\\@\\\\\\\\ttextbf{[^\\\\\\}]*}",
-			"\\@\\\\ttextbf{[^\\\\\\}]*}",
-			"\\@\\\\ttextbf{[^\\}]*}",
-			"@\\\\ttextbf{[^\\}]*}",
-			"i1343715473e",
-			"'",
-			"`",
-			"carac",
-			"caract",
-			"caracte"
+			" "
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -429,7 +429,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -438,15 +438,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 18887,
+						"buffer_size": 19365,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								5691,
-								5691
+								19061,
+								19061
 							]
 						],
 						"settings":
@@ -456,10 +456,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1806.0,
+						"translation.y": 5564.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
@@ -475,8 +475,8 @@
 						"selection":
 						[
 							[
-								2470,
-								2470
+								2471,
+								2471
 							]
 						],
 						"settings":
@@ -486,10 +486,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 676.0,
+						"translation.y": 312.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
@@ -498,15 +498,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 25355,
+						"buffer_size": 25602,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								17258,
-								17258
+								17890,
+								17890
 							]
 						],
 						"settings":
@@ -516,10 +516,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 7004.0,
+						"translation.y": 6939.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 1,
 					"type": "text"
 				}
 			]
@@ -534,15 +534,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 36968,
+						"buffer_size": 38652,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								36280,
-								36280
+								38341,
+								38341
 							]
 						],
 						"settings":
@@ -552,7 +552,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 10524.0,
+						"translation.y": 11018.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -580,21 +580,21 @@
 				1
 			],
 			[
+				1,
 				0,
-				1,
-				1,
-				2
+				2,
+				1
 			]
 		],
 		"cols":
 		[
 			0.0,
+			0.5,
 			1.0
 		],
 		"rows":
 		[
 			0.0,
-			0.121122879066,
 			1.0
 		]
 	},
@@ -644,7 +644,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 40.0,
+	"side_bar_width": 113.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
