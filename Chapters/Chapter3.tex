@@ -765,6 +765,10 @@ essas funcionalidades dependem da troca de mensagens eficiente entre \glspl*{pee
     %\label{fig:torrent-universo}
 \end{figure}
 
+A funcionalidade do \gls*{dht} passou anos sendo utilizado extraoficialmente à
+especificação do protocolo, quando, enfim, foi adicionada em 2008
+\cite{site:bittorrent-dht}.
+
 \subsection*{Kademlia}
 
 O Kademlia é um \gls*{dht} criado em 2002 \cite{artigo:kademlia} com o objetivo de
@@ -857,11 +861,117 @@ inseridos nos \glspl*{kbucket} se os antigos fossem excluídos.
 
 \subsubsection*{Protocolo}
 
-O protocolo de troca de informações do Kademlia é formado por 4 comandos remotos:
-\bverb|PING|, \bverb|STORE|, \bverb|FIND_NODE| e \bverb|FIND_VALUE|. O mais simples,
-\bverb|PING|, verifica se o nó está online.
+O protocolo de mensagens \gls*{dht} utiliza o formato KRPC, que é um mecanismo de
+\gls{rpc} que envia dicionários \gls*{bencode} através de \gls*{udp}, uma única vez por
+chamada (um pacote para a requisição, outro para a resposta), sem novas tentativas.
 
-\todo[inline]{adicionar código do PING}
+Existem 3 tipos de mensagem: consulta (\emph{query}), resposta (\emph{response}) e erro
+(\emph{error}). Para o protocolo \gls*{dht}, são 4 comandos \emph{query}: \bverb|ping|,
+\bverb|find_node|, \bverb|get_peers| e \bverb|announce_peer|. Em todos, o nó sempre
+enviará seu ID como valor da chave \sverb|id|.
+
+Uma mensagem KRPC é um dicionário com 2 chaves comuns a todos os 4 comandos: \bverb|y|,
+que especifica o tipo da mensagem, e \bverb|t|, que corresponde ao ID da transação.
+Este é um número binário convertido para \gls*{string}, geralmente formada por 2
+caracteres, possuindo valor até $2^{16}$, e devolvida nas respostas. Isso permite que
+estas se relacionem a múltiplas consultas a um nó.
+
+Cada tipo de mensagem possui formatos diferentes entre si, permitindo parâmetros
+adicionais para cada chamada, possuindo as seguintes chaves e seus respectivos valores:
+
+\newpage
+\begin{itemize}
+    \item \emph{query}
+        \begin{itemize}
+            \item \bverb|y|: caractere \sverb|q|
+            \item \bverb|q|: string do comando desejado (\sverb|ping|,
+                \sverb|find_node|, \sverb|get_peers|, \sverb|announce_peer|)
+            \item \bverb|a|: dicionário contendo parâmetros adicionais, dependendo do
+                comando passado na chave \bverb|q|
+        \end{itemize}
+
+    \item \emph{response}
+        \begin{itemize}
+            \item \bverb|y|: caractere \sverb|r|
+            \item \bverb|r|: dicionário contendo valores da resposta, dependendo do
+                comando passado na chave \bverb|q|
+        \end{itemize}
+
+    \item \emph{error}
+        \begin{itemize}
+            \item \bverb|y|: caractere \sverb|e|
+            \item \bverb|e|: lista contendo 2 elementos: código (número inteiro) e
+                mensagem para o erro (\gls*{string}). Os erros podem ser:
+
+                \begin{itemize}
+                    \item 201 (Generic Error): erros genéricos
+                    \item 202 (Server Error): erros de servidor
+                    \item 203 (Protocol Error): para pacote mal formado, argumento
+                        inválido ou token incorreto
+                    \item 204 (Method Unknown): comando não conhecido
+                \end{itemize}
+            \item exemplo: \\
+                \bverb|d1:eli201e23:A Generic Error Ocurrede1:t2:aa1:y1:ee|
+                (\gls*{bencode}) \\
+                \sverb|{"t":"aa", "y":"e", "e":[201, "A Generic Error Ocurred"]}|
+                (\gls*{string})
+        \end{itemize}
+\end{itemize}
+
+\subsubsection*{Comandos}
+
+Os 4 comandos de \emph{query} do \gls*{dht} (\bverb|ping|, \bverb|find_node|,
+\bverb|get_peers| e \bverb|announce_peer|) estão definidos da seguinte forma.
+
+\newpage
+\indent \textbf{ping}
+
+É o comando mais simples, que verifica se o nó está online. Possui um único
+argumento, que é uma chave \bverb|id|, que é o ID do nó consultante (na
+requisição) ou do nó consultado (na resposta).
+
+\begin{itemize}
+    \item requisição \\
+        \bverb|d1:ad2:id20:abcdefghij0123456789e1:q4:ping1:t2:aa1:y1:qe|
+        (\gls*{bencode}) \\
+        \sverb|{"t":"aa", "y":"q", "q":"ping", "a":{"id":"abcdefghij0123456789"}}|
+        (\gls*{string})
+
+    \item resposta \\
+        \bverb|d1:rd2:id20:mnopqrstuvwxyz123456e1:t2:aa1:y1:re|
+        (\gls*{bencode}) \\
+        \sverb|{"t":"aa", "y":"r", "r": {"id":"mnopqrstuvwxyz123456"}}|
+        (\gls*{string})
+\end{itemize}
+
+
+\cfile[label="./third-party/dht/dht.c:2291"]{./Codes/chap3/016-dht-macros.c}
+\cfile[label="./third-party/dht/dht.c:2341"]{./Codes/chap3/017-dht-ping.c}
+
+\begin{comment}
+When a node wants to find peers for a torrent, it uses the distance metric to compare
+the infohash of the torrent with the IDs of the nodes in its own routing table. It then
+contacts the nodes it knows about with IDs closest to the infohash and asks them for the
+contact information of peers currently downloading the torrent. If a contacted node
+knows about peers for the torrent, the peer contact information is returned with the
+response. Otherwise, the contacted node must respond with the contact information of
+the nodes in its routing table that are closest to the infohash of the torrent. The
+original node iteratively queries nodes that are closer to the target infohash until it
+cannot find any closer nodes. After the search is exhausted, the client then inserts
+the peer contact information for itself onto the responding nodes with IDs closest to
+the infohash of the torrent.
+
+The return value for a query for peers includes an opaque value known as the "token."
+For a node to announce that its controlling peer is downloading a torrent, it must
+present the token received from the same queried node in a recent query for peers. When
+a node attempts to "announce" a torrent, the queried node checks the token against the
+querying node's IP address. This is to prevent malicious hosts from signing up other
+hosts for torrents. Since the token is merely returned by the querying node to the same
+node it received the token from, the implementation is not defined. Tokens must be
+accepted for a reasonable amount of time after they have been distributed. The
+BitTorrent implementation uses the SHA1 hash of the IP address concatenated onto a
+secret that changes every five minutes and tokens up to ten minutes old are accepted.
+\end{comment}
 
 \section{Peer Exchange}
 

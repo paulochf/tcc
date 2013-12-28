@@ -58,6 +58,9 @@
 %% CONFIGURATIONS
 %% -------------------------------------------------------------------------------------
 
+\setcounter{secnumdepth}{5}
+\setcounter{tocdepth}{5}
+
 %%%%%%%%%%%%%%%%%%%%%
 %  ???
 %%%%%%%%%%%%%%%%%%%%%
@@ -87,10 +90,10 @@
     Chapters/Chapter1,     % 1. Introdução
     Chapters/Chapter2,     % 2. Histórico
     Chapters/Chapter3,     % 3. Anatomia
-    Chapters/Chapter4,     % 4. Parte técnica
+    Chapters/Chapter4,     % 4. Parte técnica sobre componentes
     Chapters/Chapter5,     % 5. Conclusão
-    Chapters/Chapter6,     % 6. Referências
-    Chapters/Chapter7,     % 7. Parte Subjetiva
+    Chapters/Chapter6,     % 6. Glossário
+    Chapters/Chapter7,     % 7. Bibliografia
     Chapters/Chapter8      % 8. Parte Subjetiva
 }
 
@@ -303,6 +306,7 @@
 % http://tex.stackexchange.com/a/24468/5125
 % http://www.las.ic.unicamp.br/pub/ctan/macros/latex/contrib/layouts/layman.pdf
 \setlength{\baselineskip}{15pt}                % Entre linhas do texto
+%\setlength{\parindent}{10pt}                     % Entre parágrafos
 \setlength{\parskip}{15pt}                     % Entre parágrafos
 \setlength{\textfloatsep}{1.25\baselineskip}   % Entre floats [t] ou [b] e parágrafos
 \setlength{\intextsep}{1.25\baselineskip}      % Entre floats [h] e parágrafos
@@ -329,7 +333,7 @@
 
 \include{Chapters/Chapter6} % Glossário
 
-\include{Chapters/Chapter7} % Referências
+\include{Chapters/Chapter7} % Bibliografia
 
 \include{Chapters/Chapter8} % Parte Subjetiva
 
