@@ -74,6 +74,8 @@
 % \usepackage{accsupp}
 % \newcommand{\emptyaccsupp}[1]{\BeginAccSupp{ActualText={}}#1\EndAccSupp{}}
 
+\newcommand{\subsubsubsection}[1]{\indent \textbf{#1}}
+
 \newcommand{\glink}[1]{\glslink{#1}{\glsentryname{#1}}}
 
 \newcommand{\glinkpl}[1]{\glslink{#1}{\glsentryplural{#1}}}
@@ -183,6 +185,7 @@
 %      download?doi=10.1.1.169.9130&rep=rep1&type=pdf
 \newmintedfile[cfile]{c}{
     linenos,
+    mathescape,
     frame=single,
     samepage=true,
     numbersep=6pt,
