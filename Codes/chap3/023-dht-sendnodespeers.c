@@ -51,6 +51,6 @@ int send_nodes_peers(const struct sockaddr *sa, int salen, const unsigned char *
     return dht_send(buf, i, 0, sa, salen);
 
     fail:
-    errno = ENOSPC;
-    return -1;
+        errno = ENOSPC;
+        return -1;
 }
