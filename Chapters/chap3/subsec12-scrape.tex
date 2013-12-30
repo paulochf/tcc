@@ -1,0 +1,79 @@
+%!TEX root = ../../tcc.tex
+
+\subsection*{Scrape}
+
+Além do \gls*{announce}, outra forma de troca de informação entre \glspl*{peer} e
+\glspl*{tracker} se dá pelo \gls{scrape}. Geralmente usado pelos programas cliente para
+decidir quando realizar um \gls*{announce}, informa o número de \glspl*{peer},
+\glspl*{leecher} e \glspl*{seeder} de uma lista de um ou mais \glspl*{torrent}. É dessa
+forma que os sites de indexação sabem dessas informações e as apresentam nas em páginas.
+
+A requisição de \gls*{scrape} pode ser sobre todos os \glspl*{torrent} que o
+\gls*{tracker} gerencia ou sobre um ou mais \glspl*{torrent} em específico, quando são
+passados seus respectivos \glspl*{hashvalue}. Sua resposta é um dicionário na forma
+\gls*{bencode} contendo as chaves
+
+\begin{itemize}
+    \item \textbf{files}: um dicionário contendo um par chave-valor para cada
+    \gls*{torrent} especificado na requisição do \gls*{scrape} através do
+    \gls*{hashvalue} do \gls*{torrent} de 20 bytes:
+
+    \begin{itemize}
+        \item \textbf{complete}: quantidade de \glspl*{seeder};
+
+        \item \textbf{incomplete}: quantidade de \glspl*{leecher};
+
+        \item \textbf{downloaded}: quantidade total de vezes que o \gls*{tracker}
+        registrou uma finalização (\sverb|event=complete| ao término de um download);
+
+        \item \textbf{name} (opcional): o nome interno do \gls*{torrent}, como
+        especificado pelo respectivo \gls*{torrentfile}, na sua seção \bverb|info|;
+    \end{itemize}
+\end{itemize}
+
+Da mesma forma que o \gls*{announce}, o \gls*{scrape} é um endereço do \gls*{tracker}
+usando-se o \gls*{tcp} ou o \gls*{udp}, e é tratado de forma semelhante pelo
+Transmission.
+
+\cfile[label="./libtransmission/announcer-common.h:37"]{./Codes/chap3/007-scrapestruct.c}
+\cfile[label="./libtransmission/announcer.c:1397"]{./Codes/chap3/008-scrape.c}
+
+\begin{listing}[H]
+    \begin{minted}[
+        linenos,
+        frame=single,
+        numbersep=6pt,
+        baselinestretch=1,
+        fontfamily=courier,
+        gobble=4,
+        fontsize=\scriptsize
+    ]{text}
+    * About to connect() to www.mvgroup.org port 2710 (#1)
+    *   Trying 88.129.153.50...
+    * Connected to www.mvgroup.org (88.129.153.50) port 2710 (#1)
+    > GET /scrape?info_hash=\%83F\%24\%b62\%e5Q\%cc4\%10h\%ba\%1e8\%e2C\%f7\%80\%01\%87 HTTP/1.1
+    User-Agent: Transmission/2.82
+    Host: www.mvgroup.org:2710
+    Accept: */*
+    Accept-Encoding: gzip;q=1.0, deflate, identity
+
+    * HTTP 1.0, assume close after body
+    < HTTP/1.0 200 OK
+    <
+    * Closing connection 1
+    Scrape response:
+    < {
+        "files": {
+            \"<binary>\": {
+                "complete": 9,
+                "downloaded": 59074,
+                "incomplete": 2
+            }
+        }
+    }
+    \end{minted}
+
+    \caption{Logs do Transmission sobre uma requisição de scrape e a respectiva
+    resposta, com o conteúdo binário truncado}
+    \label{lst:scrape}
+\end{listing}

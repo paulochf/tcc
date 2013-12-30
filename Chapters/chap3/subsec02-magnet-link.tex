@@ -1,0 +1,61 @@
+%!TEX root = ../../tcc.tex
+
+\subsection*{Magnet Link}
+
+Além do \gls*{torrentfile}, existe uma outra forma de se obter os \glspl*{metadata}
+necessários para se iniciar a transmissão, utilizando-se de \glspl{magnetlink}.
+
+\Glspl*{magnetlink}, ao contrário dos \glspl*{torrentfile}, não estão gravados em
+algum dispositivo de armazenamento. Basicamente, é um esquema de \gls{uri}, usado
+exclusivamente para o protocolo.
+
+No caso citado, o site de origem do \gls*{torrentfile} que estamos usando não fornece um
+\gls*{magnetlink} oficialmente. Porém, o Transmission consegue construir uma \gls*{uri}
+a partir do arquivo original, para fins de compartilhamento direto. O resultado, após
+decodificar o endereço para um formato legível (retirando a \gls{urlencode})
+\cite{wiki:urlencode}, foi o seguinte:
+
+\begin{listing}[ht!]
+    \begin{minted}[
+        linenos,
+        frame=single,
+        numbersep=6pt,
+        baselinestretch=1,
+        fontfamily=courier,
+        gobble=4,
+        fontsize=\scriptsize
+    ]{text}
+    magnet:?xt=urn:btih:72d7a3179da3de7a76b98f3782c31843e3f818ee
+    &dn=night_of_the_living_dead
+    &tr=http://bt1.archive.org:6969/announce&tr=http://bt2.archive.org:6969/announce
+    &ws=http://archive.org/download/
+    &ws=http://ia600301.us.archive.org/22/items/&ws=http://ia700301.us.archive.org/22/items/
+    \end{minted}
+    \caption{link magnético do arquivo .torrent do filme
+    \enquote{A Noite dos Mortos Vivos}, de 1960 \cite{torrent-file}, com parâmetros
+    divididos entre linhas para melhor visualização}
+    \label{lst:torrent-file-magnet-link}
+\end{listing}
+
+Esse endereço é composto por vários pares, compostos por nomes de parâmetros e seus
+respectivos valores, sem qualquer ordem específica, formando uma \gls{querystring}.
+Podemos dividir esse endereço em partes, cada uma tendo o seu significado:
+
+\begin{itemize}
+    \item \textbf{xt}: parâmetro para \emph{exact topic}, ou tópico exato, que contém a
+        informação mais importante do \gls*{magnetlink}: o identificador único de
+        \glspl*{torrent}. Serve para encontrar e verificar os arquivos especificados.
+        No caso, \bverb|urn:btih:<hash>| corresponde ao \gls{urn} \sverb|btih|
+        (\emph{BitTorrent Info Hash}), que é a \gls*{string} \gls{hashvalue} resultado
+        da \gls{hashfunction} SHA-1, convertida para hexadecimal;
+
+    \item \textbf{dn}: parâmetro que contém o \emph{display name}, ou nome de
+        visualização, que é um texto de apresentação amigável para o usuário;
+
+    \item \textbf{tr}: o \emph{address tracker}, ou endereço do \gls*{tracker}, onde o
+        programa cliente vai procurar as informações de \glspl*{peer};
+
+    \item \textbf{ws}: endereço do arquivo para \emph{webseed}, ou fornecimento web,
+        que é o endereço de Internet de um servidor HTTP ou FTP, que será utilizado como
+        alternativa a um \gls*{swarm} problemático \cite{wiki:torrent};
+\end{itemize}

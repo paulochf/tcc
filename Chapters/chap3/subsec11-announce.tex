@@ -1,0 +1,202 @@
+%!TEX root = ../../tcc.tex
+
+\subsection*{Announce}
+
+Para cada \gls*{swarm} gerenciado, o \gls*{tracker} possui uma lista dos \glspl*{peer}
+que participam dele, que é enviada ao \gls*{peer} que a requer por meio de uma
+\gls{httpget}. Quando essa requisição é recebida pelo \gls*{tracker}, este incluirá ou
+atualizará um registro para o \gls*{peer} solicitante, e devolverá uma lista de 50
+\glspl*{peer} aleatórios, de forma uniforme, que fazem parte do \gls*{swarm}. Não
+havendo essa quantidade total, a lista toda será enviada ao requisitante. Caso
+contrário, a aleatoriedade proporcionará uma diversidade de listas enviadas,
+ocasionando robustez ao sistema \cite{wikitheory:tracker-response}.
+
+Esse contato entre um \gls*{peer} e um \gls*{tracker} é chamado de \gls{announce}, que
+pode ser feito usando-se tanto o \gls{tcp}, bem como o \gls{udp}, e é como \glspl*{peer}
+podem passar várias informações, usando um dicionário no formato \gls*{bencode}:
+
+\begin{itemize}
+    \item \textbf{info\_hash}: \gls*{hashvalue} de 20 bytes resultante da
+    \gls*{hashfunction} SHA-1, com \gls*{urlencode}, do valor da chave \bverb|info| do
+    arquivo \gls*{torrentfile};
+
+    \item \textbf{peer\_id}: \gls*{string} de 20 bytes, com \gls*{urlencode}, usado como
+    identificador único do programa cliente, gerado no ínício da sua execução. Para
+    isso, provavelmente deverá incorporar informações do computador, a fim de se gerar
+    um valor único;
+
+    \item \textbf{uploaded}: a quantidade total de dados, em bytes, enviados desde o
+    momento em que o cliente enviou o primeiro aviso ao \gls*{tracker};
+
+    \item \textbf{downloaded}: a quantidade total de dados, em bytes, recebidos desde
+    momento em que o cliente enviou o primeiro aviso ao \gls*{tracker};
+
+    \item \textbf{left}: a quantidade total de dados, em bytes, que faltam para o
+    requisitante terminar o download do \gls*{torrent} e passe a ser um \gls*{seeder};
+
+    \item \textbf{compact} (opcional): se o valor passado for 1, significa que o
+    requisitante aceita respostas compactas. A lista de \glspl*{peer} enviada é
+    substituída por uma única \gls*{string} de peers, sendo que cada \gls*{peer} terá
+    6 bytes, onde os 4 bytes iniciais são o host e os 2 bytes finais são a porta de
+    transmissão. Por exemplo, o endereço IP 10.10.10.5:80 seria transmitido como
+    \bverb|0A 0A 0A 05 00 80|. Deve-se observar que alguns \glspl*{tracker} suportam
+    somente conexões deste tipo para otimização da utilização da banda de rede e, para
+    isso, ou recusarão requisições sem \bverb|compact=1| ou, caso não as recusem,
+    enviarão respostas compactas a menos que a requisição possua \bverb|compact=0|;
+
+    \item \textbf{no\_peer\_id} (opcional): sinaliza que o \gls*{tracker} pode omitir o
+    campo \textcolor{Bittersweet}{\texttt{peer\_id}} no dicionário de \glspl*{peer},
+    porém será ignorado caso o modo compacto esteja habilitado;
+
+    \item \textbf{event} (opcional): pode possuir os valores \sverb|started|
+    (iniciado), \sverb|completed| (terminado), \sverb|stopped| (parado), ou vazio para
+    não especificar.
+
+    \begin{itemize}
+        \item \emph{started} : a primeira requisição para o \gls*{tracker} deve enviar
+        este valor;
+        \item \emph{stopped} : avisa que o programa cliente está fechando;
+        \item \emph{completed} : quando o download que estava ocorrendo termina numa
+        mesma execução do programa cliente (não é enviado quando o programa cliente é
+        iniciado com o \gls*{torrent} em 100\%);
+    \end{itemize}
+
+    \item \textbf{port} (opcional): o número da porta de conexão que o programa cliente
+    está escutando por transmissões de dados. Em geral, portas reservadas para
+    BitTorrent estão entre 6881 e 6889. Se esse for o caso, pode ser omitido;
+
+    \item \textbf{ip} (opcional): o endereço IP verdadeiro do requisitante, no formato
+    legível do IPv4 (4 conjuntos de número de 0 a 255 separados por \bverb|.|) ou do
+    IPv6 (8 conjuntos de números hexadecimais de 4 dígitos separados por \bverb|:|).
+    Não é sempre necessário, pois o endereço pode ser conhecido através da requisição.
+    Assim, é usado quando o programa cliente está se comunicando com o \gls*{tracker}
+    através de um \gls{proxy} ou quando ambos (cliente e \gls*{tracker}) estão no mesmo
+    lado local de um roteador - com \gls{nat} -, pois, nesse caso o endereço IP não é
+    roteável;
+
+    \item \textbf{numwant} (opcional): quantidade de \glspl*{peer} que o requisitante
+    gostaria de receber do \gls*{tracker}. É permitido valor zero. Se omitido, assumirá
+    valor padrão de 50;
+
+    \item \textbf{key} (opcional): mecanismo de identificação adicional para o programa
+    cliente provar sua identidade, caso tenha ocorrido mudança no seu endereço IP;
+
+    \item \textbf{trackerid} (opcional): se a resposta de um \gls*{announce} anterior
+    continha o endereço IP de um \gls*{tracker}, deve ser enviado neste campo;
+\end{itemize}
+
+%\newpage
+\cfile[label="./libtransmission/announcer-common.h:127"]{./Codes/chap3/005-announcestruct.c}
+\cfile[label="./libtransmission/announcer.c:1200"]{./Codes/chap3/006-announce.c}
+
+Como resposta, é recebida um outro dicionário em \gls*{bencode}, podendo conter as
+seguintes chaves:
+
+\begin{itemize}
+    \item \textbf{failure\_reason}: se presente, não podem existir outras chaves no
+    dicionário. Seu valor é uma \gls*{string} de mensagem de erro legível sobre o
+    porque a requisição falhou;
+
+    \item \textbf{warning\_message} (opcional): similar à chave
+    \bverb|failure\_reason|, mas com a requisição tendo sido processada normalmente. A
+    mensagem é mostrada como um erro;
+
+    \item \textbf{interval}: intervalo, em segundos, que o cliente deve esperar emtre
+    requisições de \gls*{announce} ao \gls*{tracker};
+
+    \item \textbf{min\_interval} (opcional): intervalo mínimo, em segundos, entre
+    requisições de \gls*{announce}. Se presente, o pragrama cliente não deve efetuar
+    essas requisições acima da frequência estipulada;
+
+    \item \textbf{tracker\_id}: \gls*{string} que o programa cliente deve enviar de
+    volta nas próximas requisições. Se ausente e um valor tiver sido passado
+    anteriormente, o uso desse valor antigo é continuado;
+
+    \item \textbf{complete}: quantidade de \glspl*{seeder};
+
+    \item \textbf{incomplete}: quantidade de \glspl*{leecher};
+
+    \item \textbf{peers}: pode ser uma das opções
+
+    \begin{enumerate}
+        \item lista de dicionários \gls*{bencode}, com as seguintes chaves:
+
+        \begin{itemize}
+            \item \textbf{peer\_id}: identificador de um \gls*{peer} na forma de
+            \gls*{string}, escolhido por si próprio da mesma forma que a descrito pela
+            definição de requisição;
+
+            \item \textbf{ip}: endereço IP do \gls*{peer} nos formatos IPv4 (4 octetos)
+            ou IPv6 (valores hexadecimais), ou ainda o nome de domínio DNS (string);
+
+            \item \textbf{port}: número da porta utilizada pelo \gls*{peer};
+        \end{itemize}
+
+        \item \gls*{string} binária cujo tamanho é de 6 bytes para cada \gls*{peer},
+        onde os 4 primeiros representam o endereço IP e os 2 últimos são o número da
+        porta, em notação de rede (\emph{big endian});
+    \end{enumerate}
+\end{itemize}
+
+\begin{listing}[H]
+    \begin{minted}[
+        linenos,
+        frame=single,
+        numbersep=6pt,
+        baselinestretch=1,
+        fontfamily=courier,
+        gobble=4,
+        fontsize=\scriptsize
+    ]{text}
+    * About to connect() to exodus.desync.com port 6969 (#8)
+    *   Trying 208.83.20.164...
+    *
+    * Connected to exodus.desync.com (208.83.20.164) port 6969 (#8)
+    > GET /announce?info_hash=\%88\%15\%8c\%7bW\%e0\%85\%21\%86~\%d0\%b5\%de\%06\%5b\%
+    7dWI\%cf\%d7&peer_id=-TR2820-ne1joqgh8z9o&port=51413&uploaded=0&downloaded=0&left=52
+    406288292&numwant=80&key=6ee99240&compact=1&supportcrypto=1&requirecrypto=1&event=
+    started HTTP/1.1
+    User-Agent: Transmission/2.82
+    Host: exodus.desync.com:6969
+    Accept: */*
+    Accept-Encoding: gzip;q=1.0, deflate, identity
+
+    < HTTP/1.1 200 OK
+    < Content-Type: text/plain
+    < Content-Length: 136
+    <
+    * Connection #8 to host exodus.desync.com left intact
+    Announce response:
+    < {
+        "complete": 1,
+        "downloaded": 11,
+        "incomplete": 6,
+        "interval": 1732,
+        "min interval": 866,
+        "peers": \"<binary>\"
+    }
+    \end{minted}
+
+    \caption{Logs do Transmission sobre uma requisição de announce e a respectiva
+    resposta, com o conteúdo binário truncado}
+    \label{lst:announce}
+\end{listing}
+
+Essa comunicação ocorre nas seguintes situações:
+
+\begin{itemize}
+    \item no primeiro contato do \gls*{peer}, para que ele tenha acesso a um
+        \gls*{swarm};
+
+    \item a cada período de tempo, estipulado pelo tracker, para que o \gls*{peer}
+        continue mostrando que ainda está conectado, além de poder receber endereços de
+        \glspl*{peer} novos;
+
+    \item quando a quantidade de \glspl*{peer} conhecidos que estiverem ativos for
+        menor do que 5;
+
+    \item quando terminar o download, notificando que passou a ser um \gls*{seeder};
+
+    \item quando sair do \gls*{swarm}, seja por desconexão ou por encerramento do
+        programa cliente;
+\end{itemize}

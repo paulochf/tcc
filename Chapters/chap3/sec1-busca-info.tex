@@ -1,0 +1,44 @@
+%!TEX root = ../../tcc.tex
+
+\section{Busca por informações}
+
+Quando adicionamos um \gls*{torrent} ao Transmission, o programa salva as
+informações em disco durante todo o período em que estas estiverem sendo gerenciadas
+por ele. Caso tenha sido por meio de um \gls*{torrentfile}, uma cópia deste é salva em
+uma pasta pré-definida para seu controle interno; caso seja por \gls*{magnetlink}, um
+novo arquivo é criado contendo as informações obtidas através dele (por questões de
+praticidade), para que não necessite fazer essa aquisição dos dados novamente ao ser
+aberto, ou quando alguma transferência for pausada e depois continuada.
+
+Após esse arquivamento, o programa processa as informações salvas para deixá-las
+carregadas em memória, a fim de obter o \gls*{hashvalue} que identifica o
+\gls*{torrentfile}.
+
+\cfile[label="./libtransmission/metainfo.c:367"]{./Codes/chap3/001-leiturametadata.c}
+
+Se aquele arquivo para controle interno tiver sido criado por conta de um
+\gls*{magnetlink}, não possuirá a chave \bverb|info| em seu dicionário, mas deverá
+conter as chaves \bverb|urn:btih:<hash>| e \bverb|info_hash|.
+
+\cfile[label="./libtransmission/metainfo.c:367"]{./Codes/chap3/002-leiturametadata2.c}
+
+Porém, se o arquivo para controle interno tiver sido criado como cópia do
+\gls*{torrentfile}, possuirá o mesmo dicionário, que contém a chave \bverb|info_hash|,
+que é utilizada para calcular o \gls*{hashvalue} do arquivo.
+
+\cfile[label="./libtransmission/metainfo.c:367"]{./Codes/chap3/003-leiturametadata3.c}
+
+Outras informações podem ser recuperadas, dependendo da origem do \gls*{torrentfile},
+tais como a privacidade do \gls*{torrent}, a lista de arquivos e seus respectivos
+tamanhos, \gls*{hashvalue} de cada parte, entre outras. Por fim, termina coletando os
+\glspl{announce}.
+
+\cfile[label="./libtransmission/metainfo.c:367"]{./Codes/chap3/004-leiturametadata4.c}
+
+\input{Chapters/chap3/subsec11-announce}
+
+\input{Chapters/chap3/subsec12-scrape}
+
+\input{Chapters/chap3/subsec13-convencao}
+
+\input{Chapters/chap3/subsec14-resultados}

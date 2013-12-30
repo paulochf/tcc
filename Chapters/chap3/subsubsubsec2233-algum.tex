@@ -1,0 +1,28 @@
+%!TEX root = ../../tcc.tex
+
+\subsubsubsection{find\_node}
+
+\begin{comment}
+When a node wants to find peers for a torrent, it uses the distance metric to compare
+the infohash of the torrent with the IDs of the nodes in its own routing table. It then
+contacts the nodes it knows about with IDs closest to the infohash and asks them for the
+contact information of peers currently downloading the torrent. If a contacted node
+knows about peers for the torrent, the peer contact information is returned with the
+response. Otherwise, the contacted node must respond with the contact information of
+the nodes in its routing table that are closest to the infohash of the torrent. The
+original node iteratively queries nodes that are closer to the target infohash until it
+cannot find any closer nodes. After the search is exhausted, the client then inserts
+the peer contact information for itself onto the responding nodes with IDs closest to
+the infohash of the torrent.
+
+The return value for a query for peers includes an opaque value known as the "token."
+For a node to announce that its controlling peer is downloading a torrent, it must
+present the token received from the same queried node in a recent query for peers. When
+a node attempts to "announce" a torrent, the queried node checks the token against the
+querying node's IP address. This is to prevent malicious hosts from signing up other
+hosts for torrents. Since the token is merely returned by the querying node to the same
+node it received the token from, the implementation is not defined. Tokens must be
+accepted for a reasonable amount of time after they have been distributed. The
+BitTorrent implementation uses the SHA1 hash of the IP address concatenated onto a
+secret that changes every five minutes and tokens up to ten minutes old are accepted.
+\end{comment}

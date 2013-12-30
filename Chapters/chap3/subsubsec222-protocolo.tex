@@ -1,0 +1,69 @@
+%!TEX root = ../../tcc.tex
+
+\subsubsection*{Protocolo}
+
+O protocolo de mensagens \gls*{dht} utiliza o formato KRPC, que é um mecanismo de
+chamada \gls{rpc} que envia dicionários \gls*{bencode} através de \gls*{udp}, uma única
+vez por chamada (um pacote para a requisição, outro para a resposta), sem novas
+tentativas.
+
+Existem 3 tipos de mensagem: consulta (\emph{query}), resposta (\emph{response}) e erro
+(\emph{error}). Para o protocolo \gls*{dht}, são 4 comandos \emph{query}: \bverb|ping|,
+\bverb|find_node|, \bverb|get_peers| e \bverb|announce_peer|. Em todos, o nó sempre
+enviará seu ID como valor da chave \bverb|id|.
+
+Uma mensagem KRPC é um dicionário com 2 chaves comuns a todos os 4 comandos: \bverb|y|,
+que especifica o tipo da mensagem, e \bverb|t|, que corresponde ao ID da transação.
+Este é um número binário convertido para \gls*{string}, geralmente formada por 2
+caracteres, possuindo valor até $2^{16}$, e devolvida nas respostas. Isso permite que
+estas se relacionem a múltiplas consultas a um nó.
+
+Cada tipo de mensagem possui formatos diferentes entre si, permitindo parâmetros
+adicionais para cada chamada, possuindo as seguintes chaves e seus respectivos valores:
+
+\newpage
+\begin{itemize}
+    \item \emph{query}
+        \begin{itemize}
+            \item \bverb|y|: caractere \sverb|q|
+            \item \bverb|q|: string do comando desejado (\sverb|ping|,
+                \sverb|find_node|, \sverb|get_peers|, \sverb|announce_peer|)
+            \item \bverb|a|: dicionário contendo parâmetros adicionais, dependendo do
+                comando passado na chave \bverb|q|
+        \end{itemize}
+
+    \item \emph{response}
+        \begin{itemize}
+            \item \bverb|y|: caractere \sverb|r|
+            \item \bverb|r|: dicionário contendo valores da resposta, dependendo do
+                comando passado na chave \bverb|q|
+        \end{itemize}
+
+    \item \emph{error}
+        \begin{itemize}
+            \item \bverb|y|: caractere \sverb|e|
+
+            \item \bverb|e|: lista contendo 2 elementos: código (número inteiro) e
+                mensagem para o erro (\gls*{string}). Os erros podem ser:
+                \begin{itemize}
+                    \item 201 (Generic Error): erros genéricos
+                    \item 202 (Server Error): erros de servidor
+                    \item 203 (Protocol Error): para pacote mal formado, argumento
+                        inválido ou token incorreto
+                    \item 204 (Method Unknown): comando não conhecido
+                \end{itemize}
+
+            \item exemplo: \\
+                \bverb|d1:eli201e23:A Generic Error Ocurrede1:t2:aa1:y1:ee|
+                (\gls*{bencode}) \\
+                \sverb|{"t":"aa", "y":"e", "e":[201, "A Generic Error Ocurred"]}|
+                (\gls*{string})
+        \end{itemize}
+\end{itemize}
+
+As informações retornadas podem ser sobre \glspl*{peers} ou nós \gls{dht}: enquanto o
+primeiro é a \enquote{informação compacta de endereço IP/porta} - string de 6 bytes (4
+bytes iniciais para o endereço IP e 2 bytes finais para a porta de comunicação usada)
+-, o segundo é a \enquote{informação compacta de nó} - string de 26 bytes (20 bytes
+iniciais para o ID do nó e 6 bytes finais para a respectiva informação compacta de
+endereço IP/porta).

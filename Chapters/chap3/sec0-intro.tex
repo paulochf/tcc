@@ -1,0 +1,146 @@
+%!TEX root = ../../tcc.tex
+
+O BitTorrent é uma rede \gls{p2p}, onde cada um de seus usuários assume o papel híbrido
+de servidor (que fornece os arquivos) e de cliente (que adquire os arquivos). Cada
+computador é chamado de \gls{peer}.
+
+Cada transferência por BitTorrent está associada a um \gls{torrentfile}, que contém
+\glspl{metadata}, que são informações sobre arquivos que constituem um pacote chamado
+\gls{torrent}. Além disso, possui um ou mais endereços de \glspl{tracker}, que são
+servidores que mantém listas atualizadas dos \glspl*{peer} que estão compartilhando
+aqueles arquivos, atualizadas em curtos períodos de tempo (usualmente 30 minutos).
+
+\begin{comment}
+    \begin{figure}[ht!]
+        \centering
+        \fbox{\includegraphics[width=0.64\textwidth]{funcionamento.png}}
+        \caption{esquema básico do funcionamento do BitTorrent}
+        \label{fig:torrent-basics}
+    \end{figure}
+\end{comment}
+
+Enquanto um \gls*{peer} estiver fazendo download de um \gls*{torrent}, ele é chamado de
+\gls{leecher}, pois ainda consumirá dados de outros \glspl*{peer}; quando o download
+acabar, passará a ser um \gls{seeder}, que somente enviará dados.
+
+Os \glspl*{torrentfile} ficam disponíveis em vários sites de índice (às vezes, chamados
+de comunidades), como o \href{http://thepiratebay.sx/}{ThePirateBay}, o
+\href{http://kickass.to/}{Kickass} ou \href{https://torrentz.eu/}{Torrentz} (muitas
+vezes em mais de um deles ao mesmo tempo). Apesar de todo conteúdo compartilhado possuir
+um \gls*{torrentfile}, não necessariamente um \gls*{torrentfile} está sendo
+compartilhado naquele momento, podendo até mesmo estar extinto.
+
+\Glspl*{peer} que participam do compartilhamento de um \gls*{torrent} específico
+fazem parte do \gls{swarm}, onde os dados contidos nesse \gls*{torrent} são
+compartilhados por partes com outros \glspl*{peer}.
+
+A quantidade total de partes varia de acordo com cada \gls*{torrent}: o tamanho total
+dos arquivos contidos nesse \gls*{torrent} é dividido em blocos de tamanho fixo
+(geralmente 256kB) e transmitido de forma independente das outras partes, seguindo uma
+ordem estabelecida pelo algoritmo de troca de partes (explicado na seção
+~\ref{sec:titfortat}).
+
+Essa ordem varia de acordo com o estado atual do \gls*{swarm} desse \gls*{torrent}.
+
+%\newpage
+\begin{figure}[H]
+    \newlength{\myvsize}
+    \newlength{\myhsize}
+    \setlength{\myvsize}{5mm}
+    \setlength{\myhsize}{0.28\textwidth}
+
+    \centering
+
+    \begin{subfigure}[H]{\myhsize}
+        \fbox{\includegraphics[width=\textwidth]{Torrentcomp_small-0.png}}
+        \caption{}
+        \label{fig:torrent-repr-0}
+    \end{subfigure}%
+    \quad %add desired spacing between images (~, \quad, \qquad or blank line)
+    \begin{subfigure}[H]{\myhsize}
+        \fbox{\includegraphics[width=\textwidth]{Torrentcomp_small-1.png}}
+        \caption{}
+        \label{fig:torrent-repr-1}
+    \end{subfigure}%
+    \quad
+    \begin{subfigure}[H]{\myhsize}
+        \fbox{\includegraphics[width=\textwidth]{Torrentcomp_small-2.png}}
+        \caption{}
+        \label{fig:torrent-repr-2}
+    \end{subfigure}
+
+    \vspace{\myvsize}
+
+    \begin{subfigure}[H]{\myhsize}
+        \fbox{\includegraphics[width=\textwidth]{Torrentcomp_small-3.png}}
+        \caption{}
+        \label{fig:torrent-repr-3}
+    \end{subfigure}%
+    \quad
+    \begin{subfigure}[H]{\myhsize}
+        \fbox{\includegraphics[width=\textwidth]{Torrentcomp_small-4.png}}
+        \caption{}
+        \label{fig:torrent-repr-4}
+    \end{subfigure}%
+    \quad
+    \begin{subfigure}[H]{\myhsize}
+        \fbox{\includegraphics[width=\textwidth]{Torrentcomp_small-5.png}}
+        \caption{}
+        \label{fig:torrent-repr-5}
+    \end{subfigure}
+
+    \vspace{\myvsize}
+
+    \begin{subfigure}[H]{\myhsize}
+        \fbox{\includegraphics[width=\textwidth]{Torrentcomp_small-6.png}}
+        \caption{}
+        \label{fig:torrent-repr-6}
+    \end{subfigure}%
+    \quad
+    \begin{subfigure}[H]{\myhsize}
+        \fbox{\includegraphics[width=\textwidth]{Torrentcomp_small-7.png}}
+        \caption{}
+        \label{fig:torrent-repr-7}
+    \end{subfigure}%
+    \quad
+    \begin{subfigure}[H]{\myhsize}
+        \fbox{\includegraphics[width=\textwidth]{Torrentcomp_small-8.png}}
+        \caption{}
+        \label{fig:torrent-repr-8}
+    \end{subfigure}
+
+    \vspace{\myvsize}
+
+    \begin{subfigure}[H]{\myhsize}
+        \fbox{\includegraphics[width=\textwidth]{Torrentcomp_small-9.png}}
+        \caption{}
+        \label{fig:torrent-repr-9}
+    \end{subfigure}
+
+    \caption{simulação de uma transferência torrent: o seeder, na parte
+    inferior das figuras, possui todas as 5 partes de um arquivo, que os outros
+    computadores - os leechers - baixam de forma independente e paralela. Fonte:
+    \cite{fig:torrent-dl}}
+    \label{fig:torrent-repr}
+\end{figure}
+
+Todos esses agentes possuem relações múltiplas entre si. Por exemplo, um mesmo
+\gls*{torrentfile} pode estar indexado por vários sites indexadores. Como veremos
+nos capítulos seguintes, eles contêm uma informação que os identificam unicamente,
+gerando consistência entre esses vários sites de busca. Outra observação a ser feita é
+que um \gls*{peer} pode estar baixando um ou mais \glspl*{torrent} simultaneamente, ou
+seja, participando de vários \glspl*{swarm} ao mesmo tempo. Por fim, em alguns casos,
+um mesmo \gls*{torrent} pode possuir uma grande quantidade de \glspl*{peer}
+participantes, havendo necessidade de dividí-los em vários \glspl*{swarm}, para fins de
+escalabilidade da rede formada.
+
+\begin{figure}[H]
+    \centering
+    \fbox{\includegraphics[width=0.85\textwidth]{universobt.png}}
+    \caption{amostra de uma rede de conexões BitTorrent}
+    \label{fig:torrent-universo}
+\end{figure}
+
+\input{Chapters/chap3/subsec01-arquivo-torrent}
+
+\input{Chapters/chap3/subsec02-magnet-link}

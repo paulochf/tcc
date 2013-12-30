@@ -1,0 +1,36 @@
+%!TEX root = ../../tcc.tex
+
+\subsection*{Funcionamento}
+
+No Kademlia, objetos e nós possuem IDs únicos de 160 bits: enquanto o primeiro utiliza
+o \gls*{hashvalue} de 20 bytes SHA-1 da chave \bverb|info_hash| do \gls*{torrentfile},
+o segundo é um valor aleatório escolhido pelo próprio programa.
+
+Como este \gls*{dht} é construído com base em distâncias entre nós, a função de medida
+escolhida foi
+
+\begin{equation}
+    d(x,y) = x \oplus y
+\end{equation}
+
+pois possui algumas propriedades em comum com a equação de distância euclidiana usual.
+Assim, seguem suas propriedades:
+
+\begin{itemize}
+    \item $d(x,x) = 0$
+    \item $x \neq y$, $d(x,y) > 0$
+    \item simetria: $\forall x,y$, $d(x,y) = d(y,x)$
+    \item desigualdade triangular: $d(x,y) + d(y,z) \geq d(x,z)$. \\
+        Isto vem do fato de $d(x,z) = d(x,y) \oplus d(y,z)$ e que $\forall a \geq 0,
+        \forall b \geq 0 : a + b \geq a \oplus b$
+    \item unidirecionalidade: para um dado ponto $x$ e uma distância $\Delta > 0$,
+        existe exatamente um ponto $y$ tal que $d(x,y) = \Delta$. Isso garante que todas
+        as procuras por uma mesma chave convirjam para um mesmo percurso, independente
+        do ponto de partida.
+\end{itemize}
+
+\input{Chapters/chap3/subsubsec221-estado-nos}
+
+\input{Chapters/chap3/subsubsec222-protocolo}
+
+\input{Chapters/chap3/subsubsec223-comandos}

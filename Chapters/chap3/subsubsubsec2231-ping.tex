@@ -1,0 +1,25 @@
+%!TEX root = ../../tcc.tex
+
+% \newpage
+\subsubsubsection{ping}
+
+É o comando mais simples, que verifica se o nó está online. Possui um único argumento,
+que é uma chave \bverb|id|, que é o ID do nó consultante (na requisição) ou do nó
+consultado (na resposta).
+
+\begin{itemize}
+    \item requisição \\
+        \bverb|d1:ad2:id20:abcdefghij0123456789e1:q4:ping1:t2:aa1:y1:qe|
+        (\gls*{bencode}) \\
+        \sverb|{"t":"aa", "y":"q", "q":"ping", "a":{"id":"abcdefghij0123456789"}}|
+        (\gls*{string})
+
+    \item resposta \\
+        \bverb|d1:rd2:id20:mnopqrstuvwxyz123456e1:t2:aa1:y1:re|
+        (\gls*{bencode}) \\
+        \sverb|{"t":"aa", "y":"r", "r": {"id":"mnopqrstuvwxyz123456"}}|
+        (\gls*{string})
+\end{itemize}
+
+\cfile[label="./third-party/dht/dht.c:2291"]{./Codes/chap3/016-dht-macros.c}
+\cfile[label="./third-party/dht/dht.c:2341"]{./Codes/chap3/017-dht-ping.c}

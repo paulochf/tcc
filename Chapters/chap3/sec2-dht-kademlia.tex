@@ -1,0 +1,54 @@
+%!TEX root = ../../tcc.tex
+
+\newpage
+\section{Tabelas Hash Distribuídas e o Kademlia}
+
+Os \glspl{dht} surgiram quando buscas em \glspl{p2p} não eram eficientes, fosse pelos
+problemas da supercentralização dos sistemas ou pela falta dela, tentando criar uma
+maneira híbrida de buscar e localizar recursos nessas redes.
+
+Existem duas formas de se encontrar objetos: busca e endereçamento. A primeira se baseia
+no casamento de palavras-chave com as das descrições dos objetos, sendo mais amigável
+para um usuário pois não necessita de formas complexas de identificação. Porém, é mais
+difícil de se tornar eficiente, além de precisar conferir também os objetos para saber
+se são o mesmo. As \glspl*{p2p} descentralizadas utilizavam desta abordagem.
+
+A segunda, no entanto, utiliza endereços que possam identificá-los de forma única. Dessa
+forma, um objeto é exclusivamente identificável, sendo possível encontrá-lo
+eficientemente. Contudo, é necessário algum procedimento de se conhecer seu nome único,
+além de ser requerido manter uma estrutura organizada por endereços. Historicamente, as
+\glspl*{p2p} de estrutura centralizada se baseavam neste método.
+
+Uma outra maneira de organizar esses objetos através da rede é de organizar as conexões
+entre os diversos \glspl*{peer}, que acabam formando redes superpostas (\emph{overlay
+networks}), que são redes virtuais que figuram sobre as tradicionais redes IP.
+
+Anteriormente ao BitTorrent, nas \glspl*{p2p} de estrutura centralizada, o servidor
+central tentava conhecer a situação de cada um dos \glspl*{peer} da rede, enviando
+mensagens diretamente a eles. Gerenciar muitos \glspl*{peer} ao mesmo tempo
+sobrecarregava o \emph{hardware} do servidor, ou forçava o seu desligamento. Por outro
+lado, quando a rede tinha estrutura descentralizada, ocorria o fenômeno chamado de
+inundação de mensagens, no qual estas eram repassadas entre \glspl*{peer}
+intermediários até o \gls*{peer} de destino. Esse repasse excessivo acarretava
+sobrecarga de processamento (\emph{overhead}) dos intermediários, além de gerar
+mensagens falso-negativas.
+
+Assim, as \glspl*{p2p} necessitam de funcionalidades eficientes para que um \gls*{peer}
+possa entrar e sair do \emph{overlay}, assim como armazenar objetos e encontrá-los
+(usando endereçamento). Tal eficiência é conseguida através de \glspl{dht}, onde todas
+essas funcionalidades dependem da troca de mensagens eficiente entre \glspl*{peer}.
+
+\begin{figure}[H]
+    \centering
+    \fbox{\includegraphics[width=0.85\textwidth]{graph-dht.png}}
+    %\caption{amostra de uma rede de conexões BitTorrent}
+    %\label{fig:torrent-universo}
+\end{figure}
+
+A funcionalidade do \gls*{dht} passou anos sendo utilizado extraoficialmente à
+especificação do protocolo, quando, enfim, foi adicionada em 2008
+\cite{site:bittorrent-dht}.
+
+\input{Chapters/chap3/subsec21-kademlia}
+
+\input{Chapters/chap3/subsec22-funcionamento}

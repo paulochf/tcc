@@ -1,0 +1,54 @@
+%!TEX root = ../../tcc.tex
+
+\newpage
+\subsubsubsection{find\_node}
+
+Este comando é usado para encontrar as informações do nó dado seu ID. Necessita enviar 2
+argumentos: a chave \bverb|id| e o ID do nó consultante, e a chave \bverb|target| e o ID
+do nó cujas informações o consultante está procurando (ou nó alvo). O nó consultado
+deve responder com a chave \bverb|nodes| contendo uma \gls*{string} com a informação
+compacta do nó alvo ou dos $k$ nós bons (que fizeram contato recentemente) mais
+próximos que estão contidos em sua tabela de roteamento, de 1 ou mais \glspl*{kbucket}.
+
+No artigo do Kademlia \cite{artigo:kademlia}, os autores explicam o funcionamento do
+algoritmo da busca:
+
+\blockquote{O procedimento mais importante que um participante do Kademlia deve realizar
+é encontrar os $k$ nós próximos a um dado ID de nó. Nós chamamos esse procedimento de
+\emph{busca por nós}. Kademlia utiliza de um algoritmo recursivo nas buscas por nós. O
+disparador das buscas começa escolhendo $\alpha$ nós do \gls*{bucket} não-vazio mais
+próximo (ou, se esse \gls*{bucket} tiver menos que $\alpha$ entradas, utiliza desses
+$\alpha$ nós mais próximos que conhece). Então, o disparador envia chamadas \gls*{rpc}
+assíncronas paralelas de comandos \textbf{find\_node} para esses $\alpha$ nós
+escolhidos. $\alpha$ é um parâmetro de concorrência geral ao sistema, assumindo valor
+como 3.
+
+No passo recursivo, o disparador reenvia chamadas a \textbf{find\_node} para os nós que
+conheceu das chamadas \gls*{rpc} passadas. (Esta recursão pode começar antes que todos
+os $\alpha$ nós anteriores tenham respondido). Dos $k$ nós que o disparador concluiu
+serem mais próximos ao alvo, ele pega $\alpha$ que ainda não foram consultados e envia
+chamadas \gls*{rpc} \textbf{find\_node}. Nós que falharem em responder rapidamente são
+desconsiderados até que respondam. Se uma rodada de comandos \textbf{find\_node} não
+retornar algum nó mais próximo do que os nós já conhecidos, o disparador reenvia
+comandos \textbf{find\_node} para todos os $k$ nós mais próximos que ainda não foram
+consultados. A busca termina quando o disparador tiver consultado e obtido respostas de
+todos os $k$ nós mais próximos conhecidos.}
+
+Porém, o Transmission implementa essa busca de forma mais flexível e simples. De início,
+busca o \gls*{bucket} no qual o ID procurado está ou que contém nós mais próximos.
+
+\cfile[label="./third-party/dht/dht.c:2536"]{./Codes/chap3/020-dht-findclosestnodes.c}
+
+A busca do \gls*{bucket} itera sobre a lista ligada de \glspl*{bucket}.
+
+\cfile[label="./third-party/dht/dht.c:129"]{./Codes/chap3/018-dht-structs.c}
+\cfile[label="./third-party/dht/dht.c:464"]{./Codes/chap3/019-dht-findbucket.c}
+
+Caso retorne o \gls*{bucket} mais provável, efetua buscas internas nele. Se ele possuir
+elementos vizinhos anteriores ou posteriores, também busca por nós neles.
+
+\cfile[label="./third-party/dht/dht.c:2523"]{./Codes/chap3/021-dht-bufferclosestnodes.c}
+\cfile[label="./third-party/dht/dht.c:2476"]{./Codes/chap3/022-dht-insertclosestnode.c}
+
+Ao fim da busca, envia a lista de nós que encontrou como resposta à mensagem de
+\bverb|find_node| recebida.
