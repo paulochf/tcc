@@ -16,7 +16,8 @@ Uma mensagem KRPC é um dicionário com 2 chaves comuns a todos os 4 comandos: \
 que especifica o tipo da mensagem, e \bverb|t|, que corresponde ao ID da transação.
 Este é um número binário convertido para \gls*{string}, geralmente formada por 2
 caracteres, possuindo valor até $2^{16}$, e devolvida nas respostas. Isso permite que
-estas se relacionem a múltiplas consultas a um nó.
+estas se relacionem a múltiplas consultas a um nó. Esse ID é chamado de \emph{magic
+\gls{cookie}} (cookie mágico) \cite{wiki:magic-cookie}.
 
 Cada tipo de mensagem possui formatos diferentes entre si, permitindo parâmetros
 adicionais para cada chamada, possuindo as seguintes chaves e seus respectivos valores:
@@ -61,7 +62,7 @@ adicionais para cada chamada, possuindo as seguintes chaves e seus respectivos v
         \end{itemize}
 \end{itemize}
 
-As informações retornadas podem ser sobre \glspl*{peers} ou nós \gls{dht}: enquanto o
+As informações retornadas podem ser sobre \glspl*{peers} ou nós \gls*{dht}: enquanto o
 primeiro é a \enquote{informação compacta de endereço IP/porta} - string de 6 bytes (4
 bytes iniciais para o endereço IP e 2 bytes finais para a porta de comunicação usada)
 -, o segundo é a \enquote{informação compacta de nó} - string de 26 bytes (20 bytes

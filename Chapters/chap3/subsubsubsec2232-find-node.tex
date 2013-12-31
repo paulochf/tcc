@@ -3,15 +3,25 @@
 \newpage
 \subsubsubsection{find\_node}
 
-Este comando é usado para encontrar as informações do nó dado seu ID. Necessita enviar 2
-argumentos: a chave \bverb|id| e o ID do nó consultante, e a chave \bverb|target| e o ID
-do nó cujas informações o consultante está procurando (ou nó alvo). O nó consultado
-deve responder com a chave \bverb|nodes| contendo uma \gls*{string} com a informação
-compacta do nó alvo ou dos $k$ nós bons (que fizeram contato recentemente) mais
-próximos que estão contidos em sua tabela de roteamento, de 1 ou mais \glspl*{kbucket}.
+Este comando, que equivale à mensagem de \bverb|FIND\_NODE| do artigo do Kademlia
+\cite{artigo:kademlia}, é usado para encontrar as informações do nó dado seu ID.
+Necessita enviar 2 argumentos: a chave \bverb|id| e o ID do nó consultante, e a chave
+\bverb|target| e o ID do nó cujas informações o consultante está procurando (ou nó
+alvo).
 
-No artigo do Kademlia \cite{artigo:kademlia}, os autores explicam o funcionamento do
-algoritmo da busca:
+\begin{itemize}
+    \item formato dos argumentos da requisição \\
+        \sverb|{"id":"<IDs dos nós consultantes>", "target":"<ID do nó alvo>"}|
+
+    \item formato da resposta \\
+        \sverb|{"id":"<IDs dos nós consultados>", "nodes":"<info compacta do(s) nó(s)>"}|
+\end{itemize}
+
+O nó consultado deve responder com a chave \bverb|nodes| contendo uma
+\gls*{string} com a informação compacta (6 bytes) do nó alvo ou dos $k$ nós bons (que
+fizeram contato recentemente) mais próximos que estão contidos em sua tabela de
+roteamento, de 1 ou mais \glspl*{kbucket}. O funcionamento do algoritmo da busca é
+explicado no trabalho:
 
 \blockquote{O procedimento mais importante que um participante do Kademlia deve realizar
 é encontrar os $k$ nós próximos a um dado ID de nó. Nós chamamos esse procedimento de
@@ -51,4 +61,18 @@ elementos vizinhos anteriores ou posteriores, também busca por nós neles.
 \cfile[label="./third-party/dht/dht.c:2476"]{./Codes/chap3/022-dht-insertclosestnode.c}
 
 Ao fim da busca, envia a lista de nós que encontrou como resposta à mensagem de
-\bverb|find_node| recebida.
+\bverb|find_node| recebida. Um exemplo de requisição e resposta para este comando é
+
+\begin{itemize}
+    \item requisição \\
+        \bverb|d1:ad2:id20:abcdefghij01234567896:target20:mnopqrstuvwxyz123456e1:q| \\
+        \bverb|9:find_node1:t2:aa1:y1:qe| (\gls*{bencode}) \\
+        \sverb|{"t":"aa", "y":"q", "q":"find_node", "a":{"id":"abcdefghij0123456789",| \\
+        \sverb|"target":"mnopqrstuvwxyz123456"}}| (\gls*{string})
+
+    \item resposta \\
+        \bverb|d1:rd2:id20:0123456789abcdefghij5:nodes9:def456...e1:t2:aa1:y1:re| \\
+        (\gls*{bencode}) \\
+        \sverb|{"t":"aa", "y":"r", "r":{"id":"0123456789abcdefghij", "nodes":| \\
+        \sverb|"def456..."}}| (\gls*{string})
+\end{itemize}

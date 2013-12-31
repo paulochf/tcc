@@ -8,13 +8,13 @@ que é uma chave \bverb|id|, que é o ID do nó consultante (na requisição) ou
 consultado (na resposta).
 
 \begin{itemize}
-    \item requisição \\
+    \item formato da requisição \\
         \bverb|d1:ad2:id20:abcdefghij0123456789e1:q4:ping1:t2:aa1:y1:qe|
         (\gls*{bencode}) \\
         \sverb|{"t":"aa", "y":"q", "q":"ping", "a":{"id":"abcdefghij0123456789"}}|
         (\gls*{string})
 
-    \item resposta \\
+    \item formato da resposta \\
         \bverb|d1:rd2:id20:mnopqrstuvwxyz123456e1:t2:aa1:y1:re|
         (\gls*{bencode}) \\
         \sverb|{"t":"aa", "y":"r", "r": {"id":"mnopqrstuvwxyz123456"}}|

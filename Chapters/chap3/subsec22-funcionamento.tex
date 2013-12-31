@@ -6,15 +6,14 @@ No Kademlia, objetos e nós possuem IDs únicos de 160 bits: enquanto o primeiro
 o \gls*{hashvalue} de 20 bytes SHA-1 da chave \bverb|info_hash| do \gls*{torrentfile},
 o segundo é um valor aleatório escolhido pelo próprio programa.
 
-Como este \gls*{dht} é construído com base em distâncias entre nós, a função de medida
-escolhida foi
+As distâncias entre nós são calculadas usando-se a função de distância
 
 \begin{equation}
     d(x,y) = x \oplus y
 \end{equation}
 
-pois possui algumas propriedades em comum com a equação de distância euclidiana usual.
-Assim, seguem suas propriedades:
+que possui algumas propriedades em comum com a equação de distância euclidiana usual,
+como as seguintes:
 
 \begin{itemize}
     \item $d(x,x) = 0$

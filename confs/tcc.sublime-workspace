@@ -31,39 +31,15 @@
 			"file": "/home/paulo/Arquivos/tcc/mono/bibliografia.bib",
 			"settings":
 			{
-				"buffer_size": 25859,
+				"buffer_size": 26184,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/home/paulo/Arquivos/tcc/mono/Codes/chap3/021-dht-bufferclosestnodes.c",
+			"file": "/home/paulo/Arquivos/tcc/mono/Chapters/chap3/subsec22-funcionamento.tex",
 			"settings":
 			{
-				"buffer_size": 460,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/paulo/Arquivos/tcc/mono/Codes/chap3/022-dht-insertclosestnode.c",
-			"settings":
-			{
-				"buffer_size": 1198,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/paulo/Arquivos/tcc/mono/Codes/chap3/023-dht-sendnodespeers.c",
-			"settings":
-			{
-				"buffer_size": 1887,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/paulo/Arquivos/tcc/mono/Chapters/Chapter3.tex",
-			"settings":
-			{
-				"buffer_size": 47734,
+				"buffer_size": 2053,
 				"line_ending": "Unix"
 			}
 		}
@@ -128,11 +104,45 @@
 	},
 	"file_history":
 	[
+		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/subsubsec221-estado-nos.tex",
+		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/017-dht-ping.c",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/Chapter3.tex",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/subsubsec223-comandos.tex",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/subsec22-funcionamento.tex",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/Chapter3.aux",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/chap3223-comandos.tex",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/sec2-dht-kademlia.tex",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/chap322-funcionamento.tex",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/sec1-busca-info.tex",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/chap311-announce.tex",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/chap310-busca-info.tex",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/sec0-intro.tex",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/chap302-magnet-link.tex",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/chap301-arquivo-torrent.tex",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/chap300-intro.tex",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/chap320-dht-kademlia.tex",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/chap32233-algum.tex",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/chap330-pex.tex",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/chap340-jogo.tex",
+		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/023-dht-sendnodespeers.c",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/chap32232-find-node.tex",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/chap32231-ping.tex",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/chap3222-protocolo.tex",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/chap3221-estado-nos.tex",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/chap321-kademlia.tex",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/chap314-resultados.tex",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/chap32-dht.tex",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/chap313-convencao.tex",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/chap312-scrape.tex",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/chap31-busca-info.tex",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/chap30-intro.tex",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/chap3-0.tex",
+		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/021-dht-bufferclosestnodes.c",
+		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/022-dht-insertclosestnode.c",
 		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/020-dht-findclosestnodes.c",
 		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/019-dht-findbucket.c",
 		"/home/paulo/Arquivos/tcc/mono/bibliografia.bib",
 		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/018-dht-structs.c",
-		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/017-dht-ping.c",
 		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/016-dht-macros.c",
 		"/home/paulo/Arquivos/tcc/mono/tcc.tex",
 		"/home/paulo/.config/sublime-text-3/Packages/Default/Default (Linux).sublime-keymap",
@@ -162,7 +172,6 @@
 		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/008-scrape.c",
 		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/007-scrapestruct.c",
 		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/005-announcestruct.c",
-		"/home/paulo/Arquivos/tcc/mono/Chapters/Chapter3.tex",
 		"/home/paulo/Arquivos/tcc/mono/glossario.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/Chapter8.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/Chapter7.tex",
@@ -222,17 +231,7 @@
 		"/media/paulo/Arquivos/tcc/mono/.latexmkrc",
 		"/home/paulo/.config/sublime-text-3/Packages/User/LaTeXing.sublime-settings",
 		"/media/paulo/Arquivos/tcc/mono/proposta.bib",
-		"/home/paulo/.config/sublime-text-3/Packages/SideBarEnhancements/CHANGELOG",
-		"/media/paulo/Arquivos/tcc/mono/confs/script",
-		"/media/paulo/Arquivos/tcc/mono/confs/sublime/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
-		"/media/paulo/Arquivos/tcc/mono/confs/LaTeX.sublime-build",
-		"/media/paulo/Arquivos/tcc/mono/confs/tcc.sublime-workspace",
-		"/home/paulo/Downloads/monografia/intro.tex",
-		"/home/paulo/Downloads/monografia/monografia.tex",
-		"/media/paulo/Arquivos/tcc/mono/tcc-new.tex",
-		"/media/paulo/Arquivos/tcc/mono/Thesis.cls",
-		"/media/paulo/Arquivos/tcc/mono/tcc-new.pdf",
-		"/home/paulo/.config/sublime-text-3/Packages/LaTeXTools/LaTeX.sublime-build"
+		"/home/paulo/.config/sublime-text-3/Packages/SideBarEnhancements/CHANGELOG"
 	],
 	"find":
 	{
@@ -250,6 +249,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"chap32",
 			"textbf",
 			"bverb",
 			"\\verb",
@@ -376,8 +376,7 @@
 			"site:torrent-spec-wiki",
 			"build",
 			"media",
-			"\\\"([^\\\"]*)\\\"",
-			"site:wiki-"
+			"\\\"([^\\\"]*)\\\""
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -463,7 +462,7 @@
 	"groups":
 	[
 		{
-			"selected": 5,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -479,8 +478,8 @@
 						"selection":
 						[
 							[
-								5385,
-								5385
+								1284,
+								1284
 							]
 						],
 						"settings":
@@ -489,11 +488,11 @@
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
-						"translation.x": 0.0,
-						"translation.y": 2110.0,
+						"translation.x": -0.0,
+						"translation.y": 429.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
@@ -520,10 +519,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 5701.0,
+						"translation.y": 5236.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
@@ -532,15 +531,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 25859,
+						"buffer_size": 26184,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								17813,
+								17813
 							]
 						],
 						"settings":
@@ -550,95 +549,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "/home/paulo/Arquivos/tcc/mono/Codes/chap3/021-dht-bufferclosestnodes.c",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 460,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								333,
-								333
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "/home/paulo/Arquivos/tcc/mono/Codes/chap3/022-dht-insertclosestnode.c",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1198,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								216,
-								216
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 36.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "/home/paulo/Arquivos/tcc/mono/Codes/chap3/023-dht-sendnodespeers.c",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1887,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								456,
-								456
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 7031.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
@@ -651,20 +562,20 @@
 			"sheets":
 			[
 				{
-					"buffer": 6,
-					"file": "/home/paulo/Arquivos/tcc/mono/Chapters/Chapter3.tex",
+					"buffer": 3,
+					"file": "/home/paulo/Arquivos/tcc/mono/Chapters/chap3/subsec22-funcionamento.tex",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 47734,
+						"buffer_size": 2053,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								45614,
-								45614
+								895,
+								895
 							]
 						],
 						"settings":
@@ -674,7 +585,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 12309.0,
+						"translation.y": 78.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -711,7 +622,7 @@
 		"cols":
 		[
 			0.0,
-			0.479874213836,
+			0.5,
 			1.0
 		],
 		"rows":

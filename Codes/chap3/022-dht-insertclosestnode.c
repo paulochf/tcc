@@ -1,6 +1,6 @@
 static int insert_closest_node(unsigned char *nodes, int numnodes, const unsigned char *id,
     struct node *n) {
-    int i, size;
+    int i, size; // variáveis temporárias
 
     (...)
 
