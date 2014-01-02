@@ -3,7 +3,7 @@
 \subsubsection*{Protocolo}
 
 O protocolo de mensagens \gls*{dht} utiliza o formato KRPC, que é um mecanismo de
-chamada \gls{rpc} que envia dicionários \gls*{bencode} através de \gls*{udp}, uma única
+\gls{rpc} que envia dicionários \gls*{bencode} através de \gls*{udp}, uma única
 vez por chamada (um pacote para a requisição, outro para a resposta), sem novas
 tentativas.
 
@@ -22,7 +22,6 @@ estas se relacionem a múltiplas consultas a um nó. Esse ID é chamado de \emph
 Cada tipo de mensagem possui formatos diferentes entre si, permitindo parâmetros
 adicionais para cada chamada, possuindo as seguintes chaves e seus respectivos valores:
 
-\newpage
 \begin{itemize}
     \item \emph{query}
         \begin{itemize}
@@ -68,3 +67,16 @@ bytes iniciais para o endereço IP e 2 bytes finais para a porta de comunicaçã
 -, o segundo é a \enquote{informação compacta de nó} - string de 26 bytes (20 bytes
 iniciais para o ID do nó e 6 bytes finais para a respectiva informação compacta de
 endereço IP/porta).
+
+Os 4 comandos de \emph{query} do \gls*{dht} (\bverb|ping|, \bverb|find_node|,
+\bverb|get_peers| e \bverb|announce_peer|) estão definidos da seguinte forma.
+
+\newpage
+
+\input{Chapters/chap3/subsubsubsec2221-ping}
+
+\input{Chapters/chap3/subsubsubsec2222-find-node}
+
+\input{Chapters/chap3/subsubsubsec2223-get-peers}
+
+\input{Chapters/chap3/subsubsubsec2224-announce-peer}

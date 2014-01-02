@@ -15,7 +15,7 @@
 			"file": "/home/paulo/Arquivos/tcc/mono/tcc.tex",
 			"settings":
 			{
-				"buffer_size": 9017,
+				"buffer_size": 9190,
 				"line_ending": "Unix"
 			}
 		},
@@ -36,26 +36,18 @@
 			}
 		},
 		{
-			"file": "/home/paulo/Arquivos/tcc/mono/Chapters/chap3/subsubsubsec2231-ping.tex",
+			"file": "/home/paulo/Arquivos/tcc/mono/Chapters/chap3/sec-kademlia-total.tex",
 			"settings":
 			{
-				"buffer_size": 907,
+				"buffer_size": 20602,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/home/paulo/Arquivos/tcc/mono/Chapters/chap3/subsubsubsec2232-find-node.tex",
+			"file": "/home/paulo/Arquivos/tcc/mono/Chapters/chap3/subsec21-kademlia.tex",
 			"settings":
 			{
-				"buffer_size": 4166,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/paulo/Arquivos/tcc/mono/Chapters/chap3/subsubsubsec2233-get-peers.tex",
-			"settings":
-			{
-				"buffer_size": 4615,
+				"buffer_size": 2552,
 				"line_ending": "Unix"
 			}
 		}
@@ -122,10 +114,19 @@
 	[
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/subsubsec223-comandos.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/subsubsec222-protocolo.tex",
-		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/023-dht-sendnodespeers.c",
-		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/022-dht-insertclosestnode.c",
-		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/subsec22-funcionamento.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/subsubsec221-estado-nos.tex",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/subsec22-funcionamento.tex",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/subsubsubsec2233-get-peers.tex",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/subsubsubsec2234-announce-peer.tex",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/subsubsubsec2231-ping.tex",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/subsubsubsec2232-find-node.tex",
+		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/023-dht-sendnodespeers.c",
+		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/025-storage-store.c",
+		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/022-dht-insertclosestnode.c",
+		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/021-dht-bufferclosestnodes.c",
+		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/020-dht-sendclosestnodes.c",
+		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/024-dht-periodic.c",
+		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/024-dht-sendnodespeers2.c",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/subsec21-kademlia.tex",
 		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/017-dht-ping.c",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/Chapter3.tex",
@@ -156,7 +157,6 @@
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/chap31-busca-info.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/chap30-intro.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/chap3-0.tex",
-		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/021-dht-bufferclosestnodes.c",
 		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/020-dht-findclosestnodes.c",
 		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/019-dht-findbucket.c",
 		"/home/paulo/Arquivos/tcc/mono/bibliografia.bib",
@@ -239,15 +239,7 @@
 		"/media/paulo/Arquivos/tcc/mono/docs/night_of_the_living_dead_archive (read).torrent",
 		"/media/paulo/Arquivos/tcc/mono/docs/night_of_the_living_dead_archive (code).torrent",
 		"/media/paulo/Arquivos/tcc/mono/docs/night_of_the_living_dead_archive.torrent",
-		"/media/paulo/Arquivos/tcc/mono/Chapters/Chapter7.tex",
-		"/media/paulo/Arquivos/tcc/mono/Chapters/Chapter6.tex",
-		"/media/paulo/Arquivos/tcc/mono/Chapters/Chapter5.tex",
-		"/home/paulo/.config/sublime-text-3/Packages/User/SideBarEnhancements/Open With/Side Bar.sublime-menu",
-		"/media/paulo/Arquivos/tcc/mono/Figures/timelines/p2p.html",
-		"/media/paulo/Arquivos/tcc/mono/tcc.gls",
-		"/media/paulo/Arquivos/tcc/mono/confs/sublime/.config/sublime-text-3/Packages/LaTeXTools/LaTeX.sublime-build",
-		"/media/paulo/Arquivos/tcc/mono/.latexmkrc",
-		"/home/paulo/.config/sublime-text-3/Packages/User/LaTeXing.sublime-settings"
+		"/media/paulo/Arquivos/tcc/mono/Chapters/Chapter7.tex"
 	],
 	"find":
 	{
@@ -265,6 +257,12 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"comandos",
+			"sha",
+			"nat",
+			"\\\"",
+			"resposta",
+			"\\\"",
 			"\\url",
 			"wiki",
 			"rpc",
@@ -386,13 +384,7 @@
 			"columns",
 			"}\n",
 			"begin",
-			"block",
-			"vskip1ex",
-			"\\vskip1ex",
-			"minipa",
-			"mini",
-			"vskip3ex",
-			"insti"
+			"block"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -400,6 +392,8 @@
 		"regex": false,
 		"replace_history":
 		[
+			"\"",
+			"'",
 			"\\\\enquote{\\1}",
 			"\\\\enquote(\\1)",
 			"\\enquote(\\1)",
@@ -478,7 +472,7 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -487,15 +481,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 9017,
+						"buffer_size": 9190,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1284,
-								1284
+								4106,
+								4106
 							]
 						],
 						"settings":
@@ -505,10 +499,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 429.0,
+						"translation.y": 1207.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
@@ -524,8 +518,8 @@
 						"selection":
 						[
 							[
-								19770,
-								19770
+								3821,
+								3821
 							]
 						],
 						"settings":
@@ -535,10 +529,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 5743.0,
+						"translation.y": 956.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
@@ -568,34 +562,48 @@
 						"translation.y": 6763.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 4,
 					"type": "text"
 				}
 			]
 		},
 		{
-			"selected": 2,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 3,
-					"file": "/home/paulo/Arquivos/tcc/mono/Chapters/chap3/subsubsubsec2231-ping.tex",
+					"file": "/home/paulo/Arquivos/tcc/mono/Chapters/chap3/sec-kademlia-total.tex",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 907,
+						"buffer_size": 20602,
 						"regions":
 						{
+							"TagLint":
+							{
+								"flags": 52,
+								"icon": "dot",
+								"regions":
+								[
+									[
+										10668,
+										10694
+									]
+								],
+								"scope": "variable.parameter"
+							}
 						},
 						"selection":
 						[
 							[
-								293,
-								293
+								0,
+								0
 							]
 						],
 						"settings":
 						{
+							"is_xml": false,
 							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
@@ -604,57 +612,31 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "/home/paulo/Arquivos/tcc/mono/Chapters/chap3/subsubsubsec2232-find-node.tex",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4166,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								4166,
-								4166
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 741.0,
-						"zoom_level": 1.0
-					},
 					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
-					"file": "/home/paulo/Arquivos/tcc/mono/Chapters/chap3/subsubsubsec2233-get-peers.tex",
+					"buffer": 4,
+					"file": "/home/paulo/Arquivos/tcc/mono/Chapters/chap3/subsec21-kademlia.tex",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4615,
+						"buffer_size": 2552,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1062,
-								1062
+								1376,
+								1376
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -694,7 +676,7 @@
 		"cols":
 		[
 			0.0,
-			0.5,
+			0.510344827586,
 			1.0
 		],
 		"rows":
@@ -736,11 +718,11 @@
 	},
 	"select_symbol":
 	{
-		"height": 0.0,
+		"height": 314.0,
 		"selected_items":
 		[
 		],
-		"width": 0.0
+		"width": 314.0
 	},
 	"settings":
 	{
