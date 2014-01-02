@@ -1,22 +1,22 @@
 %% -------------------------------------------------------------------------------------
 %% tcc.tex -- MAIN FILE
 %% -------------------------------------------------------------------------------------
-\documentclass[a4paper,12pt,oneside,brazil]{book}
+\documentclass[a4paper,12pt,oneside]{book}
 
 %% -------------------------------------------------------------------------------------
 %% PACKAGES
 %% -------------------------------------------------------------------------------------
 
-\usepackage[brazil]{babel}
-\usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[brazilian]{babel}
 
 % Cor
 \usepackage[table,dvipsnames]{xcolor}
 
+\usepackage{csquotes}                               % aspas espertas
 \usepackage[font={small,it},labelfont=bf]{caption}  % \begin{caption}
 \usepackage{subcaption}                             % \begin{subfigure}
-\usepackage{csquotes}                               % requerido por {babel}
 \usepackage{graphicx}                               % \includegraphics
 \usepackage{verbatim}                               % \begin{comment}
 \usepackage{fullpage}                               % margens menores
@@ -115,6 +115,14 @@
 {\end{lrbox}\colorbox{gray!30}{\box\verbbox}}
 
 \newverbcommand{\sverb}{\color{Bittersweet}}{}
+
+\newenvironment{cverbatim}
+    {\SaveVerbatim{cverb}}
+    {\endSaveVerbatim
+    \flushleft\fboxrule=0pt\fboxsep=.5em
+    \colorbox{gray!30}{\BUseVerbatim{cverb}}%
+    \endflushleft
+}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Do manual do todonote
