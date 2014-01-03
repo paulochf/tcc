@@ -4,7 +4,7 @@
 
 O último comando é o da mensagem \bverb|STORE|, pelo qual um nó avisa outros que está
 baixando um \gls*{torrentfile}, passando 4 argumentos: o ID do nó consultante como
-valor da chave \bverb|id|, o \gls*{hashvalue} identificador do \gls*{torrentfile} na
+valor da chave \bverb|id|, o \gls*{hashvalue} identificador do \gls*{torrent} na
 chave \bverb|info_hash|, \bverb|port| contém um número inteiro de porta, e o
 \bverb|token| recebido como resposta de uma mensagem \bverb|get_peers| anterior. O nó
 consultado deve verificar que esse token foi enviado anteriormente para o mesmo endereço
@@ -19,10 +19,13 @@ suas portas externas, e que suportam uTP, aceitando conexões na mesma porta que
 \gls*{dht}.
 
 O token tem papel fundamental para a segurança neste comando, pois serve para prevenir
-que um \gls*{peer} malicioso registre outros \glspl*{peer} para um \gls*{torrenfile}.
-No BitTorrent, esse token é a \gls*{string} do \gls*{hashvalue} SHA-1 do endereço IP
+que um \gls*{peer} malicioso registre outros \glspl*{peer} para um \gls*{torrent}. No
+BitTorrent, esse token é a \gls*{string} do \gls*{hashvalue} SHA-1 do endereço IP
 concatenado a uma chave secreta, criada pelo programa cliente, que varia a cada 5
 minutos e são aceitos até 10 minutos depois de serem criados.
+
+Para armazenar um valor sob uma chave, um nó busca os $k$ nós mais próximos a ela
+(usando \emph{lookup} de nós) e envia o comando \bverb|announce_peer|.
 
 \newpage
 \begin{itemize}

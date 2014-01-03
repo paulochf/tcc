@@ -1,0 +1,40 @@
+%!TEX root = ../../tcc.tex
+
+\subsubsection*{Entrada na rede e manutenção}
+
+Um nó que queira se juntar à rede deve se preparar, numa fase que é chamada de
+\gls{bootstrap}.
+
+No início dessa fase, o novo nó deve conhecer o endereço IP e a porta de outro nó que
+já esteja dentro da rede Kademlia, chamado de \gls*{bootstrap} \emph{node} (nó de
+\gls*{bootstrap}). Caso não esteja, um ID ainda não utilizado é computado e será usado
+até que esse nó saia da rede.
+
+Feito isso, o novo nó adiciona o nó de \gls*{bootstrap} em um de seus \glspl*{kbucket}
+e inicia uma consulta \bverb|FIND_NODE| em si mesmo. Isso faz com que \glspl*{kbuckets}
+em outros nós sejam populados com o novo ID, assim como os \glspl*{kbuckets} do novo nó
+será preenchido com os nós entre ele e o nó de \gls*{bootstrap}. Em seguida, o novo
+nó atualiza todos os \glspl*{kbuckets} mais distantes que o do nó de \gls*{bootstrap},
+para procurar por uma chave aleatória que está nesse intervalo.
+
+Vale notar que os \glspl*{bucket} são sempre mantidos atualizados, devido ao grande
+número de mensagens que viajam pelos nós. Para evitar problemas quando não houver esse
+tráfego constante, cada nó deverá atualizar um \gls*{bucket} em que não tiver feito um
+\emph{lookup} de nó na última 1 hora. Assim, deverá escolher um ID aleatório do
+intervalo correspondente e efetuar uma busca por esse ID.
+
+Durante todo esse processo pode haver separação de \glspl*{kbucket}. Inicialmente, nós
+possuem somente um \gls*{kbucket}, que eventualmente ficarão cheios, quando serão
+divididos. Essa divisão ocorre sempre que o intervalo de nós em um \gls*{kbucket}
+incluir o ID do prório nó. Nesse caso, 2 novos \glspl*{bucket} são criados, onde o
+conteúdo do anterior é dividido entre ambos, e ocorre uma nova tentativa de inserção. Se
+falhar novamente, o novo contato é descartado.
+
+Além dessa divisão normal, pode ocorrer de árvores muito desbalanceadas atrapalharem a
+notificação de um novo nó. Supondo que um nó esteja entrando na rede que já possui mais
+do que $k$ nós com o mesmo prefixo, estes conseguirão adicioná-lo à suas respectivas
+tabelas num \gls*{bucket} apropriado, porém o novo nó só conseguirá adicionar $k$ nós à
+sua tabela. Para evitar isso, os nós mantém todos os contatos válidos numa subárvore de
+tamanho $\geq k$, mesmo que deva dividir \glspl*{bucket} que não contenham o próprio
+ID. Assim, quando o novo nó dividir \glspl*{bucket}, todos os nós de mesmo prefixo
+saberão de sua existência.

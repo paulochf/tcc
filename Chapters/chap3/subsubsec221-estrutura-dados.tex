@@ -1,6 +1,6 @@
 %!TEX root = ../../tcc.tex
 
-\subsubsection*{Estrutura de dados}
+\subsubsection*{Modelagem e estrutura de dados}
 
 O algoritmo implementa uma rede \emph{overlay} cuja estrutura e comunicação se baseiam
 na procura de seus nós. Cada um destes nós é identificado por um identificador único
@@ -66,3 +66,10 @@ que possui algumas propriedades em comum com a equação de distância euclidian
         as procuras por uma mesma chave convirjam para um mesmo percurso, independente
         do ponto de partida.
 \end{itemize}
+
+No Transmission, o Kademlia é usado a partir de uma biblioteca externa (não mantida
+pelos seus desenvolvedores) criada por Juliusz Chroboczek \cite{repo:dht-c}, sendo
+adicionada e adaptada para o uso no código do programa. Sua implementação não é na forma
+de árvore, mas sim de listas ligadas.
+
+\cfile[label="./third-party/dht/dht.c:129"]{./Codes/chap3/018-dht-structs.c}
