@@ -1,6 +1,6 @@
 %!TEX root = ../../tcc.tex
 
-\subsubsection*{Entrada na rede e manutenção}
+\subsubsection*{Entrada e saída na rede e manutenção}
 
 Um nó que queira se juntar à rede deve se preparar, numa fase que é chamada de
 \gls{bootstrap}.
@@ -38,3 +38,9 @@ sua tabela. Para evitar isso, os nós mantém todos os contatos válidos numa su
 tamanho $\geq k$, mesmo que deva dividir \glspl*{bucket} que não contenham o próprio
 ID. Assim, quando o novo nó dividir \glspl*{bucket}, todos os nós de mesmo prefixo
 saberão de sua existência.
+
+Do Transmission, vale destacar que quando ele efetua a saída da rede, ele salva a tabela
+de nós num arquivo \sverb|dht.bootstrap|, cujos \glspl*{peer} salvos serão utilizados na
+fase de \gls*{bootstrap} do próximo início do \gls*{dht}. Caso esse arquivos não exista
+ou não tenha sido suficiente, o programa utilizará \glspl*{peer} fornecidos pelo
+\gls*{dht} ``oficial'', localizado no endereço \url{dht.transmissionbt.com:6881}.
