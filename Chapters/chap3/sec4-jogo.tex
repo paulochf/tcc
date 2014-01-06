@@ -1,7 +1,85 @@
 %!TEX root = ../../tcc.tex
 
+\newpage
 \section{Jogo da troca de arquivos}
 \label{sec:titfortat}
 
-Explicarei o algoritmo tit-for-tat padrão do protocolo BitTorrent, que vem da Teoria
-dos Jogos, e como o Transmission o implementa.
+Nesta altura do processo de download de um \gls*{torrent}, o Transmission já realizou
+muitos procedimentos. Tudo começou com a adição de um \gls*{torrentfile} ao programa,
+que leu seus dados e identificou os endereços de \glspl*{tracker}; então, entrou em
+contato com eles, que respondeu com uma lista de \glspl*{peer} que já estão no
+\gls*{swarm}. Ou seja, até agora, não foi baixado nenhum byte sequer do arquivo contido
+no pacote do \gls*{torrent}.
+
+Nesta seção, mostraremos o protocolo de mensagens para trocas de arquivos entre esses
+\glspl*{peer} dessa lista e os algoritmos do BitTorrent dessas trocas.
+
+\subsection*{Estados dos nós e informações}
+
+Existem 2 características independentes que formam as possibilidades de estados que um
+\gls*{peer} pode assumir enquanto participa de um \gls*{swarm}:
+
+\begin{itemize}
+    \item \emph{choking} (estrangulamento): se um \gls*{peer} \textbf{A} estrangulará a
+        conexão com outro \gls*{peer} \textbf{B} (\emph{choked}) ou a deixará normal
+        (\emph{unchoked}).
+
+    \item \emph{interest} (interesse): se um \gls*{peer} \textbf{A} terá interesse em
+        um \gls*{peer} \textbf{B} (\emph{interested}) ou não (\emph{not interested})
+\end{itemize}
+
+Uma nova conexão entre \glspl*{peer} inicia em \emph{choked} e \emph{not interested} em
+ambos os sentidos, ou seja, com \textbf{A} e \textbf{B} estrangulando suas conexões
+mutuamente e sem interesse no outro. Esses estados ditarão todas as estratégias de troca
+de partes entre \glspl*{peer}.
+
+Outra informação utilizada é o \emph{bitfield}, que é um mapa de bits onde cada bit
+representa uma parte que o \gls*{peer} já possui.
+
+\subsection*{Mensagens}
+
+O protocolo é definido por 12 mensagens e 2 tipos de assinaturas. Essas mensagens são
+enviadas entre \glspl*{peer} e serve para estes tomarem conhecimento da situação de
+download de um \gls*{torrent}.
+
+\subsubsection*{handshake}
+
+O \emph{handshake} (aperto de mãos) é a primeira mensagem a ser enviada por um
+\gls*{peer} que recém-chegado à rede. Seu formato é compacto e segue a seguinte
+assinatura
+
+\bverb|<pstrlen><pstr><reserved><info_hash><peer_id>|
+
+\begin{itemize}
+    \item \bverb|<pstrlen>|: comprimento da string \bverb|<pstr>|, representado por 1
+        byte
+
+    \item \bverb|<pstr>|: \gls*{string} identificadora do protocolo
+
+    \item \bverb|<reserved>|: seção de 8 bytes reservados para a habilitação de
+        funcionalidades extras do protocolo
+        \todo[inline]{parei aqui}
+
+    \item \bverb|<info\_hash>|:
+
+    \item \bverb|<peer\_id>|:
+\end{itemize}
+
+reserved: eight (8) reserved bytes. All current implementations use all zeroes. Each bit in these bytes can be used to change the behavior of the protocol. An email from Bram suggests that trailing bits should be used first, so that leading bits may be used to change the meaning of trailing bits.
+info_hash: 20-byte SHA1 hash of the info key in the metainfo file. This is the same info_hash that is transmitted in tracker requests.
+peer_id: 20-byte string used as a unique ID for the client. This is usually the same peer_id that is transmitted in tracker requests (but not always e.g. an anonymity option in Azureus).
+
+\subsubsection*{keep-alive}
+\subsubsection*{choke}
+\subsubsection*{unchoke}
+\subsubsection*{interested}
+\subsubsection*{not interested}
+\subsubsection*{have}
+\subsubsection*{bitfield}
+\subsubsection*{request}
+\subsubsection*{piece}
+\subsubsection*{cancel}
+\subsubsection*{port}
+
+
+\subsection*{Algoritmos}

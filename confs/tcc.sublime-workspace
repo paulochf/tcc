@@ -31,15 +31,15 @@
 			"file": "/home/paulo/Arquivos/tcc/mono/bibliografia.bib",
 			"settings":
 			{
-				"buffer_size": 26626,
+				"buffer_size": 27232,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/home/paulo/Arquivos/tcc/mono/Chapters/chap3/sec2-dht-kademlia.tex",
+			"file": "/home/paulo/Arquivos/tcc/mono/Chapters/chap3/sec4-jogo.tex",
 			"settings":
 			{
-				"buffer_size": 2842,
+				"buffer_size": 224,
 				"line_ending": "Unix"
 			}
 		}
@@ -104,16 +104,22 @@
 	},
 	"file_history":
 	[
+		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/sec3-pex.tex",
+		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/026-send-pex.c",
+		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/027-parse-pex.c",
+		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/014-addpex.c",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/subsubsubsec2221-ping.tex",
+		"/home/paulo/Área de Trabalho/teste.c",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/subsubsec225-otimizacoes.tex",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/sec2-dht-kademlia.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/subsubsubsec2224-announce-peer.tex",
 		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/026-dht-periodic2.c",
-		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/subsubsec225-otimizacoes.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/subsubsec223-protocolo.tex",
 		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/023-dht-sendnodespeers.c",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/subsubsec224-entrada-rede-manutencao.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/subsec21-kademlia.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/subsubsec222-tabela-roteamento.tex",
 		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/024-dht-periodic.c",
-		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/subsubsubsec2221-ping.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/subsubsec221-estrutura-dados.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/subsubsubsec2222-find-node.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/sec0-intro.tex",
@@ -135,7 +141,6 @@
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/subsec22-funcionamento.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/subsec23-funcionamento.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/sec-kademlia-total-novo.tex",
-		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/sec2-dht-kademlia.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/subsubsec223-comandos.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/subsubsubsec2231-ping.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/subsubsubsec2232-find-node.tex",
@@ -200,7 +205,6 @@
 		"/home/paulo/Arquivos/tcc/mono/Chapters/Chapter4.tex",
 		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/013-ontrackerresponse.c",
 		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/015-verificapeer.c",
-		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/014-addpex.c",
 		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/012-publicapeers.c",
 		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/006-announce.c",
 		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/008-scrape.c",
@@ -227,11 +231,7 @@
 		"/home/paulo/Downloads/poster/beamerthemeposter-exemplo.sty",
 		"/home/paulo/Arquivos/tcc/mono/poster/beamerthemeI6pd2.sty",
 		"/home/paulo/Arquivos/tcc/mono/.gitignore",
-		"/home/paulo/Arquivos/tcc/mono/.latexmkrc",
-		"/home/paulo/Arquivos/tcc/mono/Makefile",
-		"/home/paulo/Arquivos/tcc/mono/poster/poster-surf.tex",
-		"/home/paulo/Arquivos/tcc/mono/poster/Makefile",
-		"/home/paulo/Arquivos/tcc/mono/confs/sublime/.config/sublime-text-3/Packages/User/Preferences.sublime-settings"
+		"/home/paulo/Arquivos/tcc/mono/.latexmkrc"
 	],
 	"find":
 	{
@@ -249,6 +249,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"wiki.theo",
+			"bittorrent.org",
 			"comandos",
 			"sha",
 			"nat",
@@ -374,9 +376,7 @@
 			" )",
 			"innercol",
 			"columns",
-			"}\n",
-			"begin",
-			"block"
+			"}\n"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -480,8 +480,8 @@
 						"selection":
 						[
 							[
-								4106,
-								4106
+								4383,
+								4383
 							]
 						],
 						"settings":
@@ -491,10 +491,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1207.0,
+						"translation.y": 1480.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
@@ -521,10 +521,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 5636.0,
+						"translation.y": 5614.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
@@ -533,15 +533,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 26626,
+						"buffer_size": 27232,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								18993,
-								18993
+								19425,
+								19425
 							]
 						],
 						"settings":
@@ -551,7 +551,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 7358.0,
+						"translation.y": 7891.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
@@ -565,19 +565,19 @@
 			[
 				{
 					"buffer": 3,
-					"file": "/home/paulo/Arquivos/tcc/mono/Chapters/chap3/sec2-dht-kademlia.tex",
+					"file": "/home/paulo/Arquivos/tcc/mono/Chapters/chap3/sec4-jogo.tex",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2842,
+						"buffer_size": 224,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2842,
-								2842
+								173,
+								173
 							]
 						],
 						"settings":
@@ -585,7 +585,7 @@
 							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 429.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -677,7 +677,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 234.0,
+	"side_bar_width": 194.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

@@ -2,6 +2,41 @@
 
 \section{Peer Exchange}
 
-\todo[inline]{Funciona somente no \gls*{swarm}!}
+Outro mecanismo que um \gls*{peer} dentro da rede BitTorrent tem de encontrar outros
+\glspl*{peer} além do \gls*{dht} é usando o protocolo PEX (\emph{Peer Exchange}, ou
+troca de \glspl*{peer}). Ele permite enviar mensagens periodicamente para outros
+membros do \gls*{swarm} contendo listas de \glspl*{peer} adicionados e \glspl*{peer}
+removidos de sua lista de contatos, agilizando o processo de descobrimento de nós da
+rede. Apesar disso, não é necessário para o funcionamento de uma transmissão BitTorrent,
+sendo de uso opcional, onde o usuário do programa cliente pode escolher utilizar esse
+método habilitando-o em suas configurações.
 
-\todo[inline]{Explicar a funcionalidade de PEX}
+Este mecanismo faz parte das extensões do protocolo BitTorrent
+\cite{site:bittorrent-extension}, porém ainda não é oficial, mesmo possuindo
+especificações de mensagem, sua definição mais forte é uma convenção
+\cite{wikitheory:pex}.
+
+Existem 2 protocolos de extensão: o \emph{Azureus Messaging Protocol} (AZMP) e o
+\emph{libtorrent Extension Protocol} (LTEP). Em ambos os casos, a convenção estabelece
+que:
+
+\begin{itemize}
+    \item no máximo 100 \glspl*{peer} podem ser enviados numa mesma mensagem (50
+        adicionados e 50 removidos).
+    \item uma mensagem de \emph{peer exchange} não deve ser enviada com frequência maior
+        do que 1 minuto.
+\end{itemize}
+
+No Transmission, quando o seu uso é habilitado pelo seu usuário, o programa executa
+periodicamente uma função de envio de mensagem PEX, quando um \gls*{peer} se conecta a
+ele ou quando recebe um pedido de mensagem PEX.
+
+\cfile[label="./libtransmission/peer-msgs.c:2280"]{./Codes/chap3/026-send-pex.c}
+
+Já quando o Transmission recebe uma mensagem PEX, ele só utiliza os endereços de
+\glspl*{peer} adicionados, ignorando os que o \gls*{peer} remetente enviou na lista de
+removidos.
+
+\cfile[label="./libtransmission/peer-msgs.c:1159"]{./Codes/chap3/027-parse-pex.c}
+
+\todoquestion{Tudo bem deixar deste jeito?}
