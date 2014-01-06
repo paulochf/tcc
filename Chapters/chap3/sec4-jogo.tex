@@ -40,45 +40,116 @@ representa uma parte que o \gls*{peer} já possui.
 
 O protocolo é definido por 12 mensagens e 2 tipos de assinaturas. Essas mensagens são
 enviadas entre \glspl*{peer} e serve para estes tomarem conhecimento da situação de
-download de um \gls*{torrent}.
+download de um \gls*{torrent}. A primeira assinatura é exclusiva da mensagem de
+handshake, enquanto todas as outras seguem o mesmo padrão.
+
+Para a mensagem de \emph{handshake}, a assinatura da mensagem é
+
+\bverb|<comprimento do header><header><bytes reservados><info_hash><peer_id>|
+
+Já para as outras mensagens, a assinatura é
+
+\bverb|<prefixo de tamanho><ID da mensagem><dados>|
 
 \subsubsection*{handshake}
 
 O \emph{handshake} (aperto de mãos) é a primeira mensagem a ser enviada por um
-\gls*{peer} que recém-chegado à rede. Seu formato é compacto e segue a seguinte
-assinatura
-
-\bverb|<pstrlen><pstr><reserved><info_hash><peer_id>|
+\gls*{peer} que recém-chegado à rede.
 
 \begin{itemize}
-    \item \bverb|<pstrlen>|: comprimento da string \bverb|<pstr>|, representado por 1
-        byte
+    \item \bverb|<comprimento do header>|: comprimento da string \bverb|<header>|,
+        representado em binário por 1 byte. O comprimento oficial é 19.
 
-    \item \bverb|<pstr>|: \gls*{string} identificadora do protocolo
+    \item \bverb|<header>|: \gls*{string} identificadora do protocolo. Na versão 1.0 do
+        protocolo BitTorrent, a \gls*{string} oficial é \sverb|BitTorrent protocol|.
 
-    \item \bverb|<reserved>|: seção de 8 bytes reservados para a habilitação de
-        funcionalidades extras do protocolo
-        \todo[inline]{parei aqui}
+    \item \bverb|<bytes reservados>|: seção de 8 bytes (= 64 bits) reservados para a
+        habilitação de funcionalidades extras do protocolo. Um e-mail enviado pelo
+        criador do BitTorrent Bram Cohen \cite{wikitheory:reserved-bytes} sugere que os
+        bits menos significativos sejam usados primeiro, para que os mais significativos
+        possam ser usados para alterar o significado dos bits finais. A implementação de
+        cada uma das funcionalidades não-oficiais depende do programa cliente. A tabela
+        abaixo mostra os bits e seus respectivos usos, oficiais (*) ou não-oficiais.
 
-    \item \bverb|<info\_hash>|:
+        \begin{center}
+            \begin{tabular}{ | c | c |}
+            \hline
+            \textbf{Bit} & \textbf{Uso}                         \\ \hline
+            1       & Azureus Extended Messaging                \\ \hline
+            1-16    & BitComet Extension protocol               \\ \hline
+            21      & BitTorrent Location-aware Protocol 1.0    \\ \hline
+            44      & Extension protocol                        \\ \hline
+            47-48   & Extension Negotiation Protocol            \\ \hline
+            61      & NAT Traversal                             \\ \hline
+            62      & Fast Peers*                               \\ \hline
+            63      & XBT Peer Exchange                         \\ \hline
+            64      & DHT* ou XBT Metadata Exchange             \\ \hline
+            \end{tabular}
+        \end{center}
 
-    \item \bverb|<peer\_id>|:
+    \item \bverb|<info\_hash>|: o ID do \gls*{torrent}, que é a \gls*{string}
+        \gls*{hashvalue} de 20 bytes resultante da \gls*{hashfunction} SHA-1, com
+        \gls*{urlencode}, do valor da chave \bverb|info| do arquivo \gls*{torrentfile};
+
+    \item \bverb|<peer\_id>|: ID único do cliente, que é uma \gls*{string} de 20 bytes,
+        geralmente sendo o mesmo valor \bverb|peer_id| enviado nas requisições ao
+        \gls*{tracker}, prefixado pelas informações como o nome do programa cliente e a
+        sua versão. Por exemplo, o Transmission envia o prefixo \sverb|-TR2820-...|
 \end{itemize}
 
-reserved: eight (8) reserved bytes. All current implementations use all zeroes. Each bit in these bytes can be used to change the behavior of the protocol. An email from Bram suggests that trailing bits should be used first, so that leading bits may be used to change the meaning of trailing bits.
-info_hash: 20-byte SHA1 hash of the info key in the metainfo file. This is the same info_hash that is transmitted in tracker requests.
-peer_id: 20-byte string used as a unique ID for the client. This is usually the same peer_id that is transmitted in tracker requests (but not always e.g. an anonymity option in Azureus).
+Esse mensagem é enviada imediatamente pelo \gls*{peer} que inicia uma conexão. O
+receptor deve responder, assim que ver o ID do \gls*{torrent} na seção de
+\bverb|info_hash| da mensagem, com o seu \bverb|peer_id|. A conexão deve ser fechada em
+dois casos: pelo receptor, se ele receber a mensagem para um ID de \gls*{torrent}
+desconhecido para si, ou pelo iniciador, caso o \bverb|peer_id| recebido como resposta
+seja diferente daquele indicado na lista de \glspl*{peer} recebida do \gls*{dht}.
 
 \subsubsection*{keep-alive}
+
+A mensagem de \emph{keep-alive} (``mantenha viva'' em português literal) serve para
+manter uma conexão aberta caso nenhuma outra mensagem seja enviada num período de tempo
+(geralmente, 2 minutos).
+
+Assim como as outras mensagens, esta mensagem usa a assinatura
+\bverb|<prefixo de tamanho><ID da mensagem><dados>|.
+
+\begin{itemize}
+    \item \bverb|<prefixo de tamanho>|: valor de 4 bytes em \emph{big} \gls{endian}
+
+    \item \bverb|<ID da mensagem>|: decimal de 1 byte
+
+    \item \bverb|<dados>|: dados a serem enviados ao outro \gls*{peer}, dependente da
+        mensagem
+\end{itemize}
+
+Porém, não possui ID da mensagem nem dados a serem enviados, possuindo tamanho 0.
+
 \subsubsection*{choke}
+choke: <len=0001><id=0>
+The choke message is fixed-length and has no payload.
+
 \subsubsection*{unchoke}
+unchoke: <len=0001><id=1>
+The unchoke message is fixed-length and has no payload.
+
 \subsubsection*{interested}
+interested: <len=0001><id=2>
+The interested message is fixed-length and has no payload.
+
 \subsubsection*{not interested}
+not interested: <len=0001><id=3>
+The not interested message is fixed-length and has no payload.
+
 \subsubsection*{have}
+
 \subsubsection*{bitfield}
+
 \subsubsection*{request}
+
 \subsubsection*{piece}
+
 \subsubsection*{cancel}
+
 \subsubsection*{port}
 
 
