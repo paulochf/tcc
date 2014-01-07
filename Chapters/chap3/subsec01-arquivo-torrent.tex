@@ -138,3 +138,47 @@ Esse conteúdo tem significado, sendo utilizado da seguinte forma
     binária truncada}
     \label{lst:torrent-file-code}
 \end{listing}
+
+\todo[inline]{adicionei isso aqui, revisar}
+Neste arquivo, muitas informações estão contidas:
+
+\begin{itemize}
+    \item \textbf{announce}: são os endereços de \glspl*{tracker}, que irão informar
+        listas de \glspl*{peer} para os novos nós
+
+    \item \textbf{info}: possui lista de um ou mais arquivos que o \gls*{torrent} contém
+
+    \item \textbf{pieces}: é a quantidade de partes que um arquivo possui
+
+    \item \textbf{piece\_length}: quantidade de bytes que a respectiva parte terá
+\end{itemize}
+
+\subsubsection*{Partes}
+\label{subsec:partes}
+
+A quantidade de partes e seus tamanhos dependem do tamanho total de dados de um
+\gls*{torrent}. De tamanhos geralmente sendo potências de 2, as partes têm esse tamanho
+escolhido de forma a se otimizar o processo de transferência: partes muito grandes
+causariam ineficiência de banda de rede, enquanto tamanhos muito pequenos gerariam
+trechos de \glspl*{hashvalue} muito extensos num \gls*{torrentfile}, aumentando seu
+tamanho.
+
+Todas as partes possuem tamanhos iguais, exceto pela parte final, que pode ser menor.
+No caso de um \gls*{torrent} de múltiplos arquivos, para efeito de divisão em partes, é
+considerado como um único arquivo contíguo, composto da concatenação de todos esses
+arquivos na ordem que forem listados no \gls*{torrentfile}. Dessa forma, é possivel com
+que uma parte contenha o final de um desses arquivos e o início do arquivo seguinte. A
+quantidade de partes, em ambos os casos (arquivo único ou múltiplos arquivos), é dada
+por $\lceil (tamanho total / tamanho das partes) \rceil$.
+
+De toda essa essa sequência de partes, existirá uma sequência de \glspl*{hashvalue}
+SHA-1 de seus dados, formando uma grande \gls*{string} de um único \glspl*{hashvalue},
+que é colocado como valor da chave \bverb|info| do dicionário de dados do
+\gls*{torrentfile}.
+
+Historicamente, os tamanhos das partes eram escolhidos a fim de gerar
+\glspl*{torrentfile} entre 50kB e 75kB. Atualmente, é preferido manter tamanhos das
+partes em até 512kB para \glspl*{torrent} de dados entre 8GB e 10GB. Por terem maior
+quantidade de dados, distribuir essa grande quantidade de bytes em poucas partes faz com
+que o \gls*{swarm} seja mais eficiente. Os tamanhos das partes mais utilizados são de
+256kB, 512kB e 1MB.

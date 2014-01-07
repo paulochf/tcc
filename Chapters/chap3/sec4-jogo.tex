@@ -43,15 +43,9 @@ enviadas entre \glspl*{peer} e serve para estes tomarem conhecimento da situaç�
 download de um \gls*{torrent}. A primeira assinatura é exclusiva da mensagem de
 handshake, enquanto todas as outras seguem o mesmo padrão.
 
-Para a mensagem de \emph{handshake}, a assinatura da mensagem é
-
-\bverb|<comprimento do header><header><bytes reservados><info_hash><peer_id>|
-
-Já para as outras mensagens, a assinatura é
-
-\bverb|<prefixo de tamanho><ID da mensagem><dados>|
-
 \subsubsection*{handshake}
+
+assinatura: \bverb|<comprimento do header><header><bytes reservados><info_hash><peer_id>|
 
 O \emph{handshake} (aperto de mãos) é a primeira mensagem a ser enviada por um
 \gls*{peer} que recém-chegado à rede.
@@ -87,11 +81,11 @@ O \emph{handshake} (aperto de mãos) é a primeira mensagem a ser enviada por um
             \end{tabular}
         \end{center}
 
-    \item \bverb|<info\_hash>|: o ID do \gls*{torrent}, que é a \gls*{string}
+    \item \bverb|<info_hash>|: o ID do \gls*{torrent}, que é a \gls*{string}
         \gls*{hashvalue} de 20 bytes resultante da \gls*{hashfunction} SHA-1, com
         \gls*{urlencode}, do valor da chave \bverb|info| do arquivo \gls*{torrentfile};
 
-    \item \bverb|<peer\_id>|: ID único do cliente, que é uma \gls*{string} de 20 bytes,
+    \item \bverb|<peer_id>|: ID único do cliente, que é uma \gls*{string} de 20 bytes,
         geralmente sendo o mesmo valor \bverb|peer_id| enviado nas requisições ao
         \gls*{tracker}, prefixado pelas informações como o nome do programa cliente e a
         sua versão. Por exemplo, o Transmission envia o prefixo \sverb|-TR2820-...|
@@ -105,6 +99,8 @@ desconhecido para si, ou pelo iniciador, caso o \bverb|peer_id| recebido como re
 seja diferente daquele indicado na lista de \glspl*{peer} recebida do \gls*{dht}.
 
 \subsubsection*{keep-alive}
+
+assinatura: \bverb|<prefixo de tamanho=0000>|
 
 A mensagem de \emph{keep-alive} (``mantenha viva'' em português literal) serve para
 manter uma conexão aberta caso nenhuma outra mensagem seja enviada num período de tempo
@@ -124,27 +120,69 @@ Assim como as outras mensagens, esta mensagem usa a assinatura
 
 Porém, não possui ID da mensagem nem dados a serem enviados, possuindo tamanho 0.
 
-\subsubsection*{choke}
-choke: <len=0001><id=0>
-The choke message is fixed-length and has no payload.
+\subsubsection*{choke e unchoke}
 
-\subsubsection*{unchoke}
-unchoke: <len=0001><id=1>
-The unchoke message is fixed-length and has no payload.
+choke: \bverb|<prefixo de tamanho=0001><ID da mensagem=0>| \\
+unchoke: \bverb|<prefixo de tamanho=0001><ID da mensagem=1>|
 
-\subsubsection*{interested}
-interested: <len=0001><id=2>
-The interested message is fixed-length and has no payload.
+Estas mensagens servem para indicar que a mudança de estado de choking que o \gls*{peer}
+remetente tratará o receptor. Ou seja, o receptor \emph{choked} não terá suas
+requisições atendidas, ao contrário de quando estiver \emph{unchoked}.
 
-\subsubsection*{not interested}
-not interested: <len=0001><id=3>
-The not interested message is fixed-length and has no payload.
+\subsubsection*{interested e not interested}
+
+interested: \bverb|<prefixo de tamanho=0001><ID da mensagem=2>| \\
+not interested: \bverb|<prefixo de tamanho=0001><ID da mensagem=3>|
+
+Assim como as mensagens de \emph{choke}, estas 2 mensagens também servem para indicar a
+mudança de estado, desta vez sendo a mudança de interesse que o \gls*{peer} remetente
+terá no receptor.
 
 \subsubsection*{have}
 
+have: \bverb|<prefixo de tamanho=0005><ID da mensagem=4><dados=i-ésima parte>|
+
+A definição é que esta mensagem avisa um \gls*{peer} que a $i$-ésima parte do
+\gls*{torrent} foi baixada pelo remetente e verificada através de \gls*{hashvalue}.
+Porém, não necessariamente é usada dessa forma.
+
+Uma implementação desta mensagem pode fazer com que um \gls*{peer}, que acabou de
+adquirir a parte, não emitir aviso para todos os \gls*{peers} vizinhos que já a
+possuem, diminuindo o \gls{overhead} de mensagens do protocolo. Por outro lado, enviar
+esse aviso pode ajudar na determinação de qual parte é mais rara.
+
 \subsubsection*{bitfield}
 
+bitfield: \bverb|<prefixo de tamanho=0001+X><ID da mensagem=5><dados=mapa de bits>|
+
+O BitTorrent usa bitfields (mapas de bits) em \emph{big} \gls*{endian} para representar
+na forma de \emph{flags} quais partes de um \gls*{torrent} já possui.
+
+Esta mensagem só deve ser enviada imediatamente após o processo de \emph{handshake}
+terminar e antes de qualquer outra mensagem. Se o \gls*{peer} não tiver nenhuma parte o
+campo de dados pode ser omitido. Como bitfields variam de acordo com o tamanho total do
+\gls*{torrent}, o comprimento da mensagem é variável, onde $X$ é o comprimento do
+bitfield, acrescentado de alguns bits 0 de sobra no seu final (\emph{spare bits}).
+
+Um bitfield de comprimento errado ou sem bits de sobra no final são considerados erros,
+fazendo com que as respectivas conexões devam ser fechadas.
+
 \subsubsection*{request}
+
+request: \bverb|<prefixo de tamanho=0013><ID da mensagem=6><dados=<índice><início><tamanho>>|
+
+Conforme foi explicado na subseção ~\ref{subsec:partes}, um \gls*{torrent} divide os
+dados em partes. Porém, a transmissão não se dá enviando partes inteiras, mas sim
+em blocos, que são metades das partes.
+
+Com esta mensagem, um \gls*{peer} pede por uma parte do \gls*{torrent}. A seção de dados
+contém os seguintes números inteiros:
+
+\begin{itemize}
+    \item índice:
+    \item início:
+    \item tamanho:
+\end{itemize}
 
 \subsubsection*{piece}
 
