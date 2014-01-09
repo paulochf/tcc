@@ -1,5 +1,5 @@
 static void sendBitfield(tr_peerMsgs * msgs) {
-    void * bytes; size_t byte_count = 0; // bitfield e seu comprimento
+    void * bytes; size_t byte_count = 0;       // bitfield e seu comprimento
     struct evbuffer * out = msgs->outMessages; // buffer de saída
 
     (...)

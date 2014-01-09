@@ -182,6 +182,8 @@ contém os seguintes números inteiros:
     \item tamanho: tamanho, em bytes, do bloco pedido
 \end{itemize}
 
+\cfile[label="./libtransmission/peer-msgs.c:356"]{./Codes/chap3/037-request.c}
+
 \subsubsection*{piece}
 
 piece: \bverb|<tamanho=0009+X><ID da mensagem=7><dados=<índice><início><bloco>>|
@@ -190,6 +192,7 @@ Esta mensagem é a resposta para a requisição de um bloco por meio da mensagem
 \emph{request}, tendo assinatura análoga com exceção do trecho com os dados do bloco.
 Assim, um \gls*{peer} envia um bloco de dados a outro.
 
+\newpage
 O tamanho da mensagem é variável, onde $X$ é o tamanho do segmento de dados, já que
 este pode ter tamanhos diferentes entre mensagens diferentes. A seção de dados possui
 os seguintes números inteiros:
@@ -200,6 +203,9 @@ os seguintes números inteiros:
     \item bloco: conteúdo dos dados do bloco
 \end{itemize}
 
+\cfile[label="./libtransmission/peer-msgs.c:1093"]{./Codes/chap3/034-piece.c}
+
+\newpage
 \subsubsection*{cancel}
 
 cancel: \bverb|<tamanho=0013><ID da mensagem=8><dados=<índice><início><tamanho>>|
@@ -208,6 +214,7 @@ A mensagem \emph{cancel} serve para cancelar a mensagem \emph{request} de mesmos
 parâmetros. É mais utilizada durante o algoritmo de fim de jogo.
 
 \todo[inline]{referenciar seção do algoritmo do fim de jogo}
+\cfile[label="./libtransmission/peer-msgs.c:372"]{./Codes/chap3/035-cancel.c}
 
 \subsubsection*{port}
 
@@ -217,3 +224,5 @@ Para os casos do \gls*{peer} estar usando a função de \gls*{dht}, esta mensage
 para avisar ao receptor qual a porta de comunicação \gls*{tcp} que o remetente está
 usando para receber mensagens de \gls*{dht}; Com isso, é adicionado à tabela de
 roteamento do receptor.
+
+\cfile[label="./libtransmission/peer-msgs.c:387"]{./Codes/chap3/036-port.c}

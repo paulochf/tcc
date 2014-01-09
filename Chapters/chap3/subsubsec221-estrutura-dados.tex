@@ -37,7 +37,7 @@ algoritmo visita apenas $O(\log n)$ nós.
 \newpage
 \begin{figure}[ht!]
     \centering
-    \fbox{\includegraphics[width=\textwidth]{dht2.png}}
+    \fbox{\includegraphics[width=0.8\textwidth]{dht2.png}}
     \caption{Exemplo de uma busca na árvore de nós do Kademlia usando-se um ID. O nó
     preto, de prefixo 0011, encontra o nó de prefixo 1110 através de sucessivas buscas
     (setas numeradas inferiores). As setas superiores mostram a convergência da
@@ -52,7 +52,8 @@ distância
     d(x,y) = x \oplus y
 \end{equation}
 
-que possui algumas propriedades em comum com a equação de distância euclidiana usual:
+que possui certas propriedades, algumas em comum com a equação de distância euclidiana
+usual:
 
 \begin{itemize}
     \item $d(x,x) = 0$
@@ -65,6 +66,9 @@ que possui algumas propriedades em comum com a equação de distância euclidian
         existe exatamente um ponto $y$ tal que $d(x,y) = \Delta$. Isso garante que todas
         as procuras por uma mesma chave convirjam para um mesmo percurso, independente
         do ponto de partida.
+    \item para um dado $x$ no espaço de números, o conjunto de distâncias $\Delta$ entre
+        $x$ e os outros números possui distribuição uniforme, ao contrário da distância
+        euclidiana \cite{bittorrentcom:dht}
 \end{itemize}
 
 No Transmission, o Kademlia é usado a partir de uma biblioteca externa (não mantida

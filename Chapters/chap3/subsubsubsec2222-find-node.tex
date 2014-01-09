@@ -26,8 +26,8 @@ explicado no trabalho:
 \blockquote{O procedimento mais importante que um participante do Kademlia deve realizar
 é encontrar os $k$ nós próximos a um dado ID de nó. Nós chamamos esse procedimento de
 \enquote{\emph{lookup} de nós}. Kademlia utiliza de um algoritmo recursivo nas buscas
-por nós. O disparador das buscas começa escolhendo $\alpha$ nós do \gls*{bucket} não-
-vazio mais próximo (ou, se esse \gls*{bucket} tiver menos que $\alpha$ entradas,
+por nós. O disparador das buscas começa escolhendo $\alpha$ nós do \gls*{bucket}
+não-vazio mais próximo (ou, se esse \gls*{bucket} tiver menos que $\alpha$ entradas,
 utiliza desses $\alpha$ nós mais próximos que conhece). Então, o disparador envia
 chamadas \gls*{rpc} assíncronas paralelas de comandos \textbf{find\_node} para esses
 $\alpha$ nós escolhidos. $\alpha$ é um parâmetro de concorrência geral ao sistema,

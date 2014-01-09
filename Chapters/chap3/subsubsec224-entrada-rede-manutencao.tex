@@ -23,13 +23,16 @@ tráfego constante, cada nó deverá atualizar um \gls*{bucket} em que não tive
 \emph{lookup} de nó na última 1 hora. Assim, deverá escolher um ID aleatório do
 intervalo correspondente e efetuar uma busca por esse ID.
 
-Durante todo esse processo pode haver separação de \glspl*{kbucket}. Inicialmente, nós
-possuem somente um \gls*{kbucket}, que eventualmente ficarão cheios, quando serão
-divididos. Essa divisão ocorre sempre que o intervalo de nós em um \gls*{kbucket}
-incluir o ID do prório nó. Nesse caso, 2 novos \glspl*{bucket} são criados, onde o
-conteúdo do anterior é dividido entre ambos, e ocorre uma nova tentativa de inserção. Se
-falhar novamente, o novo contato é descartado.
+Uma implementação ingênua pode ser usando-se um vetor de 160 \glspl*{bucket}, um para
+cada possibilidade de diferença de bits. Porém, como no Kademlia a tendência é de se
+conhecer mais sobre \glspl*{peer} mais próximos, muitos \glspl*{bucket} ficarão vazios.
+Ume forma mais otimizada de tratar isso é fazendo com que, inicialmente, nós possuam
+somente um \gls*{bucket}. Eventualmente, estes ficarão cheios, então sendo divididos.
+Nesse caso, 2 novos \glspl*{bucket} são criados, onde o conteúdo do anterior é dividido
+entre ambos, e ocorre uma nova tentativa de inserção. Se falhar novamente, o novo
+contato é descartado. Somente o \gls*{bucket} mais recente é divisível.
 
+\newpage
 Além dessa divisão normal, pode ocorrer de árvores muito desbalanceadas atrapalharem a
 notificação de um novo nó. Supondo que um nó esteja entrando na rede que já possui mais
 do que $k$ nós com o mesmo prefixo, estes conseguirão adicioná-lo à suas respectivas

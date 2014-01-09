@@ -2,14 +2,15 @@
 
 \subsubsubsection{announce\_peer}
 
-O último comando é o da mensagem \bverb|STORE|, pelo qual um nó avisa outros que está
-baixando um \gls*{torrentfile}, passando 4 argumentos: o ID do nó consultante como
-valor da chave \bverb|id|, o \gls*{hashvalue} identificador do \gls*{torrent} na
-chave \bverb|info_hash|, \bverb|port| contém um número inteiro de porta, e o
-\bverb|token| recebido como resposta de uma mensagem \bverb|get_peers| anterior. O nó
-consultado deve verificar que esse token foi enviado anteriormente para o mesmo endereço
-IP que o nó consultante, e então o nó consultado armazena usando o \bverb|info_hash| do
-torrent como chave e a informação compacta de endereço IP/porta do nó como valor.
+Com este comando, equivalente à mensagem \bverb|STORE|, um nó avisa outros que, por ter
+começado a baixar um \gls*{torrentfile}, entrou no \gls*{swarm}, passando 4 argumentos:
+o ID do nó consultante como valor da chave \bverb|id|, o \gls*{hashvalue} identificador
+do \gls*{torrent} na chave \bverb|info_hash|, \bverb|port| contém um número inteiro de
+porta, e o \bverb|token| recebido como resposta de uma mensagem \bverb|get_peers|
+anterior. O nó consultado deve verificar que esse token foi enviado anteriormente para o
+mesmo endereço IP que o nó consultante, e então o nó consultado armazena usando o
+\bverb|info_hash| do torrent como chave e a informação compacta de endereço IP/porta do
+nó como valor.
 
 Existe ainda mais um argumento, opcional, que é o \bverb|implied_port|, cujo valor pode
 ser 0 ou 1. Se este for 1, o argumento da porta deve ser ignorado e então a fonte de
