@@ -21,9 +21,9 @@ necessitando republicar esse par na próxima hora. Assim, a menos que todos os h
 de republicação estejam sincronizados, somente um nó executará a republicação do par de
 chave-valor.
 
-Segundo, no caso da árvore muito desbalanceadas, nós dividem \glspl*{kbuckets} conforme
+Segundo, no caso da árvore muito desbalanceadas, nós dividem \glspl*{kbucket} conforme
 o necessário para garantir o conhecimento total de uma subárvore de tamando $\geq k$. Se
-antes de republicar pares de chave-valor, um nó $x$ atualizar todos os \glspl*{kbuckets}
+antes de republicar pares de chave-valor, um nó $x$ atualizar todos os \glspl*{kbucket}
 dessa subárvore de $k$ nós, automaticamente será capaz de de descobrir os $k$ nós
 mais próximos para a chave dada. Para entender o motivo, deve-se considerar 2 casos:
 

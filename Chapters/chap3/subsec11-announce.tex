@@ -36,8 +36,8 @@ podem passar várias informações, usando um dicionário no formato \gls*{benco
 
     \item \textbf{compact} (opcional): se o valor passado for 1, significa que o
     requisitante aceita respostas compactas. A lista de \glspl*{peer} enviada é
-    substituída por uma única \gls*{string} de peers, sendo que cada \gls*{peer} terá
-    6 bytes, onde os 4 bytes iniciais são o host e os 2 bytes finais são a porta de
+    substituída por uma única \gls*{string} de \glspl*{peer}, sendo que cada \gls*{peer}
+    terá 6 bytes, onde os 4 bytes iniciais são o host e os 2 bytes finais são a porta de
     transmissão. Por exemplo, o endereço IP 10.10.10.5:80 seria transmitido como
     \bverb|0A 0A 0A 05 00 80|. Deve-se observar que alguns \glspl*{tracker} suportam
     somente conexões deste tipo para otimização da utilização da banda de rede e, para
@@ -116,7 +116,7 @@ seguintes chaves:
 
     \item \textbf{incomplete}: quantidade de \glspl*{leecher};
 
-    \item \textbf{peers}: pode ser uma das opções
+    \item \textbf{\glspl*{peer}}: pode ser uma das opções
 
     \begin{enumerate}
         \item lista de dicionários \gls*{bencode}, com as seguintes chaves:

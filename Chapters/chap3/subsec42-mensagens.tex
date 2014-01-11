@@ -128,7 +128,7 @@ Porém, não necessariamente é usada dessa forma.
 \cfile[label="./libtransmission/peer-msgs.c:399"]{./Codes/chap3/032-have.c}
 
 Uma implementação de algoritmo do jogo da troca pode fazer com que um \gls*{peer}, que
-acabou de adquirir a parte, não emitir aviso para todos os \gls*{peers} vizinhos que já
+acabou de adquirir a parte, não emitir aviso para todos os \glspl*{peer} vizinhos que já
 a possuem, diminuindo o \gls{overhead} de mensagens do protocolo. Por outro lado, enviar
 esse aviso pode ajudar na determinação de qual parte é mais rara.
 
@@ -155,8 +155,9 @@ fazendo com que as respectivas conexões devam ser fechadas.
 request: \bverb|<tamanho=0013><ID da mensagem=6><dados=<índice><início><tamanho>>|
 
 Conforme foi explicado anteriormente (página \pageref{subsec:partes}), um
-\gls*{torrent} divide os dados em partes. Porém, a transmissão não se dá enviando
-partes inteiras, mas sim em blocos, que são metades das partes.
+\gls*{torrent} divide os dados em partes, que por sua vez são divididas em blocos, que
+são os conteúdos trocados entre os \glspl*{peer}. Assim, o tamanho das partes é um
+múltiplo do tamanho dos blocos.
 
 \begin{figure}[H]
     \centering
