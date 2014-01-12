@@ -1,11 +1,128 @@
 %!TEX root = ../../tcc.tex
 
+\newpage
 \subsection*{Algoritmos de enforcamento}
+
+Além das estratégias mostradas, existem as estratégias que são as formas com que um
+\gls*{peer} se relacionará com seus vizinhos. Cada um é responsável por melhorar as
+suas taxas de download e, para isso, baixam partes de quem eles conseguem e escolhem se
+para quais enviará outras, de forma a mostrar cooperação. Caso a escolha seja de não
+cooperar, um \gls*{peer} enforca (\emph{choke}) outro, que implica num cancelamento
+temporário do envio de partes para ele. O recebimento de partes continua normalmente e a
+conexão não precisa ser rediscutida quando o enforcamento terminar.
+
+O choking não faz parte do protocolo de mensagens, mas é necessário para a boa
+performance do protocolo. Um bom algoritmo de choking, que utilize de todos os recursos
+disponíveis, traz boas condições para todos os \glspl*{peer} cooperativos e é resistente
+contra aqueles que só fazem download.
+
+\subsubsection*{Eficiência de Pareto}
+
+Sistemas \emph{pareto eficientes} \cite{wiki:pareto} são aqueles onde duas entidades
+não podem fazer trocas e ficar mais ``felizes'' que antes. Em termos da Ciência da
+Computação, buscar a eficiência de Pareto é usar um algoritmo de otimização local onde
+as entidades procuram meios de melhorar mutuamente, que convergem a uma situação ótima
+global. No contexto do BitTorrent, se 2 \glspl*{peer} não estão tendo vantagem
+recíproca por enviar partes, eles podem começar a trocar partes entre si e conseguir
+taxas de download melhores do que as anteriores.
 
 \subsubsection*{Algoritmo de choking}
 
+Cada \gls*{peer} sempre fará unchoke de 4 \glspl*{peer} (geralmente), então o problema
+passa ser escolher quais deles fazer, deixando que o \gls*{tcp} controle de
+congestionamento de banda. Essa escolha é baseada estritamente na taxa de download,
+calculando a média dessa taxa durante 20 segundos. Antigamente, esse cálculo era feito
+sobre quantidades transferidas a longos prazos, mas notou-se que era uma medida fraca
+por causa das variações da largura da banda de rede.
+
+Para evitar que recursos sejam desperdiçados pelo rápido choke e unchoke de
+\glspl*{peer}, um cálculo é realizado a cada 10 segundos a fim de saber quem sofrerá o
+choke, deixando a situação atual como está até o próximo intervalo acabar. Esse tempo é
+suficiente para que o \gls*{tcp} acelere transferências até sua capacidade total.
+
 \subsubsection*{Optimistic Unchoking}
+
+Fazer upload para \glspl*{peer} que possuem as melhores taxas de download sofrem do fato
+de não possuir meios de descoberta de conexões melhores. Para tentar contornar esse
+problema, um \gls*{peer} será escolhido para ser alvo de um ``unchoke otimista'', que é
+um unchoke independentemente da taxa de download que ele provê.
+
+A escolha do \gls*{peer} ocorre a cada 30 segundos (no terceiro ciclo de choke), que é
+tempo suficiente para o upload chegar à velocidade máxima, um download ocorrer como
+recompensa e chegar à sua velocidade máxima.
+
+Este algoritmo tem como objetivo demonstrar cooperação, sendo equivalente a demonstrar
+colaboração como iniciativa num caso de jogo do tipo dilema do prisioneiro.
 
 \subsubsection*{Anti-snubbing}
 
+Eventualmente, um \gls*{peer} sofrerá choke de todos os \glspl*{peer} de onde estava
+fazendo download. Nesses casos, terá taxas de download ruims até que um unchoke
+otimista seja executado.
+
+Quando ficar mais de 1 minuto sem ter recebido nenhuma parte de outro \gls*{peer}, o
+\gls*{peer} que não recebeu nada perceberá que foi censurado (\emph{snubbed}), e
+retaliará deixando de enviar partes para ele a menos que tenha sido por sorteio de
+um unchoke otimista. Dessa forma, vários unchokes otimistas serão executados
+simultaneamente, que implicará na recuperação das taxas de download.
+
 \subsubsection*{Upload Only}
+
+Uma vez que um \gls*{peer} terminou de baixar os dados do \gls*{torrent}, ele não
+precisa mais escolher para quem fará o upload usando sua taxa de download. Ao invés
+disso, passará a enviar dados para os \glspl*{peer} com quem possui as maiores taxas de
+upload, que são os que não estão recebendo muitos dados, então utilizando toda a sua capacidade de upload.
+
+\subsubsection*{Implementação do Transmission}
+
+Quando um \gls*{torrent} é executado e em intervalos de 10 segundos, o Transmission
+executa uma função que faz os chokes de upload e também verifica os downloads.
+
+\cfile[label="./libtransmission/peer-mgr.c:3167"]{./Codes/chap3/047-rechoke-pulse.c}
+
+Primeiro, verifica os uploads. A cada execução da função, verifica se será um turno de
+unchoke otimista, que dura 4 execuções. Além disso, o vetor de \glspl*{peer} é usado
+para o carregamento de um vetor temporário de informações para choke sobre cada um
+deles.
+
+\cfile[label="./libtransmission/peer-mgr.c:3057"]{./Codes/chap3/048-rechoke-up1.c}
+
+A ordenação é feita com \sverb|qsort()| usando uma função comparadora que classifica os
+\glspl*{peer} considerando, nesta ordem:
+
+\begin{enumerate}
+    \item velocidade de transferência de dados (download e upload)
+    \item estado de choke: preferência por unchoked
+    \item aleatoriedade
+\end{enumerate}
+
+\cfile[label="./libtransmission/peer-mgr.c:2993"]{./Codes/chap3/049-compare-choke.c}
+
+Então, trata o vetor temporário. Os melhores \glspl*{peer} mudarão seu estado para
+unchoked, enquanto o resto será choked. Além disso, no caso de um rodada de unchoke
+otimista, sorteia um dos \glspl*{peer} para ter a sua vez.
+
+\cfile[label="./libtransmission/peer-mgr.c:3057"]{./Codes/chap3/050-rechoke-up2.c}
+
+Depois, trata os downloads. Primeiro, calcula para quantos \glspl*{peer} mandar
+mensagens \bverb|interested| usando como base as estatísticas de pedidos de blocos e
+quais deles foram cancelados, dentro de limites de bom funcionamento.
+
+\cfile[label="./libtransmission/peer-mgr.c:2833"]{./Codes/chap3/051-rechoke-down1.c}
+
+Após saber o limite de \glspl*{peer}, o Transmission procura quais deles contatará, de
+acordo com as partes que lhe faltam. Para isso, monta um vetor com informações dos
+\glspl*{peer}, ordenando usando \sverb|qsort()| e passando como função comparadora que
+avalia, nesta ordem:
+
+\begin{enumerate}
+    \item estado de choke: se um \gls*{peer} tiver cancelado 10\% ou menos dos pedidos
+        de blocos, terá preferência sobre os outros.
+    \item aleatoriedade.
+\end{enumerate}
+
+\cfile[label="./libtransmission/peer-mgr.c:2813"]{./Codes/chap3/053-enum-rechoke.c}
+
+\cfile[label="./libtransmission/peer-mgr.c:2820"]{./Codes/chap3/052-compare-rechoke.c}
+
+\cfile[label="./libtransmission/peer-mgr.c:2833"]{./Codes/chap3/054-rechoke-down2.c}

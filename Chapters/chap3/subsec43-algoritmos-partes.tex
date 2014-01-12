@@ -5,11 +5,12 @@
 
 Por se tratar de um protocolo de troca de dados em partes, uma escolha ruim de quais
 destas se adquirir primeiro faz com que seja grande a possibilidade de um \gls*{peer}
-baixar alguma parte que seja sempre ofertada por outros \glspl*{peer}. Isso acarretará
-em não se ter nenhuma das partes que se deseja. Assim, durante a troca das partes, um
-\gls*{peer} adota estratégias diferentes para fornecer e receber blocos de dados, com o
-intuito de tentar otimizar a obtenção do conjunto total de dados dos \glspl*{torrent} e
-ajudando a difundir o conteúdo deste ao resto do \gls*{swarm}.
+baixar alguma parte que seja sempre ofertada por outros \glspl*{peer}
+\cite{artigo:bittorrent}. Isso acarretará em não se ter nenhuma das partes que se
+deseja. Assim, durante a troca das partes, um \gls*{peer} adota estratégias diferentes
+para fornecer e receber blocos de dados, com o intuito de tentar otimizar a obtenção do
+conjunto total de dados dos \glspl*{torrent} e ajudando a difundir o conteúdo deste ao
+resto do \gls*{swarm}.
 
 As estratégias a seguir são medidas que um \gls*{peer} BitTorrent pode adotar com
 efeitos em si mesmo, sem afetar outros \glspl*{peer}.
@@ -73,7 +74,7 @@ baixados como vetores. O vetor de partes é ordenado, utilizando seus campos aux
 de forma que a parte mais importante que se deseja receber será requisitada antes. Ele
 é usado para decidir quais blocos serão requisitados.
 
-\cfile[label="./libtransmission/peer-mgr.c:167"]{./Codes/chap3/038-struct-weighted-piece.c}
+\cfile[label="./libtransmission/peer-mgr.c:172"]{./Codes/chap3/038-struct-weighted-piece.c}
 
 Conforme são recebidas mensagens \bverb|have| e \bverb|bitfield| de outros \glspl*{peer},
 ocorre o processamente da carga de dados dessas mensagens e a atualização das
@@ -83,16 +84,29 @@ replicações.
 
 \cfile[label="./libtransmission/peer-mgr.c:1699"]{./Codes/chap3/041-peer-callback.c}
 
+Essa informação é utilizada na reordenação desse vetor, utilizando a função da linguagem
+C \sverb|qsort()|, que recebe em um dos parâmetros uma função comparadora. A função do
+Transmission considera, nesta ordem:
+
+\begin{enumerate}
+    \item \emph{strict policy}: completude de uma parte
+    \item prioridade (assinalada manualmente pelo usuário): prioridade do usuário
+    \item \emph{rarest first}: raridade da parte
+    \item \emph{random first piece}: aleatoriedade
+\end{enumerate}
+
+\cfile[label="./libtransmission/peer-mgr.c:948"]{./Codes/chap3/044-compare-piece-weight.c}
+
 Já o vetor de blocos mantém a lista dos blocos pedidos com o momento da requisição e
 para quem o foi feito. É usada para cancelar requisições que ficaram pendentes por muito
 tempo ou para evitar requisições duplicadas antes do modo de fim de jogo.
 
-\cfile[label="./libtransmission/peer-mgr.c:161"]{./Codes/chap3/039-struct-block-request.c}
+\cfile[label="./libtransmission/peer-mgr.c:165"]{./Codes/chap3/039-struct-block-request.c}
 
 Ambos os vetores são armazenados em uma estrutura que guarda essas e outras informações
 sobre o \gls*{swarm} do \gls*{torrent} que está sendo baixado.
 
-\cfile[label="./libtransmission/peer-mgr.c:178"]{./Codes/chap3/040-struct-swarm.c}
+\cfile[label="./libtransmission/peer-mgr.c:187"]{./Codes/chap3/040-struct-swarm.c}
 
 Eventualmente, o Transmission verifica a necessidade e a capacidade de enviar pedidos
 de blocos. Caso seja possível, realiza o processamento da lista de partes, montando uma
@@ -105,3 +119,13 @@ lista de blocos a serem requisitados.
 Tendo criado a lista de blocos, os requisita.
 
 \cfile[label="./libtransmission/peer-msgs.c:1874"]{./Codes/chap3/043-update-block-reqs.c}
+
+Durante a execução da função de criação da lista de blocos a serem pedidos, existe a
+verificação da completude do \gls*{torrent}, onde se percebe que a quantidade de bytes
+requisitados já é maior do que a quantidade de bytes que faltam ser baixados. Eis que o
+modo de fim de jogo se inicia, quando é calculado a capacidade de um novo \gls*{peer}
+receber e atender a nova requisição de bloco de forma melhor ou igual à taxa que
+atuais \glspl*{peer} estão fazendo.
+
+\cfile[label="./libtransmission/peer-mgr.c:878"]{./Codes/chap3/045-test-end-game.c}
+\cfile[label="./libtransmission/peer-mgr.c:887"]{./Codes/chap3/046-update-end-game.c}

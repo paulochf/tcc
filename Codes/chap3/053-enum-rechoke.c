@@ -1,0 +1,3 @@
+typedef enum {
+    RECHOKE_STATE_GOOD, RECHOKE_STATE_UNTESTED, RECHOKE_STATE_BAD
+} tr_rechoke_state;
