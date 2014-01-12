@@ -2,88 +2,33 @@
 
 \chapter{Conceitos de Computação no BitTorrent}
 
-\todo[inline]{Fazer pequena introdução aqui.}
+O BitTorrent é um protocolo cuja existência depende de vários componentes das mais
+variadas áreas de estudo da Computação. Neste capítulo, mostraremos alguns desses
+componentes e de que forma o Transmission os implementa, a fim de conseguir desempenhar
+bem sua função de cliente BitTorrent.
 
-Aqui mostrarei detalhes técnicos sobre as partes coadjuvantes do BitTorrent e do Transmission.
+\input{Chapters/chap4/sec001-ed}
 
+\input{Chapters/chap4/sec002-hash} % SHA1
 
-\section{Estruturas de dados, listas ligadas e árvores}
+\input{Chapters/chap4/sec003-cripto} % RC4
 
-Aqui vou falar de tipos de estruturas de dados utilizadas no programa, como
-\emph{structs} e a sua utilização na implementação de listas ligadas e árvores e em como
-estes são usados na implementação de filas.
+\input{Chapters/chap4/sec004-bitfields}
 
-\section{Funções de hash} % SHA1
-\label{sec:sha1}
+\input{Chapters/chap4/sec005-protocolos-rede} % HTTP e UDP
 
-Aqui vou explicar como funciona o algoritmo da \gls{hashfunction} SHA-1 e mostrar como
-e para que é usado na identificação de torrents e na verificação de integridade de
-partes.
+\input{Chapters/chap4/sec006-multicast}
 
-\section{Criptografia} %RC4
+\input{Chapters/chap4/sec007-roteamento-pacotes} %NAT PMP
 
-Aqui vou explicar como este algoritmo de chave simétrica funciona e como é utilizado
-pelo Transmission para criptografar pacotes de dados.
+\input{Chapters/chap4/sec008-retomada-downloads}
 
-\section{Bitfields}
-\label{sec:bitfield}
+\input{Chapters/chap4/sec009-conexao-internet}
 
-Apesar de ser um simples array de bits usado no gerenciamento de partes que o programa
-já baixou ou não, foi percebido que o seu uso de forma não-convencional, chamado de
-\emph{lazy bitfield}, pode ajudar a evitar o controle de banda (chamado de modelagem de
-tráfego, ou \emph{traffic shaping} em inglês), feito por \glspl{isp}.
+\input{Chapters/chap4/sec010-ipv6}
 
-\section{Protocolos de redes} % HTTP e UDP
+\input{Chapters/chap4/sec011-threads}
 
-Aqui vou explicar o que são os protocolos de rede TCP e UDP, apontar suas diferenças e
-mostrar os motivos pelos quais o UDP é preferido ao TCP no uso de endereços de
-\gls*{announce} de \glspl*{tracker}.
-
-\section{Multicast}
-
-Apesar de não ser utilizado pelo protocolo BitTorrent, o multicast, que é uma forma de
-entregar dados a um grupo de computadores simultaneamente numa só transmissão, é usado
-pelo Transmission para tentar descobrir \glspl*{peer} que estão na mesma rede local,
-otimizando as conexões.
-
-\section{Roteamento de pacotes} %NAT PMP
-
-Em alguns roteadores que são ponte entre a Internet e a rede que ele gerencia, existe
-uma função de se configurar portas de comunicação de rede automaticamente usando-se o
-\emph{Network Address Translation Port Mapping Protocol}. Assim, não é necessário
-realizar uma configuração específica somente pare esse fim.
-
-\section{Retomada de downloads}
-
-No Transmission e em algums outros softwares que realizam downloads, existe a função de
-se pausar a transferência do arquivo para que seja retomado em outro momento. Nesta
-seção, mostrarei qual a idéiapor trás desse mecanismo e a forma como foi implementado no
-Transmission.
-
-\section{Conexão com a Internet}
-
-Aqui mostrarei a parte técnica da programação em linguagem C para utilização de
-transmissão de dados por rede.
-
-\section{IPv6}
-
-O IPv6 é a versão mais recente do protocolo de Internet (IP), que foi criado para
-substituir o IPv4, que atualmente é mais o usado porém sofre de exaustão de endereços.
-Nesta seção, falarei sobre o novo protocolo e quais as implicações na programação de
-softwares com comunicação de redes.
-
-\section{Threads}
-
-Dentro de um contexto de programas que utilizam a Internet e funcionalidades que chegam
-próximas ao tempo real, processamentos pesados devem ser tratados com cautela a fim de
-se manter a instantaneidade do processo. Aqui explicarei como o Transmission usa o
-conceito de \emph{threads} para paralelizar esses processamentos e, com isso, conseguir
-utilizar as informações de rápida mudança antes que seja necessário obtê-las novamente.
-
-\section{Engenharia de Software}
-
-O Transmission é um programa extenso e complexo, desenvolvido por vários programadores
-que estão espalhados pelo globo. Nesta seção, abordarei alguns pontos utilizados pelos
-desenvolvedores na manutenção do código aberto de qualidade e em funcionamento.
+\input{Chapters/chap4/sec012-engsoft}
 
 \afterpage{\clearpage}

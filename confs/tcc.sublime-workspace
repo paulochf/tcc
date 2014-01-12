@@ -15,7 +15,7 @@
 			"file": "/home/paulo/Arquivos/tcc/mono/tcc.tex",
 			"settings":
 			{
-				"buffer_size": 9187,
+				"buffer_size": 9222,
 				"line_ending": "Unix"
 			}
 		},
@@ -23,7 +23,7 @@
 			"file": "/home/paulo/Arquivos/tcc/mono/glossario.tex",
 			"settings":
 			{
-				"buffer_size": 20044,
+				"buffer_size": 20045,
 				"line_ending": "Unix"
 			}
 		},
@@ -31,39 +31,15 @@
 			"file": "/home/paulo/Arquivos/tcc/mono/bibliografia.bib",
 			"settings":
 			{
-				"buffer_size": 28113,
+				"buffer_size": 28518,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/home/paulo/Arquivos/tcc/mono/Chapters/chap3/subsec43-algoritmos-partes.tex",
+			"file": "/home/paulo/Arquivos/tcc/mono/Chapters/chap3/subsec44-algoritmos-choking.tex",
 			"settings":
 			{
-				"buffer_size": 5681,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/paulo/Arquivos/tcc/mono/Codes/chap3/041-peer-callback.c",
-			"settings":
-			{
-				"buffer_size": 1111,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/paulo/Arquivos/tcc/mono/Codes/chap3/040-struct-swarm.c",
-			"settings":
-			{
-				"buffer_size": 1034,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/paulo/Arquivos/tcc/mono/Codes/chap3/042-peer-mgr-getreqs.c",
-			"settings":
-			{
-				"buffer_size": 2791,
+				"buffer_size": 6564,
 				"line_ending": "Unix"
 			}
 		}
@@ -128,14 +104,39 @@
 	},
 	"file_history":
 	[
+		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/050-rechoke-up2.c",
+		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/051-rechoke-down1.c",
+		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/053-enum-rechoke.c",
+		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/055-rechoke-up3.c",
+		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/048-rechoke-up1.c",
+		"/home/paulo/Arquivos/tcc/mono/Codes/rechokeDownloads.c",
+		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/054-rechoke-down2.c",
+		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/052-compare-rechoke.c",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/Chapter3.aux",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/subsec43-algoritmos-partes.tex",
+		"/media/Arquivos/tcc/mono/Codes/chap3/053-enum-rechoke.c",
+		"/media/Arquivos/tcc/mono/Codes/chap3/052-compare-rechoke.c",
+		"/media/Arquivos/tcc/mono/Codes/chap3/051-rechoke-down1.c",
+		"/home/paulo/Arquivos/tcc/mono/Codes/rechokeUploads.c",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/sec4-jogo.tex",
+		"/home/paulo/Arquivos/tcc/mono/Codes/compareChoke.c",
+		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/047-rechoke-pulse.c",
+		"/home/paulo/Arquivos/tcc/mono/Codes/rechokePulse.c",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/subsec41-estado-nos.tex",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/subsec44-algoritmos-choking.tex",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/Chapter6.tex",
+		"/home/paulo/Arquivos/tcc/mono/bibliografia.bib",
+		"/home/paulo/Arquivos/tcc/mono/Codes/testForEndGame.c",
+		"/home/paulo/Arquivos/tcc/mono/Codes/updateEndGame.c",
+		"/home/paulo/Arquivos/tcc/mono/Codes/comparePieceByWeight.c",
 		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/042-peer-mgr-getreqs.c",
+		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/040-struct-swarm.c",
+		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/041-peer-callback.c",
 		"/home/paulo/Arquivos/tcc/mono/tcc.log",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/subsec11-announce.tex",
 		"/home/paulo/Arquivos/tcc/mono/Codes/updateBlockRequests.c",
 		"/home/paulo/Arquivos/tcc/mono/Codes/peerMgrGetNextRequests.c",
-		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/041-peer-callback.c",
 		"/home/paulo/Arquivos/tcc/mono/Codes/peerCallbackFunc.c",
-		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/040-struct-swarm.c",
 		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/038-struct-weighted-piece.c",
 		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/039-struct-block-request.c",
 		"/home/paulo/Arquivos/tcc/mono/Codes/tr_swarm.c",
@@ -143,7 +144,6 @@
 		"/home/paulo/Arquivos/tcc/mono/Codes/struct block_request.c",
 		"/home/paulo/Arquivos/tcc/mono/Codes/038-struct-weighted-piece.c",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/subsec42-mensagens.tex",
-		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/sec4-jogo.tex",
 		"/media/Arquivos/tcc/mono/Codes/struct weighted_piece.c",
 		"/home/paulo/Arquivos/tcc/mono/Codes/tr_incrReplication.c",
 		"/media/Arquivos/tcc/mono/Codes/tr_incrReplicationOfPiece.c",
@@ -151,15 +151,11 @@
 		"/media/Arquivos/tcc/mono/Codes/tr_incrReplication.c",
 		"/media/Arquivos/tcc/mono/Codes/tr_incrReplicationFromBitfield.c",
 		"/media/Arquivos/tcc/mono/Codes/peerCallbackFunc.c",
-		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/subsec44-algoritmos-choking.tex",
 		"/media/Arquivos/tcc/mono/Codes/updateEndGame.c",
 		"/media/Arquivos/tcc/mono/Codes/peerMgrGetNextRequests.c",
-		"/home/paulo/Arquivos/tcc/mono/Codes/comparePieceByWeight.c",
 		"/media/Arquivos/tcc/mono/Codes/comparePieceByWeight. high-priority",
 		"/media/Arquivos/tcc/mono/Codes/rechokeUploads.c",
 		"/media/Arquivos/tcc/mono/Codes/rechokePulse.c",
-		"/home/paulo/Arquivos/tcc/mono/Codes/testForEndGame.c",
-		"/home/paulo/Arquivos/tcc/mono/Codes/rechokeDownloads.c",
 		"/media/Arquivos/tcc/mono/Codes/testForEndGame",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/subsubsubsec2222-find-node.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/subsubsec223-protocolo.tex",
@@ -184,10 +180,8 @@
 		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/030-choke-unchoke.c",
 		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/030-choke.c",
 		"/media/Arquivos/tcc/mono/Codes/chap3/029-choke.c",
-		"/home/paulo/Arquivos/tcc/mono/bibliografia.bib",
 		"/home/paulo/Área de Trabalho/teste3.c",
 		"/home/paulo/Arquivos/tcc/mono/Makefile",
-		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/subsec41-estado-nos.tex",
 		"/home/paulo/Arquivos/tcc/mono/confs/script",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/sec-kademlia-total-novo.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/Chapter3.tex",
@@ -235,27 +229,9 @@
 		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/021-dht-bufferclosestnodes.c",
 		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/020-dht-sendclosestnodes.c",
 		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/024-dht-sendnodespeers2.c",
-		"/home/paulo/Arquivos/tcc/mono/Chapters/Chapter3.aux",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/chap3223-comandos.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/chap322-funcionamento.tex",
-		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/sec1-busca-info.tex",
-		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/chap311-announce.tex",
-		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/chap310-busca-info.tex",
-		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/chap302-magnet-link.tex",
-		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/chap301-arquivo-torrent.tex",
-		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/chap300-intro.tex",
-		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/chap320-dht-kademlia.tex",
-		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/chap32233-algum.tex",
-		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/chap330-pex.tex",
-		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/chap340-jogo.tex",
-		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/chap32232-find-node.tex",
-		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/chap32231-ping.tex",
-		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/chap3222-protocolo.tex",
-		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/chap3221-estado-nos.tex",
-		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/chap321-kademlia.tex",
-		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/chap314-resultados.tex",
-		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/chap32-dht.tex",
-		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/chap313-convencao.tex"
+		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/sec1-busca-info.tex"
 	],
 	"find":
 	{
@@ -273,6 +249,17 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"4096",
+			"\n        ",
+			"mensagem",
+			"\\url",
+			"artigo:bittorrent",
+			"arti",
+			"artifo",
+			"ince",
+			"printglossaries",
+			"1874",
+			" ",
 			"mp3",
 			"through",
 			"Peer",
@@ -389,23 +376,12 @@
 			"bencode",
 			"cap",
 			"http",
-			"ttfamily",
-			"\\stexttt",
-			"stexttt",
-			"seeder",
-			"indefini",
-			"todo",
-			"announce",
-			"\\\\verb",
-			"verb",
-			"string",
-			"\\\"([^\\\"]*)\\\"",
-			"verb"
+			"ttfamily"
 		],
 		"highlight": true,
 		"in_selection": false,
 		"preserve_case": false,
-		"regex": true,
+		"regex": false,
 		"replace_history":
 		[
 			" \\\\\\\\",
@@ -491,7 +467,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -500,15 +476,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 9187,
+						"buffer_size": 9222,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								8077,
-								8077
+								3122,
+								3122
 							]
 						],
 						"settings":
@@ -518,10 +494,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2260.0,
+						"translation.y": 819.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
@@ -530,15 +506,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 20044,
+						"buffer_size": 20045,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								10814,
-								10814
+								20045,
+								20045
 							]
 						],
 						"settings":
@@ -548,10 +524,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 5679.0,
+						"translation.y": 6147.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
@@ -560,15 +536,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 28113,
+						"buffer_size": 28518,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								572,
-								572
+								20756,
+								20756
 							]
 						],
 						"settings":
@@ -578,10 +554,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 8405.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 1,
 					"type": "text"
 				}
 			]
@@ -592,19 +568,19 @@
 			[
 				{
 					"buffer": 3,
-					"file": "/home/paulo/Arquivos/tcc/mono/Chapters/chap3/subsec43-algoritmos-partes.tex",
+					"file": "/home/paulo/Arquivos/tcc/mono/Chapters/chap3/subsec44-algoritmos-choking.tex",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5681,
+						"buffer_size": 6564,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								5446,
-								5446
+								6289,
+								6289
 							]
 						],
 						"settings":
@@ -612,100 +588,10 @@
 							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 1044.0,
+						"translation.y": 1209.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "/home/paulo/Arquivos/tcc/mono/Codes/chap3/041-peer-callback.c",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1111,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								58,
-								58
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "/home/paulo/Arquivos/tcc/mono/Codes/chap3/040-struct-swarm.c",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1034,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								56,
-								56
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "/home/paulo/Arquivos/tcc/mono/Codes/chap3/042-peer-mgr-getreqs.c",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2791,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								82,
-								82
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
 					"type": "text"
 				}
 			]
@@ -806,7 +692,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 194.0,
+	"side_bar_width": 220.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
