@@ -117,14 +117,6 @@
 
 \newverbcommand{\sverb}{\color{Bittersweet}}{}
 
-\newenvironment{cverbatim}
-    {\SaveVerbatim{cverb}}
-    {\endSaveVerbatim
-    \flushleft\fboxrule=0pt\fboxsep=.5em
-    \colorbox{gray!30}{\BUseVerbatim{cverb}}%
-    \endflushleft
-}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Do manual do todonote
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -192,6 +184,17 @@
 %
 % labels: http://citeseerx.ist.psu.edu/viewdoc/
 %      download?doi=10.1.1.169.9130&rep=rep1&type=pdf
+\newminted{c}{
+    linenos,
+    mathescape,
+    frame=single,
+    samepage=true,
+    numbersep=6pt,
+    baselinestretch=1,
+    fontfamily=courier,
+    fontsize=\scriptsize
+}
+
 \newmintedfile[cfile]{c}{
     linenos,
     mathescape,

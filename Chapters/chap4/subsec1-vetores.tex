@@ -2,8 +2,40 @@
 
 \subsection*{Vetores}
 
-Vetores são a implementação de vetores matemáticos de maneira virtual. Na prática,
-consistem de listas de variáveis do mesmo tipo. Na linguagem C, podem ser declaradas de
-forma estática ou dinâmica.
+Vetores (ou \emph{arrays}) são a implementação de vetores matemáticos de maneira
+virtual. Na prática, consistem de listas de variáveis do mesmo tipo. Na linguagem C,
+podem ser declaradas de forma estática ou dinâmica.
 
-Vetores dinâmicos têm tamanho fixo
+Vetores estáticos têm tamanho fixo estabelecido na sua declaração em tempo de
+compilação, tendo espaços de memória reservados na pilha de memória de acordo com o
+tipo, não podendo ser alterado em tempo de execução.
+
+\begin{ccode}
+    char announce[1024]; // URL de announce
+\end{ccode}
+
+Por outro lado, vetores dinâmicos são construídos por ponteiros para o tipo (ao invés do
+tipo) juntamente com alocação e liberação de memória programáticas. Com isso, a memória
+é reservada em tempo de execução na memória heap. Assim, pode ter seu tamanho
+redimensionado conforme a necessidade.
+
+\begin{ccode}
+    int *a = malloc( 3*sizeof(int) ); // aloca memória para um vetor de 3 inteiros
+    free(a);                          // desaloca a memória alocada
+\end{ccode}
+
+Apesar dessa diferença, ambos os tipos de vetores funcionam da mesma maneira, usufruindo
+da aritmética de ponteiros e acesso instantâneo ao valor armazenado.
+
+\begin{ccode}
+    int b[3];
+    int *c = malloc( 3*sizeof(int) );
+
+    b[0] = 1; b[1] = 3; b[2] = 5;
+    c[0] = 2; c[1] = 4; c[2] = 6;
+
+    printf("b[1] = \%d, *(c+2) = \%d\n", b[1], *(c+2)); // b[1] = 3, *(c+2) = 6
+\end{ccode}
+
+O Transmission não aloca seus vetores dinâmicos literalmente desta forma, pois possui
+suas funções próprias onde encapsula o código mostrado.

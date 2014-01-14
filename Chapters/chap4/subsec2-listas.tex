@@ -1,3 +1,98 @@
 %!TEX root = ../../tcc.tex
 
+\newpage
 \subsection*{Listas ligadas}
+
+Listas ligadas é uma estrutura de dado que organiza os objetos de forma linear, assim
+como os vetores. Porém, enquanto estes possuem índices que determinam a sua posição, as
+listas possuem ponteiros para os outros elementos. Por causa disso, elas crescem
+organicamente, conforme novos elementos vão sendo criados e associados, então evitando
+desperdício de memória.
+
+Por conter ponteiros, elementos de listas ligadas sempre são definidos usando-se
+estruturas.
+
+\begin{ccode*}{label=./libtransmission/makemeta.c:41}
+struct FileList {
+    uint64_t          size;
+    char *            filename;
+    struct FileList * next;      // ponteiro para o próximo elemento
+};
+\end{ccode*}
+
+Essa estrutura é utilizada como se fosse um tipo definido pelo usuário, que aloca em
+memória de forma dinâmica.
+
+\begin{ccode*}{label=./libtransmission/makemeta.c:41}
+struct FileList {
+    uint64_t          size;
+    char *            filename;
+    struct FileList * next;      // ponteiro para o próximo elemento
+};
+\end{ccode*}
+
+Feito isso, para a estrutura poder ser usada, o Transmission utiliza de uma função que
+aloca uma variável dessa estrutura de forma dinâmica e seta valores iniciais nulos para
+os seus campos.
+
+\begin{ccode*}{label=./libtransmission/list.c:19}
+static tr_list * recycled_nodes = NULL;
+
+static tr_list* node_alloc(void) {
+    tr_list * ret;                  // ponteiro que apontará para a região alocada
+
+    if (recycled_nodes == NULL) {   // Se não houver elementos reciclados,...
+        ret = tr_new(tr_list, 1);   // ... aloque um novo.
+    }
+    else {   // Caso contrário, reutilize, reapontando as tomando o controle do central
+        ret = recycled_nodes;           // ... referências dos elementos adjacentes...
+        recycled_nodes = recycled_nodes->next;   // ... e tomando o controle do central
+    }
+
+    *ret = TR_LIST_CLEAR;           // limpa campos do elemento
+    return ret;                     // devolve o ponteiro para o elemento
+}
+\end{ccode*}
+
+Existem vários tipos de listas ligadas, algumas podendo, inclusive, serem combinadas
+entre si:
+
+\begin{itemize}
+    \item simplesmente ligada: possui somente um ponteiro para o próximo elemento
+    \item duplasmente ligada: possui 2 ponteiros (um para o elemento anterior e outro
+        para o posterior)
+    \item multiplamente ligada: possui ponteiros vários elementos, porém ligando-os em
+        ordens diferentes
+    \item circularmente ligada: quando o último elemento liga a lista de volta ao
+        1º elemento
+    \item com cabeça: quando possui um elemento falso somente para ajudar a manipular as
+        listas
+\end{itemize}
+
+\todoquestion{mostro algoritmos?}
+
+Comparando-se vetores e listas ligadas, cada um tem suas vantagens e desvantagens em
+relação à complexidade de seus algoritmos de manipulação.
+
+\newpage
+\begin{table}
+    \centering
+    \begin{tabular}{| l | c | c | c |}
+        \hline
+        \textbf{Ação} & \textbf{Vetor (est.)} & \textbf{Vetor (din.)} & \textbf{Lista ligada} \\
+        \hline
+        Busca por posição & $\Theta(1)$ & $\Theta(1)$ & $\Theta(n)$ \\
+        \hline
+        Inserção/Remoção (início) & $\Theta(n)$ & $\Theta(n)$ & $\Theta(1)$ \\
+        \hline
+        Inserção/Remoção (fim) & $\Theta(1)$ & $\Theta(1)$ & \parbox[t]{.3\textwidth}{\centering $\Theta(1)$ (c/ cabeça) \\ $\Theta(n)$ (s/ cabeça)} \\
+        \hline
+        Inserção/Remoção (meio) & $\Theta(n)$ & $\Theta(n)$ & $\Theta(n)$ \\
+        \hline
+        Redimensionamento & $\Theta(n)$ & ? & não necessita \\
+        \hline
+    \end{tabular}
+    \caption{tabela de comparação de complexidades dos algoritmos de manipulaçãp de
+    vetores e listas ligadas. OBS: tempos de buscas considerados lineares.
+    Redimensionamento de vetor dinâmico depende da implementação da linguagem C.}
+\end{table}
