@@ -1,0 +1,25 @@
+%!TEX root = ../../tcc.tex
+
+\newpage
+\subsection*{Tabelas hash}
+
+\Glspl{hashtable} são estruturas de dados eficientes na implementação de dicionários.
+Apesar de buscas demorarem tanto quanto procurar um elemento em uma lista ligada -
+$\Theta(n)$ no pior caso -, o espalhamento é bastante eficiente. Isso faz com que o
+tempo médio de uma busca seja $O(1)$.
+
+Uma \gls*{hashtable} generaliza a noção do vetor de elementos comum. Nele, o
+endereçamento direto nos permite avaliar o conteúdo de uma posição em $O(1)$. O que
+torna esta tabela especial é a vantagem de transformar um certo conteúdo possuir uma
+chave específica e exclusiva, fornecendo um meio de se encontrar essa chave. Esse meio é
+uma \gls{hashfunction}.
+
+Às vezes, \glspl*{hashfunction} fazem com que 2 conteúdos possuam a mesma chave, ou
+seja, as chaves colidem. Para esses casos, existem várias técnicas de solução de
+conflitos, porém colisões podem ser evitadas com boa \gls*{hashfunction}, descritas a
+seguir.
+
+A \gls*{hashtable} usada pelo Transmission aparece no \gls*{dht}, porém de uma forma
+mais simples: não existe ``a \gls*{hashfunction} do \gls*{dht}'' como de costume, onde
+existe uma função característica para uma modelagem de tabela. Ao invés disso, as chaves
+já estão calculadas, sendo os IDs do \glspl*{torrent} e dos \glspl*{peer} do Kademlia.

@@ -44,6 +44,13 @@ comandos \textbf{find\_node} para todos os $k$ nós mais próximos que ainda nã
 consultados. O \emph{lookup} termina quando o disparador tiver consultado e obtido
 respostas de todos os $k$ nós mais próximos conhecidos.}
 
+Esse algoritmo remete a um algoritmo de busca em largura onde, a partir de um nó de um
+grafo, adiciona-se os nós vizinhos em uma fila, e a cada nó que está nela é feita alguma
+análise dos vizinhos do novo nó, até que a fila se esgote. Porém, enquanto na busca em
+largura comum se usa uma fila FIFO (\emph{First In First Out}), no algoritmo do Kademlia
+temos uma fila de prioridade cuja métrica é a distância para o nó de origem, além de uma
+condição de parada sendo os $k$ nós mais próximos tendo sido avaliados.
+
 Porém, o Transmission implementa essa busca de forma mais flexível e simples. De início,
 busca o \gls*{bucket} no qual o ID procurado está ou que contém nós mais próximos.
 

@@ -1,29 +1,27 @@
 %!TEX root = ../../tcc.tex
 
-\section{Estruturas de dados, listas ligadas e árvores}
-
-\begin{comment}
-Aqui vou falar de tipos de estruturas de dados utilizadas no programa, como
-\emph{structs} e a sua utilização na implementação de listas ligadas e árvores e em como
-estes são usados na implementação de filas.
-\end{comment}
+\section{Estruturas de dados}
 
 Conjuntos são tão fundamentais na Ciência da Computação quando na matemática. Porém, os
-conjuntos manipulados por algoritmos são adaptáveis, dinâmicos. Na linguagem C,
-geralmente são implementados usando estruturas: coleção de variáveis (membros),
-independentes de tipo, agrupadas sobre o mesmo nome.
+conjuntos manipulados por algoritmos são adaptáveis, dinâmicos. Alguns algoritmos
+utilizam conjuntos, realizando diversas operações sobre eles, como inserção, remoção e
+testes de existência de elementos. Esses conjuntos dinâmicos que permitem essas
+operações são chamados de dicionários.
 
-Existem formatos de estruturas de dados bastante conhecidos e que viraram padrões. No
-Transmission, algumas dessas estruturas são utilizadas:
+Na linguagem C, geralmente são implementados usando estruturas: coleção de variáveis
+(membros), independentes de tipo, agrupadas sobre o mesmo nome. Com isso, várias
+implementações de dicionário foram criadas, cada um com suas peculiaridades, onde
+algumas se tornarão. No Transmission, algumas dessas estruturas são utilizadas:
 
 \begin{itemize}
     \item vetores (\emph{arrays})
     \item listas ligadas (\emph{linked lists})
     \item filas (\emph{queues})
+    \item \glspl*{hashtable} (\emph{hash tables})
 \end{itemize}
 
 \input{Chapters/chap4/subsec1-vetores}
 
 \input{Chapters/chap4/subsec2-listas}
 
-\input{Chapters/chap4/subsec3-filas}
+\input{Chapters/chap4/subsec3-hashtables}
