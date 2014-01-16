@@ -3,6 +3,34 @@
 \section{Funções de hash}
 \label{sec:sha1}
 
+\begin{comment}
 Aqui vou explicar como funciona o algoritmo da \gls{hashfunction} SHA-1 e mostrar como
 e para que é usado na identificação de torrents e na verificação de integridade de
 partes.
+\end{comment}
+
+\Glspl{hashfunction} são funções matemáticas usadas para gerar conteúdo de comprimento
+fixo para referência ao conteúdo original.
+
+Isso é útil quando existe grandes quantidades de dados a serem indexados. Por exemplo,
+numa busca em uma tabela de dados ou tarefas de comparação de dados tal como detecção de
+duplicatas ou de trechos de sequências de DNA semelhantes. Outro uso é na criptografia,
+quando é utilizado para comparar um conjunto de dados recebido com outro já existente,
+verificando sua igualdade.
+
+Em geral, \glspl*{hashfunction} não são inversíveis, ou seja, não é possível recuperar o
+valor de entrada para um dado \gls{hashvalue}. Quando usado para fins criptográficos,
+são construídas de forma que essa reconstrução seja impossível sem que um imenso poder
+computional seja utilizado. Por conta disso, é igualmente difícil fingir um
+\gls*{hashvalue} para esconder dados maliciosos, sendo então usado pelo algoritmo
+\gls{pgp}.
+
+Outra característica importante é o determinismo. Quando a função é executada para 2
+dados iguais, deve produzir o mesmo valor. Essa condição é fundamental no caso de uma
+\gls*{hashtable}, pois a busca deve encontrar o mesmo local onde o algoritmo de inserção
+armazenou o dado, logo precisando do mesmo \gls*{hashvalue}.
+
+Outros usos para \glspl*{hashfunction} são em \glspl{checksum}, códigos de correção de
+erros e cifras.
+
+\input{Chapters/chap4/subsec21-sha}
