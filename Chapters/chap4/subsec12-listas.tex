@@ -3,37 +3,34 @@
 \newpage
 \subsection*{Listas ligadas}
 
-Listas ligadas é uma estrutura de dado que organiza os objetos de forma linear, assim
-como os vetores. Porém, enquanto estes possuem índices que determinam a sua posição, as
-listas possuem ponteiros para os outros elementos. Por causa disso, elas crescem
-organicamente, conforme novos elementos vão sendo criados e associados, então evitando
-desperdício de memória.
+Listas ligadas é uma estrutura de dados que organiza os objetos de forma linear, assim
+como os vetores. Porém, enquanto estes possuem índices que determinam a sua posição, em
+listas, cada elemento possuem um ponteiro para o elemento seguinte. Por causa disso,
+seu comprimento se altera organicamente conforme novos elementos vão sendo criados e
+inseridos, consumindo somente a memória necessária.
 
-Por conter ponteiros, elementos de listas ligadas sempre são definidos usando-se
-estruturas, que são utilizadas como se fossem tipos definidos pelo usuário.
+Os nós de listas ligadas são definidos usando-se estruturas.
 
 \cfile[label="./libtransmission/list.h:28"]{./Codes/chap4/001-lista-struct.c}
 
-Feito isso, para a estrutura poder ser usada, o Transmission utiliza de uma função que
-aloca memória para um objeto de forma dinâmica e seta valores iniciais nulos para os
-seus campos.
+Para a estrutura ser usada, o Transmission utiliza uma função que aloca memória
+dinamicamente para um objeto com valor nulo em todos os seus campos.
 
 \cfile[label="./libtransmission/list.c:19"]{./Codes/chap4/002-lista-code.c}
 
-Existem vários tipos de listas ligadas, algumas podendo, inclusive, serem combinadas
-entre si:
+Existem vários tipos de listas ligadas:
 
-\begin{itemize}
-    \item simplesmente ligada: possui somente um ponteiro para o próximo elemento
-    \item duplasmente ligada: possui 2 ponteiros (um para o elemento anterior e outro
-        para o próximo elemento)
-    \item multiplamente ligada: possui ponteiros vários elementos, porém ligando-os em
-        ordens diferentes
-    \item circularmente ligada: quando o último elemento liga a lista de volta ao
-        1º elemento
-    \item com cabeça: quando possui um elemento falso somente para ajudar a manipular as
-        listas
-\end{itemize}
+\begin{description}
+    \item[simplesmente ligada:] possui somente um ponteiro para o próximo elemento;
+    \item[duplamente ligada]: possui 2 ponteiros, um para o elemento anterior e outro
+        para o próximo elemento;
+    \item[multiplamente ligada]: possui ponteiros vários elementos, porém ligando-os em
+        ordens diferentes;
+    \item[circularmente ligada]: quando o último elemento liga a lista de volta ao
+        1º elemento; e
+    \item[com cabeça]: quando possui um elemento falso somente para ajudar a manipular as
+        listas.
+\end{description}
 
 Comparando-se vetores e listas ligadas, cada um tem suas vantagens e desvantagens em
 relação à complexidade de seus algoritmos de manipulação.
@@ -42,7 +39,7 @@ relação à complexidade de seus algoritmos de manipulação.
     \centering
     \begin{tabular}{| l | c | c | c |}
         \hline
-        \textbf{Ação} & \textbf{Vetor} & \textbf{Lista ligada} \\
+        \textbf{Operação} & \textbf{Vetor} & \textbf{Lista ligada} \\
         \hline
         Busca por posição & $\Theta(1)$ & $\Theta(n)$ \\
         \hline
@@ -55,9 +52,9 @@ relação à complexidade de seus algoritmos de manipulação.
         Redimensionamento & \parbox[t]{.25\textwidth}{\centering $\Theta(n)$ (estático) \\ ? (dinâmico)} & não necessita \\
         \hline
     \end{tabular}
-    \caption{tabela de comparação de complexidades dos algoritmos de manipulaçãp de
-    vetores e listas ligadas. OBS: tempos de buscas considerados lineares.
-    Redimensionamento de vetor dinâmico depende da implementação da linguagem C.}
+    \caption{tabela com os consumos de tempo de voperações sobre vetores e listas
+    ligadas. OBS: tempos de buscas são considerados lineares. Redimensionamento de vetor
+    dinâmico depende da implementação da linguagem C.}
 \end{table}
 
 Por conta da agilidade que é conseguida na manipulação de listas ligadas de tamanhos

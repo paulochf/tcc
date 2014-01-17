@@ -15,7 +15,6 @@
 % Cor
 \usepackage[table,dvipsnames]{xcolor}
 
-\usepackage[portuguese,ruled]{algorithm2e}
 \usepackage{csquotes}                               % aspas espertas
 \usepackage[font={small,it},labelfont=bf]{caption}  % \begin{caption}
 \usepackage{subcaption}                             % \begin{subfigure}
@@ -48,10 +47,7 @@
 % \makeglossaries
 % http://en.wikibooks.org/wiki/LaTeX/Glossary#Using_defined_terms
 % sanitize=none: http://tex.stackexchange.com/a/14930/5125
-\usepackage[xindy,toc,section=chapter,numberedsection=autolabel,sanitize=none]{glossaries}
-
-% http://texblog.org/tag/addcontentsline/
-\usepackage[numbib]{tocbibind}
+\usepackage[xindy,toc,sanitize=none]{glossaries}
 
 % anotações TODO
 \usepackage[colorinlistoftodos,portuguese]{todonotes}
@@ -149,16 +145,6 @@
     \missingfigure{#1}
 }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%project specific commands
-\newcommand{\trm}[1]{\textrm{#1}}
-\newcommand{\xor}{\oplus}
-\newcommand{\AND}{\wedge}
-\newcommand{\Fexp}{$f_{exp}$\xspace}
-\newcommand{\Fif}{$f_{if}$\xspace}
-\newcommand{\Fxor}{$f_{xor}$\xspace}
-\newcommand{\Fmaj}{$f_{maj}$\xspace}
-\newcommand{\rotl}[2]{#1 \lll #2 }
 
 %%%%%%%%%%%%%%%%%%%%%
 %  Minted
@@ -301,24 +287,6 @@
 % Lista de TODOs
 \listoftodos
 \todototoc
-
-% Lista de abreviações, se precisar
-\begin{comment}
-    % Tabelas mais fáceis de ler
-    \setstretch{1.5}
-
-    % Nova página
-    \afterpage{\clearpage}
-
-    % Lista de abreviações (2 colunas)
-    \listofsymbols{ll} {
-    % \textbf{Acronym} & \textbf{W}hat (it) \textbf{S}tands \textbf{F}or \\
-    % \textbf{LAH} & \textbf{L}ist \textbf{A}bbreviations \textbf{H}ere \\
-    }
-
-    % Volta pro 1.3
-    \setstretch{1.3}
-\end{comment}
 
 \afterpage{\clearpage}
 

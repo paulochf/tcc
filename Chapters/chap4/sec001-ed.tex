@@ -2,22 +2,23 @@
 
 \section{Estruturas de dados}
 
-Conjuntos são tão fundamentais na Ciência da Computação quando na matemática. Porém, os
-conjuntos manipulados por algoritmos são adaptáveis, dinâmicos. Alguns algoritmos
-utilizam conjuntos, realizando diversas operações sobre eles, como inserção, remoção e
-testes de existência de elementos. Esses conjuntos dinâmicos que permitem essas
-operações são chamados de dicionários.
+Conjuntos são tão fundamentais na Ciência da Computação quando na matemática. Os
+conjuntos manipulados por algoritmos são, em geral, alterados ao longo do tempo, sendo
+chamados de dinâmicos. Alguns algoritmos utilizam conjuntos, realizando diversas
+operações sobre eles, como inserção, remoção e testes de pertinência de elementos.
+Conjuntos dinâmicos que permitem essas operações são chamados de dicionários
+\cite{book:clrs}.
 
-Na linguagem C, geralmente são implementados usando estruturas: coleção de variáveis
-(membros), independentes de tipo, agrupadas sobre o mesmo nome. Com isso, várias
-implementações de dicionário foram criadas, cada um com suas peculiaridades, onde
-algumas se tornarão. No Transmission, algumas dessas estruturas são utilizadas:
+Na linguagem C, geralmente são implementados usando estruturas (\emph{structs}), que são
+coleções de variáveis (membros), independentes de tipo, agrupadas sobre o mesmo nome.
+Com isso, várias implementações de dicionário foram criadas, cada uma com suas
+peculiaridades. Dentre as estruturas utilizadas no Transmission encontramos:
 
 \begin{itemize}
-    \item vetores (\emph{arrays})
-    \item listas ligadas (\emph{linked lists})
-    \item filas (\emph{queues})
-    \item \glspl*{hashtable} (\emph{hash tables})
+    \item vetores (\emph{arrays});
+    \item listas ligadas (\emph{linked lists});
+    \item filas (\emph{queues}); e
+    \item \glspl*{hashtable} (\emph{hash tables}).
 \end{itemize}
 
 \input{Chapters/chap4/subsec11-vetores}

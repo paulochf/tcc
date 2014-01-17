@@ -4,68 +4,34 @@
 
 O SHA-1 é uma \gls*{hashfunction} criada pela NSA, a Agência de Segurança Nacional
 americana, em 1995, e tem seu nome da abreviação de \emph{Secure Hash Algorithm}
-(algoritmo de hash seguro). Ela produz um \gls*{hashvalue} de 160 bits (ou 20 bytes),
-que forma um número hexadecimal de 40 caracteres.
+(algoritmo de hash seguro). Seu uso foi difundido depois que seu predecessor, o
+algoritmo MD5, foi constatado com colisão de \gls*{hashvalue} prática realizada em um
+computador comum \cite{report:md5-attack}.
 
-Seu uso foi difundido depois que seu predecessor, o algoritmo MD5, foi constatado
-com colisão de \gls*{hashvalue} prática realizada em um computador comum.
+Pertencente a uma família de algoritmos, que conta ainda com as versões SHA-0, SHA-2
+(com funcionamento para vários comprimentos de bits de saída) e SHA-3, o SHA-1 ainda é
+confiável o suficiente e com vários estudos que, até agora, somente comprovaram ataques
+por colisão de difícil realização atualmente. Essa família é caracterizada por possuir
+algoritmos iterativos, baseada no desenho do algoritmo MD4 \cite{report:md4}.
 
-O seu algoritmo é relativamente simples se comparado com seus irmãos SHA-2 e SHA-3, o
-que lhe confere a melhor vazão dentre as 3 versões.
+O resulta dessa função é um \gls*{hashvalue} de 160 bits (ou 20 bytes), que forma um
+número hexadecimal de 40 caracteres. A função de compressão do algoritmo consiste de
+três partes:
 
-\begin{algorithm}
-    \caption{SHA1 (M)}
-    \label{sha1}
-    V $\leftarrow$ SHF1 (5A827999 || 6ED9EBA1 || 8F1BBCDC || CA62C1D6, M)
-\end{algorithm}
+\begin{enumerate}
+    \item expansão da mensagem: a mensagem de entrada é expandida para que o bloco de
+        dado total seja múltiplo de 512 bits;
 
-\begin{algorithm}
-    \caption{SHF1 (K,M)}
-    y $\leftarrow$ shapad (M) \\
-    Parse y as $M_1$ || $M_2$ || \ldots || $M_n$, onde $|M_i| = 512 (1 \leq i \leq n)$\\
-    V $\leftarrow$ 67452301 || EFCDAB89 || 98BADCFE || 10325476 || C3D2E1F0 \\
-    \Para{$i \leftarrow 1$ \Ate $n$}{
-        V $\leftarrow$ shf1 (K, $M_i || V$)
-    }
-    \Retorna{V}
-\end{algorithm}
+    \item transformação de estado: consiste de passos simples de operações de números
+        binários usando alguns valores pré-definidos, onde uma variável de encadeamento
+        é usada de mensagem de entrada para iteração seguinte e os blocos da mensagem
+        expandida se tornam as novas chaves de iteração;
 
+    \item retroalimentação: ao final do processamento de um bloco de 512 bits, a
+        mensagem de entrada da transformação de estado é adicionada ao valor de saída.
+        Esta operação é chamada de construção de Davies-Meyer e garante que se a
+        mensagem de entrada for fixada então a função de compressão é náo-inversível na
+        variável de encadeamento.
+\end{enumerate}
 
-
-\begin{comment}
-
-    \FOR{$i=0$ to $79$}
-    \IF{$0 \leq i \leq 19$}
-    \STATE $T = a \lll 5 + f_{if}(b,c,d) + e + W[i] + $K0
-    \ELSIF{$20 \leq i \leq 39$}
-    \STATE $T = a \lll 5 + f_{xor}(b,c,d) + e + W[i] + $K1
-    \ELSIF{$40 \leq i \leq 59$}
-    \STATE $T = a \lll 5 + f_{maj}(b,c,d) + e + W[i] + $K2
-    \ELSIF{$60 \leq i \leq 79$}
-    \STATE $T = a \lll 5 + f_{xor}(b,c,d) + e + W[i] + $K3
-    \ENDIF
-    \STATE $e = d$, $d = c$, $c = b \lll 30$, $b = a$, $a = T$
-    \ENDFOR
-    \STATE $H_0 = a + H_0$, $H_1 = b + H_1$, $H_2 = c + H_2$, $H_3 = d + H_3$, $H_4 = e + H_4$
-    \ENDFOR
-    \RETURN concat($H_0$, $H_1$, $H_2$, $H_3,$ $H_4$)
-
-    \SetAlgoLined
-    \LinesNumbered
-    \Dados{audio, tamanho, nivel, filtro, ch}
-    \Entrada{i, j, inicio, comprimento}
-    \BlankLine
-    $inicio \leftarrow 0$\;
-      $comprimento \leftarrow tamanho$\;
-    \Para{$i \leftarrow 0$ \Ate $i<nivel$}{
-        $inicio \leftarrow 0$\;
-    $comprimento \leftarrow tamanho/2^{i-1}$\;
-    \Para{$j \leftarrow 0$ \Ate $j<2^{i-1}$}{
-        \eSe{j é par}{
-                transformada\_wavelet(audio[inicio],comprimento, 1,'n', filtro, ch)\;
-            }{
-                transformada\_wavelet(audio[inicio],comprimento, 1,'i', filtro, ch)\;
-            }
-        }
-    }
-\end{comment}
+\todo[inline]{falar da implementação em C e o uso no Transmission}
