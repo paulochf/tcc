@@ -9,10 +9,10 @@ algoritmo MD5, foi constatado com colisão de \gls*{hashvalue} prática realizad
 computador comum \cite{report:md5-attack}.
 
 Pertencente a uma família de algoritmos, que conta ainda com as versões SHA-0, SHA-2
-(com funcionamento para vários comprimentos de bits de saída) e SHA-3, o SHA-1 ainda é
-confiável o suficiente e com vários estudos que, até agora, somente comprovaram ataques
-por colisão de difícil realização atualmente. Essa família é caracterizada por possuir
-algoritmos iterativos, baseada no desenho do algoritmo MD4 \cite{report:md4}.
+(com funcionamento para vários comprimentos de bits de saída) e SHA-3, o SHA-1 teve
+falhas expostas comprovadas por colisão, aidan que de difícil realização atualmente.
+Essa família é caracterizada por possuir algoritmos iterativos, baseada no desenho do
+algoritmo MD4 \cite{report:md4}.
 
 O resulta dessa função é um \gls*{hashvalue} de 160 bits (ou 20 bytes), que forma um
 número hexadecimal de 40 caracteres. A função de compressão do algoritmo consiste de
@@ -34,4 +34,18 @@ três partes:
         variável de encadeamento.
 \end{enumerate}
 
-\todo[inline]{falar da implementação em C e o uso no Transmission}
+Uma das implementações conhecidos para a linguagem C é a biblioteca OpenSSL
+\cite{site:openssl}, de código aberto, e é usada pelo Transmission no desenvolvimento de
+códigos de \glspl*{hashfunction}, criptografia de dados e dados pseudo-aleatórios. O
+OpenSSL foi programado de forma otimizada, possuindo um código bastante diferente do
+usual.
+
+O Transmission, seguindo a \gls{api} do OpenSSL, possui a sua \gls*{hashfunction}
+SHA-1. Na sua versão, calcula o \gls*{hashvalue} de um bloco de dados em partes,
+utilizando-na para obter o \gls*{hashvalue} do \gls*{torrent}, na criação de um ID para
+o \gls*{dht} que ele possui, e na verificação da integridade das partes obtidas de
+outros \glspl*{peer}.
+
+\cfile[label="\<openssl/sha.h\>:101"]{./Codes/chap4/003-sha-ctx.c}
+
+\cfile[label="./libtransmission/crypto.c:38"]{./Codes/chap4/004-trsha.c}
