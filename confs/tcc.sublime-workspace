@@ -23,7 +23,7 @@
 			"file": "/home/paulo/Arquivos/tcc/mono/glossario.tex",
 			"settings":
 			{
-				"buffer_size": 20223,
+				"buffer_size": 20441,
 				"line_ending": "Unix"
 			}
 		},
@@ -31,23 +31,29 @@
 			"file": "/home/paulo/Arquivos/tcc/mono/bibliografia.bib",
 			"settings":
 			{
-				"buffer_size": 30311,
+				"buffer_size": 30474,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/home/paulo/Arquivos/tcc/mono/Chapters/chap4/sec002-hash.tex",
+			"contents": "* About to connect() to www.mvgroup.org port 2710 (#1)\n*   Trying 88.129.153.50...\n* Connected to www.mvgroup.org (88.129.153.50) port 2710 (#1)\n> GET /scrape?info_hash=%83F%24%b62%e5Q%cc4%10h%ba%1e8%e2C%f7%80%01%87 HTTP/1.1\nUser-Agent: Transmission/2.82\nHost: www.mvgroup.org:2710\nAccept: */*\nAccept-Encoding: gzip;q=1.0, deflate, identity\n\n* HTTP 1.0, assume close after body\n< HTTP/1.0 200 OK\n<\n* Closing connection 1\nScrape response:\n< {\n    \"files\": {\n        \"F$2Q4h8C\": {\n            \"complete\": 9,\n            \"downloaded\": 59074,\n            \"incomplete\": 2\n        }\n    }\n}\n\n* About to connect() to tracker.torrenty.org port 6969 (#2)\n*   Trying 85.17.143.16...\n* About to connect() to memtracker.appspot.com port 80 (#3)\n*   Trying 74.125.137.141...\n* Connected to tracker.torrenty.org (85.17.143.16) port 6969 (#2)\n> GET /scrape?info_hash=%606%ef%83%e5k%24K%13Q%e3%3d%9e%c2%f7CQ%ac%2bl HTTP/1.1\nUser-Agent: Transmission/2.82\nHost: tracker.torrenty.org:6969\nAccept: */*\nAccept-Encoding: gzip;q=1.0, deflate, identity\n\n* Connected to memtracker.appspot.com (74.125.137.141) port 80 (#3)\n> GET /scrape?info_hash=%cb%f2%ac%02r%80Z%d44%3e%29%0bZ%a5i%f4%b86%1cO HTTP/1.1\nUser-Agent: Transmission/2.82\nHost: memtracker.appspot.com\nAccept: */*\nAccept-Encoding: gzip;q=1.0, deflate, identity\n\n* HTTP 1.0, assume close after body\n< HTTP/1.0 200 OK\n<\n* Closing connection 2\nScrape response:\n< {\n    \"files\": {\n        \"`6k$KQ=CQ+l\": {\n            \"complete\": 566,\n            \"downloaded\": 25041,\n            \"incomplete\": 203\n        }\n    }\n}\n\n< HTTP/1.1 200 OK\n< ETag: \"rm7_zg\"\n< Date: Wed, 30 Oct 2013 05:17:12 GMT\n< Expires: Wed, 30 Oct 2013 05:27:12 GMT\n< Cache-Control: public, max-age=600\n< Content-Type: text/html\n< Server: Google Frontend\n< Alternate-Protocol: 80:quic\n< Transfer-Encoding: chunked\n<\n* Connection #3 to host memtracker.appspot.com left intact\nScrape response:\n< {\n    \"failure reason\": \"App is disabled.\",\n    \"interval\": 86400,\n    \"min interval\": 3600\n}\n\n* Found bundle for host memtracker.appspot.com: 0x7fbb0804ac50\n* Re-using existing connection! (#3) with host memtracker.appspot.com\n* Connected to memtracker.appspot.com (74.125.137.141) port 80 (#3)\n> GET /scrape?info_hash=%cb%f2%ac%02r%80Z%d44%3e%29%0bZ%a5i%f4%b86%1cO HTTP/1.1\nUser-Agent: Transmission/2.82\nHost: memtracker.appspot.com\nAccept: */*\nAccept-Encoding: gzip;q=1.0, deflate, identity\n\n< HTTP/1.1 200 OK\n< ETag: \"rm7_zg\"\n< Date: Wed, 30 Oct 2013 05:17:12 GMT\n< Expires: Wed, 30 Oct 2013 05:27:12 GMT\n< Content-Type: text/html\n< Server: Google Frontend\n< Cache-Control: public, max-age=600\n< Content-Length: 77\n< Age: 29\n< Alternate-Protocol: 80:quic\n<\n\n* About to connect() to exodus.desync.com port 6969 (#8)\n*   Trying 208.83.20.164...\n* HTTP 1.0, assume close after body\n< HTTP/1.0 404 Not Found\n< Content-Type: text/html\n< Content-Length: 345\n< Connection: close\n< Date: Wed, 30 Oct 2013 05:20:08 GMT\n< Server: OpenDNS Guide\n<\n* Connected to exodus.desync.com (208.83.20.164) port 6969 (#8)\n> GET /announce?info_hash=%88%15%8c%7bW%e0%85%21%86~%d0%b5%de%06%5b%7dWI%cf%d7&peer_id=-TR2820-ne1joqgh8z9o&port=51413&uploaded=0&downloaded=0&left=52406288292&numwant=80&key=6ee99240&compact=1&supportcrypto=1&requirecrypto=1&event=started HTTP/1.1\nUser-Agent: Transmission/2.82\nHost: exodus.desync.com:6969\nAccept: */*\nAccept-Encoding: gzip;q=1.0, deflate, identity\n\n< HTTP/1.1 200 OK\n< Content-Type: text/plain\n< Content-Length: 136\n<\n* Connection #8 to host exodus.desync.com left intact\nAnnounce response:\n< {\n    \"complete\": 1,\n    \"downloaded\": 11,\n    \"incomplete\": 6,\n    \"interval\": 1732,\n    \"min interval\": 866,\n    \"peers\": \"H\\u055cW<nT\\u057cF*`\\u02a0'7EFUIVR\"\n}\n\n* Found bundle for host exodus.desync.com: 0x7fbb0804a0e0\n* Connection 8 seems to be dead!\n* Closing connection 8\n* About to connect() to exodus.desync.com port 6969 (#10)\n*   Trying 208.83.20.164...\n* Found bundle for host exodus.desync.com: 0x7fbb08040220\n* About to connect() to exodus.desync.com port 6969 (#11)\n*   Trying 208.83.20.164...\n* Connected to exodus.desync.com (208.83.20.164) port 6969 (#11)\n> GET /announce?info_hash=%88%15%8c%7bW%e0%85%21%86~%d0%b5%de%06%5b%7dWI%cf%d7&peer_id=-TR2820-ne1joqgh8z9o&port=51413&uploaded=0&downloaded=0&left=52406288292&numwant=0&key=6ee99240&compact=1&supportcrypto=1&requirecrypto=1&event=stopped HTTP/1.1\nUser-Agent: Transmission/2.82\nHost: exodus.desync.com:6969\nAccept: */*\nAccept-Encoding: gzip;q=1.0, deflate, identity\n\n< HTTP/1.1 200 OK\n< Content-Type: text/plain\n< Content-Length: 76\n<\n* Connection #11 to host exodus.desync.com left intact\nAnnounce response:\n< {\n    \"complete\": 1,\n    \"incomplete\": 4,\n    \"interval\": 1763,\n    \"min interval\": 881,\n    \"peers\": \"\"\n}",
+			"file": "/home/paulo/Arquivos/tcc/mono/docs/transmission-log",
+			"file_size": 4883,
+			"file_write_time": 130284430541546996,
 			"settings":
 			{
-				"buffer_size": 1684,
-				"line_ending": "Unix"
+				"buffer_size": 4704,
+				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "/home/paulo/Arquivos/tcc/mono/Chapters/chap4/subsec21-sha.tex",
+			"contents": "* About to connect() to memtracker.appspot.com port 80 (#3)\n*   Trying 74.125.137.141...\n* Connected to memtracker.appspot.com (74.125.137.141) port 80 (#3)\n> GET /scrape?info_hash=%cb%f2%ac%02r%80Z%d44%3e%29%0bZ%a5i%f4%b86%1cO HTTP/1.1\nUser-Agent: Transmission/2.82\nHost: memtracker.appspot.com\nAccept: */*\nAccept-Encoding: gzip;q=1.0, deflate, identity\n* HTTP 1.0, assume close after body\n< HTTP/1.0 200 OK\nScrape response:\n< {\n    \"files\": {\n        \"`6k$KQ=CQ+l\": {\n            \"complete\": 566,\n            \"downloaded\": 25041,\n            \"incomplete\": 203\n        }\n    }\n}\n* About to connect() to exodus.desync.com port 6969 (#8)\n*   Trying 208.83.20.164...\n\n* HTTP 1.0, assume close after body\n\n< HTTP/1.0 404 Not Found\n\n< Content-Type: text/html\n\n< Content-Length: 345\n\n< Connection: close\n\n< Date: Wed, 30 Oct 2013 05:20:08 GMT\n\n< Server: OpenDNS Guide\n\n<\n\n* Closing connection 7\n\n* Connected to exodus.desync.com (208.83.20.164) port 6969 (#8)\n\n> GET /announce?info_hash=%88%15%8c%7bW%e0%85%21%86~%d0%b5%de%06%5b%7dWI%cf%d7&peer_id=-TR2820-ne1joqgh8z9o&port=51413&uploaded=0&downloaded=0&left=52406288292&numwant=80&key=6ee99240&compact=1&supportcrypto=1&requirecrypto=1&event=started HTTP/1.1\n\nUser-Agent: Transmission/2.82\n\nHost: exodus.desync.com:6969\n\nAccept: */*\n\nAccept-Encoding: gzip;q=1.0, deflate, identity\n\n< HTTP/1.1 200 OK\n\n< Content-Type: text/plain\n\n< Content-Length: 136\n\n<\n\n* Connection #8 to host exodus.desync.com left intact\n\nAnnounce response:\n\n< {\n\n    \"complete\": 1,\n\n    \"downloaded\": 11,\n\n    \"incomplete\": 6,\n\n    \"interval\": 1732,\n\n    \"min interval\": 866,\n\n    \"peers\": \"H\\u055cW<nT\\u057cF*`\\u02a0'7EFUIVR\"\n\n}\n\n",
+			"file": "/home/paulo/Área de Trabalho/bla",
+			"file_size": 1676,
+			"file_write_time": 130344816120399850,
 			"settings":
 			{
-				"buffer_size": 1956,
+				"buffer_size": 1654,
 				"line_ending": "Unix"
 			}
 		}
@@ -112,27 +118,30 @@
 	},
 	"file_history":
 	[
+		"/home/paulo/.config/sublime-text-3/Packages/User/SideBarEnhancements/Open With/Side Bar.sublime-menu",
+		"/media/Arquivos/tcc/mono/Codes/chap4/004-trsha.c",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/sec002-hash.tex",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/subsec21-sha.tex",
+		"/media/Arquivos/tcc/mono/Codes/chap4/003-sha-ctx.c",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/subsec12-listas.tex",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/Chapter4.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/subsec13-hashtables.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/Chapter6.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/sec001-ed.tex",
-		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/subsec21-sha.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/Chapter7.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/Chapter8.tex",
 		"/usr/share/texlive/texmf-dist/tex/latex/algorithm2e/algorithm2e.sty",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/subsec11-vetores.tex",
-		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/subsec12-listas.tex",
 		"/usr/share/texlive/texmf-dist/tex/latex/algorithms/algorithm.sty",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/subsec3-hashtables.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/subsec1-vetores.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/subsec11-announce.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/subsec2-listas.tex",
-		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/sec002-hash.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/subsec3-hashtable.tex",
 		"/home/paulo/Arquivos/tcc/mono/Codes/chap4/002-lista-code.c",
 		"/home/paulo/Arquivos/tcc/mono/Codes/chap4/001-lista-struct.c",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/sec4-jogo.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/subsec12-scrape.tex",
-		"/home/paulo/Arquivos/tcc/mono/Chapters/Chapter4.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/subsubsubsec2223-get-peers.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/subsubsec223-protocolo.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/subsubsec222-tabela-roteamento.tex",
@@ -236,14 +245,11 @@
 		"/home/paulo/Arquivos/tcc/mono/confs/script",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/sec-kademlia-total-novo.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/subsec13-convencao.tex",
-		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/sec2-dht-kademlia.tex",
-		"/home/paulo/Área de Trabalho/teste2.c",
-		"/home/paulo/Área de Trabalho/teste.c",
-		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/sec3-pex.tex"
+		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/sec2-dht-kademlia.tex"
 	],
 	"find":
 	{
-		"height": 21.0
+		"height": 31.0
 	},
 	"find_in_files":
 	{
@@ -257,6 +263,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"ctx",
+			"api",
 			"\\\"([^\"]+)\\\"",
 			"sha",
 			"\\\"([^\"]+)\\\"",
@@ -382,12 +390,10 @@
 			"magne",
 			"book",
 			"torrent(\\s|\\,)",
-			"torrent",
-			"riaa",
-			"glos"
+			"torrent"
 		],
 		"highlight": true,
-		"in_selection": true,
+		"in_selection": false,
 		"preserve_case": false,
 		"regex": true,
 		"replace_history":
@@ -476,7 +482,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -506,7 +512,7 @@
 						"translation.y": 398.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
@@ -515,15 +521,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 20223,
+						"buffer_size": 20441,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4728,
-								4728
+								20438,
+								20438
 							]
 						],
 						"settings":
@@ -533,10 +539,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1496.0,
+						"translation.y": 6116.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
@@ -545,15 +551,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 30311,
+						"buffer_size": 30474,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								22802,
-								22802
+								22917,
+								22917
 							]
 						],
 						"settings":
@@ -563,7 +569,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 9072.0,
+						"translation.y": 9234.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 3,
@@ -572,57 +578,85 @@
 			]
 		},
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 3,
-					"file": "/home/paulo/Arquivos/tcc/mono/Chapters/chap4/sec002-hash.tex",
+					"file": "/home/paulo/Arquivos/tcc/mono/docs/transmission-log",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1684,
+						"buffer_size": 4704,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								966,
-								966
+								2656,
+								2656
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 975.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
 					"buffer": 4,
-					"file": "/home/paulo/Arquivos/tcc/mono/Chapters/chap4/subsec21-sha.tex",
+					"file": "/home/paulo/Área de Trabalho/bla",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1956,
+						"buffer_size": 1654,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1890,
-								1890
+								666,
+								666
+							],
+							[
+								703,
+								703
+							],
+							[
+								729,
+								729
+							],
+							[
+								756,
+								756
+							],
+							[
+								779,
+								779
+							],
+							[
+								800,
+								800
+							],
+							[
+								839,
+								839
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
+							"auto_name": "",
+							"is_xml": false,
+							"syntax": "Packages/Text/Plain text.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
@@ -630,7 +664,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 1,
 					"type": "text"
 				}
 			]
