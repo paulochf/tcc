@@ -1,0 +1,65 @@
+%!TEX root = ../../tcc.tex
+
+\section{Criptografia}
+
+A criptografia é o estudo e prática de técnicas que visam a segurança de informações de
+várias maneiras, a fim de que todas as partes de uma transação confiem que os objetivos
+daquela segurança tenham sido alcançadas. Com início há mais de quatro mil anos atrás,
+no Egito antigo, a área se manteve em atividade com a necessidade de se cifrar e
+quebrar mensagens, se tornando mais necessária com o advento da computação.
+
+Os quatro objetivos principais da criptografia são de oferecer
+\cite{book:applied-crypto}:
+
+\begin{description}
+    \item[confidencialidade,] para se manter um conteúdo de informação sob sigilo
+        somente àqueles autorizados a visualizá-lo. Suas inúmeras formas vão desde a
+        proteção fisica até os algoritmos matemáticos que tornam o conteúdo
+        ininteligível;
+
+    \item[integridade dos dados,] que foca na alteração não autorizada de dados, de
+        forma a detectar essa manipulação;
+
+    \item[autenticação,] relacionada a identificação de dados e entidades. Duas partes
+        que iniciam uma comunicação devem se identificar. Da mesma forma, uma
+        informação deve poder ser autenticada a partir do envio para o destinatário;
+
+    \item[aceitação,] que previne uma entidade de negar uma ação ou compromisso
+        previamente estabelecido, necessitando de um procedimento que envolva um
+        terceiro para resolver alguma disputa.
+\end{description}
+
+Existem dois tipos principais de criptografia: por chaves simétricas ou por chaves
+públicas. Por meio de chaves simétricas, um sistema criptográfico usa uma mesma chave
+para encriptar e decriptar mensagens, sejam estas feitas por cifragem de fluxo de dados
+(onde cada caractere da mensagem é computado por vez) ou de blocos de dados (onde blocos
+da mensagem são computados). Uma desvantagem das chaves simétricas \cite{wiki:crypto} é
+que é necessário um gerenciamento das chaves utilizadas, a fim de se manter a
+criptografia segura. Para isso, idealmente, cada par de entidades que desejam se
+comunicar entre si devem compartilhar a mesma chave, fazendo com que o número total de
+chaves necessárias numa rede seja proporcional ao quadrado do número de membros. Este
+era o único método conhecido até junho de 1976 \cite{artigo:diffiehellman}.
+
+Já as criptografias que utilizam de chaves públicas surgiram a partir de outro trabalho
+de Whitfield Diffie, Martin Hellman \cite{artigo:diffiehellman-public}, onde propuseram
+o sistema criptográfico por meio da troca de chaves assimétricas (\emph{Diffie-Hellman
+Key Exchange}). Nessa troca, são usadas duas chaves diferentes porém relacionadas
+matematicamente, onde a chave privada - para posse apenas do seu dono - é usada para a
+geração de uma chave pública para distribuição livre. Assim, enquanto a chave pública
+de uma entidade é usada para a criptografia dos dados pela outra entidade, apenas a
+respectiva chave privada pode descriptografá-la.
+
+Atualmente, existem vários algoritmos e métodos de criptografia, cada qual com suas
+vantagens e desvantagens, e cenários de aplicação mais adequados do que outros. Porém,
+a criptografia tem como mote ``não existe sistema de segurança impenetrável'', o que nos
+leva à área de criptoanálise, que é a arte e ciência de se analisar sistemas de
+segurança de forma a descobrir seus aspectos ocultos, utilizando-os para quebrar os
+respectivos sistemas criptográficos. Assim, muitos dos métodos existentes possuem falhas
+descobertas: enquanto algumas já são práticas, outras são apenas teóricas por falta de
+capacidade computacional atual.
+
+\input{Chapters/chap4/03-100-subsec-diffiehellman}
+
+\input{Chapters/chap4/03-200-subsec-rc4}
+
+\input{Chapters/chap4/03-300-subsec-transmission}

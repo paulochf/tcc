@@ -1,0 +1,57 @@
+%!TEX root = ../../tcc.tex
+
+\subsection*{Troca de chaves Diffie-Hellman}
+
+Este método, também conhecido por \emph{Diffie-Hellman-Merkle key exchange}, é uma das
+formas mais conhecidas de troca de chaves criptográficas. Ele permite que duas partes
+que não possuem conhecimento a priori do outro estabeleçam um segredo comum utilizando
+métodos de comunicação inseguros.
+
+O método algébrico utiliza grupos multiplicativos de inteiros módulo $p$, onde $p$ é um
+número primo e $g$ é chamado de número gerador. O protocolo pode ser explicado no
+seguinte exemplo, que usa duas partes (Alice e Bob): suponha que Alice e Bob desejam
+estabelecer um meio seguro de comunicação, que Eve deseja espionar realizando um
+``ataque de homem no meio'', tendo acesso a todas as informações que Alice e Bob
+trocarem.
+
+\begin{enumerate}
+    \item Alice e Bob escolhem dois números inteiros $p$ primo e $g$;
+
+    \item Alice escolhe um número inteiro $X_{A}$ para sua chave privada, e envia para
+        Bob o resultado $Y_{A} = g^{X_{A}} \bmod p$.
+
+    \item Bob então escolhe um número inteiro $X_{B}$ para sua chave privada, e envia
+        para Alice o resultado $Y_{B} = g^{X_{B}} \bmod p$.
+
+    \item Alice, então, calcula a chave compartilhada $S_A = B^{X_{A}} \bmob p$. Bob faz
+        o mesmo, ou seja, calcula $S_B = A^{X_{B}} \bmob p$.
+
+    \item como $S_A = S_B = S$, Alice e Bob passam a utilizar a chave $S$.
+\end{enumerate}
+
+A princípio, não é óbvio ver que $S_A = S_B = S$, mas é fácil mostrar. Considere Alice e
+suas chaves. A chave que ela recebeu de Bob, $Y_{B}$, foi resultado de
+$Y_{B} = g^{X_{B}} \bmod p$. Então, o cálculo de $S_A$ feito por ela é equivalente a
+$S_A = (g^{X_{B}})^{X_{A}} \bmod p$.
+
+Analogamente, Bob recebeu $Y_{A}$ de Alice, que foi resultado de
+$Y_{A} = g^{X_{A}} \bmod p$. Assim, o cálculo dele de $S_B$ é equivalente a
+$S_B = (g^{X_{A}})^{X_{B}} \bmod p$. Porém, podemos manipular um pouco as equações,
+chegando em
+\begin{align*}
+S_A & = (g^{X_{B}})^{X_{A}} \bmod p \\
+    & = g^{(X_{B}.X_{A})}   \bmod p \\
+    & = g^{(X_{A}.X_{B})}   \bmod p \\
+    & = (g^{X_{A}})^{X_{B}} \bmod p \\
+    & = S_B
+\end{align*}
+
+Veja que não importa que Eve tenha obtido $p$, $g$, $Y_{A}$ ou $Y_{B}$. Ela não
+conseguirá obter $S$ pois este depende de $X_{A}$ e $X_{B}$. Além disso, Eve pode
+tentar calcular $X_{A}$ e $X_{B}$, porém a dificuldade deste cálculo depende dos
+tamanhos de $p$, $X_{A}$ e $X_{B}$: quanto maiores forem esses números, mais difíceis
+serão os cálculos inversos, que são chamados de ``problemas de logaritmo discreto''. É
+praticamente impossível descobrir essas chaves privadas em uma quantidade de tempo
+razoável. Assim, esse método é considerado seguro, enquanto a computação quântica não
+estiver desenvolvida o suficiente para que novos algoritmos possam ser usados
+\cite{artigo:shor}.

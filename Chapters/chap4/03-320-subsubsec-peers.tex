@@ -1,0 +1,28 @@
+%!TEX root = ../../tcc.tex
+
+\subsubsection*{Comunicação com peers}
+
+A comunicação entre \glspl*{peer} é criptografada usando RC4 e troca de chaves
+Diffie-Hellman-Merkle \cite{wikivuze:encription}. Para isso, o protocolo de mensagens
+de \glspl*{peer} é estendido de forma a efetuar esses procedimentos criptográficos:
+
+\cfile[label="./libtransmission/crypto.c:60-79"]{./Codes/chap4/008-cripto-peer1.c}
+
+1) envio do $Y_A$
+
+A chave pública de $A$ ($Y_A$) é enviada juntamente com um trecho de dados aleatórios
+cujo comprimento qualquer entre 0 e 512 bytes.
+
+\cfile[label="./libtransmission/handshake.c:313"]{./Codes/chap4/009-cripto-peer2-send-ya.c}
+
+2) recebimento do $Y_B$
+
+\cfile[label="./libtransmission/handshake.c:313"]{./Codes/chap4/010-cripto-peer3-read-yb.c}
+
+3) envio das chaves e métodos
+
+\cfile[label="./libtransmission/handshake.c:313"]{./Codes/chap4/011-cripto-peer4-hashashash.c}
+
+\toto[inline]{parei aqui}
+
+\cfile[label="./libtransmission/handshake.c:313"]{./Codes/chap4/012-cripto-peer5-naosei.c}

@@ -139,19 +139,18 @@ Esse conteúdo tem significado, sendo utilizado da seguinte forma
     \label{lst:torrent-file-code}
 \end{listing}
 
-\todo[inline]{adicionei isso aqui, revisar}
 Neste arquivo, muitas informações estão contidas:
 
-\begin{itemize}
-    \item \textbf{announce}: são os endereços de \glspl*{tracker}, que irão informar
-        listas de \glspl*{peer} para os novos nós
+\begin{description}
+    \item[announce:] são os endereços de \glspl*{tracker}, que irão informar
+        listas de \glspl*{peer} para os novos nós;
 
-    \item \textbf{info}: possui lista de um ou mais arquivos que o \gls*{torrent} contém
+    \item[info:] possui lista de um ou mais arquivos que o \gls*{torrent} contém;
 
-    \item \textbf{pieces}: é a quantidade de partes que um arquivo possui
+    \item[pieces:] é a quantidade de partes que um arquivo possui; e
 
-    \item \textbf{piece\_length}: quantidade de bytes que a respectiva parte terá
-\end{itemize}
+    \item[piece\_length:] quantidade de bytes que a respectiva parte terá.
+\end{description}
 
 \subsubsection*{Partes}
 \label{subsec:partes}
