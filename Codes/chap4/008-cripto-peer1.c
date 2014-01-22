@@ -1,5 +1,5 @@
 // Comentários retirados de
-// http://wiki.vuze.com/w/Message_Stream_Encryption#Message_Stream_Encryption_.28aka_PHE.29_format_specification
+// http://wiki.vuze.com/w/Message_Stream_Encryption#Message_Stream_Encryption
 
 // A é o remetente
 // chave pública de A: $Y_A = (G^X_{A}) \bmod P$

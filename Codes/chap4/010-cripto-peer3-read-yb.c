@@ -6,11 +6,9 @@ static int readYb(tr_handshake * handshake, struct evbuffer * inbuf) {
     struct evbuffer * outbuf;
     size_t needlen = HANDSHAKE_NAME_LEN;
 
-    if (evbuffer_get_length(inbuf) < needlen) return READ_LATER;
-
+    (...)
     isEncrypted = memcmp(evbuffer_pullup(inbuf, HANDSHAKE_NAME_LEN),
                     HANDSHAKE_NAME, HANDSHAKE_NAME_LEN);
-
     (...)
     tr_peerIoSetEncryption(handshake->io, isEncrypted ? PEER_ENCRYPTION_RC4
                                                       : PEER_ENCRYPTION_NONE);

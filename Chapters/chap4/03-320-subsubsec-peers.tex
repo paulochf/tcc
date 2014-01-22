@@ -3,26 +3,81 @@
 \subsubsection*{Comunicação com peers}
 
 A comunicação entre \glspl*{peer} é criptografada usando RC4 e troca de chaves
-Diffie-Hellman-Merkle \cite{wikivuze:encription}. Para isso, o protocolo de mensagens
-de \glspl*{peer} é estendido de forma a efetuar esses procedimentos criptográficos:
+Diffie-Hellman-Merkle \cite{wikivuze:encription}. Para isso, o protocolo de
+\emph{handshake} para mensagens entre \glspl*{peer} é estendido de forma a efetuar
+esses cinco procedimentos criptográficos:
 
 \cfile[label="./libtransmission/crypto.c:60-79"]{./Codes/chap4/008-cripto-peer1.c}
 
-1) envio do $Y_A$
+1) $A$ envia $Y_A$ para $B$
 
-A chave pública de $A$ ($Y_A$) é enviada juntamente com um trecho de dados aleatórios
+O Transmission, $A$, envia sua chave pública ($Y_A$) com um trecho de dados aleatórios
 cujo comprimento qualquer entre 0 e 512 bytes.
 
 \cfile[label="./libtransmission/handshake.c:313"]{./Codes/chap4/009-cripto-peer2-send-ya.c}
 
-2) recebimento do $Y_B$
+2) $A$ recebe $Y_B$ de $B$
 
-\cfile[label="./libtransmission/handshake.c:313"]{./Codes/chap4/010-cripto-peer3-read-yb.c}
+O outro \gls*{peer}, $B$, responde com sua chave pública ($Y_B$). Assim, a chave
+compartilhada $S$.
 
-3) envio das chaves e métodos
+\cfile[label="./libtransmission/handshake.c:391"]{./Codes/chap4/010-cripto-peer3-read-yb.c}
 
-\cfile[label="./libtransmission/handshake.c:313"]{./Codes/chap4/011-cripto-peer4-hashashash.c}
+3) $A$ envia para $B$ as opções de criptografia e a mensagem de \emph{handshake}
 
-\toto[inline]{parei aqui}
+Então, $A$ envia dados de forma criptografada: a mensagem de \emph{handshake} e outras
+informações sobre a criptografia para $B$, na forma
 
-\cfile[label="./libtransmission/handshake.c:313"]{./Codes/chap4/012-cripto-peer5-naosei.c}
+\begin{verbatim}
+HASH('req1', S), HASH('req2', SKEY) xor HASH('req3', S),
+    ENCRYPT(VC, crypto_provide, len(PadC), PadC, len(IA)), ENCRYPT(IA)
+\end{verbatim}
+
+\newpage
+onde:
+
+\begin{description}
+    \item[HASH():] é a função que calcula o \gls*{hashvalue} SHA-1 de todos os
+        parâmetros de entrada concatenados;
+
+    \item[ENCRYPT():] é a função RC4 com chave \bverb|HASH('keyA', S, SKEY)| (se
+        $A \rightarrow B$), ou \bverb|HASH('keyB', S, SKEY)| (se $B \rightarrow A$). Os
+        primeiros 1024 bytes da encriptação RC4 são descartados. O uso seguido desta
+        função por uma parte a encriptar o fluxo de dados sem reinicializações ou
+        trocas;
+
+    \item[VC:] é uma constante de verificação (\emph{verification constant}), que é uma
+        string de 8 bytes de valor 0x00, usada para verificar se a outra parte conhece
+        $S$ e SKEY, evitando ataques de por repetição do SKEY;
+
+    \item[crypto\_provide/crypto\_select:] são bitfield de 32 bits. Dois valores são
+        usados atualmente, com o restante sendo reservado para uso futuro. O \gls*{peer}
+        $A$ deve ligar os bits de todos os métodos suportados por ele, enquanto o
+        \gls*{peer} $B$ deve ligar o bit do método escolhido dentre os oferecidos e
+        enviar como resposta. Por enquanto, 0x01 indica sem encriptação e 0x02 indica o
+        RC4;
+
+    \item[PadC/PadD:] reservados para futuras extensões do handshake. Hoje, possuem 0
+         bytes;
+
+    \item[IA:] conjunto de dados inicial de $A$. Pode ser 0 bytes se quiser esperar por
+        negociação de encriptação;
+\end{description}
+
+\cfile[label="./libtransmission/handshake.c:391", samepage=false]{./Codes/chap4/011-cripto-peer4-hashashash.c}
+
+4) $A$ recebe de $B$ a opção de criptografia escolhida e a mensagem de resposta ao
+\emph{handshake} encriptada por RC4
+
+Aqui, $B$ envia como resposta
+
+\begin{verbatim}
+ENCRYPT(VC, crypto_select, len(padD), padD), ENCRYPT2(Payload Stream)
+\end{verbatim}
+
+\cfile[label="./libtransmission/handshake.c:493", samepage=false]{./Codes/chap4/012-cripto-peer5-readvc.c}
+
+5) $A$ envia para $B$ o fim da mensagem de \emph{handshake} encriptada por RC4
+
+\cfile[label="./libtransmission/handshake.c:587"]{./Codes/chap4/013-cripto-peer6-handshake.c}
+\cfile[label="./libtransmission/peer-io.c:1083"]{./Codes/chap4/014-cripto-peer7-write.c}

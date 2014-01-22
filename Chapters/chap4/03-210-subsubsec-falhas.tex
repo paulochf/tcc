@@ -1,0 +1,11 @@
+%!TEX root = ../../tcc.tex
+
+\subsubsection*{Falhas de segurança}
+
+The objective is NOT to create a cryptographically secure protocol that can survive unlimited observation of passing packets and substantial computational resources on network timescales. The objective is to raise the bar sufficiently to deter attacks based on observing ip-port numbers in peer-to-tracker communications.
+
+If a tracker observes a large number of tracker requests and responses and subsequent connections, it is possible to attack the encryption. RC4 is known to have a number of weaknesses especially in the way it is used with WEP [2] [3] [4]. However, with tracker peer obfuscation, the number of bytes transferred between the tracker and a client is likely significantly smaller than transferred between a wireless computer and a basestation. An attacker faces a much larger task in obtaining sufficient ciphertext to directly break the encryption.
+
+Hobbling the RC4 encryption by using a bounded-length RC4 pseudorandom string for small swarms is likely to have negilgible impact on security over any other encyption method since the pseudorandom string is probably equal to or longer than the plaintext and thus no part of it is repeated in the XOR except as peers arrive or leave the swarm. Thus on the timescales of rerequest intervals, nearly the same ciphertext is handed to every peer requesting the same infohash. Intercepting the same ciphertext multiple times provides no additional information to the attacker. The attacker could correlate ip-port pairs in connections following tracker responses, but an attacker could do this regardless of the encryption method employed. Furthermore more direct methods of traffic analysis applied to peer-to-peer communication is available to network operators.
+
+For larger swarms, hobbling RC4 may simplify breaking the encryption since the same pseudorandom string is used repeatedly across the peer list. Some study is in order taking into account that the tracker can periodically change intiailization vectors.
