@@ -2,10 +2,28 @@
 
 \subsubsection*{Falhas de segurança}
 
-The objective is NOT to create a cryptographically secure protocol that can survive unlimited observation of passing packets and substantial computational resources on network timescales. The objective is to raise the bar sufficiently to deter attacks based on observing ip-port numbers in peer-to-tracker communications.
+Apesar de ainda ser bastante utilizado, o RC4 não pode ser considerado
+criptograficamente seguro. Na primeira década dos anos 2000 foram publicados diversos
+trabalhos sobre falhas do método e até ataques diferentes que conseguiram obter os
+dados originais
+\cite{blog:matthew-rc4-1,blog:matthew-rc4-2,blog:matthew-rc4-3,artigo:patterson}.
 
-If a tracker observes a large number of tracker requests and responses and subsequent connections, it is possible to attack the encryption. RC4 is known to have a number of weaknesses especially in the way it is used with WEP [2] [3] [4]. However, with tracker peer obfuscation, the number of bytes transferred between the tracker and a client is likely significantly smaller than transferred between a wireless computer and a basestation. An attacker faces a much larger task in obtaining sufficient ciphertext to directly break the encryption.
+Porém, como é dito na especificação da extensão criptográfica no protocolo BitTorrent
+\cite{site:bittorrent-cripto}, ``o objetivo não é de criar um protocolo
+criptograficamente que consegue sobreviver a observações dos pacotes de dados e recursos
+computacionais consideráveis na escala de tempo de redes. O objetivo é de aumentar a
+dificuldade o suficiente a fim de deter ataques baseados na obtenção de endereços IP e
+porta na comunicações entre \glspl*{peer} e \glspl*{tracker}''. Especificamente, o
+objetivo é prevenir que \glspl{isp} ou outros administradores de rede consigam bloquear
+ou impedir conexões BitTorrent entre esse \gls*{peer} e qualquer outro \gls*{peer} cujo
+endereço IP e porta apareça em alguma lista de \glspl*{peer} enviada por um
+\gls*{tracker}. Por isso, essa especificação é chamada de ofuscação de \glspl*{peer},
+onde a idéia é usar o \bverb|info_hash| de um \gls*{torrent} como chave compartilhada
+entre o \gls*{peer} e o \gls*{tracker}.
 
-Hobbling the RC4 encryption by using a bounded-length RC4 pseudorandom string for small swarms is likely to have negilgible impact on security over any other encyption method since the pseudorandom string is probably equal to or longer than the plaintext and thus no part of it is repeated in the XOR except as peers arrive or leave the swarm. Thus on the timescales of rerequest intervals, nearly the same ciphertext is handed to every peer requesting the same infohash. Intercepting the same ciphertext multiple times provides no additional information to the attacker. The attacker could correlate ip-port pairs in connections following tracker responses, but an attacker could do this regardless of the encryption method employed. Furthermore more direct methods of traffic analysis applied to peer-to-peer communication is available to network operators.
-
-For larger swarms, hobbling RC4 may simplify breaking the encryption since the same pseudorandom string is used repeatedly across the peer list. Some study is in order taking into account that the tracker can periodically change intiailization vectors.
+Por exemplo, em um dos ataques ao RC4 usado no protocolo de rede sem fio WEP, é
+necessário que o atacante obtenha uma quantidade de bytes muito grande para que consiga
+decifrar o texto. Porém, enquanto em redes sem fio esses dados trafegados são facilmente
+alcançam aquela quantidade necessária, numa comunicação entre \glspl*{peer} e
+\glspl*{tracker} os dados transmitidos são muito menores, dificultando ainda mais o
+processo de quebra.
