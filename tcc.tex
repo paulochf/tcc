@@ -39,8 +39,8 @@
 
 % Desligando a ligatura do 'fi'
 % http://www.latex-community.org/forum/viewtopic.php?f=5&t=953#p13896
-\usepackage{microtype}
-\DisableLigatures{encoding = *, family = *}
+\usepackage[babel=true]{microtype}
+\DisableLigatures[f]{encoding = *}
 
 % Usa estilo "Natbib" para as referências bibliográficas
 \usepackage[backend=biber,bibencoding=utf8,style=numeric-comp]{biblatex}
@@ -72,6 +72,8 @@
 % from http://tex.stackexchange.com/q/57151
 % \usepackage{accsupp}
 % \newcommand{\emptyaccsupp}[1]{\BeginAccSupp{ActualText={}}#1\EndAccSupp{}}
+
+\newcommand{\Oh}{\textup{O}}
 
 \newcommand{\subsubsubsection}[1]{\indent \textbf{#1}}
 
