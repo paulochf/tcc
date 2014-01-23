@@ -1,9 +1,38 @@
 %!TEX root = ../../tcc.tex
 
-\section{Bitfields}
+\newpage
+\section{Bitfields e o Traffic Shaping}
 \label{sec:bitfield}
 
-Apesar de ser um simples array de bits usado no gerenciamento de partes que o programa
-já baixou ou não, foi percebido que o seu uso de forma não-convencional, chamado de
-\emph{lazy bitfield}, pode ajudar a evitar o controle de banda (chamado de modelagem de
-tráfego, ou \emph{traffic shaping} em inglês), feito por \glspl{isp}.
+No BitTorrent, os bitfields são usados como uma tabela de controle de quais partes de um
+\gls*{torrent} o programa cliente já recebeu de outros \glspl*{peer}, permitindo
+conhecer quais são as partes mais raras. Com ele, o \gls*{peer} consegue utilizar a
+estratégia de \emph{Rarest First}, priorizando partes raras antes das mais comuns.
+
+Com o poder crescente da tecnologia de banda larga e a disseminação do uso do
+BitTorrent em todo o mundo, as \glspl{isp} têm tido trabalho em manter a qualidade de
+suas infraestruturas com a imensa quantidade de dados que trafegam pelos seus cabos.
+Para evitar que o tráfego em excesso cause perda de desempenho no oferecimento do
+serviço, as empresas realizam o chamado \emph{traffic shaping} (modelagem de tráfego),
+que foi especificado em 1998 \cite{site:rfcshaping}.
+
+Para conseguir controlar o grande volume da sua rede, as \glspl*{isp} tentar
+classificar os dados de acordo com os seus protocolos, portas utilizadas e informações
+de cabeçalho dos pacotes. Feito isso, os pacotes entram na fila correspondente ao seu
+tipo, até ser enviada depois de seguir o contrato de tráfego da fornecedora da conexão.
+É dessa forma que os pacotes enviados durante o uso de BitTorrent se atrasam ou, até
+mesmo, se perdem, causando limitação das taxas de transmissão.
+
+Especificamente, o controle do tráfego é possível porque, durante a análise dos
+pacotes, é possível perceber o distinto protocolo de \emph{handshake} do BitTorrent,
+onde ocorre o envio dos bitfields. Para se evitar isso, foi desenvolvido a técnica de
+\emph{lazy bitfield} (bitfield preguiçoso): o \gls*{peer} envia um bitfield indicando
+que possui menos partes que a realidade, enviando a diferença em seguida utilizando
+mensagens \bverb|have|. Assim, o \gls*{peer} finge não ser um potencial \gls{seeder},
+por exemplo, evitando ter sua rede regulada.
+
+A proposta de extensão \emph{Fast} do protocolo BitTorrent \cite{site:bittorrent-fast},
+que surgiu em 2008, permite o uso de uma mensagem simples para avisar outros
+\glspl*{peer} que também suportarem o protocolo que o remetente completou o
+\gls*{torrent} sem a necessidade de enviar o bitfield. Por conta disso, a probabilidade
+da conexão ser controlada é menor.
