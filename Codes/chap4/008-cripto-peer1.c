@@ -2,14 +2,14 @@
 // http://wiki.vuze.com/w/Message_Stream_Encryption#Message_Stream_Encryption
 
 // A é o remetente
-// chave pública de A: $Y_A = (G^X_{A}) \bmod P$
+// chave pública de A: $Y_A = (g^{X_{A}}) \bmod p$
 // B é o receptor
-// chave pública de B: $Y_B = (G^X_{B}) \bmod P$
+// chave pública de B: $Y_B = (g^{X_{B}}) \bmod p$
 
 /* $P$, $S$, $Y_A$ and $Y_B$ are 768bits long */
 #define KEY_LEN 96
 
-/* Prime $P$ is a 768 bit safe prime,
+/* Prime $p$ is a 768 bit safe prime,
 "0xFFFFFFFFFFFFFFFFC90FDAA22168C234C4C6628B80DC1CD129024E088A67CC74
    020BBEA63B139B22514A08798E3404DDEF9519B3CD3A431B302B0A6DF25F1437
    4FE1356D6D51C245E485B576625E7EC6F44C42E9A63A36210000000000090563"*/
@@ -26,7 +26,7 @@ static const uint8_t dh_P[PRIME_LEN] =
   0xA6, 0x3A, 0x36, 0x21, 0x00, 0x00, 0x00, 0x00, 0x00, 0x09, 0x05, 0x63,
 };
 
-/* Generator $G$ is "2" */
+/* Generator $g$ is "2" */
 static const uint8_t dh_G[] = { 2 };
 
 /* $X_A$ and $X_B$ are a variable size random integers.
@@ -38,4 +38,4 @@ time is scarce. */
 #define DH_PRIVKEY_LEN_MIN 16
 #define DH_PRIVKEY_LEN 20
 
-/* DH secret: $S = (Y_{A}^{X_B}) mod P = (Y_{B}^{X_A}) mod P$ */
+/* DH secret: $S = (Y_{A}^{X_B}) mod p = (Y_{B}^{X_A}) mod P$ */

@@ -6,6 +6,7 @@ static char* announce_url_new(const tr_session * session, const tr_announce_requ
     evbuffer_add_printf(buf, "%s%cinfo_hash=%s(...)&supportcrypto=1",
         req->url, strchr(req->url, '?') ? '&' : '?', escaped_info_hash, (...));
 
+    // se criptografia estiver habilitada, avisa do seu uso
     if (session->encryptionMode == TR_ENCRYPTION_REQUIRED)
         evbuffer_add_printf(buf, "&requirecrypto=1");
 
