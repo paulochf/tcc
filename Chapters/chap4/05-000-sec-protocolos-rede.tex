@@ -2,6 +2,53 @@
 
 \section{Protocolos de redes}
 
+A Internet é o meio mais importante de comunicação que existe atualmente. Usamos de
+forma tão corriqueira que nem nos damos conta de quantas camadas e protocolos existem em
+uso em um único instante. Para chegar até o que é hoje, precisou passar por muitas
+evoluções desde que a chamado precursora da Internet, a ARPANET, foi iniciada em outubro
+de 1969. Atualmente, seus protocolos são mantidos pela IETF (Internet Engineering Task
+Force).
+
+Tecnicamente falando, a Internet é organizada em uma pilha de camadas de protocolo, que
+oferecem e consomem serviços às camadas adjacentes, permitindo que dados sejam roteados
+entre um computador emissor e outro receptor. Esses protocolos podem estar implementados
+tanto por \emph{software}, por \emph{hardware}, ou por uma combinação de ambos. A
+vantagem da modelagem da pilha é que provê um meio organizado de se discutir as partes
+do sistema e até atualizá-las separadamente. Em contrapartida, uma camada pode
+necessitar de um valor presente em outra, ou ainda de possuir alguma funcionalidade já
+implementada em outra.
+
+As cinco camadas que representam a pilha de camadas de protocolo da Internet são:
+
+\begin{description}
+    \item[aplicação:] é onde existem as aplicações de rede e seus protocolos; ocorrem
+        as traduções de endereços de Internet para endereços de rede (DNS); e
+        transmissões de documentos de Internet (HTTP), de mensagens de e-mail (SMTP) e
+        de arquivos (FTP). Os pacotes de dados dessa camada são chamados de
+        \textbf{mensagens};
+
+    \item[transporte:] é a camada onde atuam os protocolos \gls{tcp} e \gls{udp}, que
+        transforma as mensagens da camada superior em \textbf{segmentos};
+
+    \item[rede:] camada responsável por transportar pacotes conhecidos como
+        \textbf{datagramas} para outro computador, recebe da camada de transporte um
+        segmento e um endereço de destino. Assim, funciona como um serviço de entrega,
+        que sabe quais rotas o datagrama deve tomar para chegar ao destinho. Também é
+        onde atua o protocolo IP, que todo componente de Internet deve possuir, e que
+        define alguns dados no datagrama da mesma forma que equipamentos roteadores
+        fazem.
+
+    \item[enlace:]
+
+    \item[física:]
+\end{description}
+
+\begin{comment}
 Aqui vou explicar o que são os protocolos de rede TCP e UDP, apontar suas diferenças e
 mostrar os motivos pelos quais o UDP é preferido ao TCP no uso de endereços de
 \gls*{announce} de \glspl*{tracker}.
+\end{comment}
+
+\input{Chapters/chap4/05-100-subsec-tcp}
+
+\input{Chapters/chap4/05-200-subsec-udp}
