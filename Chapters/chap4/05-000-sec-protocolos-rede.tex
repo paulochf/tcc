@@ -6,8 +6,8 @@ A Internet é o meio mais importante de comunicação que existe atualmente. Usa
 forma tão corriqueira que nem nos damos conta de quantas camadas e protocolos existem em
 uso em um único instante. Para chegar até o que é hoje, precisou passar por muitas
 evoluções desde que a chamado precursora da Internet, a ARPANET, foi iniciada em outubro
-de 1969. Atualmente, seus protocolos são mantidos pela IETF (Internet Engineering Task
-Force).
+de 1969 \cite{book:kurose}. Atualmente, seus protocolos são mantidos pela IETF
+(Internet Engineering Task Force).
 
 Tecnicamente falando, a Internet é organizada em uma pilha de camadas de protocolo, que
 oferecem e consomem serviços às camadas adjacentes, permitindo que dados sejam roteados
@@ -18,30 +18,65 @@ do sistema e até atualizá-las separadamente. Em contrapartida, uma camada pode
 necessitar de um valor presente em outra, ou ainda de possuir alguma funcionalidade já
 implementada em outra.
 
-As cinco camadas que representam a pilha de camadas de protocolo da Internet são:
+As cinco camadas que representam a pilha de camadas de protocolo da Internet podem ser
+explicadas fazendo-se uma analogia com um serviço postal \cite{site:internet-layer}:
 
 \begin{description}
     \item[aplicação:] é onde existem as aplicações de rede e seus protocolos; ocorrem
         as traduções de endereços de Internet para endereços de rede (DNS); e
         transmissões de documentos de Internet (HTTP), de mensagens de e-mail (SMTP) e
         de arquivos (FTP). Os pacotes de dados dessa camada são chamados de
-        \textbf{mensagens};
+        \textbf{mensagens}.
 
-    \item[transporte:] é a camada onde atuam os protocolos \gls{tcp} e \gls{udp}, que
-        transforma as mensagens da camada superior em \textbf{segmentos};
+        Nessa camada, seria onde uma pessoa escreve uma carta e a deposita na caixa de
+        correio. A pessoa amiga recebe pega a carta na sua caixa de correio e a lê.
+        Ambas as pessoas não sabem dos processos e rotas que a carta tomou. Bastou uma
+        enviar a carta e a outra receber.
 
-    \item[rede:] camada responsável por transportar pacotes conhecidos como
+    \item[transporte:] é onde atuam os protocolos \gls{tcp} e \gls{udp}, que
+        transformam as mensagens da camada superior em \textbf{segmentos} e criam
+        conexões entre cliente e servidor e as monitora prevenindo erros.
+
+        No caso do serviço postal, O remetente será avisado se enviar a carta para um
+        endereço incorreto (por exemplo, tiver errado o estado), ou ainda se uma carta
+        registrada não pôde ser entregue. Nesses casos, a carta é devolvida, ficando a
+        cargo da pessoa o que fazer com esse problema.
+
+    \item[rede:] é responsável por transportar pacotes conhecidos como
         \textbf{datagramas} para outro computador, recebe da camada de transporte um
         segmento e um endereço de destino. Assim, funciona como um serviço de entrega,
-        que sabe quais rotas o datagrama deve tomar para chegar ao destinho. Também é
+        que sabe quais rotas o datagrama deve tomar para chegar ao destino. Também é
         onde atua o protocolo IP, que todo componente de Internet deve possuir, e que
         define alguns dados no datagrama da mesma forma que equipamentos roteadores
         fazem.
 
-    \item[enlace:]
+        O serviço de entrega de correio usaria aviões para mover suas cartas entre as
+        cidades, porém seu piloto não saberia quem as enviou, para quem está levando ou
+        quais seus conteúdos.
 
-    \item[física:]
+    \item[enlace:] responsável pela transmissão dos dados que recebe da camada de rede.
+        A cada nó da rota, a camada de rede repassa o datagrama para a camada de
+        enlace, que então o transforma em \textbf{quadros} e o entrega para o próximo
+        nó da rede; esse nó recebe os quadros na sua camada de enlace e os repassa a
+        sua camada de rede. Os protocolos que atuam nesta camada se incluem o Ethernet,
+        os vários de conexões wifi, os de ponto a ponto (PPP), etc.
+
+        Para o serviço postal, seu equivalente seriam os caminhões e entregadores, que
+        distribuem os pacotes dentro de uma cidade.
+
+    \item[física:] responsável pela transmissão de cada bit dos quadros de um nó para
+        outro. Os protocolos dessa camada dependem do tipo de meio pelo qual os nós
+        estão ligados. Por exemplo, o protocolo Ethernet possui uma especificação para
+        cabeamentos coaxiais, outra para cabos de par trançado, outra para fibra óptica,
+        etc.
+
+        Na analogia das cartas, são as canetas e papéis usados na escrita, ou a luz
+        acesa para a leitura.
 \end{description}
+
+Uma característica bastante forte do BitTorrent é o uso perceptível dos protocolos
+\gls*{tcp} e \gls*{udp}. Ambos têm seus pontos fortes e fracos, que podem ser explorados
+dependendo da aplicação para uma melhor utilização dos recursos.
 
 \begin{comment}
 Aqui vou explicar o que são os protocolos de rede TCP e UDP, apontar suas diferenças e

@@ -15,15 +15,7 @@
 			"file": "/home/paulo/Arquivos/tcc/mono/tcc.tex",
 			"settings":
 			{
-				"buffer_size": 8765,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/paulo/Arquivos/tcc/mono/glossario.tex",
-			"settings":
-			{
-				"buffer_size": 20566,
+				"buffer_size": 8858,
 				"line_ending": "Unix"
 			}
 		},
@@ -36,34 +28,34 @@
 			}
 		},
 		{
-			"file": "/home/paulo/Arquivos/tcc/mono/Chapters/chap4/01-300-subsec-hashtables.tex",
+			"file": "/home/paulo/Arquivos/tcc/mono/glossario.tex",
 			"settings":
 			{
-				"buffer_size": 1344,
+				"buffer_size": 20566,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/home/paulo/Arquivos/tcc/mono/Chapters/chap4/03-100-subsec-diffiehellman.tex",
+			"file": "/home/paulo/Arquivos/tcc/mono/Chapters/chap4/05-000-sec-protocolos-rede.tex",
 			"settings":
 			{
-				"buffer_size": 2816,
+				"buffer_size": 2638,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/home/paulo/Arquivos/tcc/mono/Codes/chap4/007-cripto-announce.c",
+			"file": "/home/paulo/Arquivos/tcc/mono/Chapters/chap4/05-100-subsec-tcp.tex",
 			"settings":
 			{
-				"buffer_size": 547,
+				"buffer_size": 59,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/home/paulo/Arquivos/tcc/mono/Codes/chap4/008-cripto-peer1.c",
+			"file": "/home/paulo/Arquivos/tcc/mono/Chapters/chap4/05-200-subsec-udp.tex",
 			"settings":
 			{
-				"buffer_size": 1827,
+				"buffer_size": 59,
 				"line_ending": "Unix"
 			}
 		}
@@ -128,22 +120,23 @@
 	},
 	"file_history":
 	[
-		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/04-000-sec-bitfields.tex",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/03-000-sec-cripto.tex",
+		"/home/paulo/Arquivos/tcc/mono/glossario.tex",
+		"/home/paulo/Arquivos/tcc/mono/Codes/chap4/007-cripto-announce.c",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/03-320-subsubsec-peers.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/01-300-subsec-hashtables.tex",
-		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/01-200-subsec-listas.tex",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/03-100-subsec-diffiehellman.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/03-300-subsec-transmission.tex",
+		"/home/paulo/Arquivos/tcc/mono/Codes/chap4/008-cripto-peer1.c",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/04-000-sec-bitfields.tex",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/01-200-subsec-listas.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/03-210-subsubsec-falhas.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/03-200-subsec-rc4.tex",
-		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/03-000-sec-cripto.tex",
-		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/03-100-subsec-diffiehellman.tex",
 		"/home/paulo/Arquivos/tcc/mono/Codes/chap4/012-cripto-peer5-readvc.c",
 		"/home/paulo/Arquivos/tcc/mono/Codes/chap4/011-cripto-peer4-hashashash.c",
 		"/home/paulo/Arquivos/tcc/mono/Codes/chap4/013-cripto-peer6-handshake.c",
-		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/03-320-subsubsec-peers.tex",
 		"/home/paulo/Arquivos/tcc/mono/Codes/chap4/010-cripto-peer3-read-yb.c",
 		"/home/paulo/Arquivos/tcc/mono/Codes/chap4/014-cripto-peer7-write.c",
-		"/home/paulo/Arquivos/tcc/mono/Codes/chap4/007-cripto-announce.c",
-		"/home/paulo/Arquivos/tcc/mono/Codes/chap4/008-cripto-peer1.c",
 		"/home/paulo/Arquivos/tcc/mono/Codes/chap4/009-cripto-peer2-send-ya.c",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/01-000-sec-ed.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/02-000-sec-hash.tex",
@@ -254,12 +247,11 @@
 		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/054-rechoke-down2.c",
 		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/052-compare-rechoke.c",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/Chapter3.aux",
-		"/media/Arquivos/tcc/mono/Codes/chap3/053-enum-rechoke.c",
-		"/media/Arquivos/tcc/mono/Codes/chap3/052-compare-rechoke.c"
+		"/media/Arquivos/tcc/mono/Codes/chap3/053-enum-rechoke.c"
 	],
 	"find":
 	{
-		"height": 31.0
+		"height": 40.0
 	},
 	"find_in_files":
 	{
@@ -273,6 +265,8 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			":]\n",
+			"protoco",
 			"archive",
 			"mod P",
 			"G",
@@ -398,9 +392,7 @@
 			"glink",
 			"$k$-bucket",
 			"emph",
-			"\\item",
-			"asdasd",
-			"Kademlia"
+			"\\item"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -507,15 +499,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 8765,
+						"buffer_size": 8858,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2861,
-								2861
+								755,
+								755
 							]
 						],
 						"settings":
@@ -525,44 +517,14 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 687.0,
+						"translation.y": 125.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "/home/paulo/Arquivos/tcc/mono/glossario.tex",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 20566,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2129,
-								2129
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 729.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
 					"file": "/home/paulo/Arquivos/tcc/mono/bibliografia.bib",
 					"semi_transient": false,
 					"settings":
@@ -597,30 +559,60 @@
 						"translation.y": 4167.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 5,
 					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 3,
-			"sheets":
-			[
+				},
 				{
-					"buffer": 3,
-					"file": "/home/paulo/Arquivos/tcc/mono/Chapters/chap4/01-300-subsec-hashtables.tex",
+					"buffer": 2,
+					"file": "/home/paulo/Arquivos/tcc/mono/glossario.tex",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1344,
+						"buffer_size": 20566,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								226,
-								226
+								18021,
+								18021
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 5038.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 3,
+					"file": "/home/paulo/Arquivos/tcc/mono/Chapters/chap4/05-000-sec-protocolos-rede.tex",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2638,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2555,
+								2555
 							]
 						],
 						"settings":
@@ -628,27 +620,27 @@
 							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 343.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
 					"buffer": 4,
-					"file": "/home/paulo/Arquivos/tcc/mono/Chapters/chap4/03-100-subsec-diffiehellman.tex",
+					"file": "/home/paulo/Arquivos/tcc/mono/Chapters/chap4/05-100-subsec-tcp.tex",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2816,
+						"buffer_size": 59,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								141,
-								141
+								55,
+								55
 							]
 						],
 						"settings":
@@ -661,65 +653,37 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
 					"buffer": 5,
-					"file": "/home/paulo/Arquivos/tcc/mono/Codes/chap4/007-cripto-announce.c",
+					"file": "/home/paulo/Arquivos/tcc/mono/Chapters/chap4/05-200-subsec-udp.tex",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 547,
+						"buffer_size": 59,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								244,
-								244
+								53,
+								53
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/C++/C++.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "/home/paulo/Arquivos/tcc/mono/Codes/chap4/008-cripto-peer1.c",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1827,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								327,
-								327
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.tmLanguage",
-							"tab_size": 2,
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
+							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 1,
 					"type": "text"
 				}
 			]
@@ -820,7 +784,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 189.0,
+	"side_bar_width": 107.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

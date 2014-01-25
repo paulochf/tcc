@@ -2,3 +2,52 @@
 
 \subsection*{O protocolo UDP}
 
+O protocolo \gls*{udp} é um tipo de conexão que especifica conexões quase que diretas
+(se comparado com o \gls*{tcp} \todo{RLY?}) entre as camadas de aplicação e de
+rede.
+
+Em sua camada, ocorrem a multiplexação e a demultiplexação dos dados. Quando as
+mensagens estão sendo enviadas por um processo da aplicação, elas são recebidas através
+de \glspl{socket}, anexadas aos endereços IP e número de porta de origem e de destino, e
+aos comprimentos e \gls{checksum} do cabeçalho e do corpo de dados \gls*{udp}, para
+enfim serem repassadas como segmentos para a camada de rede. Por sua vez, a camada de
+rede encapsula os segmentos em datagramas fazem o melhor possível para entregá-los ao
+destinatário.
+
+Já quando estão sendo recebidas, o protocolo \gls*{udp} utiliza a porta de destino
+contida no cabeçalho para entregar os dados do segmento para o processo correto de
+aplicação. Como não existe nenhum \emph{handshake} entre as camadas de transporte das
+partes durante esse procedimento, o protocolo \gls*{udp} é dito ``sem conexão'' ou ``não
+orientado a conexão''. Além disso, é considerado não confiável, já que não se possui
+garantia de entregas dos pacotes, muito menos na ordem correta.
+
+Apesar de ser considerado não confiável, existem vantagens em se escolher o método
+\gls*{udp} em vez do \gls*{tcp}:
+
+\begin{itemize}
+    \item controle avançado de quais dados são enviados e quando: como o \gls*{tcp}
+        possui controle de congestionamento e confirmação de recebimento de segmentos,
+        pode ser que a aplicação seja comprometida pelo atraso de algum datagrama. No
+        caso de aplicações em tempo real, é possível suportar alguma perda de dados, ou
+        ainda implementar o seu próprio método de verificação de integridade;
+
+    \item dispensa conexões: enquanto o \gls*{tcp} utiliza \emph{handshakes} antes da
+        transferência dos dados, o \gls*{udp} já os envia sem a necessidade de
+        contatos anteriores. Essa é o principal motivo pelo qual servidores de DNS
+        (\emph{Domain Name Service}) utilizam \gls*{udp};
+
+    \item não mantém estado da conexão: essas informações de estado são necessárias para
+        se conseguir uma conexão de dados confiável, que é como o \gls*{tcp} controla
+        buffers de entrada e saída, congestionamento de dados e parâmetros de
+        confirmação. Por conta disso, um servidor dedicado a uma aplicação consegue
+        aguentar muito mais conexões do que se fosse usado \gls*{tcp};
+
+    \item pouco \gls{overhead} de cabeçalho de pacotes: enquanto o \gls*{tcp} possui
+        \gls*{overhead} de cabeçalho de 20 bytes por segmento, o \gls*{udp} possui 8
+        bytes.
+\end{itemize}
+
+Originalmente, os \glspl*{tracker} utilizavam \gls*{tcp}, porém com o tempo perceberam
+que com \gls*{udp} se tornariam mais eficientes, reduzindo o consumo da largura da
+conexão de rede pela metade \cite{site:tracker-udp}. Por esses motivos, os servidores
+dos \glspl{tracker} utilizam prioritariamente o protocolo \gls*{udp}.
