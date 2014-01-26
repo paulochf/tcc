@@ -2,44 +2,47 @@
 
 \subsection*{BitTorrent prefere UDP}
 
-A substituição do \gls*{tcp} pelo \gls*{udp} para se trocar partes no BitTorrent,
-desenvolvida pioneiramente pelo programa cliente $\mu$Torrent, causou discussões
-acaloradas pela Internet. Richard Bennet, arquiteto de redes que escreveu o primeiro
-padrão Ethernet para cabos de par trançado e ajudou no desenvolvimento de protocolos
-wifi, publicou um artigo \cite{site:register-bennett} dizendo que a troca para o
-\gls*{udp} poderia causar um colapso da Internet como um todo, pois os \glspl*{isp} não
-teriam como controlar o tráfego de dados BitTorrent, porque necessitavam que estes
-fossem pacotes \gls*{tcp}. Esse colapso afetaria usuários de outros serviços
-\gls*{udp}, que na sua maioria eram aplicações de tempo real, como jogos online ou
+Em 2008, a substituição do \gls*{tcp} pelo \gls*{udp}, como protocolo utilizado na
+troca de partes no BitTorrent, foi desenvolvida pioneiramente pelo programa cliente
+$\mu$Torrent. Essa mudança instantaneamente causou discussões acaloradas pela Internet.
+
+Richard Bennett, arquiteto de redes que escreveu o primeiro padrão Ethernet para cabos
+de par trançado e ajudou no desenvolvimento de protocolos wifi, publicou um artigo
+\cite{site:register-bennett} que dizia que a substituição para o protocolo \gls*{udp}
+poderia causar um colapso da Internet como um todo, pois os \glspl{isp} não teriam como
+controlar o tráfego de dados BitTorrent por ele, já que necessitavam que os dados
+fossem transmitidos pelo protocolo \gls*{tcp}. Esse colapso afetaria usuários de outros
+serviços \gls*{udp} (na sua maioria, aplicações de tempo real), como jogos online ou
 sistemas de comunicação VoIP.
 
 Enquanto isso, desenvolvedores de programas cliente responderam dizendo que não existiam
 motivos para preocupações. Simon Morris, que na época era chefe da gestão de produto da
-empresa BitTorrent, disse \cite{site:dslreports-bennett} que a troca era para se ter um
-melhor controle de congestionamento das transmissões de dados, pois com o \gls*{tcp} o
-conhecimento sobre o problema só surge depois que ele ocorre. Por outro lado, usando
-\gls*{udp} é possível prever congestionamentos medindo as taxas de transmissão entre
-\glspl*{peer} e, com isso, diminuir a velocidade de envio.
+empresa BitTorrent, afirmou \cite{site:dslreports-bennett} que a substituição de
+protocolo permitiria um melhor controle de congestionamentos das transmissões de dados.
+Com o \gls*{tcp}, esses congestionamentos só seriam conhecidos depois de suas
+ocorrências. Por outro lado, com o uso do \gls*{udp}, seria possível prevê-los
+medindo-se as taxas de transmissão entre \glspl*{peer}.
 
-Outro depoimento é de um gerente de comunidade do $\mu$Torrent chamado Firon, que
+Outro depoimento foi o de um gerente de comunidade do $\mu$Torrent, chamado Firon, que
 explicou a um site de notícias relacionadas a BitTorrent
-\cite{site:torrentfreak-bennett} o mesmo argumento dado por Simon Morris, e ainda
-acrescentou que o BitTorrent já possui um protocolo de \emph{handshake} e que usar o
-protocolo \gls*{tcp} redundaria esse processo e, por isso, a mudança para \gls*{udp}
-reduziria o tráfego na Internet.
+\cite{site:torrentfreak-bennett} o mesmo argumento dado por Simon Morris. Além disso,
+acrescentou que o uso do \gls*{tcp} no BitTorrent significaria o uso de dois protocolos
+de \emph{handshake} e, portanto, a mudança para \gls*{udp} eliminaria essa redundância,
+reduzindo o tráfego na Internet.
 
-Com essa grande discussão, podemos ver que ainda causa reflexos nos dias atuais, pois
-\glspl*{isp} ainda tentam controlar o fluxo de dados BitTorrent do seu fornecimento de
-Internet. Porém, conforme os dados de uma pesquisa recente sobre a quantidade de
-tráfego de Internet gerada nos horários de pico \cite{report:internet-usage-2013},
-60,47\% do tráfego de download e 54,97\% do tráfego total norte-americano são gerados
-pelos serviços de \emph{streaming} de vídeo Netflix e Youtube e por navegação de sites
-via HTTP, enquanto o BitTorrent consome apenas 5,57\% e 9,23\%, respectivamente.
-Portanto, não se pode afirmar contundentemente que o BitTorrent seja o responsável pelo
-congestionamento de dados nos Estados Unidos.
+Essa grande discussão ainda causa reflexos nos dias atuais, pois \glspl*{isp} ainda
+tentam controlar o fluxo de dados BitTorrent no seu fornecimento de Internet. Porém,
+conforme os dados de uma pesquisa recente sobre a quantidade de
+tráfego na Internet durante horários de pico \cite{report:internet-usage-2013},
+60,47\% do tráfego de download e 54,97\% do tráfego total norte-americanos são gerados
+pelos serviços de \emph{streaming} de vídeo Netflix e Youtube e por navegação usual de
+sites. Enquanto isso, o BitTorrent consome apenas 5,57\% e 9,23\%, respectivamente.
+Portanto, não se pode afirmar com confiança que o BitTorrent seja um grande responsável
+pelo congestionamento de dados nos Estados Unidos
+\cite{site:theguardian-bittorrentvsnetflix}.
 
-Outro fato de que o protocolo \gls*{udp} pode ter importância em aplicações onde o
-\gls*{tcp} seria preferido é que o Google está trabalhando no QUIC
+Outra evidência de que o protocolo \gls*{udp} pode ter importância em aplicações onde o
+\gls*{tcp} seria preferido, é que o Google está trabalhando atualmente no QUIC
 (\emph{Quick \gls*{udp} Internet Connections}), que fará parte da especificação do
 protocolo HTTP 2.0 \cite{site:chromium-quic}. O QUIC, apesar de aumentar o consumo de
 banda, reduzirá o tempo de resposta de confirmação de recebimento de pacotes, entre
