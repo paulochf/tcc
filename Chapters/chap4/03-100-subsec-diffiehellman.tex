@@ -9,13 +9,13 @@ métodos de comunicação inseguros.
 
 O método algébrico utiliza grupos multiplicativos de inteiros módulo $p$, onde $p$ é um
 número primo e $g$ é chamado de número gerador. O protocolo pode ser explicado no
-seguinte exemplo, que usa duas partes (Alice e Bob): suponha que Alice e Bob desejam
-estabelecer um meio seguro de comunicação, que Eve deseja espionar realizando um
-``ataque de homem no meio'', tendo acesso a todas as informações que Alice e Bob
-trocarem.
+seguinte exemplo, que usa duas partes (Alice e Bob)
+\cite{book:schneier,artigo:diffiehellman}: suponha que Alice e Bob desejam estabelecer
+um meio seguro de comunicação, que Eve deseja espionar realizando um ``ataque de homem
+no meio'', tendo acesso a todas as informações que Alice e Bob trocarem.
 
 \begin{enumerate}
-    \item Alice e Bob escolhem dois números inteiros $p$ primo e $g$;
+    \item Alice e Bob escolhem dois números inteiros $p$ primo e $g$ gerador;
 
     \item Alice escolhe um número inteiro $X_{A}$ para sua chave privada, e envia para
         Bob o resultado $Y_{A} = g^{X_{A}} \bmod p$.

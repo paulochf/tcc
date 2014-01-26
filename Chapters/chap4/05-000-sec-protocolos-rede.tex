@@ -1,6 +1,6 @@
 %!TEX root = ../../tcc.tex
 
-\section{Protocolos de redes}
+\section{Protocolos TCP e UDP}
 
 A Internet é o meio mais importante de comunicação que existe atualmente. Usamos de
 forma tão corriqueira que nem nos damos conta de quantas camadas e protocolos existem em
@@ -34,8 +34,9 @@ explicadas fazendo-se uma analogia com um serviço postal \cite{site:internet-la
         enviar a carta e a outra receber.
 
     \item[transporte:] é onde atuam os protocolos \gls{tcp} e \gls{udp}, que
-        transformam as mensagens da camada superior em \textbf{segmentos} e criam
-        conexões entre cliente e servidor e as monitora prevenindo erros.
+        transformam as mensagens da camada superior em \textbf{segmentos}, criam
+        conexões entre cliente e servidor (multiplexação e demultiplexação dos dados)
+        e as monitora, prevenindo erros.
 
         No caso do serviço postal, O remetente será avisado se enviar a carta para um
         endereço incorreto (por exemplo, tiver errado o estado), ou ainda se uma carta
@@ -76,7 +77,8 @@ explicadas fazendo-se uma analogia com um serviço postal \cite{site:internet-la
 
 Uma característica bastante forte do BitTorrent é o uso perceptível dos protocolos
 \gls*{tcp} e \gls*{udp}. Ambos têm seus pontos fortes e fracos, que podem ser explorados
-dependendo da aplicação para uma melhor utilização dos recursos.
+dependendo da aplicação para uma melhor utilização dos recursos. Especificamente, quando um processo da camada de aplicação envia as mensagens para a de transporte, são
+recebidas através de \glspl{socket} e tratadas de acordo com o protocolo utilizado.
 
 \begin{comment}
 Aqui vou explicar o que são os protocolos de rede TCP e UDP, apontar suas diferenças e
@@ -84,6 +86,8 @@ mostrar os motivos pelos quais o UDP é preferido ao TCP no uso de endereços de
 \gls*{announce} de \glspl*{tracker}.
 \end{comment}
 
-\input{Chapters/chap4/05-100-subsec-tcp}
+\input{Chapters/chap4/05-100-subsec-udp}
 
-\input{Chapters/chap4/05-200-subsec-udp}
+\input{Chapters/chap4/05-200-subsec-tcp}
+
+\input{Chapters/chap4/05-300-subsec-discussao}

@@ -1,18 +1,16 @@
 %!TEX root = ../../tcc.tex
 
-\subsection*{O protocolo UDP}
+\subsection*{UDP}
 
-O protocolo \gls*{udp} é um tipo de conexão que especifica conexões quase que diretas
-(se comparado com o \gls*{tcp} \todo{RLY?}) entre as camadas de aplicação e de
-rede.
+O protocolo \gls*{udp} é um protocolo de conexão que pertence à camada de transporte e
+que especifica conexões quase que diretas (se comparado com o \gls*{tcp}) entre as
+camadas de aplicação e de rede.
 
-Em sua camada, ocorrem a multiplexação e a demultiplexação dos dados. Quando as
-mensagens estão sendo enviadas por um processo da aplicação, elas são recebidas através
-de \glspl{socket}, anexadas aos endereços IP e número de porta de origem e de destino, e
-aos comprimentos e \gls{checksum} do cabeçalho e do corpo de dados \gls*{udp}, para
-enfim serem repassadas como segmentos para a camada de rede. Por sua vez, a camada de
-rede encapsula os segmentos em datagramas fazem o melhor possível para entregá-los ao
-destinatário.
+Quando as mensagens são recebidas através dos \glspl{socket}, elas são anexadas aos
+endereços IP e número de porta de origem e de destino, e aos comprimentos e
+\gls{checksum} do cabeçalho e do corpo de dados \gls*{udp}, para enfim serem repassadas
+como segmentos para a camada de rede. Por sua vez, a camada de rede encapsula os
+segmentos em datagramas fazem o melhor possível para entregá-los ao destinatário.
 
 Já quando estão sendo recebidas, o protocolo \gls*{udp} utiliza a porta de destino
 contida no cabeçalho para entregar os dados do segmento para o processo correto de

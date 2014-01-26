@@ -1,0 +1,54 @@
+%!TEX root = ../../tcc.tex
+
+\subsection*{TCP}
+
+O protocolo \gls*{tcp} é um protocolo da camada de transporte que determina um meio de
+transmissão de dados confiável e orientado a conexão.
+
+Quando as mensagens chegam pelos \glspl*{socket}, o protocolo \gls*{tcp} também as anexa
+aos endereços IP e número de porta de origem e de destino, e também aos comprimentos e
+\gls*{checksum} do cabeçalho e do corpo de dados \gls*{udp}, para enfim serem repassadas
+como segmentos para a camada de rede. Porém, acrescenta também outras informações:
+
+\begin{itemize}
+    \item números de sequência e de confirmação de recebimento (\emph{acknowledgement}),
+        para uso na implementação do serviço de entrega de dados confiável;
+
+    \item quantidade de bytes que o destinatário deseja receber (\emph{receive window});
+
+    \item campos de opção, usados na negociação dos tamanhos da janela de dados ou do
+        máximo do segmento (MSS);
+
+    \item campos de \emph{flags} sinalizadores, onde 6 bits indicam estados da conexão
+        ou do segmento:
+        \begin{description}
+            \item[URG:] indicador de urgência do segmento enviado;
+
+            \item[ACK:] indica que o valor contido no campo de confirmação de
+                recebimento é válido. Deve ser enviado depois do primeiro pacote com
+                SYN;
+
+            \item[PSH:] para indicar que o destinatário repasse os dados para a camada
+                de aplicação imediatamente ao receber o pacote;
+
+            \item[RST:] campo de redefinição de conexão, para indicar erro que não
+                possui um \gls*{socket} na porta indicada no cabeçalho;
+
+            \item[SYN:] número de sincronização de sequência, deve ser enviado sempre
+                no primeiro pacote de uma remessa de dados de um nó;
+
+            \item[FIN:] indica fim dos dados enviados.
+        \end{description}
+
+    \item ponteiro de dados urgentes, que indicam o fim do trecho de dados urgentes.
+\end{itemize}
+
+Na prática, PSH, URG e o ponteiro de dados urgentes não são utilizados
+\cite{book:kurose}.
+
+Munido de todos esses dados, o \gls*{tcp} implementa um protocolo de \emph{handshake} de
+4 passos que precede o envio dos dados de fato, e então passa a enviar o conjunto de
+dados de forma ordenada, com checagem de erros de transmissão e de recebimento, e
+controle de congestionamento de envio e de recebimento utilizando confirmações e
+limites de tempo. É um protocolo grande se comparado ao \gls*{udp} e, por consequência,
+que utiliza maior quantidade de dados e de banda de conexão.
