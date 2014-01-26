@@ -3,8 +3,8 @@
 \subsection*{Tabelas hash}
 
 \Glspl{hashtable} são estruturas de dados eficientes na implementação de dicionários.
-Apesar de buscas demorarem tanto quanto procurar um elemento em uma lista ligada (
-$\Theta(n)$ no pior caso), o espalhamento é bastante eficiente. Isso faz com que o
+Apesar de buscas demorarem tanto quanto procurar um elemento em uma lista ligada
+($\Theta(n)$ no pior caso), o espalhamento é bastante eficiente. Isso faz com que o
 tempo médio de uma busca seja $\Oh(1)$ \cite{book:clrs}.
 
 Uma \gls*{hashtable} generaliza a noção do vetor de elementos comum. Nele, o
@@ -19,6 +19,15 @@ conflitos, porém colisões podem ser evitadas com boa \gls*{hashfunction}, desc
 seguir.
 
 A \gls*{hashtable} usada pelo Transmission aparece no \gls*{dht}, porém de uma forma
-mais simples: não existe ``a \gls*{hashfunction} do \gls*{dht}'' como de costume, onde
-existe uma função característica para uma modelagem de tabela. Ao invés disso, as chaves
-já estão calculadas, sendo os IDs do \glspl*{torrent} e dos \glspl*{peer} do Kademlia.
+mais simples: não existe ``a \gls*{hashfunction} do \gls*{dht}'', onde existe uma função
+característica para uma modelagem de tabela. Ao invés disso, as chaves já estão
+calculadas, sendo os IDs do \glspl*{torrent} e dos \glspl*{peer} do Kademlia.
+
+Outra utilização de \gls*{hashtables} no BitTorrent (apesar de não ser usada no
+Transmission) é nas \textbf{árvores hash} ou \textbf{árvores de Merkle}
+\cite{site:merkletree}. Essas árvores são usadas para organizar o grande
+\gls*{hashvalue} das partes do \gls*{torrent}, contido no \gls*{torrentfile}, em uma
+árvore cujas folhas possuem o \gls*{hashvalue} de uma parte e cada nó que não é uma
+folha possui como valor os \glspl*{hashvalue} dos seus nós filhos. Dessa forma, o
+cálculo de um \gls*{hashvalue} de um conjunto de partes contínuo pode ser adquirido em
+$\Oh(\log n)$ \cite{artigo:merkletree-cripto}.

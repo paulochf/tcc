@@ -52,3 +52,11 @@ tempo, percebeu-se que com o protocolo \gls*{udp} eles se tornariam mais eficien
 reduzindo o consumo da largura de rede pela metade \cite{site:tracker-udp}. Por esses
 motivos, os servidores dos \glspl*{tracker} utilizam prioritariamente o protocolo
 \gls*{udp}.
+
+No Transmission, \glspl*{tracker} podem ser adicionados por \glspl*{torrentfile} ou
+manualmente. Quando o programa precisa atualizar as informações sobre cada um desses
+\glspl*{tracker}, procura pelos respectivos endereços de \gls{announce}. Caso os possua
+com esquemas \gls{uri} para \gls*{tcp} e \gls*{udp}, o Transmission escolhe aquele em
+\gls*{udp}.
+
+\cfile[label="./libtransmission/announcer.c:555"]{./Codes/chap4/015-udpvstcp.c}

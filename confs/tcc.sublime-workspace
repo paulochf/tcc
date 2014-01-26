@@ -23,7 +23,7 @@
 			"file": "/home/paulo/Arquivos/tcc/mono/bibliografia.bib",
 			"settings":
 			{
-				"buffer_size": 38427,
+				"buffer_size": 39586,
 				"line_ending": "Unix"
 			}
 		},
@@ -31,23 +31,23 @@
 			"file": "/home/paulo/Arquivos/tcc/mono/glossario.tex",
 			"settings":
 			{
-				"buffer_size": 20846,
+				"buffer_size": 20877,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/home/paulo/Arquivos/tcc/mono/Chapters/Chapter4.tex",
+			"file": "/home/paulo/Arquivos/tcc/mono/Chapters/chap4/06-000-sec-multicast.tex",
 			"settings":
 			{
-				"buffer_size": 1070,
+				"buffer_size": 361,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/home/paulo/Arquivos/tcc/mono/Chapters/chap4/05-300-subsec-discussao.tex",
+			"file": "/home/paulo/Arquivos/tcc/mono/Chapters/chap4/01-300-subsec-hashtables.tex",
 			"settings":
 			{
-				"buffer_size": 2995,
+				"buffer_size": 1929,
 				"line_ending": "Unix"
 			}
 		}
@@ -112,19 +112,22 @@
 	},
 	"file_history":
 	[
-		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/04-000-sec-bitfields.tex",
-		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/05-200-subsec-tcp.tex",
-		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/01-200-subsec-listas.tex",
-		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/05-000-sec-protocolos-rede.tex",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/06-000-sec-multicast.tex",
+		"/home/paulo/Arquivos/tcc/mono/Codes/chap4/015-udpvstcp.c",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/05-300-subsec-discussao.tex",
-		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/01-000-sec-ed.tex",
-		"/home/paulo/Arquivos/tcc/mono/Chapters/Chapter4.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/05-100-subsec-udp.tex",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/04-000-sec-bitfields.tex",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/03-320-subsubsec-peers.tex",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/05-200-subsec-tcp.tex",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/05-000-sec-protocolos-rede.tex",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/Chapter4.tex",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/Chapter5.tex",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/01-200-subsec-listas.tex",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/01-000-sec-ed.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/03-100-subsec-diffiehellman.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/03-000-sec-cripto.tex",
 		"/home/paulo/Arquivos/tcc/mono/glossario.tex",
 		"/home/paulo/Arquivos/tcc/mono/Codes/chap4/007-cripto-announce.c",
-		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/03-320-subsubsec-peers.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/01-300-subsec-hashtables.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/03-300-subsec-transmission.tex",
 		"/home/paulo/Arquivos/tcc/mono/Codes/chap4/008-cripto-peer1.c",
@@ -236,10 +239,7 @@
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/sec1-busca-info.tex",
 		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/050-rechoke-up2.c",
 		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/051-rechoke-down1.c",
-		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/053-enum-rechoke.c",
-		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/055-rechoke-up3.c",
-		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/048-rechoke-up1.c",
-		"/home/paulo/Arquivos/tcc/mono/Codes/rechokeDownloads.c"
+		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/053-enum-rechoke.c"
 	],
 	"find":
 	{
@@ -521,7 +521,7 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 38427,
+						"buffer_size": 39586,
 						"regions":
 						{
 							"mark":
@@ -537,8 +537,8 @@
 						"selection":
 						[
 							[
-								30846,
-								30846
+								22810,
+								22810
 							]
 						],
 						"settings":
@@ -548,10 +548,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 12328.0,
+						"translation.y": 9091.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
@@ -560,15 +560,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 20846,
+						"buffer_size": 20877,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								8369,
-								8369
+								10507,
+								10507
 							]
 						],
 						"settings":
@@ -578,7 +578,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2906.0,
+						"translation.y": 3192.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 3,
@@ -587,24 +587,52 @@
 			]
 		},
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 3,
-					"file": "/home/paulo/Arquivos/tcc/mono/Chapters/Chapter4.tex",
+					"file": "/home/paulo/Arquivos/tcc/mono/Chapters/chap4/06-000-sec-multicast.tex",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1070,
+						"buffer_size": 361,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								750,
-								750
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/home/paulo/Arquivos/tcc/mono/Chapters/chap4/01-300-subsec-hashtables.tex",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1929,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1894,
+								1894
 							]
 						],
 						"settings":
@@ -616,34 +644,6 @@
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "/home/paulo/Arquivos/tcc/mono/Chapters/chap4/05-300-subsec-discussao.tex",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2995,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2985,
-								2985
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 195.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
 					"type": "text"
 				}
 			]
