@@ -60,5 +60,12 @@ serve somente para configuração de travessia de NAT e conhecimento do endereç
 do gateway NAT, automatizando a configuração de redirecionamento de portas em
 roteadores. Para isso, utiliza a porta 5351 para pacotes \gls*{udp}.
 
-O Transmission utiliza duas bibliotecas que implementam cada protocolo: o MiniUPnP
-\cite{site:miniupnp} e o libnatpmp \cite{site:libnatpmp}.
+Essa praticidade de não precisar se configurar manualmente um roteador tem um preço.
+Ambos os protocolos não são totalmente seguros, fazendo com que um roteador que permita
+configurações através deles possa oferecer meios de se invadir essas redes por conexões
+externas. Assim, para efeitos de segurança, um serviço NAT não substitui
+\emph{firewalls}.
+
+O Transmission utiliza duas bibliotecas, uma para cada protocolo: o MiniUPnP
+\cite{site:miniupnp} e o libnatpmp \cite{site:libnatpmp}. Ambas são desenvolvidas por
+Thomas Bernard e de código aberto.
