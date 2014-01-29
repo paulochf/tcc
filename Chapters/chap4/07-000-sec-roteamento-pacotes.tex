@@ -5,10 +5,10 @@
 Atualmente, o uso de roteadores de rede para uso doméstico é bastante comum, servindo
 para distribuição de uma conexão de Internet para vários equipamentos eletrônicos que
 conseguem acessá-la. Para que ocorra essa distribuição de dados de Internet é
-necessário que no roteador funcione um protocolo chamado NAT
+necessário que no roteador funcione um protocolo chamado \gls{nat}
 (\emph{Network Address Translator}).
 
-Um roteador em que funciona um serviço de NAT parece, externamente (para a rede
+Um roteador em que funciona um serviço de \gls*{nat} parece, externamente (para a rede
 exterior), que é um único dispositivo com o seu endereço IP \cite{book:kurose}, enquanto
 internamente, enquanto internamente é visto como o responsável por rotear os dados e
 que abstrai a conexão de Internet externa. Do ponto de vista do roteador, ele conhece os
@@ -25,19 +25,19 @@ tradução. Se houver um dispositivo da rede interna associado a essa porta, o r
 troca o endereço e porta de destinos do datagrama e repassa o pacote para tal
 dispositivo.
 
-Enquanto o serviço de NAT parece solucionar um problema, ele cria outro: \glspl*{peer}
+Enquanto o \gls*{nat} parece solucionar um problema, ele cria outro: \glspl*{peer}
 de redes \gls*{p2p} necessitam saber as portas com que estão se comunicando para
 informar a outros \glspl*{peer}. Porém, um programa cliente que esteja sendo executado
-em um dispositivo que está numa sub-rede atendida por um serviço NAT deve saber informar
-qual a porta externa na tabela de NAT está associada a ele, e não a que utiliza no
-dispositivo.
+em um dispositivo que está numa sub-rede atendida por \gls*{nat} deve saber informar
+qual a porta externa está associada a ele na tabela de \gls*{nat}, e não a que utiliza
+no dispositivo.
 
 Para resolver esse problema, existem dois protocolos diferentes de configuração de
-portas: o NAT PMP (NAT \emph{Port Mapping Protocol}), que atualmente é chamado de PCP
-(\emph{Port Control Protocol}) \cite{site:rfcpcp}, e o uPnP
+portas: o \gls*{nat} PMP (\gls*{nat} \emph{Port Mapping Protocol}), que atualmente é
+chamado de PCP (\emph{Port Control Protocol}) \cite{site:rfcpcp}, e o uPnP
 (\emph{Universal Plug and Play}) \cite{site:rfcupnp}. Ambos esses protocolos têm a mesma
-função: configurar um serviço de NAT e conhecer as portas externas que ele lhes
-reservou, fazendo a travessia de NAT (\emph{NAT Traversal}).
+função: configurar um \gls*{nat} e conhecer as portas externas que ele lhes reservou,
+fazendo a travessia de \gls*{nat} (\emph{\gls*{nat} Traversal}).
 
 O UPnP \cite{wiki:upnp} é um conjunto de protocolos que possibilita a comunicação entre
 dispositivos variados a partir da conexão destes a uma rede, estabelecendo serviços.
@@ -45,19 +45,18 @@ Entre os diversos protocolos, está o IGDP (\emph{Internet Gateway Device Protoc
 qual é possível realizar várias ações, desde o conhecimento do endereço IP externo do
 roteador, conhecer o mapeamento de portas internas e externas, e adicionar ou remover
 entradas nesse mapeamento. Ao adicionar uma entrada, é possível realizar a travessia de
-NAT. O UPnP utiliza as portas 1900 para o pacotes \gls*{udp} e a 2869 para portas
+\gls*{nat}. O UPnP utiliza as portas 1900 para o pacotes \gls*{udp} e a 2869 para portas
 \gls*{tcp}.
 
 Já o PCP \cite{wiki:pcp}, introduzido em 2005 pela Apple como alternativa ao IGDP,
-serve somente para configuração de travessia de NAT e conhecimento do endereço externo
-do gateway NAT, automatizando a configuração de redirecionamento de portas em
+serve somente para configuração de travessia de um \gls*{nat} e conhecimento do seu
+endereço externo, automatizando a configuração de redirecionamento de portas em
 roteadores. Para isso, utiliza a porta 5351 para pacotes \gls*{udp}.
 
 Essa praticidade de não precisar se configurar manualmente um roteador tem um preço.
 Ambos os protocolos não são totalmente seguros, fazendo com que um roteador que permita
 configurações através deles possa oferecer meios de se invadir essas redes por conexões
-externas. Assim, para efeitos de segurança, um serviço NAT não substitui
-\emph{firewalls}.
+externas. Assim, para efeitos de segurança, um \gls*{nat} não substitui \emph{firewalls}.
 
 O Transmission utiliza duas bibliotecas, uma para cada protocolo: o MiniUPnP
 \cite{site:miniupnp} e o libnatpmp \cite{site:libnatpmp}. Ambas são desenvolvidas por

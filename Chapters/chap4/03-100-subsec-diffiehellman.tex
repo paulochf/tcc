@@ -23,8 +23,8 @@ no meio'', tendo acesso a todas as informações que Alice e Bob trocarem.
     \item Bob então escolhe um número inteiro $X_{B}$ para sua chave privada, e envia
         para Alice o resultado $Y_{B} = g^{X_{B}} \bmod p$.
 
-    \item Alice, então, calcula a chave compartilhada $S_A = B^{X_{A}} \bmob p$. Bob faz
-        o mesmo, ou seja, calcula $S_B = A^{X_{B}} \bmob p$.
+    \item Alice, então, calcula a chave compartilhada $S_A = B^{X_{A}} \bmod p$. Bob faz
+        o mesmo, ou seja, calcula $S_B = A^{X_{B}} \bmod p$.
 
     \item como $S_A = S_B = S$, Alice e Bob passam a utilizar a chave $S$.
 \end{enumerate}

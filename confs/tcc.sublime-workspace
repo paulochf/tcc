@@ -15,7 +15,7 @@
 			"file": "/home/paulo/Arquivos/tcc/mono/tcc.tex",
 			"settings":
 			{
-				"buffer_size": 8858,
+				"buffer_size": 8874,
 				"line_ending": "Unix"
 			}
 		},
@@ -23,7 +23,7 @@
 			"file": "/home/paulo/Arquivos/tcc/mono/bibliografia.bib",
 			"settings":
 			{
-				"buffer_size": 42639,
+				"buffer_size": 44132,
 				"line_ending": "Unix"
 			}
 		},
@@ -39,7 +39,15 @@
 			"file": "/home/paulo/Arquivos/tcc/mono/Chapters/chap4/08-000-sec-ipv6.tex",
 			"settings":
 			{
-				"buffer_size": 365,
+				"buffer_size": 5148,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/paulo/Arquivos/tcc/mono/Chapters/chap4/08-100-subsec-uso.tex",
+			"settings":
+			{
+				"buffer_size": 987,
 				"line_ending": "Unix"
 			}
 		}
@@ -104,11 +112,16 @@
 	},
 	"file_history":
 	[
+		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/01-000-sec-ed.tex",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/05-000-sec-protocolos-rede.tex",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/4100-subsec-estado-nos.tex",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/4000-sec-jogo.tex",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/4300-subsec-algoritmos-partes.tex",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/4200-subsec-mensagens.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/07-000-sec-roteamento-pacotes.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/06-000-sec-multicast.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/05-300-subsec-discussao.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/05-200-subsec-tcp.tex",
-		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/05-000-sec-protocolos-rede.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/Chapter4.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/10-000-sec-retomada-downloads.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/09-000-sec-ipv6.tex",
@@ -121,7 +134,6 @@
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/03-320-subsubsec-peers.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/Chapter5.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/01-200-subsec-listas.tex",
-		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/01-000-sec-ed.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/03-100-subsec-diffiehellman.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/03-000-sec-cripto.tex",
 		"/home/paulo/Arquivos/tcc/mono/glossario.tex",
@@ -139,7 +151,6 @@
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/02-000-sec-hash.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/sec01-ed.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/Chapter3.tex",
-		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/4000-sec-jogo.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/2100-subsec-kademlia.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/2150-subsubsec-otimizacoes.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/2140-subsubsec-entrada-rede-manutencao.tex",
@@ -228,10 +239,7 @@
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/sec006-multicast.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/006-multicast.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/005-protocolos-rede.tex",
-		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/sec5-protocolos-rede.tex",
-		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/sec4-bitfields.tex",
-		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/sec3-cripto.tex",
-		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/sec1-ed.tex"
+		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/sec5-protocolos-rede.tex"
 	],
 	"find":
 	{
@@ -249,6 +257,11 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"web.archive",
+			"Por isso",
+			"check",
+			"pacotes",
+			"itemize",
 			"upnp",
 			"rfc",
 			"computador",
@@ -371,12 +384,7 @@
 			"rpc",
 			"``([^\\']*)''",
 			"``informação compacta de nó''",
-			"``([^\\']*)''",
-			"tupla",
-			"tuplas",
-			"peer",
-			"bverb",
-			"site:bittorrent-dht"
+			"``([^\\']*)''"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -483,15 +491,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 8858,
+						"buffer_size": 8874,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								755,
-								755
+								3293,
+								3293
 							]
 						],
 						"settings":
@@ -501,10 +509,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 125.0,
+						"translation.y": 671.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
@@ -513,7 +521,7 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 42639,
+						"buffer_size": 44132,
 						"regions":
 						{
 							"mark":
@@ -529,8 +537,8 @@
 						"selection":
 						[
 							[
-								34844,
-								34844
+								36509,
+								36509
 							]
 						],
 						"settings":
@@ -540,7 +548,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 14308.0,
+						"translation.y": 14946.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
@@ -559,8 +567,8 @@
 						"selection":
 						[
 							[
-								10881,
-								10881
+								8986,
+								8986
 							]
 						],
 						"settings":
@@ -570,16 +578,16 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 3192.0,
+						"translation.y": 2477.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 3,
 					"type": "text"
 				}
 			]
 		},
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -588,20 +596,50 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 365,
+						"buffer_size": 5148,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								365,
-								365
+								5147,
+								5147
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 1092.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/home/paulo/Arquivos/tcc/mono/Chapters/chap4/08-100-subsec-uso.tex",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 987,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								987,
+								987
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
