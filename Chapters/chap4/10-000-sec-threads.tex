@@ -2,14 +2,6 @@
 
 \section{Threads}
 
-\begin{comment}
-Dentro de um contexto de programas que utilizam a Internet e funcionalidades que chegam
-próximas ao tempo real, processamentos pesados devem ser tratados com cautela a fim de
-se manter a instantaneidade do processo. Aqui explicarei como o Transmission usa o
-conceito de \emph{threads} para paralelizar esses processamentos e, com isso, conseguir
-utilizar as informações de rápida mudança antes que seja necessário obtê-las novamente.
-\end{comment}
-
 \Glspl{thread} são procedimentos que são executados de forma independente do programa
 principal, sujeitos ao escalonamento de processos do sistema operacional. Suas
 implementações dependem do sistema porém as linguagens de programação provém meios de um
@@ -67,9 +59,11 @@ struct tr_thread {
 };
 \end{ccode}
 
-Então, encapsula a chamada de novas \glspl*{id} com a criação do respectivo objeto.
+Então, encapsula a chamada de novas \glspl*{thread} com a criação do respectivo objeto.
 Assim, consegue executar tarefas mais complexas sem que a execução do programa tenha seu
-desempenho prejudicado por travamento.
+desempenho prejudicado por travamento. Dois exemplos de uso são na criação de
+\glspl*{thread} para o \gls{bootstrap} do \gls{dht} e em outra que efetua requisições a
+\glspl{tracker}.
 
 \cfile[label="./libtransmission/platform.c:156"]{./Codes/chap4/021-thread.c}
 
