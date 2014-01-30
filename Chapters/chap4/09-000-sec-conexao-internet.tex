@@ -2,5 +2,45 @@
 
 \section{Conexão com a Internet}
 
-Aqui mostrarei a parte técnica da programação em linguagem C para utilização de
-transmissão de dados por rede.t
+Programas que se conectam à redes ou à Internet são comuns atualmente. Para isso, a
+linguagem C permite escrever programas criar conexões de Internet via \glspl{socket}
+\cite{site:beej}.
+
+Através de um \gls*{socket}, a aplicação consegue enviar mensagens para a camada de
+transporte, que as transforma em segmentos e as repassa para as camadas inferiores, que
+transmitem os dados.
+
+Quando o protocolo \gls{tcp} for usado, os passos para se criar uma conexão são
+
+\begin{enumerate}
+    \item configuração do \gls*{socket} em uma variável \textbf{sadd} do tipo
+        \sverb|struct sockaddr_in| (para IPv4) ou \sverb|struct sockaddr_in6| (para
+        IPv6), que conterá informações do computador de destino da conexão.
+
+        Enquanto isso, ocorre a criação de um \gls*{socket} usando a função
+        \sverb|socket()|. Essa função, passando o parâmetro \bverb|SOCK_STREAM|, pede
+        para o sistema operacional (SO) a criação de um descritor de arquivo especial
+        para \gls*{socket} \gls*{tcp}, que será usado para o fluxo de dados da conexão;
+
+    \item ligação do \gls*{socket} à variável \textbf{sadd} usando a função
+        \sverb|bind()|, que serve para registrar no SO que ele deve manipular os dados
+        que chegam na porta indicada em \textbf{sadd} usando o \gls*{socket} indicado;
+
+    \item aguarda conexões no \gls*{socket} usando a função \sverb|listen()|; e
+
+    \item recebe dados pelo \gls*{socket} usando a função \sverb|accept()|.
+\end{enumerate}
+
+\cfile[label="./libtransmission/net.c:317"]{./Codes/chap4/018-net-tcp.c}
+
+\cfile[label="./libtransmission/net.c:417"]{./Codes/chap4/019-net-tcp2.c}
+
+Já quando o protocolo \gls{udp} for usado, os passos para se criar uma conexão são
+exatamente os mesmos, exceto pelo parâmetro \bverb|SOCK_DGRAM| na função
+\sverb|socket()|.
+
+\cfile[label="./libtransmission/tr-udp.c:190"]{./Codes/chap4/020-net-udp.c}
+
+As funções \sverb|send()| e \sverb|recv()|, que enviam e recebem dados respectivamente,
+possuem as suas versões mais complexas \sverb|sendto()| e \sverb|recvfrom()|, recebendo
+outro \gls*{socket} como parâmetro de entrada.
