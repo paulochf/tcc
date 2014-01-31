@@ -23,7 +23,7 @@
 			"file": "/home/paulo/Arquivos/tcc/mono/bibliografia.bib",
 			"settings":
 			{
-				"buffer_size": 45696,
+				"buffer_size": 46970,
 				"line_ending": "Unix"
 			}
 		},
@@ -31,23 +31,23 @@
 			"file": "/home/paulo/Arquivos/tcc/mono/glossario.tex",
 			"settings":
 			{
-				"buffer_size": 20897,
+				"buffer_size": 20934,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/home/paulo/Arquivos/tcc/mono/Chapters/chap4/09-000-sec-conexao-internet.tex",
+			"file": "/home/paulo/Arquivos/tcc/mono/Chapters/chap4/11-000-sec-engsoft.tex",
 			"settings":
 			{
-				"buffer_size": 2167,
+				"buffer_size": 3114,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/home/paulo/Arquivos/tcc/mono/Codes/chap4/018-net-tcp.c",
+			"file": "/home/paulo/Arquivos/tcc/mono/Codes/chap4/023-metainfo-test.c",
 			"settings":
 			{
-				"buffer_size": 2037,
+				"buffer_size": 1312,
 				"line_ending": "Unix"
 			}
 		}
@@ -112,25 +112,33 @@
 	},
 	"file_history":
 	[
-		"/home/paulo/Arquivos/tcc/mono/Codes/chap4/018-net-tcp.c",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/07-000-sec-roteamento-pacotes.tex",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/06-000-sec-multicast.tex",
+		"/media/Arquivos/tcc/mono/Codes/chap4/023-metainfo-test.c",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/01-200-subsec-listas.tex",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/10-000-sec-threads.tex",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/11-000-sec-engsoft.tex",
+		"/media/Arquivos/tcc/mono/Codes/chap4/021-thread.c",
+		"/home/paulo/Arquivos/tcc/mono/Codes/chap4/022-thread-lock.c",
+		"/media/Arquivos/tcc/mono/Codes/chap4/021-thread-lock.c",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/09-000-sec-conexao-internet.tex",
-		"/home/paulo/Arquivos/tcc/mono/Codes/chap4/020-net-udp.c",
-		"/home/paulo/Arquivos/tcc/mono/Codes/chap4/019-net-tcp2.c",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/01-100-subsec-vetores.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/01-000-sec-ed.tex",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/08-000-sec-ipv6.tex",
+		"/home/paulo/Arquivos/tcc/mono/Codes/chap4/018-net-tcp.c",
+		"/home/paulo/Arquivos/tcc/mono/Figures/chap4/thread.png",
+		"/home/paulo/Arquivos/tcc/mono/Codes/chap4/020-net-udp.c",
+		"/home/paulo/Arquivos/tcc/mono/Codes/chap4/019-net-tcp2.c",
 		"/media/Arquivos/tcc/mono/Codes/chap4/017-net-tcp.c",
 		"/media/Arquivos/tcc/mono/Codes/chap4/017-net-udp.c",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/05-100-subsec-udp.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/03-100-subsec-diffiehellman.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/08-100-subsec-uso.tex",
-		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/08-000-sec-ipv6.tex",
-		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/07-000-sec-roteamento-pacotes.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/05-000-sec-protocolos-rede.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/4100-subsec-estado-nos.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/4000-sec-jogo.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/4300-subsec-algoritmos-partes.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/4200-subsec-mensagens.tex",
-		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/06-000-sec-multicast.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/05-300-subsec-discussao.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/05-200-subsec-tcp.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/Chapter4.tex",
@@ -143,7 +151,6 @@
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/04-000-sec-bitfields.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/03-320-subsubsec-peers.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/Chapter5.tex",
-		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/01-200-subsec-listas.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/03-000-sec-cripto.tex",
 		"/home/paulo/Arquivos/tcc/mono/glossario.tex",
 		"/home/paulo/Arquivos/tcc/mono/Codes/chap4/007-cripto-announce.c",
@@ -232,14 +239,7 @@
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/subsec43-algoritmos-partes.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/subsec44-algoritmos-choking.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/subsec14-resultados.tex",
-		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/subsec3-dht.tex",
-		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/subsubsubsec2221-ping.tex",
-		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/subsubsubsec2222-find-node.tex",
-		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/subsubsec224-entrada-rede-manutencao.tex",
-		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/subsubsec225-otimizacoes.tex",
-		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/subsec3-filas.tex",
-		"/home/paulo/Área de Trabalho/teste4.c",
-		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/sec012-engsoft.tex"
+		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/subsec3-dht.tex"
 	],
 	"find":
 	{
@@ -522,7 +522,7 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 45696,
+						"buffer_size": 46970,
 						"regions":
 						{
 							"mark":
@@ -538,8 +538,8 @@
 						"selection":
 						[
 							[
-								37961,
-								37961
+								39028,
+								39028
 							]
 						],
 						"settings":
@@ -549,7 +549,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 15604.0,
+						"translation.y": 16189.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 3,
@@ -561,15 +561,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 20897,
+						"buffer_size": 20934,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								17517,
-								17517
+								10366,
+								10366
 							]
 						],
 						"settings":
@@ -579,7 +579,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 4973.0,
+						"translation.y": 3153.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
@@ -593,29 +593,27 @@
 			[
 				{
 					"buffer": 3,
-					"file": "/home/paulo/Arquivos/tcc/mono/Chapters/chap4/09-000-sec-conexao-internet.tex",
+					"file": "/home/paulo/Arquivos/tcc/mono/Chapters/chap4/11-000-sec-engsoft.tex",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2167,
+						"buffer_size": 3114,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1868,
-								1868
+								1115,
+								1115
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 156.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -623,19 +621,19 @@
 				},
 				{
 					"buffer": 4,
-					"file": "/home/paulo/Arquivos/tcc/mono/Codes/chap4/018-net-tcp.c",
+					"file": "/home/paulo/Arquivos/tcc/mono/Codes/chap4/023-metainfo-test.c",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2037,
+						"buffer_size": 1312,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1763,
-								1763
+								76,
+								76
 							]
 						],
 						"settings":
@@ -645,7 +643,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 273.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
