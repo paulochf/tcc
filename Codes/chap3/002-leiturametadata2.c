@@ -1,5 +1,5 @@
   if (!b) { // Não possui a chave "info" no dicionário.
-    // Será que não é um magnet link?
+    // "Será que não é um magnet link?"
     if (tr_variantDictFindDict(meta, TR_KEY_magnet_info, &d)) {
         isMagnet = true;
 

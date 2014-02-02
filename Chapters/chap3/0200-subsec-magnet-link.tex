@@ -9,11 +9,11 @@ necessários para se iniciar a transmissão, utilizando-se de \glspl{magnetlink}
 algum dispositivo de armazenamento. Basicamente, é um esquema de \gls{uri}, usado
 exclusivamente para o protocolo.
 
-No caso citado, o site de origem do \gls*{torrentfile} que estamos usando não fornece um
-\gls*{magnetlink} oficialmente. Porém, o Transmission consegue construir uma \gls*{uri}
-a partir do arquivo original, para fins de compartilhamento direto. O resultado, após
-decodificar o endereço para um formato legível (retirando a \gls{urlencode})
-\cite{wiki:urlencode}, foi o seguinte:
+No caso citado, do filme \enquote{A Noite dos Mortos Vivos}, o site de origem do
+\gls*{torrentfile} que estamos usando não fornece um \gls*{magnetlink} oficialmente.
+Porém, o Transmission consegue construir um \gls*{uri} a partir do arquivo original,
+para fins de compartilhamento direto. O resultado, após decodificar o endereço para um
+formato legível (retirando a \gls{urlencode}) \cite{wiki:urlencode}, foi o seguinte:
 
 \begin{listing}[ht!]
     \begin{minted}[
@@ -37,25 +37,25 @@ decodificar o endereço para um formato legível (retirando a \gls{urlencode})
     \label{lst:torrent-file-magnet-link}
 \end{listing}
 
-Esse endereço é composto por vários pares, compostos por nomes de parâmetros e seus
+Esse endereço é composto por vários pares, constituídos por nomes de parâmetros e seus
 respectivos valores, sem qualquer ordem específica, formando uma \gls{querystring}.
 Podemos dividir esse endereço em partes, cada uma tendo o seu significado:
 
-\begin{itemize}
-    \item \textbf{xt}: parâmetro para \emph{exact topic}, ou tópico exato, que contém a
+\begin{description}
+    \item[xt:] parâmetro para \emph{exact topic}, ou tópico exato, que contém a
         informação mais importante do \gls*{magnetlink}: o identificador único de
         \glspl*{torrent}. Serve para encontrar e verificar os arquivos especificados.
         No caso, \bverb|urn:btih:<hash>| corresponde ao \gls{urn} \sverb|btih|
         (\emph{BitTorrent Info Hash}), que é a \gls*{string} \gls{hashvalue} resultado
         da \gls{hashfunction} SHA-1, convertida para hexadecimal;
 
-    \item \textbf{dn}: parâmetro que contém o \emph{display name}, ou nome de
-        visualização, que é um texto de apresentação amigável para o usuário;
+    \item[dn:] parâmetro que contém o \emph{display name}, ou nome de visualização, que
+        é um texto de apresentação amigável para o usuário;
 
-    \item \textbf{tr}: o \emph{address tracker}, ou endereço do \gls*{tracker}, onde o
-        programa cliente vai procurar as informações de \glspl*{peer};
+    \item[tr:] o \emph{address tracker}, ou endereço do \gls*{tracker}, onde o programa
+        cliente vai procurar as informações de \glspl*{peer}; e
 
-    \item \textbf{ws}: endereço do arquivo para \emph{webseed}, ou fornecimento web,
+    \item[ws:] endereço do arquivo para \emph{webseed}, ou fornecimento web,
         que é o endereço de Internet de um servidor HTTP ou FTP, que será utilizado como
-        alternativa a um \gls*{swarm} problemático \cite{wiki:torrent};
-\end{itemize}
+        alternativa a um \gls*{swarm} problemático \cite{wiki:torrent}.
+\end{description}
