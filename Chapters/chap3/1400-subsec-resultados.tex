@@ -11,7 +11,8 @@ esses dados para utilização, carregando-os em memória.
 Após essa preparação dos dados da resposta do \gls*{announce}, cuja informação
 principal é a lista de \glspl*{peer}, o Transmission gerencia o tempo para a próxima
 requisição periódica de \gls*{announce} ou \gls*{scrape}. Além disso, sinaliza para a
-\gls{thread} principal do programa que recebeu a resposta do \gls*{tracker}.
+\gls{thread} principal, ou seja, a execução primária do programa, de que recebeu a
+resposta do \gls*{tracker}.
 
 \cfile[label="./libtransmission/announcer.c:1012"]{./Codes/chap3/011-onannouncedone.c}
 \cfile[label="./libtransmission/announcer.c:523"]{./Codes/chap3/012-publicapeers.c}

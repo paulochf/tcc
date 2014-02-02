@@ -429,7 +429,9 @@
 
 \newglossaryentry{thread}{
     name={thread},
-    description={\todo{escrever}},
+    description={em português, linha de execução; procedimentos ou funções que são
+    executados de forma independente do programa principal, sujeitos ao escalonamento
+    de processos do sistema operacional. São utilizadas em processamentos paralelos},
     first={\glsentryname{thread}},
     plural={\glsentryname{thread}s}
 }
@@ -445,7 +447,7 @@
 
 \newglossaryentry{kbucket}{
     name={$k$-bucket},
-    description={\todo{escrever}},
+    description={\todo{escrever durante a revisão}},
     first={$k$-balde (\emph{\glsentryname{kbucket}})},
     plural={$k$-\glsentryplural{bucket}},
     firstplural={$k$-baldes (\emph{\glsentryplural{kbucket}})}
@@ -453,7 +455,7 @@
 
 \newglossaryentry{bucket}{
     name={bucket},
-    description={\todo{escrever}},
+    description={\todo{escrever durante a revisão}},
     first={balde (\emph{\glsentryname{bucket}})},
     plural={\glsentryname{bucket}s},
     firstplural={baldes (\emph{\glsentryplural{bucket}})}
@@ -461,7 +463,10 @@
 
 \newglossaryentry{rpc}{
     name={RPC},
-    description={\todo{escrever}},
+    description={do inglês \emph{Remote Procedure Call}; chamada de procedimento remoto,
+    é uma comunicação interprocessual de um programa de computador que permite a um
+    processo executar procedimentos em outros endereços de rede ou de memória, sem a
+    necessidade de conhecimento detalhadado do programador},
     first={chamada de procedimento remoto (\glsentryname{rpc})},
     plural={\glsentryname{rpc}s},
     firstplural={chamadas de procedimentos remotos (\glsentryplural{rpc})}
@@ -469,48 +474,63 @@
 
 \newglossaryentry{bootstrap}{
     name={bootstrap},
-    description={\todo{escrever}},
+    description={objeto que serve para ajudar a calçar botas. Termo é usado como
+    metáfora com o significado de execução de um procedimento sem ajuda externa},
     first={\emph{\glsentryname{bootstrap}}}
 }
 
 \newglossaryentry{endian}{
     name={\emph{endian}},
-    description={\todo{escrever}},
-    first={\emph{\glsentryname{endian}}}
+    description={extremidade; ordem de armazenamentos dos bytes em memória. \emph{Big}
+    \glsentryname{endian} é quando o bit mais significativo é guardado no menor
+    endereço, ou seja, em primeiro. \emph{Little} \glsentryname{endian}, pelo contrário
+    é quando o bit menos significativo é guardado no menor endereço.},
+    first={\emph{\glsentryname{endian}} (significância do primeiro bit guardado)}
 }
 
 \newglossaryentry{overhead}{
     name={\emph{overhead}},
-    description={\todo{escrever}},
-    first={sobrecarga de processamento (\glsentryname{overhead})}
+    description={custo de recursos mais elevado do que o normal, sobrecarga. Na Ciência
+    da Computação, esse custo geralmente é de tempo de processamento ou de consumos de
+    memória ou de banda de rede},
+    first={superconsumo de recursos (\glsentryname{overhead})}
 }
 
 \newglossaryentry{pgp}{
     name={PGP},
-    description={\todo{escrever}},
+    description={\todo{acho q vai sair, né?}},
     long={\emph{Pretty Good Privacy}},
     first={algoritmo \glsentryname{pgp} (\glsentrylong{pgp})}
 }
 
 \newglossaryentry{api}{
     name={API},
-    description={Application Programming Interface (ou Interface de Programação de
-    Aplicativos \todo{escrever}},
-    first={\glsentryname{api}},
+    description={do inglês \emph{Application Programming Interface}, Interface de
+    Programação de Aplicativos; especificação de como um conjunto de tipos e de
+    procedimentos devem interagir com outras partes de um software},
+    long={\emph{Application Programming Interface}},
+    first={\glsentryname{api} (\glsentrylong{api})},
     plural={\glsentryname{api}s}
 }
 
 \newglossaryentry{xor}{
     name={XOR},
-    description={\todo{escrever e revisar o uso}},
-    first={\glsentryname{xor}}
+    description={operador lógico ou-exclusivo ou disjunção exclusiva, cujo resultado é
+    a diferença entre dois operandos. Na criptografia, é usado em operações bit a bit de
+    ou-exclusivo lógico, que é equivalente à operação de adição módulo 2, onde o
+    resultado da operação entre duas sequências de bits é onde há diferença entre bits
+    na mesma posição},
+    long={operador ou-exclusivo lógico},
+    first={\glsentryname{xor} (\glsentrylong{xor})}
 }
 
 \newglossaryentry{socket}{
     name={socket},
-    description={portas de comunicação de dados dos programas, na camada de aplicação
-    para a camada de rede \todo[inline]{explicar melhor, se possível}},
-    first={\glsentryname{socket}},
+    description={soquete; portas de comunicação de dados da camada de aplicação para a
+    camada de rede, que permitem a comunicação de programas com o envio e recebimento
+    de dados transmitidos pela rede para a camada de rede \todo[inline]{tentar usar
+    socket de rede como first}},
+    first={\glsentryname{socket} de rede},
     plural={\glsentryname{socket}s}
 }
 
