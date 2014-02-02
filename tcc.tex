@@ -91,6 +91,7 @@
 \graphicspath{{Figures/}{Figures/chap3/}{Figures/chap4/}{Figures/chap5/}}
 
 \includeonly{
+    Chapters/Chapter0,
     Chapters/Chapter1,     % 1. Introdução
     Chapters/Chapter2,     % 2. Histórico
     Chapters/Chapter3,     % 3. Anatomia do BitTorrent
@@ -156,8 +157,8 @@
 %%%%%%%%%%%%%%%%%%%%%
 
 % Do manual do minted
-\renewcommand\listingscaption{Código-fonte}
-\renewcommand\listoflistingscaption{Lista de Códigos-fonte}
+\renewcommand\listingscaption{Conteúdo textual}
+% \renewcommand\listoflistingscaption{Lista de Códigos-fonte}
 
 % http://tex.stackexchange.com/a/99656/5125
 \renewcommand{\listoflistings}{%
@@ -284,7 +285,7 @@
 \tableofcontents
 
 % Lista de códigos fonte
-\listoflistings
+% \listoflistings
 
 % Lista de figuras
 \listoffigures
@@ -320,6 +321,7 @@
 \mainmatter
 
 % Inclusões dos capítulos
+\include{Chapters/Chapter0}     % 0. Disclaimer
 \include{Chapters/Chapter1}     % 1. Introdução
 \include{Chapters/Chapter2}     % 2. Histórico
 \include{Chapters/Chapter3}     % 3. Anatomia do BitTorrent

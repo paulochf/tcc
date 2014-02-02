@@ -1,0 +1,56 @@
+%!TEX root = ../tcc.tex
+
+\newpage
+\chapter*{Sobre este trabalho}
+
+Algumas observações devem ser feitas sobre este trabalho, para conhecimento antes da
+leitura.
+
+\section*{Cores no texto}
+
+Em alguns momentos percebeu-se que poderia haver confusão semântica. Na tentativa de se
+resolver isso, um padrão de escrita foi adotado para o trabalho e, utilizando cores,
+dividiu-se em duas funções semânticas;
+
+\begin{itemize}
+    \item \bverb|texto|: foi usado quando o significado do trecho destacado era de
+        conteúdo não processado pelo programa, ou seja, como foi recebido; e
+
+    \item \sverb|texto|: usado quando o texto destacado já foi processado, já sendo na
+        forma de \gls{string}.
+\end{itemize}
+
+Essa diferença é notada na seção que trata de dicionários bencoded (capítulo
+\ref{sec:bencode}, página \pageref{sec:bencode}), quando são mostrados conteúdos que
+representam um dicionário em duas formas diferentes: enquanto
+\bverb|d3:foo3:bar6:foobar6:bazbare| é o que se recebe em uma mensagem, possui
+representação diferente no computador após ser processado, que é
+\sverb|{"foo": "bar", "foobar":| \\ \sverb|"bazbar"}|.
+
+\section*{Termos em inglês}
+
+Foi preferido o uso dos termos técnicos de BitTorrent em inglês às suas traduções, para
+que o usuário se habitue com os originais, que são bastante utilizados na área. Por
+isso, estes não aparecem em itálico.
+
+Para os outros termos, são escritos em \emph{itálico}.
+
+\section*{Trechos de código e comentários}
+
+Como o objetivo deste trabalhar é apresentar código da linguagem C usado no
+Transmission, tiveram momentos que comentários originais foram mantidos para agregar seu
+valor à apresentação. Todos esses códigos originais estão comentados entre
+\sverb|/* texto */|.
+
+Porém, existem momentos em que não basta a leitura do código do Transmission, então
+foram feitos comentários extras. Estes estão escritos usando comentários em
+\sverb|// texto|.
+
+\begin{ccode}
+    /* Comentarios originais do codigo do Transmission. */
+
+    // comentario de codigo
+    // Comentarios extras adicionados posteriormente.
+\end{ccode}
+
+\afterpage{\clearpage}
