@@ -42,7 +42,7 @@ mostrado abaixo.
     \label{lst:torrent-file-raw}
 \end{listing}
 
-Esse conteúdo está organizado usando a \gls{bencode}, que é uma codificação compacta de
+Esse conteúdo está organizado pela \gls{bencode}, que é uma codificação compacta de
 arquivos, especial para \glspl*{torrentfile}, e ininteligível. Com alguma formatação,
 podemos enxergar os componentes separadamente, como mostra o código
 ~\ref{lst:torrent-file-code}.
@@ -50,30 +50,30 @@ podemos enxergar os componentes separadamente, como mostra o código
 Esse conteúdo tem significado, sendo utilizado da seguinte forma
 \cite{wikitheory:bencoding}:
 
-\begin{itemize}
-    \item \textbf{\glspl*{string}} são prefixos de números na base 10, que representam
-        comprimentos, seguidos por um caractere \bverb|:| e então o conteúdo. Por
+\begin{description}
+    \item[\glspl*{string}] são prefixos de números na base 10, que representam
+        comprimentos, seguidos por um caractere \bverb|:|, e então o conteúdo. Por
         exemplo, na linha 2, \bverb|8:announce| corresponde à \gls*{string}
-        \sverb|"announce"|.
+        \sverb|announce|.
 
-    \item \textbf{números} são representados por um \bverb|i|, seguidos do valor na
+    \item[números] são representados por um \bverb|i|, seguidos do valor na
         base 10 (sem qualquer limite de tamanho, mas sem zeros precedentes - como em
-        \bverb|0003| - e pode ser negativo), terminados por um \bverb|e|. Por exemplo,
+        \bverb|0003| - e podem ser negativo), terminados por um \bverb|e|. Por exemplo,
         na linha 11, \bverb|i1343715473e| corresponde ao número \sverb|1343715473|.
 
-    \item \textbf{listas} são formadas por \bverb|l|, seguidos por seus elementos
-        (também no formato \gls*{bencode}), e então terminados por \bverb|e|. Por
+    \item[listas] são formadas por \bverb|l| (L minúsculo), seguidas por seus elementos
+        (também no formato \gls*{bencode}), e então terminadas por \bverb|e|. Por
         exemplo, \bverb|l3:foo3:bare| corresponde a \sverb|["foo", "bar"]|. No código
-        ~\ref{lst:torrent-file-code}, é presente entre as linhas 43 e 47.
+        \ref{lst:torrent-file-code}, é presente entre as linhas 43 e 47.
 
-    \item \textbf{dicionários} são definidos por \bverb|d|, seguidos de uma lista
+    \item[dicionários] são definidos por \bverb|d|, seguidos de uma lista
         alternada de chaves e seus valores correspondentes, terminando com \bverb|e|,
         onde as chaves devem estar ordenadas usando-se comparação binária, ao invés da
         usual alfanumérica. Por exemplo, a \gls*{string}
         \bverb|d3:foo3:bar6:foobar6:bazbare| corresponde ao dicionário puro \\
         \sverb|{"foo": "bar", "foobar": "bazbar"}|, e a estrutura mais complexa dada por
         \\ \bverb|d3:fool6:foobar3:bazee| equivale a \sverb|{"foo": ["foobar", "baz"]}|.
-\end{itemize}
+\end{description}
 
 \begin{listing}[H]
     \begin{minted}[
@@ -156,29 +156,28 @@ Neste arquivo, muitas informações estão contidas:
 \subsubsection*{Partes}
 \label{subsec:partes}
 
-A quantidade de partes e seus tamanhos dependem do tamanho total de dados de um
-\gls*{torrent}. De tamanhos geralmente sendo potências de 2, as partes têm esse tamanho
-escolhido de forma a se otimizar o processo de transferência: partes muito grandes
-causariam ineficiência de banda de rede, enquanto tamanhos muito pequenos gerariam
-trechos de \glspl*{hashvalue} muito extensos num \gls*{torrentfile}, aumentando seu
-tamanho.
+A quantidade de partes e seus tamanhos dependem do total de dados de um \gls*{torrent}.
+De tamanhos geralmente sendo potências de 2 definidos, para cada \gls*{torrent}, eles
+são escolhidos de forma a se otimizar o processo de transferência: partes muito grandes
+causariam ineficiência de banda de rede, enquanto partes muito pequenas aumentariam os
+trechos de \glspl*{hashvalue} nos \glspl*{torrentfile}.
 
-Todas as partes possuem tamanhos iguais, exceto pela parte final, que pode ser menor.
-No caso de um \gls*{torrent} de múltiplos arquivos, para efeito de divisão em partes, é
-considerado como um único arquivo contíguo, composto da concatenação de todos esses
-arquivos na ordem que forem listados no \gls*{torrentfile}. Dessa forma, é possivel com
-que uma parte contenha o final de um desses arquivos e o início do arquivo seguinte. A
-quantidade de partes, em ambos os casos (arquivo único ou múltiplos arquivos), é dada
-por $\lceil (tamanho total / tamanho das partes) \rceil$.
+Todas as partes possuem tamanhos iguais, exceto a parte final, que pode ser menor. No
+caso de um \gls*{torrent} de múltiplos arquivos, para efeito de divisão em partes, ele é
+considerado como um único arquivo contíguo, composto pela concatenação de todos esses
+arquivos que o compõem, na ordem em que forem listados no \gls*{torrentfile}. Dessa
+forma, é possivel que uma parte contenha o final de um desses arquivos e o início do
+arquivo seguinte. A quantidade de partes, em ambos os casos (arquivo único ou
+múltiplos arquivos), é dada por
+$\lceil \frac{\textrm{tamanho total}}{\textrm{tamanho das partes}} \rceil$.
 
-De toda essa essa sequência de partes, existirá uma sequência de \glspl*{hashvalue}
-SHA-1 de seus dados, formando uma grande \gls*{string} de um único \glspl*{hashvalue},
-que é colocado como valor da chave \bverb|info| do dicionário de dados do
-\gls*{torrentfile}.
+De toda essa sequência de partes, existirá uma sequência de \glspl*{hashvalue} SHA-1 de
+seus dados, formando uma grande \gls*{string} de um único \gls*{hashvalue}, que é
+colocado como valor da chave \bverb|info| do dicionário de dados do \gls*{torrentfile}.
 
 Historicamente, os tamanhos das partes eram escolhidos a fim de gerar
-\glspl*{torrentfile} entre 50kB e 75kB. Atualmente, é preferido manter tamanhos das
-partes em até 512kB para \glspl*{torrent} de dados entre 8GB e 10GB. Por terem maior
-quantidade de dados, distribuir essa grande quantidade de bytes em poucas partes faz com
-que o \gls*{swarm} seja mais eficiente. Os tamanhos das partes mais utilizados são de
-256kB, 512kB e 1MB.
+\glspl*{torrentfile} entre 50kB e 75kB. Atualmente, a preferência é manter-se tamanhos
+das partes em até 512kB, para \glspl*{torrent} de dados entre 8GB e 10GB. Por terem
+maior quantidade de dados, distribuir essa grande quantidade de bytes em poucas partes
+faz com que o \gls*{swarm} seja mais eficiente. Os tamanhos das partes mais utilizados
+são de 256kB, 512kB e 1MB.
