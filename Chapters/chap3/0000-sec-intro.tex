@@ -4,20 +4,11 @@ O BitTorrent é uma rede \gls{p2p}, onde cada um de seus usuários assume o pape
 de servidor (que fornece os arquivos) e de cliente (que adquire os arquivos). Cada
 computador é chamado de \gls{peer}.
 
-Cada transferência por BitTorrent está associada a um \gls{torrentfile}, que contém
+Cada transferência por BitTorrent está associada a um \gls{torrentfile} contendo
 \glspl{metadata}, que são informações sobre arquivos que constituem um pacote chamado
 \gls{torrent}. Além disso, possui um ou mais endereços de \glspl{tracker}, que são
 servidores que mantém listas atualizadas dos \glspl*{peer} que estão compartilhando
-aqueles arquivos, atualizadas em curtos períodos de tempo (usualmente 30 minutos).
-
-\begin{comment}
-    \begin{figure}[ht!]
-        \centering
-        \fbox{\includegraphics[width=0.64\textwidth]{funcionamento.png}}
-        \caption{esquema básico do funcionamento do BitTorrent}
-        \label{fig:torrent-basics}
-    \end{figure}
-\end{comment}
+aqueles arquivos, atualizadas em curtos períodos de tempo (usualmente trinta minutos).
 
 Enquanto um \gls*{peer} estiver fazendo download de um \gls*{torrent}, ele é chamado de
 \gls{leecher}, pois ainda consumirá dados de outros \glspl*{peer}; quando o download
@@ -26,8 +17,8 @@ acabar, passará a ser um \gls{seeder}, que somente enviará dados.
 Os \glspl*{torrentfile} ficam disponíveis em vários sites de índice (às vezes, chamados
 de comunidades), como o \href{http://thepiratebay.sx/}{ThePirateBay}, o
 \href{http://kickass.to/}{Kickass} ou \href{https://torrentz.eu/}{Torrentz} (muitas
-vezes em mais de um deles ao mesmo tempo). Apesar de todo conteúdo compartilhado possuir
-um \gls*{torrentfile}, não necessariamente um \gls*{torrentfile} está sendo
+vezes, em mais de um deles ao mesmo tempo). Apesar de todo conteúdo compartilhado
+possuir um \gls*{torrentfile}, não necessariamente um \gls*{torrentfile} está sendo
 compartilhado naquele momento, podendo até mesmo estar extinto.
 
 \Glspl*{peer} que participam do compartilhamento de um \gls*{torrent} específico
@@ -125,14 +116,14 @@ Essa ordem varia de acordo com o estado atual do \gls*{swarm} desse \gls*{torren
 \end{figure}
 
 Todos esses agentes possuem relações múltiplas entre si. Por exemplo, um mesmo
-\gls*{torrentfile} pode estar indexado por vários sites indexadores. Como veremos
-nos capítulos seguintes, eles contêm uma informação que os identificam unicamente,
-gerando consistência entre esses vários sites de busca. Outra observação a ser feita é
-que um \gls*{peer} pode estar baixando um ou mais \glspl*{torrent} simultaneamente, ou
-seja, participando de vários \glspl*{swarm} ao mesmo tempo. Por fim, em alguns casos,
-um mesmo \gls*{torrent} pode possuir uma grande quantidade de \glspl*{peer}
-participantes, havendo necessidade de dividí-los em vários \glspl*{swarm}, para fins de
-escalabilidade da rede formada.
+\gls*{torrentfile} pode estar indexado por vários sites indexadores. Como veremos nos
+capítulos seguintes, os \gls*{torrentfile} contêm informações sobre um único
+\gls*{torrent} (dentre elas o seu identificador único), gerando consistência entre esses
+vários sites de busca. Outra observação a ser feita é que um \gls*{peer} pode estar
+baixando um ou mais \glspl*{torrent} simultaneamente, ou seja, participando de vários
+\glspl*{swarm} ao mesmo tempo. Por fim, em alguns casos, um mesmo \gls*{torrent} pode
+possuir uma grande quantidade de \glspl*{peer} participantes, havendo necessidade de
+dividí-los em vários \glspl*{swarm}, para fins de escalabilidade da rede formada.
 
 \begin{figure}[H]
     \centering
