@@ -15,7 +15,7 @@
 			"file": "/home/paulo/Arquivos/tcc/mono/tcc.tex",
 			"settings":
 			{
-				"buffer_size": 8874,
+				"buffer_size": 9119,
 				"line_ending": "Unix"
 			}
 		},
@@ -23,7 +23,7 @@
 			"file": "/home/paulo/Arquivos/tcc/mono/bibliografia.bib",
 			"settings":
 			{
-				"buffer_size": 46970,
+				"buffer_size": 39828,
 				"line_ending": "Unix"
 			}
 		},
@@ -36,18 +36,18 @@
 			}
 		},
 		{
-			"file": "/home/paulo/Arquivos/tcc/mono/Chapters/chap4/11-000-sec-engsoft.tex",
+			"file": "/home/paulo/Arquivos/tcc/mono/Chapters/Chapter5.tex",
 			"settings":
 			{
-				"buffer_size": 3114,
+				"buffer_size": 2524,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/home/paulo/Arquivos/tcc/mono/Codes/chap4/023-metainfo-test.c",
+			"file": "/home/paulo/Arquivos/tcc/mono/Chapters/Chapter6.tex",
 			"settings":
 			{
-				"buffer_size": 1312,
+				"buffer_size": 2028,
 				"line_ending": "Unix"
 			}
 		}
@@ -112,16 +112,23 @@
 	},
 	"file_history":
 	[
+		"/home/paulo/Arquivos/tcc/mono/Chapters/Chapter4.tex",
+		"/home/paulo/Arquivos/tcc/mono/Figures/chap5/mapa-bcc.png",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/Chapter1.tex",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/09-000-sec-conexao-internet.tex",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/08-100-subsec-uso.tex",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/Chapter3.tex",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/Chapter7.tex",
+		"/home/paulo/Arquivos/tcc/mono/Codes/chap4/023-metainfo-test.c",
+		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/11-000-sec-engsoft.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/07-000-sec-roteamento-pacotes.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/06-000-sec-multicast.tex",
 		"/media/Arquivos/tcc/mono/Codes/chap4/023-metainfo-test.c",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/01-200-subsec-listas.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/10-000-sec-threads.tex",
-		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/11-000-sec-engsoft.tex",
 		"/media/Arquivos/tcc/mono/Codes/chap4/021-thread.c",
 		"/home/paulo/Arquivos/tcc/mono/Codes/chap4/022-thread-lock.c",
 		"/media/Arquivos/tcc/mono/Codes/chap4/021-thread-lock.c",
-		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/09-000-sec-conexao-internet.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/01-100-subsec-vetores.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/01-000-sec-ed.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/08-000-sec-ipv6.tex",
@@ -133,7 +140,6 @@
 		"/media/Arquivos/tcc/mono/Codes/chap4/017-net-udp.c",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/05-100-subsec-udp.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/03-100-subsec-diffiehellman.tex",
-		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/08-100-subsec-uso.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/05-000-sec-protocolos-rede.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/4100-subsec-estado-nos.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/4000-sec-jogo.tex",
@@ -141,7 +147,6 @@
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/4200-subsec-mensagens.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/05-300-subsec-discussao.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/05-200-subsec-tcp.tex",
-		"/home/paulo/Arquivos/tcc/mono/Chapters/Chapter4.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/10-000-sec-retomada-downloads.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/09-000-sec-ipv6.tex",
 		"/home/paulo/Arquivos/tcc/mono/Codes/chap4/017-send-lpd.c",
@@ -166,7 +171,6 @@
 		"/home/paulo/Arquivos/tcc/mono/Codes/chap4/009-cripto-peer2-send-ya.c",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/02-000-sec-hash.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/sec01-ed.tex",
-		"/home/paulo/Arquivos/tcc/mono/Chapters/Chapter3.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/2100-subsec-kademlia.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/2150-subsubsec-otimizacoes.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/2140-subsubsec-entrada-rede-manutencao.tex",
@@ -221,7 +225,6 @@
 		"/media/Arquivos/tcc/mono/Codes/chap4/003-sha-ctx.c",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/Chapter6.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/sec001-ed.tex",
-		"/home/paulo/Arquivos/tcc/mono/Chapters/Chapter7.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/Chapter8.tex",
 		"/usr/share/texlive/texmf-dist/tex/latex/algorithm2e/algorithm2e.sty",
 		"/usr/share/texlive/texmf-dist/tex/latex/algorithms/algorithm.sty",
@@ -236,10 +239,7 @@
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/subsubsubsec2223-get-peers.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/subsubsec223-protocolo.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/subsubsec222-tabela-roteamento.tex",
-		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/subsec43-algoritmos-partes.tex",
-		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/subsec44-algoritmos-choking.tex",
-		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/subsec14-resultados.tex",
-		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/subsec3-dht.tex"
+		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/subsec43-algoritmos-partes.tex"
 	],
 	"find":
 	{
@@ -257,6 +257,10 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"swarmin",
+			"multicast",
+			"description",
+			"transmi",
 			"udp",
 			"sockaddr",
 			"bmob",
@@ -380,16 +384,12 @@
 			"rpc",
 			"transa",
 			"trans",
-			"chap32",
-			"textbf",
-			"bverb",
-			"\\verb",
-			"verb"
+			"chap32"
 		],
 		"highlight": true,
 		"in_selection": false,
 		"preserve_case": false,
-		"regex": false,
+		"regex": true,
 		"replace_history":
 		[
 			"nat",
@@ -492,15 +492,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 8874,
+						"buffer_size": 9119,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3293,
-								3293
+								3309,
+								3309
 							]
 						],
 						"settings":
@@ -510,7 +510,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 671.0,
+						"translation.y": 719.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 4,
@@ -522,7 +522,7 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 46970,
+						"buffer_size": 39828,
 						"regions":
 						{
 							"mark":
@@ -538,8 +538,8 @@
 						"selection":
 						[
 							[
-								39028,
-								39028
+								15146,
+								15146
 							]
 						],
 						"settings":
@@ -549,7 +549,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 16189.0,
+						"translation.y": 6065.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 3,
@@ -568,8 +568,8 @@
 						"selection":
 						[
 							[
-								10366,
-								10366
+								2588,
+								2588
 							]
 						],
 						"settings":
@@ -579,10 +579,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 3153.0,
+						"translation.y": 306.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 1,
 					"type": "text"
 				}
 			]
@@ -593,19 +593,19 @@
 			[
 				{
 					"buffer": 3,
-					"file": "/home/paulo/Arquivos/tcc/mono/Chapters/chap4/11-000-sec-engsoft.tex",
+					"file": "/home/paulo/Arquivos/tcc/mono/Chapters/Chapter5.tex",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3114,
+						"buffer_size": 2524,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1115,
-								1115
+								420,
+								420
 							]
 						],
 						"settings":
@@ -621,32 +621,30 @@
 				},
 				{
 					"buffer": 4,
-					"file": "/home/paulo/Arquivos/tcc/mono/Codes/chap4/023-metainfo-test.c",
+					"file": "/home/paulo/Arquivos/tcc/mono/Chapters/Chapter6.tex",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1312,
+						"buffer_size": 2028,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								76,
-								76
+								2005,
+								2005
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/C++/C++.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 117.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 2,
 					"type": "text"
 				}
 			]
