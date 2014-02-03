@@ -6,32 +6,35 @@ Além do \gls*{announce}, outra forma de troca de informação entre \glspl*{pee
 \glspl*{tracker} se dá pelo \gls{scrape}. Geralmente usado pelos programas cliente para
 decidir quando realizar um \gls*{announce}, informa o número de \glspl*{peer},
 \glspl*{leecher} e \glspl*{seeder} de uma lista de um ou mais \glspl*{torrent}. É dessa
-forma que os sites de indexação sabem dessas informações e as apresentam nas em páginas.
+forma que os sites de indexação sabem dessas informações e as apresentam em suas
+páginas.
 
 A requisição de \gls*{scrape} pode ser sobre todos os \glspl*{torrent} que o
 \gls*{tracker} gerencia ou sobre um ou mais \glspl*{torrent} em específico, quando são
 passados seus respectivos \glspl*{hashvalue}. Sua resposta é um dicionário na forma
-\gls*{bencode} contendo as chaves
+\gls*{bencode} contendo a chave:
 
-\begin{itemize}
-    \item \textbf{files}: um dicionário contendo um par chave-valor para cada
-    \gls*{torrent} especificado na requisição do \gls*{scrape} através do
-    \gls*{hashvalue} do \gls*{torrent} de 20 bytes:
+\begin{description}
+    \item[files:] um dicionário contendo um par chave-valor para cada \gls*{torrent}
+        especificado na requisição do \gls*{scrape}, através do \gls*{hashvalue} do
+        \gls*{torrent} de 20 bytes:
 
-    \begin{itemize}
-        \item \textbf{complete}: quantidade de \glspl*{seeder};
+        \begin{itemize}
+            \item \emph{complete}: quantidade de \glspl*{seeder};
 
-        \item \textbf{incomplete}: quantidade de \glspl*{leecher};
+            \item \emph{incomplete}: quantidade de \glspl*{leecher};
 
-        \item \textbf{downloaded}: quantidade total de vezes que o \gls*{tracker}
-        registrou uma finalização (\sverb|event=complete| ao término de um download);
+            \item \emph{downloaded}: quantidade total de vezes que o \gls*{tracker}
+                registrou uma finalização (\bverb|event=complete| ao término de um
+                download); e
 
-        \item \textbf{name} (opcional): o nome interno do \gls*{torrent}, como
-        especificado pelo respectivo \gls*{torrentfile}, na sua seção \bverb|info|;
-    \end{itemize}
-\end{itemize}
+            \item \textbf{name} (opcional): o nome interno do \gls*{torrent}, como
+                especificado pelo respectivo \gls*{torrentfile}, na sua seção
+                \bverb|info|.
+        \end{itemize}
+\end{description}
 
-Da mesma forma que o \gls*{announce}, o \gls*{scrape} é um endereço do \gls*{tracker}
+Assim como o \gls*{announce}, o \gls*{scrape} é um endereço do \gls*{tracker}
 usando-se o \gls*{tcp} ou o \gls*{udp}, e é tratado de forma semelhante pelo
 Transmission.
 
@@ -73,7 +76,7 @@ Transmission.
     }
     \end{minted}
 
-    \caption{Logs do Transmission sobre uma requisição de scrape e a respectiva
+    \caption{logs do Transmission sobre uma requisição de scrape, e a respectiva
     resposta, com o conteúdo binário truncado}
     \label{lst:scrape}
 \end{listing}
