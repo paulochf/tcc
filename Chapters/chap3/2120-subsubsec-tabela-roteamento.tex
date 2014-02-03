@@ -2,8 +2,8 @@
 
 \subsubsection*{Tabela de roteamento}
 
-Cada nó do Kademlia armazena informações sobre outros nós para rotear mensagens de
-pesquisa. Para cada bit $i$ dos IDs (cada ID tem 160 bits) é mantido um \gls{kbucket},
+Cada nó do \gls*{kademlia} armazena informações sobre outros nós para rotear mensagens
+de pesquisa. Para cada bit $i$ dos IDs (cada ID tem 160 bits) é mantido um \gls{kbucket},
 que contém os nós cuja distância até ele está entre $2^i$ e $2^{i+1}$. Esses
 \glspl*{kbucket} são listas de endereço IP, porta de comunicação \gls*{udp} e ID de
 nós, ordenadas pelo horário da última notícia destes. Para distâncias pequenas, essas

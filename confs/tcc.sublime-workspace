@@ -12,10 +12,10 @@
 	"buffers":
 	[
 		{
-			"file": "/home/paulo/Arquivos/tcc/mono/tcc.tex",
+			"file": "/home/paulo/Arquivos/tcc/mono/bibliografia.bib",
 			"settings":
 			{
-				"buffer_size": 9301,
+				"buffer_size": 41300,
 				"line_ending": "Unix"
 			}
 		}
@@ -80,6 +80,7 @@
 	},
 	"file_history":
 	[
+		"/home/paulo/Arquivos/tcc/mono/tcc.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap3/4000-sec-jogo.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/chap4/05-000-sec-protocolos-rede.tex",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/Chapter7.tex",
@@ -172,7 +173,6 @@
 		"/home/paulo/Arquivos/tcc/mono/Codes/chap3/002-leiturametadata2.c",
 		"/home/paulo/Arquivos/tcc/mono/Chapters/Chapter3.tex",
 		"/home/paulo/Arquivos/tcc/mono/Figures/chap3/funcionamento.png",
-		"/home/paulo/Arquivos/tcc/mono/tcc.tex",
 		"/home/paulo/Arquivos/tcc/mono/Figures/chap5/mapa-bcc.png",
 		"/home/paulo/Arquivos/tcc/mono/Codes/chap4/023-metainfo-test.c",
 		"/media/Arquivos/tcc/mono/Codes/chap4/023-metainfo-test.c",
@@ -225,6 +225,19 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"\\\"([^\"]+)\\\"",
+			"january",
+			"december",
+			"november",
+			"october",
+			"september",
+			"august",
+			"july",
+			"june",
+			"may",
+			"february",
+			"january",
+			"accessed",
 			"kademlia",
 			"field",
 			"hyper",
@@ -339,20 +352,7 @@
 			"arti",
 			"artifo",
 			"ince",
-			"printglossaries",
-			"1874",
-			" ",
-			"mp3",
-			"through",
-			"Peer",
-			"perr",
-			"tamanho",
-			"array",
-			"para isso",
-			"tit",
-			"356",
-			"walk",
-			"x"
+			"printglossaries"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -360,6 +360,12 @@
 		"regex": true,
 		"replace_history":
 		[
+			"{\\1}",
+			"dezembro",
+			"outubro",
+			"fevereiro",
+			"janeiro",
+			"acessado em",
 			"nat",
 			"{B}",
 			"{A}",
@@ -456,29 +462,29 @@
 			[
 				{
 					"buffer": 0,
-					"file": "/home/paulo/Arquivos/tcc/mono/tcc.tex",
+					"file": "/home/paulo/Arquivos/tcc/mono/bibliografia.bib",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 9301,
+						"buffer_size": 41300,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2093,
-								2093
+								26584,
+								26587
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
+							"syntax": "Packages/LaTeX/Bibtex.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 433.0,
+						"translation.y": 13261.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -529,7 +535,7 @@
 	"project": "tcc.sublime-project",
 	"replace":
 	{
-		"height": 38.0
+		"height": 56.0
 	},
 	"save_all_on_build": true,
 	"select_file":

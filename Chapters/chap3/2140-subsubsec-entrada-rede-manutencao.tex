@@ -23,8 +23,8 @@ tráfego constante, cada nó deverá atualizar um \gls*{bucket} em que não tive
 intervalo correspondente e efetuar uma busca por esse ID.
 
 Uma implementação ingênua pode ser feita usando-se um vetor de 160 \glspl*{bucket}, um
-para cada possibilidade de diferença de bits. Porém, como no Kademlia a tendência é de
-se conhecer mais sobre \glspl*{peer} mais próximos, muitos \glspl*{bucket} ficarão
+para cada possibilidade de diferença de bits. Porém, como no \gls*{kademlia} a tendência
+é de se conhecer mais sobre \glspl*{peer} mais próximos, muitos \glspl*{bucket} ficarão
 vazios. Uma forma mais otimizada de tratar isso é fazendo com que, inicialmente, os nós
 possuam somente um \gls*{bucket}. Eventualmente, estes ficarão cheios, sendo então
 divididos. Nesse caso, dois novos \glspl*{bucket} são criados, onde o conteúdo do

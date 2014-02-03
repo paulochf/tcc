@@ -12,21 +12,21 @@ rede. Cada folha tem suas posições estabelecidas pelo menor prefixo comum de s
 organizando-os de forma que, para um dado nó $x$, a árvore é dividida em várias
 subárvores menores que não o contém. Assim, a maior subárvore consiste de metade da
 árvore que não contém $x$, a subárvore seguinte é feita da metade da árvore restante
-onde $x$ também não está contido, etc. O Kademlia garante ainda que todo nó conhece um
-outro que esteja em cada uma das subárvores, se estas contiverem algum nó.
+onde $x$ também não está contido, etc. O \gls*{kademlia} garante ainda que todo nó
+conhece um outro que esteja em cada uma das subárvores, se estas contiverem algum nó.
 
 \begin{figure}[ht!]
     \centering
     \fbox{\includegraphics[width=\textwidth]{dht1.png}}
-    \caption{Árvore binária do Kademlia. O nó preto é a posição do ID 0011...; os ovais
+    \caption{árvore binária do Kademlia. O nó preto é a posição do ID 0011...; os ovais
     cinzas são as subárvores onde o nó preto deve possuir nós conhecidos. Fonte:
     \cite{artigo:kademlia}}
     \label{fig:dht-arvore}
 \end{figure}
 
-No Kademlia, objetos e nós possuem IDs únicos de 160 bits: enquanto o primeiro utiliza
-o \gls*{hashvalue} de 20 bytes SHA-1 da chave \bverb|info_hash| do \gls*{torrentfile},
-o segundo é um valor aleatório escolhido pelo próprio programa.
+No \gls*{kademlia}, objetos e nós possuem IDs únicos de 160 bits: enquanto o primeiro
+utiliza o \gls*{hashvalue} de 20 bytes SHA-1 da chave \bverb|info_hash| do
+\gls*{torrentfile}, o segundo é um valor aleatório escolhido pelo próprio programa.
 
 Durante uma busca por \glspl*{peer} de um \gls*{torrent}, o processo deve conhecer a
 chave associada ao objeto, ou seja, o ID, e explorar a rede em passos. A cada passo,
@@ -38,7 +38,7 @@ visita apenas $\Oh(\log n)$ nós.
 \begin{figure}[ht!]
     \centering
     \fbox{\includegraphics[width=0.8\textwidth]{dht2.png}}
-    \caption{Exemplo de uma busca na árvore de nós do Kademlia usando-se um ID. O nó
+    \caption{exemplo de uma busca na árvore de nós do Kademlia usando-se um ID. O nó
     preto, de prefixo 0011, encontra o nó de prefixo 1110 através de sucessivas buscas
     (setas numeradas inferiores). As setas superiores mostram a convergência da
     busca durante a execução. Fonte: \cite{artigo:kademlia}}
@@ -71,9 +71,9 @@ usual:
         euclidiana \cite{bittorrentcom:dht}.
 \end{itemize}
 
-No Transmission, o Kademlia é usado a partir de uma biblioteca externa (não mantida
-pelos seus desenvolvedores), criada por Juliusz Chroboczek \cite{repo:dht-c}, sendo
-adicionada e adaptada para o uso no código do programa. Sua implementação não é na forma
-de árvore, mas sim de listas ligadas.
+No Transmission, o \gls*{kademlia} é usado a partir de uma biblioteca externa (não
+mantida pelos seus desenvolvedores), criada por Juliusz Chroboczek \cite{repo:dht-c},
+sendo adicionada e adaptada para o uso no código do programa. Sua implementação não é
+na forma de árvore, mas sim de listas ligadas.
 
 \cfile[label="./third-party/dht/dht.c:129"]{./Codes/chap3/018-dht-structs.c}

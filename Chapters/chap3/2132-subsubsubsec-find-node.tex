@@ -3,7 +3,7 @@
 \newpage
 \subsubsubsection{find\_node}
 
-Este comando, que equivale à mensagem de \bverb|FIND_NODE| no artigo do Kademlia
+Este comando, que equivale à mensagem de \bverb|FIND_NODE| no artigo do \gls*{kademlia}
 \cite{artigo:kademlia}, é usado para encontrar as informações do nó, dado seu ID.
 Necessita enviar dois argumentos: a chave \bverb|id| e o ID do nó consultante; e a chave
 \bverb|target| e o ID do nó cujas informações o consultante está procurando (ou nó
@@ -23,15 +23,15 @@ fizeram contato recentemente), e que estão englobados em sua tabela de roteamen
 ou mais \glspl*{kbucket}. O funcionamento do algoritmo da busca é explicado no trabalho
 \cite{artigo:kademlia-springer}:
 
-\blockquote{``O procedimento mais importante que um participante do Kademlia deve
+\blockquote{``O procedimento mais importante que um participante do \gls*{kademlia} deve
 realizar é encontrar os $k$ nós próximos a um dado ID de nó. Nós chamamos esse
-procedimento de \enquote{\emph{lookup} de nós}. Kademlia utiliza-se de um algoritmo
-recursivo nas buscas por nós. O disparador das buscas começa escolhendo $\alpha$ nós do
-\gls*{bucket} não-vazio mais próximo (ou, se esse \gls*{bucket} tiver menos que $\alpha$
-entradas, utiliza desses $\alpha$ nós mais próximos que conhece). Então, o disparador
-envia chamadas \gls*{rpc} assíncronas paralelas de comandos \textbf{find\_node} para
-esses $\alpha$ nós escolhidos. $\alpha$ é um parâmetro de concorrência geral ao sistema,
-assumindo valor como 3.
+procedimento de \enquote{\emph{lookup} de nós}. \gls*{kademlia} utiliza-se de um
+algoritmo recursivo nas buscas por nós. O disparador das buscas começa escolhendo
+$\alpha$ nós do \gls*{bucket} não-vazio mais próximo (ou, se esse \gls*{bucket} tiver
+menos que $\alpha$ entradas, utiliza desses $\alpha$ nós mais próximos que conhece).
+Então, o disparador envia chamadas \gls*{rpc} assíncronas paralelas de comandos
+\textbf{find\_node} para esses $\alpha$ nós escolhidos. $\alpha$ é um parâmetro de
+concorrência geral ao sistema, assumindo valor como 3.
 
 No passo recursivo, o disparador reenvia chamadas \textbf{find\_node} para os nós que
 conheceu das chamadas \gls*{rpc} passadas. (Esta recursão pode começar antes que todos
@@ -48,9 +48,9 @@ Esse algoritmo remete a um algoritmo de busca em largura onde, a partir de um n�
 grafo, adiciona-se os nós vizinhos em uma fila, e a cada nó que está nela é feita alguma
 análise dos vizinhos do novo nó, até que a fila se esgote. Porém, enquanto a busca em
 largura usa uma fila FIFO (\emph{First In First Out}) e também uma condição de parada,
-qual seja, a fila ficar vazia, no algoritmo do Kademlia temos uma fila de prioridade
-cuja métrica ``de prioridade'' é a distância para o nó de origem, e também temos uma
-condição de parada, qual seja, os $k$ nós mais próximos serem avaliados.
+qual seja, a fila ficar vazia, no algoritmo do \gls*{kademlia} temos uma fila de
+prioridade cuja métrica ``de prioridade'' é a distância para o nó de origem, e também
+temos uma condição de parada, qual seja, os $k$ nós mais próximos serem avaliados.
 
 Porém, o Transmission implementa essa busca de forma mais flexível e simples. De início,
 busca o \gls*{bucket} no qual o ID procurado está, ou o que contém nós mais próximos.
