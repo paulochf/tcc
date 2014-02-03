@@ -3,26 +3,27 @@
 \section{IPv6}
 
 Com o desenvolvimento da ARPAnet, a quantidade de computadores conectados na rede
-cresceu, chegando a 562 em 1983. A quarta versão do protocolo TCP/IP, o IPv4, foi
+cresceu, chegando a 562 unidades, em 1983. A quarta versão do protocolo TCP/IP, o IPv4,
 criado em 1981 \cite{site:rfcipv4}, foi utilizado para organizar aquelas redes já
 formadas e ordenar o crescimento posterior.
 
 O IPv4 tem dois objetivos: prover a fragmentação dos datagramas maiores em partes
-menores, para que pudessem ser enviados pela camada de enlace; e regras de
+menores, para que pudessem ser enviadas pela camada de enlace; e regras de
 endereçamento, para que os datagramas tivessem os endereços de origem e de destino
 armazenados em seus cabeçalhos \cite{site:nicipv4}. Apesar de ser considerada robusta e
-de fácil implantação e interoperabilidade, o projeto original não previu problemas como
-o crescimento das redes e das tabelas de roteamento, segurança de dados, prioridade de
-entrega de tipos específicos de pacote e, o mais grave, o esgotamento de endereços IP.
+de fácil implantação e interoperabilidade, o projeto original não previu a ocorrência
+de problemas, tais como o crescimento das redes e das tabelas de roteamento, segurança
+de dados, prioridade de entrega de tipos específicos de pacote e, o mais grave, o
+esgotamento de endereços IP.
 
 O endereçamento do IPv4 é feito com 4 bytes, geralmente representado na forma decimal
 (4 números de 0 a 255), separados por pontos, o que permite $2^32$ endereços possíveis.
 Esses endereços, que são distribuídos pela IANA
 (\emph{Internet Assigned Numbers Authority}) globalmente para os cinco RIRs
-(\emph{Regional Internet Registry}, ou Registro Regional de Internet), que então
-distribuem localmente para clientes que incluem provedores de Internet (\glspl{isp}) e
+(\emph{Regional Internet Registry}, ou Registro Regional de Internet), que então os
+distribuem localmente para clientes, que incluem provedores de Internet (\glspl{isp}) e
 outras organizações, que então repassam endereços a usuários finais. Esses endereços
-são os que estão esgotando atualmente. Para resolver esse problema e alguns outros que
+são os que estão esgotando atualmente. Para resolver esse problema e alguns outros
 adquiridos com a experiência operacional do IPv4, o IPv6 foi publicado em 1998
 \cite{site:rfcipv6}.
 
@@ -32,14 +33,14 @@ datagrama:
 \begin{description}
     \item[espaço de endereço maior:] o tamanho dos endereços passa a ter 128 bits,
         representados em 8 grupos de 4 dígitos hexadecimais. Com isso, a quantidade
-        total de endereços possíveis passa de $2^32$ para $2^128$. Isso também permitiu
-        que fossem definidas três metodologias de roteamento: o \emph{unicast} (para um
-        endereço em específico), o \emph{multicast} (para vários endereços
-        simultaneamente) e o \emph{anycast} (para, dentre um grupo de potenciais
+        total de endereços possíveis passa de $2^{32}$ para $2^{128}$. Isso também
+        permitiu que fossem definidas três metodologias de roteamento: o \emph{unicast}
+        (para um endereço em específico), o \emph{multicast} (para vários endereços
+        simultaneamente) e o \emph{anycast} (para que, dentre um grupo de potenciais
         destinatários, apenas um receba);
 
     \item[cabeçalho de 40 bytes fixos:] o cabeçalho do IPv4 possui alguns campos
-        opcionais, porém alguns deles foram retirados ou sofreram alterações quando
+        opcionais, porém, alguns deles foram retirados ou sofreram alterações quando
         migrados para o IPv6. Isso agiliza o processamento dos datagramas; e
 
     \item[classificação de fluxo e prioridade:] permite que dados que sejam de fluxo
@@ -51,7 +52,7 @@ datagrama:
 \begin{figure}[H]
     \centering
     \fbox{\includegraphics[width=\textwidth]{IPheaders.png}}
-    \caption{formatos dos datagramas dos protocolos IPv4 e IPv6. Ambos possuem largura de 32 bits}
+    \caption{formatos dos datagramas dos protocolos IPv4 e IPv6. Ambos possuem largura de 32 bits.}
     \label{fig:headers}
 \end{figure}
 
@@ -86,12 +87,12 @@ Os campos do cabeçalho do IPv6 são:
 Duas ausências significativas foram as dos campos que definem a fragmentação dos
 datagramas e do \gls{checksum} do cabeçalho. No primeiro, a funcionalidade foi movida
 dos roteadores, a fim de reduzir o trabalho deles e melhorar a velocidade do
-encaminhamento IP pela rede, e tornando os sistemas finais responsáveis pela escolha do
-tamanho dos datagramas. Já o \gls*{checksum}, os protocolos das camadas de transporte
+encaminhamento IP pela rede, tornando os sistemas finais responsáveis pela escolha do
+tamanho dos datagramas. Já no \gls*{checksum}, os protocolos das camadas de transporte
 (\gls*{tcp} e \gls*{udp}) e de enlace (Ethernet) já realizam a verificação de erros por
 soma. Por isso, a redundância de trabalho foi retirada, eliminando a necessidade de
-recalcular essa soma a cada roteador e, assim, melhorar a velocidade de processamento de
-pacotes IP.
+recalcular essa soma a cada roteador e, assim, melhorando a velocidade de processamento
+de pacotes IP.
 
 Apesar de não ser retrocompatível com o IPv4, o IPv6 consegue ser transmitido utilizando
 \textbf{tunelamento automático} por \textbf{mecanismos de transição}, que proporciona

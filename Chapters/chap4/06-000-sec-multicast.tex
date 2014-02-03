@@ -6,7 +6,7 @@
 Na área de redes de computadores, \emph{multicast} é um conceito de entrega de
 informação simultânea para um grupo de computadores a partir de uma única fonte,
 utilizando algoritmos específicos para seu roteamento. Geralmente, é implementado sobre
-os protocolos da camada de rede ou de enlace, é usado em aplicações que necessitam de
+os protocolos da camada de rede ou de enlace, e é usado em aplicações que necessitam de
 distribuição de ``um para muitos'' ou ``muitos para muitos'', como por exemplo as de
 distribuição de dados em massa (atualização de servidores), transmissão de áudio e vídeo
 contínuo (transmissões de vídeo ao vivo), aplicações de dados compartilhados
@@ -17,10 +17,10 @@ Os endereços de \emph{multicast} são definidos pelo protocolo IP como a sub-re
 entre os endereços IP \sverb|224.0.0.0| até \sverb|239.255.255.255|, antigamente chamada
 de \textbf{rede classe D}, onde cada trecho desse intervalo é reservado a um uso
 específico, controlado pela IANA (\emph{Internet Assigned Numbers Authority})
-\cite{site:iana-multicast}. Dentre estes, endereços contidos em no intervalo de
+\cite{site:iana-multicast}. Dentre estes, endereços contidos no intervalo de
 \sverb|239.0.0.0| a \sverb|239.255.255.255|, chamados de
 \textbf{endereços de multicast de escopo administrativo}, são destinados a uso privado
-dentro dos limites de organizações, porém podendo não ser globalmente únicos
+dentro dos limites de organizações, porém, podendo não ser globalmente únicos
 \cite{site:rfcmulticast}. Cada endereço deles é de um grupo específico de
 \emph{multicast}, cujas mensagens encaminhadas a esse endereço serão repassadas a todos
 os nós de rede que estiverem conectados a ele.

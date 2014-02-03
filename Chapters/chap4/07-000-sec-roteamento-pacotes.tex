@@ -5,16 +5,16 @@
 Atualmente, o uso de roteadores de rede para uso doméstico é bastante comum, servindo
 para distribuição de uma conexão de Internet para vários equipamentos eletrônicos que
 conseguem acessá-la. Para que ocorra essa distribuição de dados de Internet é
-necessário que no roteador funcione um protocolo chamado \gls{nat}
+necessário que, no roteador, funcione um protocolo chamado \gls{nat}
 (\emph{Network Address Translator}).
 
 Um roteador em que funciona um serviço de \gls*{nat} parece, externamente (para a rede
 exterior), que é um único dispositivo com o seu endereço IP \cite{book:kurose}, enquanto
-internamente, enquanto internamente é visto como o responsável por rotear os dados e
-que abstrai a conexão de Internet externa. Do ponto de vista do roteador, ele conhece os
-endereços IP de cada dispositivo da rede interna e o endereço IP do modem do \gls{isp}.
-Assim, ele contrói uma tabela de tradução de endereços onde, para cada endereço da rede
-interna, associa a uma porta de rede interna e outra externa.
+internamente, é visto como o responsável por rotear os dados e abstrair a conexão de
+Internet externa. Do ponto de vista do roteador, ele conhece os endereços IP de cada
+dispositivo da rede interna e o endereço IP do modem do \gls{isp}. Assim, ele contrói
+uma tabela de tradução de endereços onde, para cada endereço da rede interna, associa
+uma porta de rede interna e outra externa.
 
 Então, quando um dos dispositivos envia dados para a Internet, esse pacote passa pelo
 roteador, que troca o endereço IP e porta do dispositivo de origem, contidos no
@@ -26,26 +26,26 @@ troca o endereço e porta de destinos do datagrama e repassa o pacote para tal
 dispositivo.
 
 Enquanto o \gls*{nat} parece solucionar um problema, ele cria outro: \glspl*{peer}
-de redes \gls*{p2p} necessitam saber as portas com que estão se comunicando para
+de redes \gls*{p2p} necessitam saber as portas com que estão se comunicando, para
 informar a outros \glspl*{peer}. Porém, um programa cliente que esteja sendo executado
-em um dispositivo que está numa sub-rede atendida por \gls*{nat} deve saber informar
-qual a porta externa está associada a ele na tabela de \gls*{nat}, e não a que utiliza
+em um dispositivo, que está numa sub-rede atendida por \gls*{nat}, deve saber informar
+qual porta externa está associada a ele na tabela de \gls*{nat}, e não a que utiliza
 no dispositivo.
 
 Para resolver esse problema, existem dois protocolos diferentes de configuração de
 portas: o \gls*{nat} PMP (\gls*{nat} \emph{Port Mapping Protocol}), que atualmente é
-chamado de PCP (\emph{Port Control Protocol}) \cite{site:rfcpcp}, e o uPnP
-(\emph{Universal Plug and Play}) \cite{site:rfcupnp}. Ambos esses protocolos têm a mesma
+chamado de PCP (\emph{Port Control Protocol}) \cite{site:rfcpcp}, e o UPnP
+(\emph{Universal Plug and Play}) \cite{site:rfcupnp}. Ambos os protocolos têm a mesma
 função: configurar um \gls*{nat} e conhecer as portas externas que ele lhes reservou,
 fazendo a travessia de \gls*{nat} (\emph{\gls*{nat} Traversal}).
 
 O UPnP \cite{wiki:upnp} é um conjunto de protocolos que possibilita a comunicação entre
-dispositivos variados a partir da conexão destes a uma rede, estabelecendo serviços.
+dispositivos variados, a partir da conexão destes a uma rede, estabelecendo serviços.
 Entre os diversos protocolos, está o IGDP (\emph{Internet Gateway Device Protocol}), no
 qual é possível realizar várias ações, desde o conhecimento do endereço IP externo do
 roteador, conhecer o mapeamento de portas internas e externas, e adicionar ou remover
 entradas nesse mapeamento. Ao adicionar uma entrada, é possível realizar a travessia de
-\gls*{nat}. O UPnP utiliza as portas 1900 para o pacotes \gls*{udp} e a 2869 para portas
+\gls*{nat}. O UPnP utiliza as portas 1900 para o pacotes \gls*{udp}, e 2869 para portas
 \gls*{tcp}.
 
 Já o PCP \cite{wiki:pcp}, introduzido em 2005 pela Apple como alternativa ao IGDP,
@@ -60,4 +60,4 @@ externas. Assim, para efeitos de segurança, um \gls*{nat} não substitui \emph{
 
 O Transmission utiliza duas bibliotecas, uma para cada protocolo: o MiniUPnP
 \cite{site:miniupnp} e o libnatpmp \cite{site:libnatpmp}. Ambas são desenvolvidas por
-Thomas Bernard e de código aberto.
+Thomas Bernard, e de código aberto.

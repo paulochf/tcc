@@ -10,7 +10,8 @@ static int tr_netBindTCPImpl(const tr_address * addr, tr_port port, bool suppres
     (...)
 
     // parte principal do ./libtransmission/net.c:196
-    // executada durante a função, e avalia o protocolo de conexão a ser usado (IPv4 ou IPv6)
+    // É executada neste ponto, durante a função tr_netBindTCPImpl, avaliando o protocolo...
+    // ...de conexão a ser usado (IPv4 ou IPv6)
     if (addr->type == TR_AF_INET) {
         // configura os dados do computador de destino para conexão por IPv4
 

@@ -6,7 +6,7 @@ tr_thread * tr_threadNew(void (*func)(void *), void * arg) {
     t->func = func;
     t->arg = arg;
 
-#ifdef WIN32   // Se o Transmission for utilizado em um  sistema operacional Windows...
+#ifdef WIN32   // Se o Transmission for utilizado em um sistema operacional Windows...
 {              // ...usa os comandos de thread específicos para ele.
     unsigned int id;
     t->thread_handle = (HANDLE) _beginthreadex (NULL, 0, &ThreadFunc, t, 0, &id);
