@@ -5,36 +5,35 @@
 O SHA-1 é uma \gls*{hashfunction} criada pela NSA, a Agência de Segurança Nacional
 americana, em 1995, e tem seu nome da abreviação de \emph{Secure Hash Algorithm}
 (algoritmo de hash seguro). Seu uso foi difundido depois que seu predecessor, o
-algoritmo MD5, foi constatado com colisão de \gls*{hashvalue} prática realizada em um
-computador comum \cite{report:md5-attack}.
+algoritmo MD5, foi constatado com colisão de \gls*{hashvalue} ocorrida na prática,
+em um computador comum \cite{report:md5-attack}.
 
 Pertencente a uma família de algoritmos, que conta ainda com as versões SHA-0, SHA-2
 (com funcionamento para vários comprimentos de bits de saída) e SHA-3, o SHA-1 teve
-falhas expostas comprovadas por colisão, aidan que de difícil realização atualmente.
+falhas expostas comprovadas por colisão, ainda que de difícil realização atualmente.
 Essa família é caracterizada por possuir algoritmos iterativos, baseada no desenho do
 algoritmo MD4 \cite{report:md4}.
 
-O resulta dessa função é um \gls*{hashvalue} de 160 bits (ou 20 bytes), que forma um
-número hexadecimal de 40 caracteres. A função de compressão do algoritmo consiste de
-três partes:
+O resultado dessa função é um \gls*{hashvalue} de 160 bits (ou 20 bytes) na forma
+hexadecimal. A função de compressão do algoritmo consiste de três partes:
 
 \begin{enumerate}
     \item expansão da mensagem: a mensagem de entrada é expandida para que o bloco de
         dado total seja múltiplo de 512 bits;
 
-    \item transformação de estado: consiste de passos simples de operações de números
-        binários usando alguns valores pré-definidos, onde uma variável de encadeamento
-        é usada de mensagem de entrada para iteração seguinte e os blocos da mensagem
-        expandida se tornam as novas chaves de iteração;
+    \item transformação de estado: consiste em passos simples de operações de números
+        binários, utilizando alguns valores pré-definidos. Uma variável de encadeamento
+        é usada como mensagem de entrada para a iteração seguinte e os blocos da
+        mensagem expandida se tornam as novas chaves de iteração; e
 
     \item retroalimentação: ao final do processamento de um bloco de 512 bits, a
         mensagem de entrada da transformação de estado é adicionada ao valor de saída.
-        Esta operação é chamada de construção de Davies-Meyer e garante que se a
-        mensagem de entrada for fixada então a função de compressão é náo-inversível na
+        Esta operação é chamada de construção de Davies-Meyer, e garante que, se a
+        mensagem de entrada for fixada, a função de compressão será não-inversível na
         variável de encadeamento.
 \end{enumerate}
 
-Uma das implementações conhecidos para a linguagem C é a biblioteca OpenSSL
+Uma das implementações conhecidas para a linguagem C é a biblioteca OpenSSL
 \cite{site:openssl}, de código aberto, e é usada pelo Transmission no desenvolvimento de
 códigos de \glspl*{hashfunction}, criptografia de dados e dados pseudo-aleatórios. O
 OpenSSL foi programado de forma otimizada, possuindo um código bastante diferente do

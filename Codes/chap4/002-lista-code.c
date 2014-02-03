@@ -6,9 +6,9 @@ static tr_list* node_alloc(void) {
     if (recycled_nodes == NULL) {   // Se não houver elementos reciclados,...
         ret = tr_new(tr_list, 1);   // ... aloque um novo.
     }
-    else {   // Caso contrário, reutilize, reapontando as tomando o controle do central
-        ret = recycled_nodes;           // ... referências dos elementos adjacentes...
-        recycled_nodes = recycled_nodes->next;   // ... e tomando o controle do central
+    else {                                  // Caso contrário, reutilize, reapontando...
+        ret = recycled_nodes;               // ... os ponteiros para os elementos adjacentes.
+        recycled_nodes = recycled_nodes->next;
     }
 
     *ret = TR_LIST_CLEAR;           // limpa campos do elemento

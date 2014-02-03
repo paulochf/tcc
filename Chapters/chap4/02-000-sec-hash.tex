@@ -4,27 +4,26 @@
 \label{sec:sha1}
 
 \Glspl{hashfunction} são funções matemáticas usadas para gerar conteúdo de comprimento
-fixo para referência ao conteúdo original.
+fixo que referencia o conteúdo original.
 
-Isso é útil quando existe grandes quantidades de dados a serem indexados. Por exemplo,
-numa busca em uma tabela de dados ou tarefas de comparação de dados tal como detecção de
-duplicatas ou de trechos de sequências de DNA semelhantes. Outro uso é na criptografia,
-quando é utilizado para comparar um conjunto de dados recebido com outro já existente,
-verificando sua igualdade.
+Isso é útil quando existem grandes quantidades de dados a serem indexados. Por exemplo,
+numa busca em uma tabela de dados, ou tarefas de comparação de dados, tais como
+detecção de duplicatas ou de trechos de sequências de DNA semelhantes. Outro uso é na
+criptografia, quando é utilizado para comparar um conjunto de dados recebido com outro
+já existente, verificando sua igualdade.
 
 Em geral, \glspl*{hashfunction} não são inversíveis, ou seja, não é possível recuperar o
-valor de entrada para um dado \gls{hashvalue}. Quando usado para fins criptográficos,
-são construídas de forma que essa reconstrução seja impossível sem que um imenso poder
-computional seja utilizado. Por conta disso, é igualmente difícil fingir um
-\gls*{hashvalue} para esconder dados maliciosos, sendo então usado pelo algoritmo
-\gls{pgp}.
+valor de entrada para um dado \gls{hashvalue}. Quando usadas para fins criptográficos,
+são construídas de forma que essa recuperação seja impossível sem que um imenso poder
+computacional seja utilizado. Por conta disso, é igualmente difícil fingir um
+\gls*{hashvalue} para esconder dados maliciosos.
 
 Outra característica importante é o determinismo. Quando a função é executada para dois
 dados de entrada iguais, ela deve produzir o mesmo valor. Essa condição é fundamental
 no caso de uma \gls*{hashtable}, pois a busca deve encontrar o mesmo local onde o
-algoritmo de inserção armazenou o dado, logo precisando do mesmo \gls*{hashvalue}.
+algoritmo de inserção armazenou o dado, logo, precisa do mesmo \gls*{hashvalue}.
 
-Outros usos para \glspl*{hashfunction} são em \glspl{checksum}, códigos de correção de
+Outros usos para \glspl*{hashfunction} são nas \glspl{checksum}, códigos de correção de
 erros e cifras.
 
 \input{Chapters/chap4/02-100-subsec-sha}

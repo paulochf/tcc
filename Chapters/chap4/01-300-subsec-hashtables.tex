@@ -5,23 +5,26 @@
 \Glspl{hashtable} são estruturas de dados eficientes na implementação de dicionários.
 Apesar de buscas demorarem tanto quanto procurar um elemento em uma lista ligada
 ($\Theta(n)$ no pior caso), o espalhamento é bastante eficiente. Isso faz com que o
-tempo médio de uma busca seja $\Oh(1)$ \cite{book:clrs}.
+tempo médio de uma busca seja $\Oh(1)$~\cite{book:clrs}.
 
-Uma \gls*{hashtable} generaliza a noção do vetor de elementos comum. Nele, o
-endereçamento direto nos permite avaliar o conteúdo de uma posição em $\Oh(1)$. O que
-torna esta tabela especial é a vantagem de transformar um certo conteúdo possuir uma
-chave específica e exclusiva, fornecendo um meio de se encontrar essa chave. Esse meio é
-uma \gls{hashfunction}.
+\todo[inline]{verificar se referências do tcc estão na mesma linha.}
+\todo[inline]{tentar colocar páginas na referencia}
 
-Às vezes, \glspl*{hashfunction} fazem com que 2 conteúdos possuam a mesma chave, ou
+Uma \gls*{hashtable} generaliza a noção do \emph{array} comum. Nele, o endereçamento
+direto nos permite avaliar o conteúdo de uma posição em $\Oh(1)$. O que torna esta
+tabela especial é a vantagem de transformar um certo conteúdo em um valor único,
+chamado de chave, fornecendo um meio de se encontrar essa chave. Esse meio é uma
+\gls{hashfunction}.
+
+Às vezes, \glspl*{hashfunction} fazem com que dois conteúdos possuam a mesma chave, ou
 seja, as chaves colidem. Para esses casos, existem várias técnicas de solução de
-conflitos, porém colisões podem ser evitadas com boa \gls*{hashfunction}, descritas a
+conflitos, porém colisões podem ser evitadas com boas \glspl*{hashfunction}, descritas a
 seguir.
 
-A \gls*{hashtable} usada pelo Transmission aparece no \gls*{dht}, porém de uma forma
-mais simples: não existe ``a \gls*{hashfunction} do \gls*{dht}'', onde existe uma função
+A \gls*{hashtable} usada pelo Transmission aparece na \gls*{dht}, porém de uma forma
+mais simples: não existe ``a \gls*{hashfunction} da \gls*{dht}'', onde há uma função
 característica para uma modelagem de tabela. Ao invés disso, as chaves já estão
-calculadas, sendo os IDs do \glspl*{torrent} e dos \glspl*{peer} do Kademlia.
+calculadas, sendo os IDs dos \glspl*{torrent} e dos \glspl*{peer} do Kademlia.
 
 Outra utilização de \gls*{hashtables} no BitTorrent (apesar de não ser usada no
 Transmission) é nas \textbf{árvores hash} ou \textbf{árvores de Merkle}

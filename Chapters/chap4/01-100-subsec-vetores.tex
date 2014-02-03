@@ -3,7 +3,7 @@
 \subsection*{Vetores}
 
 Vetores (ou \emph{arrays}) são a implementação de vetores matemáticos de maneira
-virtual. Na prática, consistem de sequência ou listas de variáveis do mesmo tipo. Na
+virtual. Na prática, consistem de sequências ou listas de variáveis do mesmo tipo. Na
 linguagem C, podem ser declaradas de forma estática ou dinâmica.
 
 Vetores estáticos têm tamanho fixo estabelecido na sua declaração em tempo de
@@ -17,7 +17,7 @@ tipo, não podendo ser alterado durante a execução do programa.
 Já os vetores dinâmicos são blocos de memória alocados e liberados durante a execução do
 programa. Para isso, são utilizados ponteiros para um objeto do mesmo tipo de cada
 elemento do vetor. Dessa forma, a memória é reservada em tempo de execução na memória
-heap. Assim, pode ter seu tamanho redimensionado conforme a necessidade.
+\emph{heap}. Assim, pode ter seu tamanho redimensionado conforme a necessidade.
 
 \begin{ccode}
     int *a = malloc( 3*sizeof(int) ); // aloca memoria para um vetor de 3 inteiros
@@ -38,4 +38,4 @@ da aritmética de ponteiros e acesso instantâneo ao valor armazenado.
 \end{ccode}
 
 O Transmission não aloca seus vetores dinâmicos literalmente desta forma, pois possui
-suas funções próprias onde encapsula o código mostrado.
+funções próprias onde encapsula o código mostrado.

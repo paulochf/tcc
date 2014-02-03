@@ -3,9 +3,9 @@
 \newpage
 \subsection*{Listas ligadas}
 
-Listas ligadas é uma estrutura de dados que organiza os objetos de forma linear, assim
+Listas ligadas são estruturas de dados que organizam os objetos de forma linear, assim
 como os vetores. Porém, enquanto estes possuem índices que determinam a sua posição, em
-listas, cada elemento possuem um ponteiro para o elemento seguinte. Por causa disso,
+listas, cada elemento possui um ponteiro para o elemento seguinte. Por causa disso,
 seu comprimento se altera organicamente conforme novos elementos vão sendo criados e
 inseridos, consumindo somente a memória necessária.
 
@@ -22,10 +22,10 @@ Existem vários tipos de listas ligadas:
 
 \begin{description}
     \item[simplesmente ligada:] possui somente um ponteiro para o próximo elemento;
-    \item[duplamente ligada:] possui 2 ponteiros, um para o elemento anterior e outro
+    \item[duplamente ligada:] possui dois ponteiros, um para o elemento anterior e outro
         para o próximo elemento;
-    \item[multiplamente ligada:] possui ponteiros vários elementos, porém ligando-os em
-        ordens diferentes;
+    \item[multiplamente ligada:] possui ponteiros para vários elementos, porém
+        ligando-os em ordens diferentes;
     \item[circularmente ligada:] quando o último elemento liga a lista de volta ao
         1º elemento; e
     \item[com cabeça:] quando possui um elemento falso somente para ajudar a manipular
@@ -52,7 +52,7 @@ relação à complexidade de seus algoritmos de manipulação.
         Redimensionamento & \parbox[t]{.25\textwidth}{\centering $\Theta(n)$ (estático) \\ ? (dinâmico)} & não necessita \\
         \hline
     \end{tabular}
-    \caption{tabela com os consumos de tempo de voperações sobre vetores e listas
+    \caption{tabela com os consumos de tempo de operações sobre vetores e listas
     ligadas. OBS: tempos de buscas são considerados lineares. Redimensionamento de vetor
     dinâmico depende da implementação da linguagem C.}
 \end{table}
