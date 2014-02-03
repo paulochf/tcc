@@ -57,7 +57,7 @@
 
 \newglossaryentry{audiogalaxy}{
     name={Audiogalaxy},
-    description={Rede \glink{p2p} de compartilhamento de músicas \glink{mp3} criado em
+    description={Rede \glink{p2p} de compartilhamento de músicas \glink{mp3}, criado em
     1998},
     first={\glsentryname{audiogalaxy}.com},
     long={\glsentryname{audiogalaxy}},
@@ -76,9 +76,9 @@
 
 \newglossaryentry{gnutella}{
     name={Gnutella},
-    description={software de compartilhamento \glink{p2p} desenvolvido por 3
-    programadores da empresa Nullsoft, recém adquirida da AOL Inc., lançado em 2000 sob
-    a licença GPL. No dia seguinte ao lançamento, a AOL ordenou indisponibilizar o
+    description={software de compartilhamento \glink{p2p}, desenvolvido por três
+    programadores da empresa Nullsoft, recém adquirida da AOL Inc., lançado no ano 2000,
+    sob a licença GPL. No dia seguinte ao lançamento, a AOL ordenou indisponibilizar o
     software, alegando problemas legais e proibindo a continuação do desenvolvimento.
     Alguns dias depois, o protocolo já tinha sido alvo de engenharia reversa e já havia
     softwares que o implementavam},
@@ -87,18 +87,19 @@
 
 \newglossaryentry{anycast}{
     name={anycast},
-    description={método de endereçamento e roteamento de rede onde os datagramas de um
+    description={método de endereçamento e roteamento de rede, onde os datagramas de um
     único remetente são roteados para um membro de um grupo de receptores potenciais que
-    estão definidos pelo mesmo intervalo no endereço de destino. Geralmente é usado
+    estão definidos pelo mesmo intervalo no endereço de destino. Geralmente, é usado
     para serviços que demandem alta disponibilidade},
     first={\glsentryname{anycast}}
 }
 
 \newglossaryentry{edonkey}{
     name={eDonkey},
-    description={lançado em 6 de setembro de 2000, o protocolo foi inaugurado juntamente
-    com o software que o utilizava, o eDonkey2000, mas inúmeros softwares cliente para
-    diferentes plataformas surgiram nos dias seguintes ao lançamento},
+    description={lançado em 6 de setembro de 2000, é um protocolo que foi inaugurado
+    juntamente com o software que o utilizava --- o eDonkey2000 --- mas inúmeros
+    softwares cliente para diferentes plataformas surgiram nos dias seguintes ao
+    lançamento},
     first={\glsentryname{edonkey}}
 }
 
@@ -233,7 +234,7 @@
     name={\emph{checksum}},
     description={em português, soma de verificação; bloco de dados de tamanho fixo
     gerado por algum algoritmo de soma para verificação, usado no certificado de
-    integridade contra problemas durante a transmissão ou de armazenamento (leitura
+    integridade contra problemas durante a transmissão, ou de armazenamento (leitura
     ou escrita)},
     first={verificação por soma (\glsentryname{checksum})},
     firstplural={verificações por soma (\glsentryname{checksum}s)},
@@ -268,7 +269,7 @@
 \newglossaryentry{magnetlink}{
     name={magnet link},
     description={em português, link magnético; padrão aberto, definido por convenção,
-    de esquema de \glink{uri} utilizado para localizar recursos de rede BitTorrent para
+    de esquema de \glink{uri}, utilizado para localizar recursos de rede BitTorrent para
     download},
     first={link magnético (\emph{\glsentryname{magnetlink}})},
     plural={\glsentryname{magnetlink}s},
@@ -283,7 +284,7 @@
     especificando algum protocolo e um caminho. Por exemplo, o URI
     \textcolor{Bittersweet}{\texttt{file:///arquivo.txt}} indica um arquivo computador
     local (nome de esquema \textcolor{Bittersweet}{\texttt{file}}), enquanto
-    \textcolor{Bittersweet}{\texttt{http://pagina.com}} se refere a uma página de
+    \textcolor{Bittersweet}{\texttt{http://pagina.com}} se refere à uma página de
     Internet (nome de esquema \textcolor{Bittersweet}{\texttt{http}})},
     first={identificador uniforme de recursos (\glsentryname{uri})},
     firstplural={identificadores uniformes de recursos (\glsentryname{uri}s)},
@@ -314,7 +315,7 @@
 
 \newglossaryentry{querystring}{
     name={query string},
-    description={em português, \glink{string} de busca; parte de uma \glink{url} que
+    description={em português, \glink{string} de busca; parte de uma \glink{url}, que
     possui um dicionário de dados a serem transmitidos para alguma aplicação de
     Internet, determinado por um caractere \textcolor{Bittersweet}{\texttt{?}}. Por
     exemplo, em \textcolor{Bittersweet}{\texttt{http://um/endereco/qualquer/?key1=value1\&key2=value2}}},
@@ -325,7 +326,7 @@
 
 \newglossaryentry{httpget}{
     name={HTTP GET},
-    description={método de requisição do protocolo HTTP que permite uso de
+    description={método de requisição do protocolo HTTP, que permite uso de
     \glinkpl{querystring} para troca de informações},
     first={requisição de método GET do protocolo HTTP (HTTP GET)},
     firstplural={requisições de método GET do protocolo HTTP (HTTP GET)}
@@ -363,9 +364,9 @@
     name={announce},
     description={endereço \glink{url} do \glink{tracker} para troca de informações,
     onde este recebe de \glinkpl{peer} informações sobre as respectivas situações com
-    relação a um \glink{torrent} específico naquele momento, as processa e então
-    responde informando sobre a situação geral daquele \glink{torrent} e uma lista de
-    outros \glsentryplural{peer} conectados naquele momento},
+    relação a um \glink{torrent} específico naquele momento, as processa, e então
+    responde informando sobre a situação geral daquele \glink{torrent} e fornece uma
+    lista de outros \glsentryplural{peer} conectados naquele momento},
     first={endereço web de contato do \glink{tracker} (\emph{\glsentryname{announce}})},
     firstplural={endereços web de contato do \glink{tracker}
     (\emph{\glsentryname{announce}s})},
@@ -400,10 +401,10 @@
 \newglossaryentry{nat}{
     name={NAT},
     description={do inglês \emph{Network Address Translation}; tradução de endereço de
-    rede, é um protocolo empregado por roteadores de rede, que por associarem um
+    rede, é um protocolo empregado por roteadores de rede que, por associarem um
     endereço de Internet (o fornecido pelo \glink{isp}) para vários dispositivos dentro
-    dessa rede, precisa manter uma tabela de tradução de endereços para que saiba rotear
-    os pacotes de dados transmitidos entre as redes interna e externa},
+    dessa rede, precisa manter uma tabela de tradução de endereços, para que saiba
+    rotear os pacotes de dados transmitidos entre as redes interna e externa},
     first={tradução de endereço de rede (\emph{\glsentryname{nat}})},
     plural={\glsentryname{nat}s}
 }
@@ -485,7 +486,7 @@
     description={extremidade; ordem de armazenamentos dos bytes em memória. \emph{Big}
     \glsentryname{endian}, também chamado de ordem de dados de rede
     (\emph{network byte order}), é quando o bit mais significativo é guardado no menor
-    endereço, ou seja, em primeiro. \emph{Little} \glsentryname{endian}, pelo contrário
+    endereço, ou seja, em primeiro. \emph{Little} \glsentryname{endian}, pelo contrário,
     é quando o bit menos significativo é guardado no menor endereço}
 }
 
@@ -522,9 +523,9 @@
     name={socket},
     description={soquete; portas de comunicação de dados da camada de aplicação para a
     camada de rede, que permitem a comunicação de programas com o envio e recebimento
-    de dados transmitidos pela rede para a camada de rede \todo[inline]{tentar usar
-    socket de rede como first}},
+    de dados transmitidos pela rede para a camada de rede},
+    plural={\glsentryname{socket}s},
     first={\glsentryname{socket} de rede},
-    plural={\glsentryname{socket}s}
+    firstplural={\glsentryplural{socket} de rede}
 }
 

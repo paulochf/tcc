@@ -63,7 +63,7 @@ receptor deve responder com o seu \bverb|peer_id|, assim que detectar o ID do
 \gls*{torrent} na seção de \bverb|info_hash| da mensagem. A conexão deve ser fechada em
 dois casos: pelo receptor, se ele receber a mensagem para um ID de \gls*{torrent}
 desconhecido para si; ou pelo iniciador, caso o \bverb|peer_id| recebido como resposta
-seja diferente daquele indicado na lista de \glspl*{peer} recebida do \gls*{dht}.
+seja diferente daquele indicado na lista de \glspl*{peer} recebida da \gls*{dht}.
 
 \subsubsection*{keep-alive}
 
@@ -98,10 +98,11 @@ Porém, não possui ID da mensagem nem dados a serem enviados, apresentando tama
 \textbf{unchoke:} & \bverb|<tamanho=0001><ID da mensagem=1>|
 \end{tabular}
 
-Estas mensagens servem para indicar a mudança de estado de choking (ou estrangulamento)
-da conexão (a maneira que o \gls*{peer} remetente tratará o receptor). Ou seja, o
-receptor ``estrangulado'' (ou \emph{choked}) não terá suas requisições atendidas, ao
-contrário de quando estiver com sua conexão livre (ou \emph{unchoked}).
+Estas mensagens servem para indicar a mudança de estado de \emph{choking} (ou
+estrangulamento) da conexão (a maneira que o \gls*{peer} remetente tratará o 
+receptor). Ou seja, o receptor ``estrangulado'' (ou \emph{choked}) não terá 
+suas requisições atendidas, ao contrário de quando estiver com sua conexão 
+livre (ou \emph{unchoked}).
 
 \cfile[label="./libtransmission/peer-msgs.c:431"]{./Codes/chap3/030-choke-unchoke.c}
 
