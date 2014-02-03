@@ -19,7 +19,7 @@ int dht_periodic(const void *buf, size_t buflen, const struct sockaddr *from, in
             values, &values_len, values6, &values6_len, &want);
     (...)
 
-    // Realiza os procedimentos conforme o tipo da mensagem recebida.
+    // Realiza os procedimentos conforme o tipo de mensagem recebida.
     switch (message) {
         (...)
         case FIND_NODE:

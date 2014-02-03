@@ -7,9 +7,9 @@ pesquisa. Para cada bit $i$ dos IDs (cada ID tem 160 bits) é mantido um \gls{kb
 que contém os nós cuja distância até ele está entre $2^i$ e $2^{i+1}$. Esses
 \glspl*{kbucket} são listas de endereço IP, porta de comunicação \gls*{udp} e ID de
 nós, ordenadas pelo horário da última notícia destes. Para distâncias pequenas, essas
-listas geralmente serão vazias, enquanto para distâncias maiores poderão ser de tamanho
-$k$. Este valor, que é o de replicação do sistema, é escolhido de tal forma que esses
-$k$ nós possuam grande probabilidade de não falharem na próxima hora.
+listas geralmente serão vazias, enquanto que para distâncias maiores, poderão ser de
+tamanho $k$. Este valor, que é o de replicação do sistema, é escolhido de tal forma que
+haja grande probabilidade desses $k$ nós não falharem na próxima hora.
 
 Quando um nó \textbf{A} recebe uma mensagem de outro nó \textbf{B}, o \gls*{bucket}
 correspondente ao ID do remetente (nó \textbf{B}) é atualizado. Disto, podem ocorrer as
@@ -17,27 +17,26 @@ seguintes situações:
 
 \begin{itemize}
     \item \textbf{B} já existe no \gls*{bucket}: passa a ser o primeiro da lista, pois
-        existiu mensagem recente.
+        existiu mensagem recente;
 
     \item \textbf{B} não existe no \gls*{bucket}:
         \begin{itemize}
             \item \gls*{bucket} não está cheio: \textbf{B} é adicionado no começo da
-                lista.
+                lista;
             \item \gls*{bucket} cheio: é enviado um \emph{ping} para o nó do final da
-                lista (nó \textbf{C}), contatado há mais tempo
+                lista (nó \textbf{C}), contatado há mais tempo:
 
-            \begin{itemize}
-                \item \textbf{C} não responde ao \emph{ping}: \textbf{C} é retirado da
-                lista e \textbf{B} é inserido no início
-                \item \textbf{C} responde ao \emph{ping}: \textbf{C} é movido para o
-                início da lista e \textbf{B} é ignorado
-            \end{itemize}
+                \begin{itemize}
+                    \item \textbf{C} não responde ao \emph{ping}: \textbf{C} é retirado
+                        da lista e \textbf{B} é inserido no início;
+                    \item \textbf{C} responde ao \emph{ping}: \textbf{C} é movido para o
+                        início da lista e \textbf{B} é ignorado.
+                \end{itemize}
         \end{itemize}
-
 \end{itemize}
 
 Por conta disso, ocorre que nós mais antigos e funcionais são preferidos, pois quanto
-mais tempo um nó está conectado, mais provável ele se manterá conectado por mais 1 hora
-\cite{artigo:gnutella-uptime}. Outra vantagem disso é a resistência a alguns ataques de
-negação de serviço, pois mesmo que ocorra uma inundação de novos nós, estes só seriam
-inseridos nos \glspl*{kbucket} se os antigos fossem excluídos.
+mais tempo um nó está conectado, mais provável que ele se mantenha conectado por mais
+uma hora \cite{artigo:gnutella-uptime}. Outra vantagem disso é a resistência a alguns
+ataques de negação de serviço, pois mesmo que ocorra uma inundação de novos nós, estes
+só seriam inseridos nos \glspl*{kbucket} se os antigos fossem excluídos.

@@ -35,16 +35,16 @@ pode ser feito usando-se tanto o \gls{tcp}, bem como o \gls{udp}, e é o meio co
     \item[left:] a quantidade total de dados, em bytes, que faltam para o requisitante
         terminar o download do \gls*{torrent} e passar a ser um \gls*{seeder};
 
-    \item[compact] (opcional): se o valor passado for 1, significa que o requisitante
-        aceita respostas compactas. A lista de \glspl*{peer} enviada é substituída por
-        uma única \gls*{string} de \glspl*{peer}, sendo que cada \gls*{peer} terá 6
-        bytes, onde os 4 bytes iniciais serão o host e os 2 bytes finais serão a porta
-        de transmissão. Por exemplo, o endereço IP 10.10.10.5:80 seria transmitido como
-        \bverb|0A 0A 0A 05 00 80|. Deve-se observar que alguns \glspl*{tracker} suportam
-        somente conexões deste tipo para otimização da utilização da banda de rede e,
-        desse modo, ou recusarão requisições sem \bverb|compact=1| ou, caso não as
-        recusem, enviarão respostas compactas (a menos que a requisição possua
-        \bverb|compact=0|);
+    \item[compact] (opcional): \label{par:compact} se o valor passado for 1, significa
+        que o requisitante aceita respostas compactas. A lista de \glspl*{peer} enviada
+        é substituída por uma única \gls*{string} de \glspl*{peer}, sendo que cada
+        \gls*{peer} terá 6 bytes, onde os 4 bytes iniciais serão o host e os 2 bytes
+        finais serão a porta de transmissão. Por exemplo, o endereço IP 10.10.10.5:80
+        seria transmitido como \bverb|0A 0A 0A 05 00 80|. Deve-se observar que alguns
+        \glspl*{tracker} suportam somente conexões deste tipo para otimização da
+        utilização da banda de rede e, desse modo, ou recusarão requisições sem
+        \bverb|compact=1| ou, caso não as recusem, enviarão respostas compactas (a
+        menos que a requisição possua \bverb|compact=0|);
 
     \item[no\_peer\_id] (opcional): sinaliza que o \gls*{tracker} pode omitir o
         campo \textcolor{Bittersweet}{\texttt{peer\_id}} no dicionário de \glspl*{peer},
@@ -140,6 +140,8 @@ seguintes chaves:
                 número da porta, em notação de rede (\emph{big} \gls{endian});
         \end{enumerate}
 \end{description}
+
+\todo[inline]{procurar termos em inglês sem itálico do começo até aqui}
 
 \begin{listing}[H]
     \begin{minted}[

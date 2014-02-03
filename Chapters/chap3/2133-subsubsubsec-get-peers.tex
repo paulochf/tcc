@@ -3,60 +3,57 @@
 \subsubsubsection{get\_peers}
 \label{subsubsubsec:getpeers}
 
-É o comando \gls*{rpc} da mensagem \bverb|FIND_VALUE|, serve para buscar \glspl*{peer}
-para um dado um \gls*{hashvalue} identificador de \gls*{torrentfile}, enviado como
-valor da chave \bverb|info_hash|, além do ID do nó consultante como valor da chave
-\bverb|id|.
+É o comando \gls*{rpc} da mensagem \bverb|FIND_VALUE|, e serve para buscar \glspl*{peer}
+para um dado \gls*{hashvalue} identificador de \gls*{torrentfile}, enviado como valor
+da chave \bverb|info_hash|, além do ID do nó consultante como valor da chave \bverb|id|.
 
 O funcionamento é equivalente ao comando \bverb|find_node|, com um detalhe extra: se o
-nó que recebeu a mensagem possuir \glspl*{peer} para o \gls*{hashvalue} dado, eles são
-informados imediatamente na forma compacta (6 bytes para cada \gls*{peer}) numa lista
+nó que recebeu a mensagem possuir \glspl*{peer} para o \gls*{hashvalue} dado, eles serão
+informados imediatamente na forma compacta (6 bytes para cada \gls*{peer}), numa lista
 \gls*{bencode} de \glspl*{string}, devolvida como valor da chave \bverb|values|. Por
 outro lado, caso o receptor da mensagem não conhecer nós para o \gls*{hashvalue}
 especificado, a resposta conterá a chave \bverb|nodes| com os $k$ nós mais próximos
 desse \gls*{hashvalue}. O nó original consulta outros nós próximos ao \gls*{torrentfile}
-iterativamente. Ao fim da busca, o programa cliente insere o contato para si mesmo na
+iterativamente. Ao final da busca, o programa cliente insere o contato para si mesmo na
 lista de nós próximos ao \gls*{torrentfile}.
 
 Em ambos os casos, uma chave \bverb|token| é informada na resposta, cujo valor é uma
 \gls*{string} binária curta, que deverá ser utilizada em futuras mensagens de
-\bverb|announce_peer|.
-
-\todoquestion{referencio o código do comando anterior?}
+\bverb|announce_peer|:
 
 \begin{itemize}
-    \item formato dos argumentos da requisição \\
-        \sverb|{"id":\"<IDs dos nós consultantes>",| \\
-        \sverb| "info_hash":\"<hash de 20 bytes do torrent buscado>"}|
+    \item formato dos argumentos da requisição: \\
+        \sverb|{"id":"<IDs dos nós consultantes>",| \\
+        \sverb| "info_hash":"<hash de 20 bytes do torrent buscado>"}|
 
-    \item formato da resposta \\
-        \sverb|{"id":\"<IDs dos nós consultados>", "token":\"<token>",| \\
-        \sverb| "values":[\"<info peer 1>", \"<info peer 2>", ...]}| \\
+    \item formato da resposta: \\
+        \sverb|{"id":"<IDs dos nós consultados>", "token":"<token>",| \\
+        \sverb| "values":["<info peer 1>", "<info peer 2>", ...]}| \\
         ou \\
-        \sverb|{"id":\"<IDs dos nós consultados>", "token":\"<token>",| \\
-        \sverb| "nodes":\"<info compacta do(s) nó(s)>"}| \\ \\
+        \sverb|{"id":"<IDs dos nós consultados>", "token":"<token>",| \\
+        \sverb| "nodes":"<info compacta do(s) nó(s)>"}| \\
 \end{itemize}
 
 \cfile[label="./third-party/dht/dht.c:1866"]{./Codes/chap3/024-dht-periodic.c}
 
 \newpage
 \begin{itemize}
-    \item exemplo de requisição \\
+    \item exemplo de requisição: \\
         \bverb|d1:ad2:id20:abcdefghij01234567899:info_hash20:mnopqrstuvwxyz123456e|\\
         \bverb|1:q9:get_peers1:t2:aa1:y1:qe| (\gls*{bencode}) \\
         \sverb|{"t":"aa", "y":"q", "q":"get_peers",|\\
         \sverb| "a":{"id":"abcdefghij0123456789", "info_hash":"mnopqrstuvwxyz123456"}}| (\gls*{string})
 
-    \item exemplo de resposta
+    \item exemplo de resposta:
         \begin{itemize}
-            \item com \glspl*{peer} \\
+            \item com \glspl*{peer}: \\
                 \bverb|d1:rd2:id20:abcdefghij01234567895:token8:aoeusnth|\\
                 \bverb|6:valuesl6:axje.u6:idhtnmee1:t2:aa1:y1:re| (\gls*{bencode}) \\
                 \sverb|{"t":"aa", "y":"r", "r":{"id":"abcdefghij0123456789",|\\
                 \sverb| "token":"aoeusnth", "values":["axje.u", "idhtnm"]}}|
                 (\gls*{string})
 
-            \item com nós próximos \\
+            \item com nós próximos: \\
                 \bverb|d1:rd2:id20:abcdefghij01234567895:nodes9:def456...5:token|\\\bverb|8:aoeusnthe1:t2:aa1:y1:re| (\gls*{bencode}) \\
                 \sverb|{"t":"aa", "y":"r", "r":{"id":"abcdefghij0123456789",|\\
                 \sverb| "token":"aoeusnth", "nodes":"def456..."}}| (\gls*{string})

@@ -2,15 +2,15 @@
 
 \subsubsection*{Otimizações}
 
-As atualizações periódicas de tabelas ocorrem para evitar 2 problemas no \emph{lookup}
-por chaves válidas: ou nós que receberam anteriormente algum valor a ser guardado
-naquele chave podem ter saído da rede, ou outros nós novos podem ter entrado na rede
-possuindo IDs mais próximos à uma chave já armazenada. Em ambos os casos, os nós que
-possuem aquela entrada de chave-valor devem republicá-la, de forma a garantir que esteja
-disponível nos $k$ nós mais próximos dessa chave.
+As atualizações periódicas de tabelas ocorrem para evitar dois problemas no
+\emph{lookup} por chaves válidas: nós que receberam anteriormente algum valor a ser
+guardado naquele chave podem ter saído da rede; ou outros nós novos podem ter entrado
+na rede com IDs mais próximos à uma chave já armazenada. Em ambos os casos, os nós que
+possuem aquela entrada de chave-valor devem republicá-la, de forma a garantir que
+esteja disponível nos $k$ nós mais próximos dessa chave.
 
 Para compensar as saídas de nós, a republicação de cada chave-valor acontece uma vez por
-hora. Porém, uma implementação ingênua necessitaria muitas mensagens; cada um dos $k$
+hora. Porém, uma implementação ingênua necessitaria de muitas mensagens: cada um dos $k$
 nós contendo o par de chave-valor executaria um \emph{lookup de nó} seguido de $k - 1$
 comandos \bverb|announce_peer| por hora. Entretando, essa implementação pode ser
 otimizada.
@@ -21,22 +21,23 @@ necessitando republicar esse par na próxima hora. Assim, a menos que todos os h
 de republicação estejam sincronizados, somente um nó executará a republicação do par de
 chave-valor.
 
-Segundo, no caso da árvore muito desbalanceadas, nós dividem \glspl*{kbucket} conforme
-o necessário para garantir o conhecimento total de uma subárvore de tamando $\geq k$. Se
-antes de republicar pares de chave-valor, um nó $x$ atualizar todos os \glspl*{kbucket}
-dessa subárvore de $k$ nós, automaticamente será capaz de de descobrir os $k$ nós
-mais próximos para a chave dada. Para entender o motivo, deve-se considerar 2 casos:
+Em segundo lugar, no caso de árvores muito desbalanceadas, os nós dividirão
+\glspl*{kbucket} de acordo com o necessário para garantir o conhecimento total de uma
+subárvore de tamando $\geq k$. Se antes de republicar pares de chave-valor, um nó $x$
+atualizar todos os \glspl*{kbucket} dessa subárvore de $k$ nós, automaticamente será
+capaz de descobrir os $k$ nós mais próximos para a chave dada. Para entender o motivo,
+deve-se considerar dois casos:
 
 \begin{enumerate}
-    \item se a chave republicada cair no intervalo de ID da subárvore, como a subárvore
-        é de tamanho $\geq k$ e o novo nó já conhece os nós dessa subárvore, então o nó
-        $x$ já conhece os $k$ nós mais próximos à chave.
+    \item se a chave republicada cair no intervalo de ID da subárvore, considerando que
+        a subárvore é de tamanho $\geq k$ e o novo nó já conhecerá os nós dessa
+        subárvore, então o nó $x$ já conhecerá os $k$ nós mais próximos à chave;
 
-    \item se a chave a ser atualizada estiver fora do intervalo da subárvore, então o
-        nó $x$, ainda assim, era um dos $k$ nós, ou seja, os \glspl*{kbucket} de $x$,
-        para os intervalos mais próximos da chave do que a subárvore, têm menos que $k$
-        nós.
+    \item se a chave a ser atualizada estiver fora do intervalo da subárvore, mas o nó
+        $x$ for um dos $k$ nós mais próximos da chave, então todos os \glspl*{kbucket}
+        de $x$, para intervalos mais próximos da chave do que a subárvore, terão menos
+        que $k$ nós.
 \end{enumerate}
 
-Então, o nó $x$ conhece todos os nós dentro desses \glspl*{kbucket} que, juntamente do
-conhecimento da subávore, incluirá os $k$ nós mais próximos à chave.
+Então, o nó $x$ conhecerá todos os nós dentro desses \glspl*{kbucket}, o que,
+juntamente do conhecimento da subávore, incluirá os $k$ nós mais próximos à chave.

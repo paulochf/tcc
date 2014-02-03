@@ -2,13 +2,13 @@ int send_closest_nodes(const struct sockaddr *sa, int salen, const unsigned char
     int tid_len, const unsigned char *id, int want, int af, struct storage *st,
     const unsigned char *token, int token_len) {
     unsigned char nodes[8 * 26]; unsigned char nodes6[8 * 38];  // varíáveis...
-    int numnodes = 0, numnodes6 = 0; struct bucket *b;          // ... temporárias
+    int numnodes = 0, numnodes6 = 0; struct bucket *b;          // ...temporárias
 
     (...)
     b = find_bucket(id, AF_INET); // Busca o bucket provável.
     if (b) {
-        // Procura por nós no bucket encontrado e nos vizinhos anterior e/ou posterior,
-        // se possuir.
+        // Procura por nós no bucket encontrado e nos vizinhos anterior e/ou posterior,...
+        // ...se possuir.
         numnodes = buffer_closest_nodes(nodes, numnodes, id, b);
         if (b->next) numnodes = buffer_closest_nodes(nodes, numnodes, id, b->next);
         b = previous_bucket(b);

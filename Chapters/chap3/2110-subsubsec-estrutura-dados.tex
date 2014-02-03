@@ -2,18 +2,18 @@
 
 \subsubsection*{Modelagem e estrutura de dados}
 
-O algoritmo implementa uma rede \emph{overlay} cuja estrutura e comunicação se baseiam
+O algoritmo implementa uma rede \emph{overlay}, cuja estrutura e comunicação se baseiam
 na procura de seus nós. Cada um destes nós é identificado por um identificador único
 (ID), que serve tanto para a identificação quanto para a localização de valores na
 \gls*{hashtable}.
 
-Essa \gls*{hashtable} é na forma de uma árvore binária, cujas folhas são os nós da rede.
-Cada folha tem suas posições estabelecidas pelo menor prefixo comum de seus IDs,
+Essa \gls*{hashtable} é no formato de uma árvore binária, cujas folhas são os nós da
+rede. Cada folha tem suas posições estabelecidas pelo menor prefixo comum de seus IDs,
 organizando-os de forma que, para um dado nó $x$, a árvore é dividida em várias
 subárvores menores que não o contém. Assim, a maior subárvore consiste de metade da
 árvore que não contém $x$, a subárvore seguinte é feita da metade da árvore restante
 onde $x$ também não está contido, etc. O Kademlia garante ainda que todo nó conhece um
-outro que está em cada uma das subárvores, se estas contiverem algum nó.
+outro que esteja em cada uma das subárvores, se estas contiverem algum nó.
 
 \begin{figure}[ht!]
     \centering
@@ -29,10 +29,10 @@ o \gls*{hashvalue} de 20 bytes SHA-1 da chave \bverb|info_hash| do \gls*{torrent
 o segundo é um valor aleatório escolhido pelo próprio programa.
 
 Durante uma busca por \glspl*{peer} de um \gls*{torrent}, o processo deve conhecer a
-chave associado ao objeto, ou seja, o ID, e explora a rede em passos. A cada passo,
-encontra nós mais próximos da chave, até chegar ou ao valor buscado ou não nós
-existirem mais próximos que o atual. Dessa forma, para uma rede com $n$ nós, o
-algoritmo visita apenas $O(\log n)$ nós.
+chave associada ao objeto, ou seja, o ID, e explorar a rede em passos. A cada passo,
+encontrará nós mais próximos da chave, até chegar ao valor buscado ou até não existirem
+nós mais próximos que o atual. Dessa forma, para uma rede com $n$ nós, o algoritmo
+visita apenas $\Oh(\log n)$ nós.
 
 \newpage
 \begin{figure}[ht!]
@@ -48,31 +48,31 @@ algoritmo visita apenas $O(\log n)$ nós.
 Para o conceito de proximidade, as distâncias são calculadas usando-se a função de
 distância baseada em \gls{xor} bit a bit
 
-\begin{equation}
+\begin{equation*}
     d(x,y) = x \oplus y
-\end{equation}
+\end{equation*}
 
 que possui certas propriedades, algumas em comum com a equação de distância euclidiana
 usual:
 
 \begin{itemize}
-    \item $d(x,x) = 0$
-    \item $x \neq y$, $d(x,y) > 0$
-    \item simetria: $\forall x,y$, $d(x,y) = d(y,x)$
+    \item $d(x,x) = 0$;
+    \item $x \neq y$, $d(x,y) > 0$;
+    \item simetria: $\forall x,y$, $d(x,y) = d(y,x)$;
     \item desigualdade triangular: $d(x,y) + d(y,z) \geq d(x,z)$. \\
         Isto vem do fato de $d(x,z) = d(x,y) \oplus d(y,z)$ e que $\forall a \geq 0,
-        \forall b \geq 0 : a + b \geq a \oplus b$
+        \forall b \geq 0 : a + b \geq a \oplus b$;
     \item unidirecionalidade: para um dado ponto $x$ e uma distância $\Delta > 0$,
         existe exatamente um ponto $y$ tal que $d(x,y) = \Delta$. Isso garante que todas
         as procuras por uma mesma chave convirjam para um mesmo percurso, independente
-        do ponto de partida.
+        do ponto de partida;
     \item para um dado $x$ no espaço de números, o conjunto de distâncias $\Delta$ entre
         $x$ e os outros números possui distribuição uniforme, ao contrário da distância
-        euclidiana \cite{bittorrentcom:dht}
+        euclidiana \cite{bittorrentcom:dht}.
 \end{itemize}
 
 No Transmission, o Kademlia é usado a partir de uma biblioteca externa (não mantida
-pelos seus desenvolvedores) criada por Juliusz Chroboczek \cite{repo:dht-c}, sendo
+pelos seus desenvolvedores), criada por Juliusz Chroboczek \cite{repo:dht-c}, sendo
 adicionada e adaptada para o uso no código do programa. Sua implementação não é na forma
 de árvore, mas sim de listas ligadas.
 

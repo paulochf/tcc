@@ -3,48 +3,47 @@
 \subsubsubsection{announce\_peer}
 
 Com este comando, equivalente à mensagem \bverb|STORE|, um nó avisa outros que, por ter
-começado a baixar um \gls*{torrentfile}, entrou no \gls*{swarm}, passando 4 argumentos:
-o ID do nó consultante como valor da chave \bverb|id|, o \gls*{hashvalue} identificador
-do \gls*{torrent} na chave \bverb|info_hash|, \bverb|port| contém um número inteiro de
-porta, e o \bverb|token| recebido como resposta de uma mensagem \bverb|get_peers|
-anterior. O nó consultado deve verificar que esse token foi enviado anteriormente para o
-mesmo endereço IP que o nó consultante, e então o nó consultado armazena usando o
-\bverb|info_hash| do torrent como chave e a informação compacta de endereço IP/porta do
-nó como valor.
+começado a baixar um \gls*{torrentfile}, entrou no \gls*{swarm}, passando quatro
+argumentos: o ID do nó consultante como valor da chave \bverb|id|; o \gls*{hashvalue}
+identificador do \gls*{torrent} na chave \bverb|info_hash|; \bverb|port|, que contém um
+número inteiro de porta; e o \bverb|token| recebido como resposta de uma mensagem
+\bverb|get_peers| anterior. O nó consultado deve verificar se esse token foi enviado
+anteriormente para o mesmo endereço IP que o nó consultante, e então o nó consultado
+armazenará usando o \bverb|info_hash| do torrent como chave, e a informação compacta de
+endereço IP/porta do nó como valor.
 
 Existe ainda mais um argumento, opcional, que é o \bverb|implied_port|, cujo valor pode
-ser 0 ou 1. Se este for 1, o argumento da porta deve ser ignorado e então a fonte de
+ser 0 ou 1. Se este for 1, o argumento da porta deve ser ignorado, e então a fonte de
 pacotes \gls*{udp} deve ser usada como a porta do \gls*{peer}. Isso é útil para
-\glspl*{peer} que estão em redes internas a \gls{nat}, que podem não saber quais são
-suas portas externas, e que suportam uTP, aceitando conexões na mesma porta que o
-\gls*{dht}.
+\glspl*{peer} que estão em sub-redes que possuem \gls{nat}, ou seja, que podem não
+saber quais são suas portas externas ao \gls*{nat}, e que suportam o protocolo uTP,
+aceitando conexões na mesma porta que o \gls*{dht}.
 
 O token tem papel fundamental para a segurança neste comando, pois serve para prevenir
 que um \gls*{peer} malicioso registre outros \glspl*{peer} para um \gls*{torrent}. No
-BitTorrent, esse token é a \gls*{string} do \gls*{hashvalue} SHA-1 do endereço IP
-concatenado a uma chave secreta, criada pelo programa cliente, que varia a cada 5
-minutos e são aceitos até 10 minutos depois de serem criados.
+BitTorrent, esse token é a \gls*{string} do \gls*{hashvalue} SHA-1 do endereço IP,
+concatenado à uma chave secreta criada pelo programa cliente, que varia periodicamente.
 
 Para armazenar um valor sob uma chave, um nó busca os $k$ nós mais próximos a ela
 (usando \emph{lookup} de nós) e envia o comando \bverb|announce_peer|.
 
 \newpage
 \begin{itemize}
-    \item formato dos argumentos da requisição \\
-        \sverb|{\"id": \"<IDs dos nós consultantes>",| \\
-        \sverb| \"implied_port": <0 ou 1>,| \\
-        \sverb| \"info_hash": \"<hash de 20 bytes do torrent>",| \\
-        \sverb| \"port": <número da porta>,| \\
-        \sverb| \"token": \"<token>"}|
+    \item formato dos argumentos da requisição: \\
+        \sverb|{"id": "<IDs dos nós consultantes>",| \\
+        \sverb| "implied_port": <0 ou 1>,| \\
+        \sverb| "info_hash": "<hash de 20 bytes do torrent>",| \\
+        \sverb| "port": <número da porta>,| \\
+        \sverb| "token": "<token>"}|
 
-    \item formato da resposta \\
-        \sverb|{"id": \"<IDs dos nós consultados>"}|
+    \item formato da resposta: \\
+        \sverb|{"id": "<IDs dos nós consultados>"}|
 \end{itemize}
 
 \cfile[label="./third-party/dht/dht.c:1277"]{./Codes/chap3/025-storage-store.c}
 
 \begin{itemize}
-    \item exemplo de requisição \\
+    \item exemplo de requisição: \\
         \bverb|d1:ad2:id20:abcdefghij01234567899:info_hash20:mnopqrstuvwxyz123456| \\
         \bverb|4:porti6881e5:token8:aoeusnthe1:q13:announce_peer1:t2:aa1:y1:qe| \\
         (\gls*{bencode}) \\
@@ -53,7 +52,7 @@ Para armazenar um valor sob uma chave, um nó busca os $k$ nós mais próximos a
         \sverb|"info_hash":"mnopqrstuvwxyz123456", \"port": 6881, \"token": \"aoeusnth"}}|
         (\gls*{string})
 
-    \item exemplo de resposta \\
+    \item exemplo de resposta: \\
         \bverb|d1:rd2:id20:mnopqrstuvwxyz123456e1:t2:aa1:y1:re| \\
         (\gls*{bencode}) \\
         \sverb|{"t":"aa", \"y":"r", \"r": {"id":"mnopqrstuvwxyz123456"}}|

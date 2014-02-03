@@ -2,76 +2,75 @@
 
 \subsubsection*{Protocolo}
 
-O protocolo de mensagens \gls*{dht} utiliza o formato KRPC, que é um mecanismo de
-\gls{rpc} que envia dicionários \gls*{bencode} através de \gls*{udp}, uma única
-vez por chamada (um pacote para a requisição, outro para a resposta), sem novas
-tentativas.
+O protocolo de mensagens \gls*{dht} utiliza o formato KRPC, um mecanismo de \gls{rpc}
+que envia dicionários \gls*{bencode} através de \gls*{udp}, uma única vez por chamada
+(um pacote para a requisição, outro para a resposta), sem novas tentativas.
 
-Existem 3 tipos de mensagem: consulta (\emph{query}), resposta (\emph{response}) e erro
-(\emph{error}). Para o protocolo \gls*{dht}, são 4 comandos \emph{query}: \bverb|ping|,
-\bverb|find_node|, \bverb|get_peers| e \bverb|announce_peer|. Em todos, o nó sempre
-enviará seu ID como valor da chave \bverb|id|.
+Existem três tipos de mensagem: consulta (\emph{query}), resposta (\emph{response}) e
+erro (\emph{error}). Para o protocolo \gls*{dht}, são quatro comandos \emph{query}:
+\bverb|ping|, \bverb|find_node|, \bverb|get_peers| e \bverb|announce_peer|. Em todos, o
+nó sempre enviará seu ID como valor da chave \bverb|id|.
 
-Uma mensagem KRPC é um dicionário com 2 chaves comuns a todos os 4 comandos: \bverb|y|,
-que especifica o tipo da mensagem, e \bverb|t|, que corresponde ao ID da transação.
-Este é um número binário convertido para \gls*{string}, geralmente formada por 2
-caracteres, possuindo valor até $2^{16}$, e devolvida nas respostas. Isso permite que
-estas se relacionem a múltiplas consultas a um nó. Esse ID é chamado de \emph{magic
-cookie} (cookie mágico) \cite{wiki:magic-cookie}.
+Uma mensagem KRPC é um dicionário com duas chaves comuns a todos os quatro comandos:
+\bverb|y|, que especifica o tipo da mensagem, e \bverb|t|, que corresponde ao ID da
+transação. Este é um número binário convertido para \gls*{string}, geralmente formada
+por dois caracteres, possuindo valor até $2^{16}$, e devolvida nas respostas. Isso
+permite que estas se relacionem a múltiplas consultas a um nó. Esse ID é chamado de
+\emph{magic cookie} (cookie mágico) \cite{wiki:magic-cookie}.
 
 Cada tipo de mensagem possui formatos diferentes entre si, permitindo parâmetros
 adicionais para cada chamada, possuindo as seguintes chaves e seus respectivos valores:
 
-\begin{itemize}
-    \item \emph{query}
+\begin{description}
+    \item[query:]
         \begin{itemize}
-            \item \bverb|y|: caractere \sverb|q|
+            \item \bverb|y|: caractere \sverb|q|;
             \item \bverb|q|: string do comando desejado (\sverb|ping|,
-                \sverb|find_node|, \sverb|get_peers|, \sverb|announce_peer|)
+                \sverb|find_node|, \sverb|get_peers|, \sverb|announce_peer|); e
             \item \bverb|a|: dicionário contendo parâmetros adicionais, dependendo do
-                comando passado na chave \bverb|q|
+                comando passado na chave \bverb|q|.
         \end{itemize}
 
-    \item \emph{response}
+    \item[response:]
         \begin{itemize}
-            \item \bverb|y|: caractere \sverb|r|
+            \item \bverb|y|: caractere \sverb|r|; e
             \item \bverb|r|: dicionário contendo valores da resposta, dependendo do
-                comando passado na chave \bverb|q|
+                comando passado na chave \bverb|q|.
         \end{itemize}
 
     \newpage
 
-    \item \emph{error}
+    \item[error:]
         \begin{itemize}
-            \item \bverb|y|: caractere \sverb|e|
+            \item \bverb|y|: caractere \sverb|e|;
 
-            \item \bverb|e|: lista contendo 2 elementos: código (número inteiro) e
+            \item \bverb|e|: lista contendo dois elementos: código (número inteiro) e
                 mensagem para o erro (\gls*{string}). Os erros podem ser:
                 \begin{itemize}
-                    \item 201 (Generic Error): erros genéricos
-                    \item 202 (Server Error): erros de servidor
+                    \item 201 (Generic Error): erros genéricos;
+                    \item 202 (Server Error): erros de servidor;
                     \item 203 (Protocol Error): para pacote mal formado, argumento
-                        inválido ou token incorreto
-                    \item 204 (Method Unknown): comando não conhecido
+                        inválido ou token incorreto; e
+                    \item 204 (Method Unknown): comando não conhecido.
                 \end{itemize}
 
-            \item exemplo: \\
+            \item exemplo de erro: \\
                 \bverb|d1:eli201e23:A Generic Error Ocurrede1:t2:aa1:y1:ee|
                 (\gls*{bencode}) \\
                 \sverb|{"t":"aa", "y":"e", "e":[201, "A Generic Error Ocurred"]}|
                 (\gls*{string})
         \end{itemize}
-\end{itemize}
+\end{description}
 
-As informações retornadas podem ser sobre \glspl*{peer} ou nós \gls*{dht}: enquanto o
-primeiro é a \enquote{informação compacta de endereço IP/porta} - string de 6 bytes (4
-bytes iniciais para o endereço IP e 2 bytes finais para a porta de comunicação usada)
--, o segundo é a \enquote{informação compacta de nó} - string de 26 bytes (20 bytes
-iniciais para o ID do nó e 6 bytes finais para a respectiva informação compacta de
-endereço IP/porta).
+As informações retornadas podem ser sobre \glspl*{peer} ou nós \gls*{dht}: enquanto a
+primeiro é a \enquote{informação compacta de endereço IP/porta} (como na página
+\pageref{par:compact}) --- string de 6 bytes (4 bytes iniciais para o endereço IP e
+bytes finais para a porta de comunicação usada) ---, a segundo é a
+\enquote{informação compacta de nó} --- string de 26 bytes (20 bytes iniciais para o ID
+do nó e 6 bytes finais para a respectiva informação compacta de endereço IP/porta).
 
-Os 4 comandos de \emph{query} do \gls*{dht} (\bverb|ping|, \bverb|find_node|,
-\bverb|get_peers| e \bverb|announce_peer|) estão definidos da seguinte forma.
+Os quatro comandos de \emph{query} do \gls*{dht} (\sverb|ping|, \sverb|find_node|,
+\sverb|get_peers| e \sverb|announce_peer|) estão definidos da seguinte forma:
 
 %\newpage
 

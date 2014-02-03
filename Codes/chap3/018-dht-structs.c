@@ -12,9 +12,9 @@ struct node {
 struct bucket {
     // elemento de lista ligada de baldes
     (...)
-    unsigned char first[20];        // ID do primeiro nó do bucket
-    int count;                      // quantidade de nós no bucket
-    int time;                       // horário da última resposta neste bucket
+    unsigned char first[20];        // ID do primeiro nó do balde
+    int count;                      // quantidade de nós no balde
+    int time;                       // horário da última resposta neste balde
     struct sockaddr_storage cached; // endereços de possíveis candidatos
     int cachedlen;                  // tamanho da lista de candidatos
     struct node *nodes;             // ponteiro para lista ligada de nós

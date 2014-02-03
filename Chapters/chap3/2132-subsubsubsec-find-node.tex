@@ -3,37 +3,37 @@
 \newpage
 \subsubsubsection{find\_node}
 
-Este comando, que equivale à mensagem de \bverb|FIND\_NODE| do artigo do Kademlia
-\cite{artigo:kademlia}, é usado para encontrar as informações do nó dado seu ID.
-Necessita enviar 2 argumentos: a chave \bverb|id| e o ID do nó consultante, e a chave
+Este comando, que equivale à mensagem de \bverb|FIND_NODE| no artigo do Kademlia
+\cite{artigo:kademlia}, é usado para encontrar as informações do nó, dado seu ID.
+Necessita enviar dois argumentos: a chave \bverb|id| e o ID do nó consultante; e a chave
 \bverb|target| e o ID do nó cujas informações o consultante está procurando (ou nó
 alvo).
 
 \begin{itemize}
-    \item formato dos argumentos da requisição \\
-        \sverb|{"id":\"<IDs dos nós consultantes>", "target":\"<ID do nó alvo>"}|
+    \item formato dos argumentos da requisição: \\
+        \sverb|{"id":"<IDs dos nós consultantes>", "target":"<ID do nó alvo>"}|
 
-    \item formato da resposta \\
+    \item formato da resposta: \\
         \sverb|{"id":\"<IDs dos nós consultados>", "nodes":\"<info compacta do(s) nó(s)>"}|
 \end{itemize}
 
-O nó consultado deve responder com a chave \bverb|nodes| contendo uma
-\gls*{string} com a informação compacta (6 bytes) do nó alvo ou dos $k$ nós bons (que
-fizeram contato recentemente) mais próximos que estão contidos em sua tabela de
-roteamento, de 1 ou mais \glspl*{kbucket}. O funcionamento do algoritmo da busca é
-explicado no trabalho:
+O nó consultado deve responder com a chave \bverb|nodes|, contendo uma \gls*{string} com
+a informação compacta (6 bytes) do nó alvo ou dos $k$ nós bons mais próximos (que
+fizeram contato recentemente), e que estão englobados em sua tabela de roteamento, de um
+ou mais \glspl*{kbucket}. O funcionamento do algoritmo da busca é explicado no trabalho
+\cite{artigo:kademlia-springer}:
 
-\blockquote{O procedimento mais importante que um participante do Kademlia deve realizar
-é encontrar os $k$ nós próximos a um dado ID de nó. Nós chamamos esse procedimento de
-\enquote{\emph{lookup} de nós}. Kademlia utiliza de um algoritmo recursivo nas buscas
-por nós. O disparador das buscas começa escolhendo $\alpha$ nós do \gls*{bucket}
-não-vazio mais próximo (ou, se esse \gls*{bucket} tiver menos que $\alpha$ entradas,
-utiliza desses $\alpha$ nós mais próximos que conhece). Então, o disparador envia
-chamadas \gls*{rpc} assíncronas paralelas de comandos \textbf{find\_node} para esses
-$\alpha$ nós escolhidos. $\alpha$ é um parâmetro de concorrência geral ao sistema,
+\blockquote{``O procedimento mais importante que um participante do Kademlia deve
+realizar é encontrar os $k$ nós próximos a um dado ID de nó. Nós chamamos esse
+procedimento de \enquote{\emph{lookup} de nós}. Kademlia utiliza-se de um algoritmo
+recursivo nas buscas por nós. O disparador das buscas começa escolhendo $\alpha$ nós do
+\gls*{bucket} não-vazio mais próximo (ou, se esse \gls*{bucket} tiver menos que $\alpha$
+entradas, utiliza desses $\alpha$ nós mais próximos que conhece). Então, o disparador
+envia chamadas \gls*{rpc} assíncronas paralelas de comandos \textbf{find\_node} para
+esses $\alpha$ nós escolhidos. $\alpha$ é um parâmetro de concorrência geral ao sistema,
 assumindo valor como 3.
 
-No passo recursivo, o disparador reenvia chamadas a \textbf{find\_node} para os nós que
+No passo recursivo, o disparador reenvia chamadas \textbf{find\_node} para os nós que
 conheceu das chamadas \gls*{rpc} passadas. (Esta recursão pode começar antes que todos
 os $\alpha$ nós anteriores tenham respondido). Dos $k$ nós que o disparador concluiu
 serem mais próximos ao alvo, ele pega $\alpha$ que ainda não foram consultados e envia
@@ -42,17 +42,18 @@ desconsiderados até que respondam. Se uma rodada de comandos \textbf{find\_node
 retornar algum nó mais próximo do que os nós já conhecidos, o disparador reenvia
 comandos \textbf{find\_node} para todos os $k$ nós mais próximos que ainda não foram
 consultados. O \emph{lookup} termina quando o disparador tiver consultado e obtido
-respostas de todos os $k$ nós mais próximos conhecidos.}
+respostas de todos os $k$ nós mais próximos conhecidos.''}
 
 Esse algoritmo remete a um algoritmo de busca em largura onde, a partir de um nó de um
 grafo, adiciona-se os nós vizinhos em uma fila, e a cada nó que está nela é feita alguma
-análise dos vizinhos do novo nó, até que a fila se esgote. Porém, enquanto na busca em
-largura comum se usa uma fila FIFO (\emph{First In First Out}), no algoritmo do Kademlia
-temos uma fila de prioridade cuja métrica é a distância para o nó de origem, além de uma
-condição de parada sendo os $k$ nós mais próximos tendo sido avaliados.
+análise dos vizinhos do novo nó, até que a fila se esgote. Porém, enquanto a busca em
+largura usa uma fila FIFO (\emph{First In First Out}) e também uma condição de parada,
+qual seja, a fila ficar vazia, no algoritmo do Kademlia temos uma fila de prioridade
+cuja métrica ``de prioridade'' é a distância para o nó de origem, e também temos uma
+condição de parada, qual seja, os $k$ nós mais próximos serem avaliados.
 
 Porém, o Transmission implementa essa busca de forma mais flexível e simples. De início,
-busca o \gls*{bucket} no qual o ID procurado está ou que contém nós mais próximos.
+busca o \gls*{bucket} no qual o ID procurado está, ou o que contém nós mais próximos.
 
 \cfile[label="./third-party/dht/dht.c:2536"]{./Codes/chap3/020-dht-sendclosestnodes.c}
 
@@ -60,28 +61,28 @@ A busca do \gls*{bucket} itera sobre a lista ligada de \glspl*{bucket}.
 
 \cfile[label="./third-party/dht/dht.c:464"]{./Codes/chap3/019-dht-findbucket.c}
 
-Caso retorne o \gls*{bucket} mais provável, efetua buscas internas nele. Se ele possuir
-elementos vizinhos anteriores ou posteriores, também busca por nós neles.
+Caso retorne o \gls*{bucket} mais provável, o Transmission efetua buscas internas nele.
+Se ele possuir elementos vizinhos anteriores ou posteriores, também busca por nós neles.
 
 \cfile[label="./third-party/dht/dht.c:2523"]{./Codes/chap3/021-dht-bufferclosestnodes.c}
 \cfile[label="./third-party/dht/dht.c:2476"]{./Codes/chap3/022-dht-insertclosestnode.c}
 
-Ao fim da busca, envia a lista de nós que encontrou como resposta ao comando de
-\bverb|find_node| recebida. O Transmission também utiliza a função para enviar os nós
-encontrados pelo comando \bverb|get_peers| (pág. ~\pageref{subsubsubsec:getpeers}).
+Ao fim da busca, o Transmission envia a lista de nós que encontrou como resposta ao
+comando de \sverb|find_node| recebida, e também utiliza essa função para enviar os nós
+encontrados pelo comando \sverb|get_peers| (pág. \pageref{subsubsubsec:getpeers}).
 
 \cfile[label="./third-party/dht/dht.c:2409"]{./Codes/chap3/023-dht-sendnodespeers.c}
 
-Um exemplo de requisição e resposta para este comando é
+Um exemplo de requisição e resposta para este comando é:
 
 \begin{itemize}
-    \item exemplo de requisição \\
+    \item exemplo de requisição: \\
         \bverb|d1:ad2:id20:abcdefghij01234567896:target20:mnopqrstuvwxyz123456e1:q| \\
         \bverb|9:find_node1:t2:aa1:y1:qe| (\gls*{bencode}) \\
         \sverb|{"t":"aa", "y":"q", "q":"find_node", "a":{"id":"abcdefghij0123456789",| \\
         \sverb|"target":"mnopqrstuvwxyz123456"}}| (\gls*{string})
 
-    \item exemplo de resposta \\
+    \item exemplo de resposta: \\
         \bverb|d1:rd2:id20:0123456789abcdefghij5:nodes9:def456...e1:t2:aa1:y1:re| \\
         (\gls*{bencode}) \\
         \sverb|{"t":"aa", "y":"r", "r":{"id":"0123456789abcdefghij", "nodes":| \\

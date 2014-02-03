@@ -3,7 +3,7 @@ static int storage_store(const unsigned char *id, const struct sockaddr *sa,
     int i, len; struct storage *st; unsigned char *ip;
 
     (...)
-    st = find_storage(id); // Encontra o banco para o ID (hash do torrent) dado.
+    st = find_storage(id); // Encontra o banco de peers para o ID (hash do torrent) dado.
 
     if (st == NULL) {   // Se não existe banco, cria um para o torrent e adiciona na...
         (...)           // ... lista de bancos.
@@ -15,7 +15,7 @@ static int storage_store(const unsigned char *id, const struct sockaddr *sa,
         numstorage++;
     }
 
-    // Procura pelo peer passado.
+    // Procura pelo peer passado para a função.
     for (i = 0; i < st->numpeers; i++) {
         if (st->peers[i].port == port &&
             st->peers[i].len == len &&
@@ -35,11 +35,11 @@ static int storage_store(const unsigned char *id, const struct sockaddr *sa,
             /* Need to expand the array. */
             struct peer *new_peers; int n;
 
-            // Não tem mais espaço.
+            // Não tem mais espaço. (DHT_MAX_PEERS = 2048)
             if (st->maxpeers >= DHT_MAX_PEERS) return 0;
 
-            // Expande o banco criando 2 espaços ou dobrando de tamanho, limitando em...
-            // ...DHT_MAX_PEERS espaços;
+            // Expande o banco criando dois espaços ou dobrando de tamanho, limitando em...
+            // ...DHT_MAX_PEERS espaços.
             n = st->maxpeers == 0 ? 2 : 2 * st->maxpeers;
             n = MIN(n, DHT_MAX_PEERS);
             new_peers = realloc(st->peers, n * sizeof(struct peer));
