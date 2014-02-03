@@ -4,29 +4,29 @@
 
 A comunicação entre \glspl*{peer} é criptografada usando RC4 e troca de chaves
 Diffie-Hellman-Merkle \cite{wikivuze:encription}. Para isso, o protocolo de
-\emph{handshake} para mensagens entre \glspl*{peer} é estendido de forma a efetuar
+\emph{handshake} para mensagens entre \glspl*{peer} é estendido, de forma a efetuar
 esses cinco procedimentos criptográficos:
 
 \cfile[label="./libtransmission/crypto.c:60-79"]{./Codes/chap4/008-cripto-peer1.c}
 
-1) $A$ envia $Y_A$ para $B$
+1) $A$ envia $Y_A$ para $B$:
 
-O Transmission, $A$, envia sua chave pública ($Y_A$) com um trecho de dados aleatórios
-cujo comprimento qualquer entre 0 e 512 bytes.
+O Transmission, nesse caso o \gls*{peer} $A$, envia sua chave pública ($Y_A$) com um
+trecho de dados aleatórios, com comprimento qualquer entre 0 e 512 bytes;
 
 \cfile[label="./libtransmission/handshake.c:313"]{./Codes/chap4/009-cripto-peer2-send-ya.c}
 
-2) $A$ recebe $Y_B$ de $B$
+2) $A$ recebe $Y_B$ de $B$:
 
 O outro \gls*{peer}, $B$, responde com sua chave pública ($Y_B$). Assim, a chave
-compartilhada $S$.
+compartilhada $S$ já pode ser calculada;
 
 \cfile[label="./libtransmission/handshake.c:391"]{./Codes/chap4/010-cripto-peer3-read-yb.c}
 
-3) $A$ envia para $B$ as opções de criptografia e a mensagem de \emph{handshake}
+3) $A$ envia para $B$ as opções de criptografia e a mensagem de \emph{handshake}:
 
 Então, $A$ envia dados de forma criptografada: a mensagem de \emph{handshake} e outras
-informações sobre a criptografia para $B$, na forma
+informações sobre a criptografia para $B$, na forma:
 
 \begin{verbatim}
 HASH('req1', S), HASH('req2', SKEY) xor HASH('req3', S),
@@ -43,33 +43,33 @@ onde:
     \item[ENCRYPT():] é a função RC4 com chave \bverb|HASH('keyA', S, SKEY)| (se
         $A \rightarrow B$), ou \bverb|HASH('keyB', S, SKEY)| (se $B \rightarrow A$). Os
         primeiros 1024 bytes da encriptação RC4 são descartados. O uso seguido desta
-        função por uma parte a encriptar o fluxo de dados sem reinicializações ou
+        função por uma das partes encripta o fluxo de dados, sem reinicializações ou
         trocas;
 
     \item[VC:] é uma constante de verificação (\emph{verification constant}), que é uma
         string de 8 bytes de valor 0x00, usada para verificar se a outra parte conhece
-        $S$ e SKEY, evitando ataques de por repetição do SKEY;
+        $S$ e SKEY, evitando ataques de repetição do SKEY;
 
     \item[crypto\_provide/crypto\_select:] são bitfield de 32 bits. Dois valores são
         usados atualmente, com o restante sendo reservado para uso futuro. O \gls*{peer}
         $A$ deve ligar os bits de todos os métodos suportados por ele, enquanto o
-        \gls*{peer} $B$ deve ligar o bit do método escolhido dentre os oferecidos e
-        enviar como resposta. Por enquanto, 0x01 indica sem encriptação e 0x02 indica o
+        \gls*{peer} $B$ deve ligar o bit do método escolhido dentre os oferecidos, e
+        enviar como resposta. Por enquanto, 0x01 indica sem encriptação, e 0x02 indica o
         RC4;
 
     \item[PadC/PadD:] reservados para futuras extensões do handshake. Hoje, possuem 0
          bytes;
 
-    \item[IA:] conjunto de dados inicial de $A$. Pode ser 0 bytes se quiser esperar por
+    \item[IA:] conjunto de dados inicial de $A$. Pode ser 0 bytes, se quiser esperar por
         negociação de encriptação;
 \end{description}
 
 \cfile[label="./libtransmission/handshake.c:391", samepage=false]{./Codes/chap4/011-cripto-peer4-hashashash.c}
 
 4) $A$ recebe de $B$ a opção de criptografia escolhida e a mensagem de resposta ao
-\emph{handshake} encriptada por RC4
+\emph{handshake} encriptada por RC4:
 
-Aqui, $B$ envia como resposta
+Aqui, $B$ envia como resposta:
 
 \begin{verbatim}
 ENCRYPT(VC, crypto_select, len(padD), padD), ENCRYPT2(Payload Stream)
@@ -77,7 +77,7 @@ ENCRYPT(VC, crypto_select, len(padD), padD), ENCRYPT2(Payload Stream)
 
 \cfile[label="./libtransmission/handshake.c:493", samepage=false]{./Codes/chap4/012-cripto-peer5-readvc.c}
 
-5) $A$ envia para $B$ o fim da mensagem de \emph{handshake} encriptada por RC4
+5) $A$ envia para $B$ o fim da mensagem de \emph{handshake} encriptada por RC4:
 
 \cfile[label="./libtransmission/handshake.c:587"]{./Codes/chap4/013-cripto-peer6-handshake.c}
 \cfile[label="./libtransmission/peer-io.c:1083"]{./Codes/chap4/014-cripto-peer7-write.c}

@@ -2,30 +2,30 @@
 
 \subsubsection*{Comunicação com trackers}
 
-Quando criptografia for habilitada, as comunicações com \glspl*{tracker}, ou seja, as
+Quando a criptografia for habilitada, as comunicações com \glspl*{tracker}, ou seja, as
 requisições de \glspl{announce}, não devem enviar o \bverb|info_hash| do \gls*{torrent}.
-Ao invés disso, deve enviar o \bverb|sha_ih|, que é o \gls*{hashvalue} SHA-1 do
-\bverb|info_hash| (que também é um \gls*{hashvalue} SHA-1) na forma \gls*{urlencode}.
+Ao invés disso, devem enviar o \bverb|sha_ih|, que é o \gls*{hashvalue} SHA-1 do
+\bverb|info_hash| (que também é um \gls*{hashvalue} SHA-1), na forma \gls*{urlencode}.
 
-Já a resposta de \glspl*{tracker} a \glspl*{announce} se mantêm no mesmo formato,
+Já a resposta de \glspl*{tracker} a \glspl*{announce} se mantém no mesmo formato,
 exceto pela lista de \glspl*{peer}, que será ofuscada.
 
-Para isso, a requisição do \gls*{announce} deve passar como parâmetros
+Para isso, a requisição do \gls*{announce} deve passar como parâmetros:
 
 \begin{description}
     \item[supportcrypto:] valor 1 indica que o \gls*{peer} pode criar e receber
         conexões criptografadas. Neste caso, se o \gls*{tracker} aceitar esta extensão
         do BitTorrent, as listas de \glspl*{peer} que enviará em suas respostas
         priorizarão outros \glspl*{peer} que também enviaram \bverb|supportcrypto=1|
-        antes dos que não o fizeram.
+        antes dos que não o fizeram;
 
     \item[requirecrypto:] valor 1 indica que o \gls*{peer} irá criar e aceitar somente
         conexões criptografadas. Neste caso, as listas de \glspl*{peer} que o
-        \gls*{tracker} enviará conterão somente \glspl*{peer} que também enviaram
-        \bverb|supportcrypto=1| e \bverb|requirecrypto=1|.
+        \gls*{tracker} enviará, conterão somente \glspl*{peer} que também enviaram
+        \bverb|supportcrypto=1| e \bverb|requirecrypto=1|; e
 
-    \item[cryptoport:] quando o parâmetro de \bverb|requirecrypto=1|, é inteiro que
-        representa a porta na qual o cliente irá utilizar para conexões criptografadas.
+    \item[cryptoport:] quando é passado \bverb|requirecrypto=1|, é inteiro que
+        representa a porta que o cliente irá utilizar para conexões criptografadas.
 \end{description}
 
 \cfile[label="./libtransmission/announcer-http.c:58"]{./Codes/chap4/007-cripto-announce.c}

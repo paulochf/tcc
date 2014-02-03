@@ -4,8 +4,8 @@
 
 Este método, também conhecido por \emph{Diffie-Hellman-Merkle Key Exchange}, é uma das
 formas mais conhecidas de troca de chaves criptográficas. Ele permite que duas partes
-que não possuem conhecimento a priori do outro estabeleçam um segredo comum utilizando
-métodos de comunicação inseguros.
+que não possuem conhecimento, a priori, do outro, estabeleçam um segredo comum
+utilizando métodos de comunicação inseguros.
 
 O método algébrico utiliza grupos multiplicativos de inteiros módulo $p$, onde $p$ é um
 número primo e $g$ é chamado de número gerador. O protocolo pode ser explicado no
@@ -15,7 +15,7 @@ um meio seguro de comunicação, que Eve deseja espionar realizando um ``ataque 
 no meio'', tendo acesso a todas as informações que Alice e Bob trocarem.
 
 \begin{enumerate}
-    \item Alice e Bob escolhem dois números inteiros $p$ primo e $g$ gerador;
+    \item Alice e Bob escolhem dois números inteiros, $p$ primo e $g$ gerador;
 
     \item Alice escolhe um número inteiro $X_{A}$ para sua chave privada, e envia para
         Bob o resultado $Y_{A} = g^{X_{A}} \bmod p$.
@@ -48,10 +48,13 @@ S_A & = (g^{X_{B}})^{X_{A}} \bmod p \\
 
 Veja que não importa que Eve tenha obtido $p$, $g$, $Y_{A}$ ou $Y_{B}$. Ela não
 conseguirá obter $S$ pois este depende de $X_{A}$ e $X_{B}$. Além disso, Eve pode
-tentar calcular $X_{A}$ e $X_{B}$, porém a dificuldade deste cálculo depende dos
-tamanhos de $p$, $X_{A}$ e $X_{B}$: quanto maiores forem esses números, mais difíceis
-serão os cálculos inversos, que são chamados de ``problemas de logaritmo discreto''. É
-praticamente impossível descobrir essas chaves privadas em uma quantidade de tempo
-razoável. Assim, esse método é considerado seguro, enquanto a computação quântica não
-estiver desenvolvida o suficiente para que novos algoritmos possam ser usados
-\cite{artigo:shor}.
+tentar calcular $X_{A}$ e $X_{B}$, porém, a dificuldade deste cálculo depende dos
+tamanhos de $p$, $X_{A}$ e $X_{B}$. Para um cálculo de aritmética modular, $X \bmod p$
+pode ser congruente a valores entre 0 e $p-1$, ou seja, $p$ ter valores grandes já
+dificulta o trabalho do cálculo inverso. Porém, se forem utilizados $X_{A}$ e $X_{B}$
+grandes, esse trabalho passa a ser ainda mais difícil. Por isso, quanto maiores forem
+esses números, mais difíceis serão os cálculos inversos, que são chamados de
+``problemas de logaritmo discreto''. É praticamente impossível descobrir essas chaves
+privadas em uma quantidade de tempo razoável. Assim, esse método é considerado seguro,
+enquanto a computação quântica não estiver desenvolvida o suficiente para que novos
+algoritmos possam ser usados \cite{artigo:shor}.

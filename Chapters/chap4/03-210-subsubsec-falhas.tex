@@ -3,27 +3,27 @@
 \subsubsection*{Falhas de segurança}
 
 Apesar de ainda ser bastante utilizado, o RC4 não pode ser considerado
-criptograficamente seguro. Na primeira década dos anos 2000 foram publicados diversos
-trabalhos sobre falhas do método e até ataques diferentes que conseguiram obter os
+criptograficamente seguro. Na primeira década dos anos 2000, foram publicados diversos
+trabalhos sobre falhas do método, e até ataques diferentes que conseguiram obter os
 dados originais
 \cite{blog:matthew-rc4-1,blog:matthew-rc4-2,blog:matthew-rc4-3,artigo:patterson}.
 
 Porém, como é dito na especificação da extensão criptográfica no protocolo BitTorrent
-\cite{site:bittorrent-cripto}, ``o objetivo não é de criar um protocolo
-criptograficamente que consegue sobreviver a observações dos pacotes de dados e recursos
+\cite{site:bittorrent-cripto}, ``o objetivo não é criar um protocolo que consegue,
+criptograficamente, sobreviver a observações dos pacotes de dados e recursos
 computacionais consideráveis na escala de tempo de redes. O objetivo é de aumentar a
 dificuldade o suficiente a fim de deter ataques baseados na obtenção de endereços IP e
 porta na comunicações entre \glspl*{peer} e \glspl*{tracker}''. Especificamente, o
-objetivo é prevenir que \glspl{isp} ou outros administradores de rede consigam bloquear
-ou impedir conexões BitTorrent entre esse \gls*{peer} e qualquer outro \gls*{peer} cujo
-endereço IP e porta apareça em alguma lista de \glspl*{peer} enviada por um
-\gls*{tracker}. Por isso, essa especificação é chamada de ofuscação de \glspl*{peer},
-onde a idéia é usar o \bverb|info_hash| de um \gls*{torrent} como chave compartilhada
-entre o \gls*{peer} e o \gls*{tracker}.
+objetivo é prevenir que \glspl{isp}, ou outros administradores de rede, consigam
+bloquear ou impedir conexões BitTorrent entre esse \gls*{peer} e qualquer outro
+\gls*{peer}, cujo endereço IP e porta apareça em alguma lista de \glspl*{peer} enviada
+por um \gls*{tracker}. Por isso, essa especificação é chamada de ofuscação de
+\glspl*{peer}, onde a idéia é usar o \bverb|info_hash| de um \gls*{torrent} como chave
+compartilhada entre o \gls*{peer} e o \gls*{tracker}.
 
-Por exemplo, em um dos ataques ao RC4 usado no protocolo de rede sem fio WEP, é
+Por exemplo, em um dos ataques ao RC4, usado no protocolo de rede sem fio WEP, é
 necessário que o atacante obtenha uma quantidade de bytes muito grande para que consiga
-decifrar o texto. Porém, enquanto em redes sem fio esses dados trafegados são facilmente
+decifrar o texto. Porém, enquanto em redes sem fio esses dados trafegados facilmente
 alcançam aquela quantidade necessária, numa comunicação entre \glspl*{peer} e
-\glspl*{tracker} os dados transmitidos são muito menores, dificultando ainda mais o
+\glspl*{tracker}, os dados transmitidos são muito menores, dificultando ainda mais o
 processo de quebra.

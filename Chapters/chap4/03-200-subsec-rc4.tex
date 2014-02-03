@@ -3,22 +3,22 @@
 \subsection*{RC4}
 
 O RC4 (ou ainda ``Rivest Cypher 4'', ``Ron's Code 4'' ou ``Arc Four'') é uma função
-criptográfica criada por Ron Rivest em 1987. Inicialmente era segredo comercial, porém
-em 1994 seu código foi publicado na lista de discussão de criptografia CypherPunks
-\cite{site:rc4-code}, se espalhando pela Internet rapidamente. Seu uso se tornou comum,
-sendo usado por muitos softwares, chegando a protocolos como as encriptações de placas
-de rede sem fio WEP e WPA ou ainda o protocolo de segurança TLS para conexões de
-Internet.
+criptográfica, criada por Ron Rivest, em 1987. Inicialmente, era um segredo comercial,
+porém, em 1994, seu código foi publicado na lista de discussão de criptografia
+CypherPunks \cite{site:rc4-code}, se espalhando pela Internet rapidamente. Seu uso se
+tornou comum, sendo utilizado por muitos softwares, chegando a protocolos como as
+encriptações de placas de rede sem fio WEP e WPA, ou ainda o protocolo de segurança TLS
+para conexões de Internet.
 
 O RC4 é um algoritmo de chave simétrica que se divide em duas partes: na primeira
 parte, ele executa o algoritmo de escalonamento de chaves (\emph{key scheduling}),
 que utiliza uma chave de tamanho variável entre 1 e 256 bytes para inicializar uma
-tabela de estados. Cada elemento dessa tabela é permutado pelo menos uma vez e será
+tabela de estados. Cada elemento dessa tabela é permutado pelo menos uma vez, e será
 usado na geração de bytes pseudoaleatórios na segunda parte.
 
 Na segunda parte, executa o algoritmo de geração pseudoaleatório, onde modifica o estado
 (também permutando os elementos pelo menos uma vez) e resulta em 1 byte da chave de
-fluxo, que então é mesclada usando \gls{xor} bit a bit com o próximo byte da mensagem
+fluxo, que então é mesclada usando \gls{xor} bit a bit com o próximo byte da mensagem,
 para produzir ou próximo byte da mensagem cifrada (na encriptação) ou da decifrada (na
 decriptação), já que o \gls*{xor} é uma função involuntária (ou seja, é uma função que
 é a própria inversa).
