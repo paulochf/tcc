@@ -9,7 +9,7 @@
             piece_is_interesting[i] = !tor->info.pieces[i].dnd &&
                                         !tr_cpPieceIsComplete(&tor->completion, i);
 
-        // Decide quais peers se interesará, baseado na razão de cancelamentos / pedidos
+        // Decide por quais peers se interesará, baseado na razão $\frac{cancelamentos}{pedidos}$
         for (i = 0; i < peerCount; ++i) {
             tr_peer * peer = tr_ptrArrayNth(&s->peers, i);
 

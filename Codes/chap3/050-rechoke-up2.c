@@ -9,7 +9,7 @@
      */
 
     // O vetor choke está ordenado do peer mais interessante para o menos interessante.
-    // Sendo $N$ = session->uploadSlotsPerTorrent, que é a qtd de peers que receberão
+    // Sendo $N$ = session->uploadSlotsPerTorrent, que é a qtd de peers que receberá
     // uploads simultaneamente, $N$ peers serão unchoked. Se já tiver chegado ao limite
     // máximo, ele mantém o estado anterior.
     unchokedInterested = 0;
@@ -18,7 +18,7 @@
         if (choke[i].isInterested) ++unchokedInterested;
     }
 
-    // Se ainda existirem peers na lista e nenhum no modo otimista, monta o sorteio para
+    // Se ainda existirem peers na lista, e nenhum no modo otimista, monta-se o sorteio para
     // escolher um.
     if (!s->optimistic && !isMaxedOut && (i < size)) {
         int n; struct ChokeData * c;

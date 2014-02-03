@@ -3,25 +3,24 @@
 \newpage
 \section{Jogo da troca de arquivos}
 \label{sec:titfortat}
-\todo[inline]{arrumar uso dos termos choke/unchoke}
 
 Nesta altura do processo de download de um \gls*{torrent}, o Transmission já realizou
 muitos procedimentos. Tudo começou com a adição de um \gls*{torrentfile} ao programa,
 que leu seus dados e identificou os endereços de \glspl*{tracker}; então, entrou em
-contato com eles, que respondeu com uma lista de \glspl*{peer} que já estão no
+contato com eles, que responderam com uma lista de \glspl*{peer} que já estão no
 \gls*{swarm}. Ou seja, até agora, não foi baixado nenhum byte sequer do arquivo contido
 no pacote do \gls*{torrent}.
 
 O BitTorrent trata a troca de dados entre \glspl*{peer} como um jogo que, usufruindo
-das lógicas existentes na teoria dos jogos - área da matemática que estuda modelos
-matemáticos de conflito e cooperação entre agentes inteligentes que tomam decisões -
-, tenta se tornar um ambiente na qual se buscará as melhores condições de velocidades
+da lógica existente na teoria dos jogos --- área da matemática que estuda modelos
+matemáticos de conflito e cooperação entre agentes inteligentes que tomam decisões ---
+, tenta se tornar um ambiente no qual se buscará as melhores condições de velocidade
 de download e upload de arquivos e maior tempo de disponibilidade do \gls*{torrent} na
 rede. Para isso, existe o conceito \emph{tit-for-tat} (olho por olho), que move o
 BitTorrent de uma maneira geral: um \gls*{peer} preferirá ajudar \glspl*{peer} que o
 ajudam, ou seja, só fará upload de partes para aqueles que o fizerem de volta.
 
-Nesta seção, mostraremos o protocolo de mensagens para trocas de arquivos entre esses
+Nesta seção, mostraremos o protocolo de mensagens para trocas de arquivos entre
 \glspl*{peer} dessa lista e os algoritmos do BitTorrent dessas trocas.
 
 \input{Chapters/chap3/4100-subsec-estado-nos}

@@ -15,7 +15,7 @@ static void rechokeDownloads(tr_swarm * s) {
 
         // Conta quantos blocos pedidos e cancelados cada peer tem. Isso é devido ao
         // fato de que o Transmission gastou toda a banda de rede disponível, e agora
-        // precisa saber quantos peers se interessar. Peers não responsivos não serão
+        // precisa saber quantos peers utlizará. Peers não responsivos não serão
         // levados em conta.
         for (i = 0; i < peerCount; ++i) {
             const tr_peer * peer = tr_ptrArrayNth(&s->peers, i);

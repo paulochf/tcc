@@ -1,4 +1,4 @@
-// Recebimento e processamento de uma mensagem PEX
+// Recebimento e processamento de uma mensagem PEX.
 static void parseUtPex(tr_peerMsgs * msgs, int msglen, struct evbuffer * inbuf) {
     int loaded = 0; size_t added_len; tr_variant val; const uint8_t * added;
     uint8_t * tmp = tr_new(uint8_t, msglen);

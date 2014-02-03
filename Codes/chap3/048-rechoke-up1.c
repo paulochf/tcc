@@ -12,7 +12,7 @@ static void rechokeUploads(tr_swarm * s, const uint64_t now) {
     if (s->optimisticUnchokeTimeScaler > 0) s->optimisticUnchokeTimeScaler--;
     else s->optimistic = NULL;
 
-    // Ordena os peers por preferência e rate
+    // Ordena os peers por preferência e avaliação.
     for (i = 0, size = 0; i < peerCount; ++i) {
         tr_peer * peer = peers[i];
         tr_peerMsgs * msgs = PEER_MSGS(peer);

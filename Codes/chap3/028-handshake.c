@@ -11,7 +11,7 @@ static bool buildHandshakeMessage(tr_handshake * handshake, uint8_t * buf) {
     (...)
     uint8_t * str = buf;
 
-    // Começa a montar a string str com a mensagem de handshake
+    // Começa a montar a string str com a mensagem de handshake.
     // OBS: \023 = valor octal para o correspondente binário de 19
     // (tamanho da string "BitTorrent protocol")
     memcpy(str, "\023BitTorrent protocol", 20); str += 20;
@@ -29,7 +29,7 @@ static bool buildHandshakeMessage(tr_handshake * handshake, uint8_t * buf) {
 
     str += HANDSHAKE_FLAGS_LEN;
 
-    // Adiciona o hash identificador do torrent e o id do cliente
+    // Adiciona o hash identificador do torrent e o id do cliente.
     memcpy(str, torrentHash, SHA_DIGEST_LENGTH); str += SHA_DIGEST_LENGTH;
     memcpy(str, peer_id, PEER_ID_LEN); str += PEER_ID_LEN;
 

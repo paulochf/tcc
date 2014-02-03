@@ -2,22 +2,22 @@
 
 \subsection*{Estados dos nós e informações}
 
-Existem 2 características independentes que formam as possibilidades de estados que um
-\gls*{peer} pode assumir enquanto participa de um \gls*{swarm}:
+Existem duas características independentes que resultam nas possibilidades de estados
+que um \gls*{peer} pode assumir enquanto participa de um \gls*{swarm}:
 
-\begin{itemize}
-    \item \textbf{choking} (estrangulamento): se um \gls*{peer} \textbf{A} estrangulará
-        a conexão com outro \gls*{peer} \textbf{B} (\emph{choked}) ou a deixará livre
-        (\emph{unchoked}).
+\begin{description}
+    \item[choking] (estrangulamento): se um \gls*{peer} \textbf{A} estrangulará
+        a conexão com outro \gls*{peer} \textbf{B} (\emph{choked}), ou a deixará livre
+        (\emph{unchoked});
 
-    \item \textbf{interested} (interesse): se um \gls*{peer} \textbf{A} terá interesse
-        em um \gls*{peer} \textbf{B} (\emph{interested}) ou não (\emph{not interested})
-\end{itemize}
+    \item[interested] (interesse): se um \gls*{peer} \textbf{A} terá interesse
+        em um \gls*{peer} \textbf{B} (\emph{interested}), ou não (\emph{not interested}).
+\end{description}
 
 Uma nova conexão entre \glspl*{peer} inicia em \emph{choked} e \emph{not interested} em
 ambos os sentidos, ou seja, com \textbf{A} e \textbf{B} estrangulando suas conexões
-mutuamente e sem interesse no outro. Esses estados ditarão todas as estratégias de troca
-de partes entre \glspl*{peer}.
+mutuamente e sem interesse um no outro. Esses estados ditarão todas as estratégias de
+troca de partes entre \glspl*{peer}.
 
 Outra informação utilizada é o \emph{bitfield}, que é um mapa de bits onde cada bit
 representa uma parte que o \gls*{peer} já possui.

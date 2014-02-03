@@ -8,7 +8,7 @@ void tr_peerMgrGetNextRequests(tr_torrent * tor, tr_peer * peer, int numwant,
     const tr_bitfield * const have = &peer->have;
     (...)
 
-    // Se não existir uma lista de partes, cria uma já ordenada
+    // Se não existir uma lista de partes, cria uma já ordenada.
     if (s->pieces == NULL) pieceListRebuild(s);
 
     // Caso já exista a lista de partes, verifica o estado da ordenação por importância.
@@ -38,7 +38,7 @@ void tr_peerMgrGetNextRequests(tr_torrent * tor, tr_peer * peer, int numwant,
                 // Ignore blocos já possuídos.
                 if (tr_cpBlockIsComplete(&tor->completion, b)) continue;
 
-                // Encontra peers novos para se requisitar o bloco,...
+                // Encontre peers novos para se requisitar o bloco,...
                 // ... juntando às antigas requisições para ele.
                 tr_ptrArrayClear(&peerArr);
                 getBlockRequestPeers(s, b, &peerArr);
@@ -47,7 +47,7 @@ void tr_peerMgrGetNextRequests(tr_torrent * tor, tr_peer * peer, int numwant,
                     // Não faça uma 2ª requisição antes do fim do jogo.
                     if (!s->endgame) continue;
 
-                    // Não requisite o bloco para mais de 1 peer simultaneamente.
+                    // Não requisite o bloco para mais de um peer simultaneamente.
                     if (peerCount > 1) continue;
 
                     // Não refaça a requisição para o mesmo peer.

@@ -2,32 +2,33 @@
 
 \subsection*{Mensagens}
 
-O protocolo é definido por 12 mensagens e 2 tipos de assinaturas. Essas mensagens são
-enviadas entre \glspl*{peer} e serve para estes tomarem conhecimento da situação de
+O protocolo é definido por doze mensagens e dois tipos de assinaturas. Essas mensagens
+são enviadas entre \glspl*{peer} e servem para estes tomarem conhecimento da situação de
 download de um \gls*{torrent}. A primeira assinatura é exclusiva da mensagem de
-handshake, enquanto todas as outras seguem o mesmo padrão.
+\emph{handshake}, enquanto todas as outras seguem o mesmo padrão.
 
 \subsubsection*{handshake}
 
 assinatura: \bverb|<tam. header><header><bytes reservados><info_hash><peer_id>|
 
 O \emph{handshake} (aperto de mãos) é a primeira mensagem a ser enviada por um
-\gls*{peer} que recém-chegado à rede.
+\gls*{peer} recém-chegado à rede:
 
-\begin{itemize}
-    \item \bverb|<tam. header>|: tamanho da string \bverb|<header>|,
-        representado em binário por 1 byte. O comprimento oficial é 19.
+\begin{description}
+    \item[<tam. header>:] tamanho da string \bverb|<header>|, representado em binário
+        por 1 byte. O comprimento oficial é 19.
 
-    \item \bverb|<header>|: \gls*{string} identificadora do protocolo. Na versão 1.0 do
+    \item[<header>:] \gls*{string} identificadora do protocolo. Na versão 1.0 do
         protocolo BitTorrent, a \gls*{string} oficial é \sverb|BitTorrent protocol|.
 
-    \item \bverb|<bytes reservados>|: seção de 8 bytes (= 64 bits) reservados para a
+    \item[<bytes reservados>:] seção de 8 bytes (= 64 bits) reservados para a
         habilitação de funcionalidades extras do protocolo. Um e-mail enviado pelo
-        criador do BitTorrent Bram Cohen \cite{wikitheory:reserved-bytes} sugere que os
-        bits menos significativos sejam usados primeiro, para que os mais significativos
-        possam ser usados para alterar o significado dos bits finais. A implementação de
-        cada uma das funcionalidades não-oficiais depende do programa cliente. A tabela
-        abaixo mostra os bits e seus respectivos usos, oficiais (*) ou não-oficiais.
+        criador do BitTorrent, Bram Cohen \cite{wikitheory:reserved-bytes}, sugere que
+        os bits menos significativos sejam usados primeiro, para que os mais
+        significativos possam ser usados para alterar o significado dos bits finais. A
+        implementação de cada uma das funcionalidades não-oficiais depende do programa
+        cliente. A tabela abaixo mostra os bits e seus respectivos usos, oficiais (*)
+        e não-oficiais.
 
         \begin{center}
             \begin{tabular}{ | c | c |}
@@ -45,47 +46,47 @@ O \emph{handshake} (aperto de mãos) é a primeira mensagem a ser enviada por um
             \end{tabular}
         \end{center}
 
-    \item \bverb|<info_hash>|: o ID do \gls*{torrent}, que é a \gls*{string}
+    \item[<info_hash>:] o ID do \gls*{torrent}, que é a \gls*{string}
         \gls*{hashvalue} de 20 bytes resultante da \gls*{hashfunction} SHA-1, com
-        \gls*{urlencode}, do valor da chave \bverb|info| do arquivo \gls*{torrentfile};
+        \gls*{urlencode}, do valor da chave \bverb|info| do \gls*{torrentfile}; e
 
-    \item \bverb|<peer_id>|: ID único do cliente, que é uma \gls*{string} de 20 bytes,
+    \item[<peer_id>:] ID único do cliente, que é uma \gls*{string} de 20 bytes,
         geralmente sendo o mesmo valor \bverb|peer_id| enviado nas requisições ao
-        \gls*{tracker}, prefixado pelas informações como o nome do programa cliente e a
-        sua versão. Por exemplo, o Transmission envia o prefixo \sverb|-TR2820-...|
-\end{itemize}
+        \gls*{tracker}, prefixado pelas informações do nome do programa cliente e de sua
+        versão (o Transmission envia o prefixo \sverb|-TR2820-...|).
+\end{description}
 
 \cfile[label="./libtransmission/handshake.c:191"]{./Codes/chap3/028-handshake.c}
 
-Esse mensagem é enviada imediatamente pelo \gls*{peer} que inicia uma conexão. O
-receptor deve responder, assim que ver o ID do \gls*{torrent} na seção de
-\bverb|info_hash| da mensagem, com o seu \bverb|peer_id|. A conexão deve ser fechada em
+Essa mensagem é enviada imediatamente pelo \gls*{peer} que inicia uma conexão. O
+receptor deve responder com o seu \bverb|peer_id|, assim que detectar o ID do
+\gls*{torrent} na seção de \bverb|info_hash| da mensagem. A conexão deve ser fechada em
 dois casos: pelo receptor, se ele receber a mensagem para um ID de \gls*{torrent}
-desconhecido para si, ou pelo iniciador, caso o \bverb|peer_id| recebido como resposta
+desconhecido para si; ou pelo iniciador, caso o \bverb|peer_id| recebido como resposta
 seja diferente daquele indicado na lista de \glspl*{peer} recebida do \gls*{dht}.
 
 \subsubsection*{keep-alive}
 
 keep-alive: \bverb|<tamanho=0000>|
 
-A mensagem de \emph{keep-alive} (``mantenha vivo'' em português literal) serve para
-manter uma conexão aberta caso nenhuma outra mensagem seja enviada num período de tempo
-(geralmente, 2 minutos).
+A mensagem de \emph{keep-alive} (``mantenha vivo'', em português literal) serve para
+manter uma conexão aberta, caso nenhuma outra mensagem seja enviada num determinado
+período de tempo (geralmente, dois minutos).
 
-Assim como as outras mensagens, esta mensagem usa a assinatura
+Assim como as mensagens que serão descritas a seguir, esta mensagem usa a assinatura:
 
 \bverb|<tamanho><ID da mensagem><dados>|
 
-\begin{itemize}
-    \item \bverb|<tamanho>|: valor de 4 bytes em \emph{big} \gls{endian}
+\begin{description}
+    \item[<tamanho>:] valor de 4 bytes em \emph{big} \gls{endian};
 
-    \item \bverb|<ID da mensagem>|: decimal de 1 byte
+    \item[<ID da mensagem>:] decimal de 1 byte; e
 
-    \item \bverb|<dados>|: dados a serem enviados ao outro \gls*{peer}, dependente da
-        mensagem
-\end{itemize}
+    \item[<dados>:] dados a serem enviados ao outro \gls*{peer}, dependente da
+        mensagem.
+\end{description}
 
-Porém, não possui ID da mensagem nem dados a serem enviados, possuindo tamanho 0.
+Porém, não possui ID da mensagem nem dados a serem enviados, apresentando tamanho 0.
 
 \cfile[label="./libtransmission/peer-msgs.c:1093"]{./Codes/chap3/029-keepalive.c}
 
@@ -93,13 +94,14 @@ Porém, não possui ID da mensagem nem dados a serem enviados, possuindo tamanho
 
 \hspace*{-\parindent} % alinha a tabela à margem esquerda
 \begin{tabular}{r l}
-choke: & \bverb|<tamanho=0001><ID da mensagem=0>| \\
-unchoke: & \bverb|<tamanho=0001><ID da mensagem=1>|
+\textbf{choke:} & \bverb|<tamanho=0001><ID da mensagem=0>| \\
+\textbf{unchoke:} & \bverb|<tamanho=0001><ID da mensagem=1>|
 \end{tabular}
 
-Estas mensagens servem para indicar que a mudança de estado de choking que o \gls*{peer}
-remetente tratará o receptor. Ou seja, o receptor \emph{choked} não terá suas
-requisições atendidas, ao contrário de quando estiver \emph{unchoked}.
+Estas mensagens servem para indicar a mudança de estado de choking (ou estrangulamento)
+da conexão (a maneira que o \gls*{peer} remetente tratará o receptor). Ou seja, o
+receptor ``estrangulado'' (ou \emph{choked}) não terá suas requisições atendidas, ao
+contrário de quando estiver com sua conexão livre (ou \emph{unchoked}).
 
 \cfile[label="./libtransmission/peer-msgs.c:431"]{./Codes/chap3/030-choke-unchoke.c}
 
@@ -107,52 +109,53 @@ requisições atendidas, ao contrário de quando estiver \emph{unchoked}.
 
 \hspace*{-\parindent} % alinha a tabela à margem esquerda
 \begin{tabular}{r l}
-interested: & \bverb|<tamanho=0001><ID da mensagem=2>| \\
-not interested: & \bverb|<tamanho=0001><ID da mensagem=3>|
+\textbf{interested:} & \bverb|<tamanho=0001><ID da mensagem=2>| \\
+\textbf{not interested:} & \bverb|<tamanho=0001><ID da mensagem=3>|
 \end{tabular}
 
-Assim como as mensagens de \emph{choke}, estas 2 mensagens também servem para indicar a
-mudança de estado, desta vez sendo a mudança de interesse que o \gls*{peer} remetente
-terá no receptor.
+Estas duas mensagens também servem para indicar mudança de estado, mas no sentido de
+mudança de interesse que o \gls*{peer} remetente terá no receptor.
 
 \cfile[label="./libtransmission/peer-msgs.c:769"]{./Codes/chap3/031-interest.c}
 
 \subsubsection*{have}
 
-have: \bverb|<tamanho=0005><ID da mensagem=4><dados=i-ésima parte>|
+\textbf{have:} \bverb|<tamanho=0005><ID da mensagem=4><dados=i-ésima parte>|
 
 A definição é que esta mensagem avisa um \gls*{peer} que a $i$-ésima parte do
-\gls*{torrent} foi baixada pelo remetente e verificada através de \gls*{hashvalue}.
+\gls*{torrent} foi baixada pelo remetente, e verificada através de \gls*{hashvalue}.
 Porém, não necessariamente é usada dessa forma.
 
 \cfile[label="./libtransmission/peer-msgs.c:399"]{./Codes/chap3/032-have.c}
 
 Uma implementação de algoritmo do jogo da troca pode fazer com que um \gls*{peer}, que
-acabou de adquirir a parte, não emitir aviso para todos os \glspl*{peer} vizinhos que já
-a possuem, diminuindo o \gls{overhead} de mensagens do protocolo. Por outro lado, enviar
-esse aviso pode ajudar na determinação de qual parte é mais rara.
+acabou de adquirir a parte, não emita aviso para todos os \glspl*{peer} vizinhos que já
+possuem. Isso diminui a quantidade total de mensagens enviadas, contribuindo para a
+redução do \gls{overhead} do protocolo. Por outro lado, enviar esse aviso pode ajudar
+na determinação de qual parte é mais rara.
 
 \subsubsection*{bitfield}
 
-bitfield: \bverb|<tamanho=0001+X><ID da mensagem=5><dados=mapa de bits>|
+\textbf{bitfield:} \bverb|<tamanho=0001+X><ID da mensagem=5><dados=mapa de bits>|
 
-O BitTorrent usa bitfields (mapas de bits) em \emph{big} \gls*{endian} para representar
-na forma de \emph{flags} quais partes de um \gls*{torrent} já possui.
+O BitTorrent usa bitfields (mapas de bits), em \emph{big} \gls*{endian}, para
+representar (em forma de bits sinalizadores) quais partes de um \gls*{torrent} já
+possui.
 
-Esta mensagem só deve ser enviada imediatamente após o processo de \emph{handshake}
-terminar e antes de qualquer outra mensagem. Se o \gls*{peer} não tiver nenhuma parte o
-campo de dados pode ser omitido. Como bitfields variam de acordo com o tamanho total do
-\gls*{torrent}, o comprimento da mensagem é variável, onde $X$ é o comprimento do
-bitfield, acrescentado de alguns bits 0 de sobra no seu final (\emph{spare bits}).
+Esta mensagem deve ser enviada imediatamente após o processo de \emph{handshake}
+terminar, e antes de qualquer outra mensagem. Se o \gls*{peer} não tiver nenhuma parte,
+o campo de dados pode ser omitido. Como bitfields variam de acordo com o tamanho total
+do \gls*{torrent}, o comprimento da mensagem é variável, onde $X$ é o comprimento do
+bitfield, acrescentado de alguns bits 0 de sobra (\emph{spare bits}) no seu final.
 
-Um bitfield de comprimento errado ou sem bits de sobra no final são considerados erros,
-fazendo com que as respectivas conexões devam ser fechadas.
+Bitfields de comprimento errado, ou sem bits de sobra no final, são considerados erros,
+e as respectivas conexões devem ser fechadas.
 
 \cfile[label="./libtransmission/peer-msgs.c:2120"]{./Codes/chap3/033-bitfield.c}
 
 \subsubsection*{request}
 
-request: \bverb|<tamanho=0013><ID da mensagem=6><dados=<índice><início><tamanho>>|
+\textbf{request:} \bverb|<tamanho=0013><ID da mensagem=6><dados=<índice><início><tamanho>>|
 
 Conforme foi explicado anteriormente (página \pageref{subsec:partes}), um
 \gls*{torrent} divide os dados em partes, que por sua vez são divididas em blocos, que
@@ -177,20 +180,20 @@ contém os seguintes números inteiros:
     \label{fig:request}
 \end{figure}
 
-\begin{itemize}
-    \item índice: índice da parte base $i$
-    \item início: deslocamento, em bytes, da posição do bloco da parte $i$ pedido
-    \item tamanho: tamanho, em bytes, do bloco pedido
-\end{itemize}
+\begin{description}
+    \item[índice:] índice da parte base $i$;
+    \item[início:] deslocamento, em bytes, da posição do bloco da parte $i$ pedida; e
+    \item[tamanho:] tamanho, em bytes, do bloco pedido.
+\end{description}
 
 \cfile[label="./libtransmission/peer-msgs.c:356"]{./Codes/chap3/037-request.c}
 
 \subsubsection*{piece}
 
-piece: \bverb|<tamanho=0009+X><ID da mensagem=7><dados=<índice><início><bloco>>|
+\textbf{piece:} \bverb|<tamanho=0009+X><ID da mensagem=7><dados=<índice><início><bloco>>|
 
 Esta mensagem é a resposta para a requisição de um bloco por meio da mensagem
-\emph{request}, tendo assinatura análoga com exceção do trecho com os dados do bloco.
+\emph{request}, tendo assinatura análoga, com exceção do trecho com os dados do bloco.
 Assim, um \gls*{peer} envia um bloco de dados a outro.
 
 \newpage
@@ -198,32 +201,32 @@ O tamanho da mensagem é variável, onde $X$ é o tamanho do segmento de dados, 
 este pode ter tamanhos diferentes entre mensagens diferentes. A seção de dados possui
 os seguintes números inteiros:
 
-\begin{itemize}
-    \item índice: índice da parte base $i$
-    \item início: deslocamento, em bytes, da posição do bloco da parte $i$ pedido
-    \item bloco: conteúdo dos dados do bloco
-\end{itemize}
+\begin{description}
+    \item[índice:] índice da parte base $i$;
+    \item[início:] deslocamento, em bytes, da posição do bloco da parte $i$ pedido; e
+    \item[bloco:] conteúdo dos dados do bloco.
+\end{description}
 
 \cfile[label="./libtransmission/peer-msgs.c:1093"]{./Codes/chap3/034-piece.c}
 
 \newpage
 \subsubsection*{cancel}
 
-cancel: \bverb|<tamanho=0013><ID da mensagem=8><dados=<índice><início><tamanho>>|
+\textbf{cancel:} \bverb|<tamanho=0013><ID da mensagem=8><dados=<índice><início><tamanho>>|
 
 A mensagem \emph{cancel} serve para cancelar a mensagem \emph{request} de mesmos
-parâmetros. É mais utilizada durante o algoritmo de fim de jogo.
+parâmetros. É mais utilizada durante o algoritmo de fim de jogo (página
+\pageref{subsubsec:endgame}).
 
-\todo[inline]{referenciar seção do algoritmo do fim de jogo}
 \cfile[label="./libtransmission/peer-msgs.c:372"]{./Codes/chap3/035-cancel.c}
 
 \subsubsection*{port}
 
-cancel: \bverb|<tamanho=0003><ID da mensagem=9><dados=porta>|
+\textbf{port:} \bverb|<tamanho=0003><ID da mensagem=9><dados=porta>|
 
-Para os casos do \gls*{peer} estar usando a função de \gls*{dht}, esta mensagem serve
-para avisar ao receptor qual a porta de comunicação \gls*{tcp} que o remetente está
-usando para receber mensagens de \gls*{dht}; Com isso, é adicionado à tabela de
+Para casos em que o \gls*{peer} estiver usando a função de \gls*{dht}, esta mensagem
+serve para avisar ao receptor qual a porta de comunicação \gls*{tcp} é usada pelo
+remetente para receber mensagens de \gls*{dht}. Com isso, é adicionado à tabela de
 roteamento do receptor.
 
 \cfile[label="./libtransmission/peer-msgs.c:387"]{./Codes/chap3/036-port.c}

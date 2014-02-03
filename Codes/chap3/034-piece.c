@@ -17,7 +17,7 @@ static size_t fillOutputBuffer(tr_peerMsgs * msgs, time_t now) {
         if (requestIsValid(msgs, &req)
             && tr_cpPieceIsComplete(&msgs->torrent->completion, req.index))
         {   // Se a requisição tiver enviado parâmetros corretos e se o Transmission...
-            // ... já tiver sido baixado-a.
+            // ... já tiver baixado-a.
             int err; struct evbuffer * out;
             struct evbuffer_iovec iovec[1];
             const uint32_t msglen = 4 + 1 + 4 + 4 + req.length;

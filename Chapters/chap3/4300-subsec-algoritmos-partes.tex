@@ -3,51 +3,52 @@
 \newpage
 \subsection*{Algoritmos de seleção de partes}
 
-Por se tratar de um protocolo de troca de dados em partes, uma escolha ruim de quais
-destas se adquirir primeiro faz com que seja grande a possibilidade de um \gls*{peer}
+Por se tratar de um protocolo de troca de dados em partes, uma escolha ruim sobre quais
+destas se adquirir primeiro, faz com que seja grande a possibilidade de um \gls*{peer}
 baixar alguma parte que seja sempre ofertada por outros \glspl*{peer}
 \cite{artigo:bittorrent}. Isso acarretará em não se ter nenhuma das partes que se
 deseja. Assim, durante a troca das partes, um \gls*{peer} adota estratégias diferentes
 para fornecer e receber blocos de dados, com o intuito de tentar otimizar a obtenção do
-conjunto total de dados dos \glspl*{torrent} e ajudando a difundir o conteúdo deste ao
+conjunto total de dados dos \glspl*{torrent}, e ajudar a difundir o conteúdo deste ao
 resto do \gls*{swarm}.
 
-As estratégias a seguir são medidas que um \gls*{peer} BitTorrent pode adotar com
-efeitos em si mesmo, sem afetar outros \glspl*{peer}.
+As estratégias a seguir relacionadas são medidas que um \gls*{peer} BitTorrent pode
+adotar, gerando efeitos em si mesmo, mas sem afetar outros \glspl*{peer}.
 
 \subsubsection*{Random First Piece}
 
 No início do download de um \gls*{torrent}, um \gls*{peer} não possui partes. Para que
-comece a receber partes, ele avisa que é recém-chegado, e assim algum membro do
-\gls*{swarm} envia-no uma parte comum aleatoriamente. Dessa forma, ele possuirá uma
-``moeda de troca'', podendo então ajudar outros \glspl*{peer} e, assim, conseguirá
-melhores condições de ser atendido. É importante que a parte seja comum, pois assim
-será possível conseguir blocos de locais diferentes; se fosse rara, seria mais difícil
-conseguir completá-la
+comece a receber partes, ele avisa que é recém-chegado, e então algum membro do
+\gls*{swarm} envia-no uma parte comum aleatoriamente (\emph{Random First Piece}). Dessa
+forma, ele possuirá uma ``moeda de troca'', podendo com isso ajudar outros \glspl*{peer},
+e assim, conseguir melhores condições de ser atendido. É importante que a parte seja
+comum, pois dessa maneira será possível conseguir blocos de locais diferentes; se fosse
+rara, seria mais difícil conseguir completá-la.
 
 Após completar a primeira parte, o algoritmo passa para a estratégia de \emph{Rarest
 First}.
 
 \subsubsection*{Rarest First}
 
-Nesta fase, o \gls*{peer} passa a pedir as partes mais raras antes. Para isso, utiliza
-os bitfields recebidos dos outros \glspl*{peer}, mantendo-os atualizados a cada mensagem
-\bverb|have| que recebe. Feito isso, das partes que são menos frequentes nos bifields,
-escolhe uma aleatoriamente, devido ao fato de que uma parte rara poderia ser muito
-requisitada, o que seria improdutivo. Da mesma forma, a estratégia de deixar partes mais
-comuns para serem baixadas mais tarde não é prejudicial, pois a probabilidade de que um
-\gls*{peer} que está disponibilizando essas partes num dado momento deixará de ser
-interessante é reduzida.
+Nesta fase, o \gls*{peer} passa a pedir as partes mais raras primeiro
+(\emph{Rarest First}). Para isso, utiliza os bitfields recebidos dos outros
+\glspl*{peer}, mantendo-os atualizados a cada mensagem \bverb|have| que recebe. Feito
+isso, das partes que são menos frequentes nos bifields, escolhe uma aleatoriamente,
+devido ao fato de que uma parte rara poderia ser muito requisitada, o que seria
+improdutivo. Da mesma forma, a estratégia de deixar partes mais comuns para serem
+baixadas mais tarde não é prejudicial, pois a probabilidade de que um \gls*{peer}
+deixará de ser interessante, por estar disponibilizando essas partes em um dado
+momento, é reduzida.
 
 É fácil ver que, enquanto um \gls*{seeder} não enviar todas as partes do \gls*{torrent}
 que está fornecendo, não haverá nenhum \gls*{peer} que possa ter terminado de baixá-lo.
 Assim, quando o \gls*{seeder} possuir capacidade de upload menor do que de seus
-\glspl*{leecher}, a melhor situação será se cada um destes baixar partes diferentes dos
-outros, que maximiza o espalhamento dos dados e alivia a carga sobre o \gls*{seeder},
+\glspl*{leecher}, será melhor que cada \gls*{leecher} baixe partes diferentes dos
+outros, que maximizará o espalhamento dos dados e aliviará a carga sobre o \gls*{seeder},
 justificando a prioridade em se fazer download das partes raras.
 
 Em uma outra situação, o \gls*{seeder} pode sair da rede, tornando os \glspl*{leecher}
-responsáveis pela distribuição do \gls*{torrent}. Assim, corre-se o risco de alguma
+responsáveis pela distribuição do \gls*{torrent}. Com isso, corre-se o risco de alguma
 parte se tornar indisponível. O \emph{rarest first} também ajuda neste caso, pois
 replica as partes raras o mais rápido possível, reduzindo o risco do \gls*{torrent} se
 tornar incompleto.
@@ -55,17 +56,19 @@ tornar incompleto.
 \subsubsection*{Strict Priority}
 
 Cada parte é composta de blocos, que são os pacotes de dados trocados entre
-\glspl*{peer}. Esta política de prioridade faz com que, se um bloco for requisitado, o
-restante dos blocos da mesma parte serão pedidos antes dos blocos de outras partes, a
-fim de se ter partes completas o mais rápido possível.
+\glspl*{peer}. Esta política de prioridade (\emph{Strict Priority}) faz com que, se um
+bloco for requisitado, o restante dos blocos da mesma parte serão pedidos antes dos
+blocos de outras partes, a fim de se ter partes completas o mais rápido possível.
 
 \subsubsection*{Endgame Mode}
+\label{subsubsec:endgame}
 
-Próximo ao fim do download de um \gls*{torrent}, a tendência é que os últimos blocos de
-dados demorem, chegando aos poucos. Para agilizar isso, o cliente pede todos os blocos
-faltantes para todos os \glspl*{peer}, enviando uma mensagem \bverb|cancel| para todos
-que não tiverem respondido à requisição assim que o bloco é recebido para evitar
-despedício de banda de rede na recepção redundante de dados.
+Próximo ao fim do download de um \gls*{torrent} (\emph{Endgame Mode}), a tendência é
+que os últimos blocos de dados demorem, chegando aos poucos. Para agilizar isso, o
+cliente entra no modo de fim de jogo, onde pede todos os blocos faltantes para todos os
+\glspl*{peer}, enviando uma mensagem \bverb|cancel|, assim que o bloco for recebido,
+para todos aqueles que não tiverem respondido à requisição, de modo a evitar despedício
+de banda de rede na recepção redundante de dados.
 
 \subsubsection*{Implementação do Transmission}
 
@@ -77,7 +80,7 @@ de forma que a parte mais importante que se deseja receber será requisitada ant
 \cfile[label="./libtransmission/peer-mgr.c:172"]{./Codes/chap3/038-struct-weighted-piece.c}
 
 Conforme são recebidas mensagens \bverb|have| e \bverb|bitfield| de outros \glspl*{peer},
-ocorre o processamente da carga de dados dessas mensagens e a atualização das
+ocorre o processamento da carga de dados dessas mensagens e a atualização das
 informações das partes de cada remetente. Assim, o Transmission estima quais partes do
 \gls*{torrent} são mais raras que outras, guardando essa informação no vetor de
 replicações.
@@ -89,17 +92,17 @@ C \sverb|qsort()|, que recebe em um dos parâmetros uma função comparadora. A 
 Transmission considera, nesta ordem:
 
 \begin{enumerate}
-    \item \emph{strict policy}: completude de uma parte
-    \item prioridade (assinalada manualmente pelo usuário): prioridade do usuário
-    \item \emph{rarest first}: raridade da parte
-    \item \emph{random first piece}: aleatoriedade
+    \item \emph{strict policy}: completude de uma parte;
+    \item prioridade (assinalada manualmente pelo usuário): prioridade do usuário;
+    \item \emph{rarest first}: raridade da parte; e
+    \item \emph{random first piece}: aleatoriedade.
 \end{enumerate}
 
 \cfile[label="./libtransmission/peer-mgr.c:948"]{./Codes/chap3/044-compare-piece-weight.c}
 
-Já o vetor de blocos mantém a lista dos blocos pedidos com o momento da requisição e
-para quem o foi feito. É usada para cancelar requisições que ficaram pendentes por muito
-tempo ou para evitar requisições duplicadas antes do modo de fim de jogo.
+Já o vetor de blocos mantém a lista dos blocos pedidos no momento da requisição e para
+quem esta foi feita. Essa lista é usada para cancelar requisições que ficaram pendentes
+por muito tempo ou para evitar requisições duplicadas antes do modo de fim de jogo.
 
 \cfile[label="./libtransmission/peer-mgr.c:165"]{./Codes/chap3/039-struct-block-request.c}
 
@@ -123,8 +126,8 @@ Tendo criado a lista de blocos, os requisita.
 Durante a execução da função de criação da lista de blocos a serem pedidos, existe a
 verificação da completude do \gls*{torrent}, onde se percebe que a quantidade de bytes
 requisitados já é maior do que a quantidade de bytes que faltam ser baixados. Eis que o
-modo de fim de jogo se inicia, quando é calculado a capacidade de um novo \gls*{peer}
-receber e atender a nova requisição de bloco de forma melhor ou igual à taxa que
+modo de fim de jogo se inicia, quando é calculada a capacidade de um novo \gls*{peer}
+receber e atender a nova requisição de bloco, de forma melhor ou igual à taxa que
 atuais \glspl*{peer} estão fazendo.
 
 \cfile[label="./libtransmission/peer-mgr.c:878"]{./Codes/chap3/045-test-end-game.c}

@@ -17,7 +17,7 @@ static void updateEndgame(tr_swarm * s) {
         // ... com os possíveis seeders web.
         numDownloading += countActiveWebseeds(s);
 
-        // Média instanânea de requisições pendentes por peers fornecedores
+        // Média instantânea de requisições pendentes por peers fornecedores.
         s->endgame = s->requestCount / MAX(numDownloading, 1);
     }
 }
