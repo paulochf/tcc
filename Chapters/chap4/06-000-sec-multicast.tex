@@ -1,6 +1,5 @@
 %!TEX root = ../../tcc.tex
 
-\newpage
 \section{Multicast}
 
 Na área de redes de computadores, \emph{multicast} é um conceito de entrega de
@@ -11,7 +10,7 @@ distribuição de ``um para muitos'' ou ``muitos para muitos'', como por exemplo
 distribuição de dados em massa (atualização de servidores), transmissão de áudio e vídeo
 contínuo (transmissões de vídeo ao vivo), aplicações de dados compartilhados
 (teleconferência), fontes de dados (bolsa de valores), atualização de cache de Internet
-e jogos multi-jogadores interativos \cite{book:kurose}.
+e jogos multijogadores interativos \cite{book:kurose}.
 
 Os endereços de \emph{multicast} são definidos pelo protocolo IP como a sub-rede formada
 entre os endereços IP \sverb|224.0.0.0| até \sverb|239.255.255.255|, antigamente chamada
@@ -29,7 +28,7 @@ Um tipo de mensagem enviada em \emph{multicast} é a que utiliza o padrão SSDP
 (\emph{Simple Service Discovery Protocol}), que serve para anúncio e descoberta de
 equipamentos conectados a uma rede, sem a necessidade de mecanismos de configuração
 baseados em servidor. Esse protocolo envia mensagens semelhantes às HTTP utilizando o
-protocolo \gls{udp}. Apesar de não ser especificado por nenhum órgao técnico, o SSDP é
+protocolo \gls{udp}. Apesar de não ser especificado por nenhum órgão técnico, o SSDP é
 amplamente utilizado e faz parte da especificação do UPnP
 (\emph{Universal Plug and Play}) \cite{site:upnp}.
 

@@ -9,6 +9,7 @@ esses cinco procedimentos criptográficos:
 
 \cfile[label="./libtransmission/crypto.c:60-79"]{./Codes/chap4/008-cripto-peer1.c}
 
+\newpage
 1) $A$ envia $Y_A$ para $B$:
 
 O Transmission, nesse caso o \gls*{peer} $A$, envia sua chave pública ($Y_A$) com um
@@ -23,6 +24,7 @@ compartilhada $S$ já pode ser calculada;
 
 \cfile[label="./libtransmission/handshake.c:391"]{./Codes/chap4/010-cripto-peer3-read-yb.c}
 
+\newpage
 3) $A$ envia para $B$ as opções de criptografia e a mensagem de \emph{handshake}:
 
 Então, $A$ envia dados de forma criptografada: a mensagem de \emph{handshake} e outras
@@ -33,7 +35,6 @@ HASH('req1', S), HASH('req2', SKEY) xor HASH('req3', S),
     ENCRYPT(VC, crypto_provide, len(PadC), PadC, len(IA)), ENCRYPT(IA)
 \end{verbatim}
 
-\newpage
 onde:
 
 \begin{description}
@@ -64,8 +65,10 @@ onde:
         negociação de encriptação;
 \end{description}
 
+\newpage
 \cfile[label="./libtransmission/handshake.c:391", samepage=false]{./Codes/chap4/011-cripto-peer4-hashashash.c}
 
+\newpage
 4) $A$ recebe de $B$ a opção de criptografia escolhida e a mensagem de resposta ao
 \emph{handshake} encriptada por RC4:
 
@@ -77,6 +80,7 @@ ENCRYPT(VC, crypto_select, len(padD), padD), ENCRYPT2(Payload Stream)
 
 \cfile[label="./libtransmission/handshake.c:493", samepage=false]{./Codes/chap4/012-cripto-peer5-readvc.c}
 
+\newpage
 5) $A$ envia para $B$ o fim da mensagem de \emph{handshake} encriptada por RC4:
 
 \cfile[label="./libtransmission/handshake.c:587"]{./Codes/chap4/013-cripto-peer6-handshake.c}

@@ -57,9 +57,10 @@ Esse conteúdo tem significado, sendo utilizado da seguinte forma
         \sverb|announce|.
 
     \item[números] são representados por um \bverb|i|, seguidos do valor na
-        base 10 (sem qualquer limite de tamanho, mas sem zeros precedentes - como em
-        \bverb|0003| - e podem ser negativo), terminados por um \bverb|e|. Por exemplo,
-        na linha 11, \bverb|i1343715473e| corresponde ao número \sverb|1343715473|.
+        base 10 (sem qualquer limite de tamanho, mas sem zeros precedentes --- como em
+        \bverb|0003| --- e podem ser negativo), terminados por um \bverb|e|. Por
+        exemplo, na linha 11, \bverb|i1343715473e| corresponde ao número
+        \sverb|1343715473|.
 
     \item[listas] são formadas por \bverb|l| (L minúsculo), seguidas por seus elementos
         (também no formato \gls*{bencode}), e então terminadas por \bverb|e|. Por
@@ -70,9 +71,10 @@ Esse conteúdo tem significado, sendo utilizado da seguinte forma
         alternada de chaves e seus valores correspondentes, terminando com \bverb|e|,
         onde as chaves devem estar ordenadas usando-se comparação binária, ao invés da
         usual alfanumérica. Por exemplo,
-        \bverb|d3:foo3:bar6:foobar6:bazbare| corresponde ao dicionário puro \\
-        \sverb|{"foo": "bar", "foobar": "bazbar"}|, e a estrutura mais complexa dada por
-        \\ \bverb|d3:fool6:foobar3:bazee| equivale a \sverb|{"foo": ["foobar", "baz"]}|.
+        \bverb|d3:foo3:bar6:foobar6:bazbare| corresponde ao dicionário puro
+        \sverb|{"foo": "bar", "foobar": "bazbar"}|, \\
+        e a estrutura mais complexa dada por \bverb|d3:fool6:foobar3:bazee|
+        equivale a \\\sverb|{"foo": ["foobar", "baz"]}|.
 \end{description}
 
 \begin{listing}[H]
@@ -140,6 +142,7 @@ Esse conteúdo tem significado, sendo utilizado da seguinte forma
     \label{lst:torrent-file-code}
 \end{listing}
 
+\newpage
 Neste arquivo, muitas informações estão contidas:
 
 \begin{description}
@@ -166,7 +169,7 @@ Todas as partes possuem tamanhos iguais, exceto a parte final, que pode ser meno
 caso de um \gls*{torrent} de múltiplos arquivos, para efeito de divisão em partes, ele é
 considerado como um único arquivo contíguo, composto pela concatenação de todos esses
 arquivos que o compõem, na ordem em que forem listados no \gls*{torrentfile}. Dessa
-forma, é possivel que uma parte contenha o final de um desses arquivos e o início do
+forma, é possível que uma parte contenha o final de um desses arquivos e o início do
 arquivo seguinte. A quantidade de partes, em ambos os casos (arquivo único ou
 múltiplos arquivos), é dada por
 $\lceil \frac{\textrm{tamanho total}}{\textrm{tamanho das partes}} \rceil$.

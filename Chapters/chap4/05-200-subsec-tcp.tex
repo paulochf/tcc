@@ -11,14 +11,6 @@ aos endereços IP e número de porta de origem e de destino, e também aos compr
 como segmentos para a camada de rede. Porém, acrescenta também outras informações:
 
 \begin{itemize}
-    \item números de sequência e de confirmação de recebimento (\emph{acknowledgement}),
-        para uso na implementação do serviço de entrega confiável de dados;
-
-    \item quantidade de bytes que o destinatário deseja receber (\emph{receive window});
-
-    \item campos de opção, usados na negociação do tamanho da janela de dados ou do
-        tamanho máximo do segmento (MSS);
-
     \item campos de \emph{flags} sinalizadores, onde 6 bits indicam estados da conexão
         ou do segmento:
         \begin{description}
@@ -39,6 +31,14 @@ como segmentos para a camada de rede. Porém, acrescenta também outras informa�
 
             \item[FIN:] indica fim do envio dos dados pelo nó.
         \end{description}
+
+    \item números de sequência e de confirmação de recebimento (\emph{acknowledgement}),
+        para uso na implementação do serviço de entrega confiável de dados;
+
+    \item quantidade de bytes que o destinatário deseja receber (\emph{receive window});
+
+    \item campos de opção, usados na negociação do tamanho da janela de dados ou do
+        tamanho máximo do segmento (MSS);
 
     \item ponteiro de dados urgentes, que indica o fim do trecho de dados urgentes.
 \end{itemize}

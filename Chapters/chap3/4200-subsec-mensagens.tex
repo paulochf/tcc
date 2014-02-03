@@ -21,6 +21,7 @@ O \emph{handshake} (aperto de mãos) é a primeira mensagem a ser enviada por um
     \item[<header>:] \gls*{string} identificadora do protocolo. Na versão 1.0 do
         protocolo BitTorrent, a \gls*{string} oficial é \sverb|BitTorrent protocol|.
 
+    \newpage
     \item[<bytes reservados>:] seção de 8 bytes (= 64 bits) reservados para a
         habilitação de funcionalidades extras do protocolo. Um e-mail enviado pelo
         criador do BitTorrent, Bram Cohen \cite{wikitheory:reserved-bytes}, sugere que
@@ -46,11 +47,11 @@ O \emph{handshake} (aperto de mãos) é a primeira mensagem a ser enviada por um
             \end{tabular}
         \end{center}
 
-    \item[<info_hash>:] o ID do \gls*{torrent}, que é a \gls*{string}
+    \item[<info\_hash>:] o ID do \gls*{torrent}, que é a \gls*{string}
         \gls*{hashvalue} de 20 bytes resultante da \gls*{hashfunction} SHA-1, com
         \gls*{urlencode}, do valor da chave \bverb|info| do \gls*{torrentfile}; e
 
-    \item[<peer_id>:] ID único do cliente, que é uma \gls*{string} de 20 bytes,
+    \item[<peer\_id>:] ID único do cliente, que é uma \gls*{string} de 20 bytes,
         geralmente sendo o mesmo valor \bverb|peer_id| enviado nas requisições ao
         \gls*{tracker}, prefixado pelas informações do nome do programa cliente e de sua
         versão (o Transmission envia o prefixo \sverb|-TR2820-...|).
@@ -73,6 +74,7 @@ A mensagem de \emph{keep-alive} (``mantenha vivo'', em português literal) serve
 manter uma conexão aberta, caso nenhuma outra mensagem seja enviada num determinado
 período de tempo (geralmente, dois minutos).
 
+\newpage
 Assim como as mensagens que serão descritas a seguir, esta mensagem usa a assinatura:
 
 \bverb|<tamanho><ID da mensagem><dados>|
@@ -99,9 +101,9 @@ Porém, não possui ID da mensagem nem dados a serem enviados, apresentando tama
 \end{tabular}
 
 Estas mensagens servem para indicar a mudança de estado de \emph{choking} (ou
-estrangulamento) da conexão (a maneira que o \gls*{peer} remetente tratará o 
-receptor). Ou seja, o receptor ``estrangulado'' (ou \emph{choked}) não terá 
-suas requisições atendidas, ao contrário de quando estiver com sua conexão 
+estrangulamento) da conexão (a maneira que o \gls*{peer} remetente tratará o
+receptor). Ou seja, o receptor ``estrangulado'' (ou \emph{choked}) não terá
+suas requisições atendidas, ao contrário de quando estiver com sua conexão
 livre (ou \emph{unchoked}).
 
 \cfile[label="./libtransmission/peer-msgs.c:431"]{./Codes/chap3/030-choke-unchoke.c}

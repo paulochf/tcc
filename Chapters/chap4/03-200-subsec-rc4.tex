@@ -16,6 +16,7 @@ que utiliza uma chave de tamanho variável entre 1 e 256 bytes para inicializar 
 tabela de estados. Cada elemento dessa tabela é permutado pelo menos uma vez, e será
 usado na geração de bytes pseudoaleatórios na segunda parte.
 
+\newpage
 Na segunda parte, executa o algoritmo de geração pseudoaleatório, onde modifica o estado
 (também permutando os elementos pelo menos uma vez) e resulta em 1 byte da chave de
 fluxo, que então é mesclada usando \gls{xor} bit a bit com o próximo byte da mensagem,

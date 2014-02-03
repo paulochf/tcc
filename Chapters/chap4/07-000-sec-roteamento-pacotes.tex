@@ -12,7 +12,7 @@ Um roteador em que funciona um serviço de \gls*{nat} parece, externamente (para
 exterior), que é um único dispositivo com o seu endereço IP \cite{book:kurose}, enquanto
 internamente, é visto como o responsável por rotear os dados e abstrair a conexão de
 Internet externa. Do ponto de vista do roteador, ele conhece os endereços IP de cada
-dispositivo da rede interna e o endereço IP do modem do \gls{isp}. Assim, ele contrói
+dispositivo da rede interna e o endereço IP do modem do \gls{isp}. Assim, ele constrói
 uma tabela de tradução de endereços onde, para cada endereço da rede interna, associa
 uma porta de rede interna e outra externa.
 
@@ -58,6 +58,7 @@ Ambos os protocolos não são totalmente seguros, fazendo com que um roteador qu
 configurações através deles possa oferecer meios de se invadir essas redes por conexões
 externas. Assim, para efeitos de segurança, um \gls*{nat} não substitui \emph{firewalls}.
 
+\newpage
 O Transmission utiliza duas bibliotecas, uma para cada protocolo: o MiniUPnP
 \cite{site:miniupnp} e o libnatpmp \cite{site:libnatpmp}. Ambas são desenvolvidas por
 Thomas Bernard, e de código aberto.

@@ -10,6 +10,7 @@ Através de um \gls*{socket}, a aplicação consegue enviar mensagens para a cam
 transporte, que as transforma em segmentos e as repassa para as camadas inferiores, que
 transmitem os dados.
 
+\newpage
 Quando o protocolo \gls{tcp} for usado, os passos para se criar uma conexão serão:
 
 \begin{enumerate}
@@ -35,6 +36,7 @@ Quando o protocolo \gls{tcp} for usado, os passos para se criar uma conexão ser
 
 \cfile[label="./libtransmission/net.c:417"]{./Codes/chap4/019-net-tcp2.c}
 
+\newpage
 Já quando o protocolo \gls{udp} for usado, os passos para se criar uma conexão são
 exatamente os mesmos que os do protocolo \gls*{tcp}, exceto pelo parâmetro
 \bverb|SOCK_DGRAM| na função \sverb|socket()|.

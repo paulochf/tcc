@@ -34,7 +34,7 @@ First}.
 Nesta fase, o \gls*{peer} passa a pedir as partes mais raras primeiro
 (\emph{Rarest First}). Para isso, utiliza os bitfields recebidos dos outros
 \glspl*{peer}, mantendo-os atualizados a cada mensagem \bverb|have| que recebe. Feito
-isso, das partes que são menos frequentes nos bifields, escolhe uma aleatoriamente,
+isso, das partes que são menos frequentes nos bitfields, escolhe uma aleatoriamente,
 devido ao fato de que uma parte rara poderia ser muito requisitada, o que seria
 improdutivo. Da mesma forma, a estratégia de deixar partes mais comuns para serem
 baixadas mais tarde não é prejudicial, pois a probabilidade de que um \gls*{peer}
@@ -48,6 +48,7 @@ Assim, quando o \gls*{seeder} possuir capacidade de upload menor do que de seus
 outros, que maximizará o espalhamento dos dados e aliviará a carga sobre o \gls*{seeder},
 justificando a prioridade em se fazer download das partes raras.
 
+\newpage
 Em uma outra situação, o \gls*{seeder} pode sair da rede, tornando os \glspl*{leecher}
 responsáveis pela distribuição do \gls*{torrent}. Com isso, corre-se o risco de alguma
 parte se tornar indisponível. O \emph{rarest first} também ajuda neste caso, pois
@@ -68,7 +69,7 @@ Próximo ao fim do download de um \gls*{torrent} (\emph{Endgame Mode}), a tendê
 que os últimos blocos de dados demorem, chegando aos poucos. Para agilizar isso, o
 cliente entra no modo de fim de jogo, onde pede todos os blocos faltantes para todos os
 \glspl*{peer}, enviando uma mensagem \bverb|cancel|, assim que o bloco for recebido,
-para todos aqueles que não tiverem respondido à requisição, de modo a evitar despedício
+para todos aqueles que não tiverem respondido à requisição, de modo a evitar desperdício
 de banda de rede na recepção redundante de dados.
 
 \subsubsection*{Implementação do Transmission}

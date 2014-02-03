@@ -12,7 +12,7 @@ esteja disponível nos $k$ nós mais próximos dessa chave.
 Para compensar as saídas de nós, a republicação de cada chave-valor acontece uma vez por
 hora. Porém, uma implementação ingênua necessitaria de muitas mensagens: cada um dos $k$
 nós contendo o par de chave-valor executaria um \emph{lookup de nó} seguido de $k - 1$
-comandos \bverb|announce_peer| por hora. Entretando, essa implementação pode ser
+comandos \bverb|announce_peer| por hora. Entretanto, essa implementação pode ser
 otimizada.
 
 Primeiramente, quando um nó receber um comando \bverb|announce_peer| para um par de
@@ -23,7 +23,7 @@ chave-valor.
 
 Em segundo lugar, no caso de árvores muito desbalanceadas, os nós dividirão
 \glspl*{kbucket} de acordo com o necessário para garantir o conhecimento total de uma
-subárvore de tamando $\geq k$. Se antes de republicar pares de chave-valor, um nó $x$
+subárvore de tamanho \\ $\geq k$. Se antes de republicar pares de chave-valor, um nó $x$
 atualizar todos os \glspl*{kbucket} dessa subárvore de $k$ nós, automaticamente será
 capaz de descobrir os $k$ nós mais próximos para a chave dada. Para entender o motivo,
 deve-se considerar dois casos:
@@ -40,4 +40,4 @@ deve-se considerar dois casos:
 \end{enumerate}
 
 Então, o nó $x$ conhecerá todos os nós dentro desses \glspl*{kbucket}, o que,
-juntamente do conhecimento da subávore, incluirá os $k$ nós mais próximos à chave.
+juntamente do conhecimento da subárvore, incluirá os $k$ nós mais próximos à chave.
