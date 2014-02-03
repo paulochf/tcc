@@ -2,7 +2,7 @@
 static void sendPex(tr_peerMsgs * msgs) {
     if (msgs->peerSupportsPex && tr_torrentAllowsPex(msgs->torrent)) {
         (...)
-        // Pega os 50 nós conectados e que são úteis ao torrent sendo baixado.
+        // Seleciona os 50 nós conectados e que são úteis ao torrent sendo baixado.
         const int newCount = tr_peerMgrGetPeers(msgs->torrent, &newPex, TR_AF_INET,
             TR_PEERS_CONNECTED, MAX_PEX_PEER_COUNT);
         (...)
