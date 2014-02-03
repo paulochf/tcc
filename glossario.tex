@@ -118,7 +118,7 @@
     name={tabela hash},
     description={ou \emph{mapa de hash}, é uma estrutura de dados que cria uma lista de
     correspondência chave-valor, onde os dados são guardados como valores e indexados
-    por seus respectivos \emph{valores hash}},
+    por seus respectivos \glinkpl{hashvalue}},
     first={\glsentryname{hashtable}},
     firstplural={tabelas hash},
     plural={\glsentryfirstplural{hashtable}},
@@ -157,7 +157,7 @@
     name={Kademlia},
     description={\glink{dht} usado em \glink{p2p} que especifica a estrutura da rede e
     a troca de informações através de buscas de nós, guardando as localizações de
-    recursos que estão na rede},
+    recursos que estão na rede em \glinkpl{kbucket}},
     first={\glsentryname{kademlia}}
 }
 
@@ -341,7 +341,8 @@
     para \textcolor{Bittersweet}{\texttt{+}} ou \textcolor{Bittersweet}{\texttt{\%20}};
     o restante é convertido para o respectivo valor em hexadecimal do caractere
     convertido para UTF-8},
-    first={codificação de endereços \glsentryname{uri} e \glsentryname{url} (\emph{\glsentryname{urlencode}})}
+    first={codificação de endereços \glsentryname{uri} e \glsentryname{url}
+    (\emph{\glsentryname{urlencode}})}
 }
 
 \newglossaryentry{urn}{
@@ -449,7 +450,9 @@
 
 \newglossaryentry{kbucket}{
     name={$k$-\emph{bucket}},
-    description={\todo{escrever durante a revisão}},
+    description={em português, $k$-balde; \glink{bucket} da \glink{dht}
+    \glink{kademlia}, onde ela armazena as informações de até $k$ \glinkpl{peer} que
+    conhece, usando como chave a distância \glink{xor} entre dois \glinkpl{hashvalue}},
     first={$k$-balde (\glsentryname{kbucket})},
     plural={$k$-\glsentryplural{bucket}},
     firstplural={$k$-baldes (\glsentryplural{kbucket})}
@@ -457,7 +460,9 @@
 
 \newglossaryentry{bucket}{
     name={\emph{bucket}},
-    description={listas de \glinkpl{peer} mantidas pela \glink{dht} \glink{kademlia}},
+    description={em português, balde; espaço para armazenamento de valores de uma
+    \glink{hashtable}, endereçadas por um \glink{hashvalue} de uma dada chave, obtida
+    pelo uso de uma \glink{hashfunction}},
     first={balde (\glsentryname{bucket})},
     plural={\glsentryname{bucket}s},
     firstplural={baldes (\glsentryplural{bucket})}

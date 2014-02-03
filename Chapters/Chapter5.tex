@@ -11,7 +11,9 @@ utilizados no Transmission.
 \begin{figure}[H]
     \centering
     \fbox{\includegraphics[width=.75\textwidth]{mapa-bcc.png}}
-    \caption{disciplinas do BCC utilizadas diretamente na programação do Transmission, ligadas pelos seus pré-requisitos. As bordas arredondadas indicam que o conhecimento auxilia, mas não é necessário.}
+    \caption{disciplinas do BCC utilizadas diretamente na programação do Transmission,
+    ligadas pelos seus pré-requisitos. As bordas arredondadas indicam que o
+    conhecimento auxilia, mas não é necessário.}
     \label{fig:bcc}
 \end{figure}
 
@@ -19,38 +21,48 @@ Das disciplinas do BCC, as reconhecidas como necessárias para o entendimento do
 BitTorrent e o Transmission foram:
 
 \begin{itemize}
-    \item Introdução à Computação (MAC0110), Princípios de Desenvolvimento de Algoritmos
-        (MAC0122), Laboratórios de Programação 1 (MAC0211): linguagem C, organização de
-        código, trabalho gerenciado em grupos de desenvolvedores, portabilidade de
-        código entre plataformas (Autoconf e Automake);
+    \item \textbf{MAC0110 --- Introdução à Computação} \\
+        \textbf{MAC0122 --- Princípios de Desenvolvimento de Algoritmos} \\
+        linguagem C e algoritmos básicos.
 
-    \item Estruturas de Dados (MAC0323): utilização e manipulação de estruturas de
-        dados, como vetores e listas ligadas;
+    \item \textbf{MAC0211 --- Laboratórios de Programação 1} \\
+        organização de código, trabalho gerenciado em grupos de desenvolvedores,
+        controle de versão de código fonte (Git), portabilidade de código entre
+        plataformas (Autoconf e Automake), ferramentas de linha de comando UNIX (grep,
+        find, sed), documentação (\LaTeX);
 
-    \item Algoritmos em Grafos (MAC0328): entendimento do algoritmo de busca de nós no
-        \gls{dht};
+    \item \textbf{MAC0242 --- Laboratório de Programação 2} \\
+        \textbf{MAC0332 --- Engenharia de Software} \\
+        uso de IDE de desenvolvimento (Eclipse), criação de programas complexos,
+        uso de bibliotecas (GTK+);
 
-    \item Análise de Algoritmos (MAC0328) e Teoria dos Jogos Algorítmica (MAC0446):
+    \item \textbf{MAC0323 --- Estruturas de Dados} \\
+        utilização e manipulação de estruturas de dados, como vetores e listas ligadas;
+
+    \item \textbf{MAC0328 --- Algoritmos em Grafos} \\
+        entendimento do algoritmo de busca de nós no \gls{dht};
+
+    \item \textbf{MAC0328 --- Análise de Algoritmos} \\
+        \textbf{MAC0446 --- Teoria dos Jogos Algorítmica} \\
         algoritmo da troca das partes entre \glspl{peer};
 
-    \item Álgebra 1 (MAT0138) e Criptografia para Segurança de Dados (MAC0336): noções
-        de Álgebra modular e seus usos nos métodos criptográficos;
+    \item \textbf{MAT0138 --- Álgebra 1} \\
+        \textbf{MAC0336 --- Criptografia para Segurança de Dados} \\
+        noções de Álgebra modular e seus usos nos métodos criptográficos;
 
-    \item Laboratório de Programação 2 (MAC0242) e Engenharia de Software (MAC0332):
-        desenvolvimento de programas complexos;
+    \item \textbf{MAC0448 --- Programação para Redes} \\
+        desenvolvimento de código de conexão via Internet, como \gls{tcp} e \gls{udp},
+        multicast, \gls{nat}, IPv6, UPnP e \gls*{nat}-PMP;
 
-    \item Programação para Redes (MAC0448): desenvolvimento de código de conexão via
-        Internet, como \gls{tcp} e \gls{udp}, multicast, \gls{nat}, IPv6, UPnP e
-        \gls*{nat}-PMP;
+    \item \textbf{MAC0414 --- Linguagens Formais e Autômatos} \\
+        uso de autômatos para entendimento dos estados que \glspl*{peer} podem assumir
+        e suas transições com as trocas de mensagens \cite{conf:swarming}; e
 
-    \item Linguagens Formais e Autômatos (MAC0414): uso de autômatos para entendimento
-        dos estados dos \glspl*{peer} e suas transições com as trocas de mensagens
-        \cite{conf:swarming}; e
-
-    \item Sistemas Operacionais (MAC0422) e Programação Concorrente (MAC0438): uso de
-        \glspl{thread} e métodos para computação com seus usos, como acesso à memória
-        compartilhada (\emph{mutex}) e travas, e entendimento de caches de memória na
-        leitura e escrita de dados.
+    \item \textbf{MAC0422 --- Sistemas Operacionais} \\
+        \textbf{MAC0438 --- Programação Concorrente} \\
+        uso de \glspl{thread} e métodos para computação com seus usos, como acesso à
+        memória compartilhada (\emph{mutex}) e travas, e entendimento de caches de
+        memória na leitura e escrita de dados.
 \end{itemize}
 
 \afterpage{\clearpage}
